@@ -1,0 +1,11 @@
+{
+  "PropertyTable": {
+    "Properties": [
+      {
+        "CID": 2157,
+        "SMILES": "CCCCC1=C(C2=CC=CC=C2O1)C(=O)C3=CC(=C(C(=C3)I)OCCN(CC)CC)I",
+        "ConnectivitySMILES": "CCCCC1=C(C2=CC=CC=C2O1)C(=O)C3=CC(=C(C(=C3)I)OCCN(CC)CC)I"
+      }
+    ]
+  }
+}
