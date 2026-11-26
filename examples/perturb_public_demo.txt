@@ -1,0 +1,7 @@
+# 结构扰动演示集（全部为公开小分子；用于验证去盐/中和/互变异构/立体翻转四条代码路径）
+sodium_acetate	CC(=O)[O-].[Na+]
+amphetamine_prot	CC([NH3+])Cc1ccccc1
+glycine_zw	[NH3+]CC(=O)[O-]
+2_hydroxypyridine	Oc1ccccn1
+caffeine	Cn1c(=O)c2c(ncn2C)n(C)c1=O
+APAP	CC(=O)Nc1ccc(O)cc1
