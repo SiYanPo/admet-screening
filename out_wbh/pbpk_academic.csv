@@ -1,0 +1,3 @@
+﻿compound_id,clint_app,fu_mic,clint_scaled_lh,clint_b_lh,eh,clh_lh,ehr_verdict,ehr_n_met,ehr_note
+WBLG-A,25.81,1.0,125.42,44.75,0.187,12.98,uncertain,2/4,部分前提具备：EHR 只能作敏感性分析，不作预测
+WBLG-B,43.58,1.0,211.79,71.95,0.261,18.06,uncertain,2/4,部分前提具备：EHR 只能作敏感性分析，不作预测
