@@ -1,0 +1,25 @@
+﻿compound_id,endpoint,value,unit,source,source_version,retrieved_at,domain_flag,uncertainty,provenance_url,note
+WBLG-A,dili,0.2542,probability,admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 DILI（ADMET-AI 原始预测值；百分位列是该预测在 DrugBank 参考分布中的位置，不是概率）
+WBLG-A,ames,0.3528,probability,admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 AMES（ADMET-AI 原始预测值；百分位列是该预测在 DrugBank 参考分布中的位置，不是概率）
+WBLG-A,herg,0.3689,probability,admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 hERG（ADMET-AI 原始预测值；百分位列是该预测在 DrugBank 参考分布中的位置，不是概率）
+WBLG-A,mmp,0.0288,probability,admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 SR-MMP（ADMET-AI 原始预测值；百分位列是该预测在 DrugBank 参考分布中的位置，不是概率）
+WBLG-A,cyp1a2_inhibition,0.0212,probability,admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 CYP1A2_Veith（ADMET-AI 原始预测值；百分位列是该预测在 DrugBank 参考分布中的位置，不是概率）
+WBLG-A,cyp2c19_inhibition,0.1327,probability,admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 CYP2C19_Veith（ADMET-AI 原始预测值；百分位列是该预测在 DrugBank 参考分布中的位置，不是概率）
+WBLG-A,cyp2c9_inhibition,0.0251,probability,admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 CYP2C9_Veith（ADMET-AI 原始预测值；百分位列是该预测在 DrugBank 参考分布中的位置，不是概率）
+WBLG-A,cyp2d6_inhibition,0.0523,probability,admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 CYP2D6_Veith（ADMET-AI 原始预测值；百分位列是该预测在 DrugBank 参考分布中的位置，不是概率）
+WBLG-A,cyp3a4_inhibition,0.0086,probability,admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 CYP3A4_Veith（ADMET-AI 原始预测值；百分位列是该预测在 DrugBank 参考分布中的位置，不是概率）
+WBLG-A,clint_microsome,25.8074,uL/min/mg,admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 Clearance_Microsome_AZ（ADMET-AI 原始预测值；百分位列是该预测在 DrugBank 参考分布中的位置，不是概率）
+WBLG-A,caco2_papp_ab,-6.5675,log10(cm/s),admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 Caco2_Wang：log10(Papp) 原样透传；规则 caco2_papp_ab 用 log10(cm/s) 阈值
+WBLG-A,ppb_fu,40.9803,percent,admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 PPBR_AZ：PPBR_AZ 是 % bound，已换算为 fu% = 100 - PPBR（方向相反，不能直接并表）
+WBLG-B,dili,0.2682,probability,admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 DILI（ADMET-AI 原始预测值；百分位列是该预测在 DrugBank 参考分布中的位置，不是概率）
+WBLG-B,ames,0.6012,probability,admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 AMES（ADMET-AI 原始预测值；百分位列是该预测在 DrugBank 参考分布中的位置，不是概率）
+WBLG-B,herg,0.4552,probability,admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 hERG（ADMET-AI 原始预测值；百分位列是该预测在 DrugBank 参考分布中的位置，不是概率）
+WBLG-B,mmp,0.0509,probability,admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 SR-MMP（ADMET-AI 原始预测值；百分位列是该预测在 DrugBank 参考分布中的位置，不是概率）
+WBLG-B,cyp1a2_inhibition,0.0246,probability,admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 CYP1A2_Veith（ADMET-AI 原始预测值；百分位列是该预测在 DrugBank 参考分布中的位置，不是概率）
+WBLG-B,cyp2c19_inhibition,0.1062,probability,admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 CYP2C19_Veith（ADMET-AI 原始预测值；百分位列是该预测在 DrugBank 参考分布中的位置，不是概率）
+WBLG-B,cyp2c9_inhibition,0.029,probability,admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 CYP2C9_Veith（ADMET-AI 原始预测值；百分位列是该预测在 DrugBank 参考分布中的位置，不是概率）
+WBLG-B,cyp2d6_inhibition,0.1088,probability,admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 CYP2D6_Veith（ADMET-AI 原始预测值；百分位列是该预测在 DrugBank 参考分布中的位置，不是概率）
+WBLG-B,cyp3a4_inhibition,0.0143,probability,admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 CYP3A4_Veith（ADMET-AI 原始预测值；百分位列是该预测在 DrugBank 参考分布中的位置，不是概率）
+WBLG-B,clint_microsome,43.5775,uL/min/mg,admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 Clearance_Microsome_AZ（ADMET-AI 原始预测值；百分位列是该预测在 DrugBank 参考分布中的位置，不是概率）
+WBLG-B,caco2_papp_ab,-6.5247,log10(cm/s),admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 Caco2_Wang：log10(Papp) 原样透传；规则 caco2_papp_ab 用 log10(cm/s) 阈值
+WBLG-B,ppb_fu,32.5236,percent,admet_ai,2.0,2026-11-06T23:32:07,predicted,,https://admet.ai.greenstonebio.com/download_predictions,列 PPBR_AZ：PPBR_AZ 是 % bound，已换算为 fu% = 100 - PPBR（方向相反，不能直接并表）
