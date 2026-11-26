@@ -1,0 +1,28 @@
+created_at: '2026-11-06T23:48:25'
+argv:
+- adt\cli.py
+- qaf
+- --reliability
+- out_wbh\reliability.csv
+- --coverage
+- out_wbh\coverage_matrix.csv
+- --measurements
+- out_wbh\measurements_merged.csv
+- --compounds
+- out_wbh\compounds.csv
+- --outdir
+- out_wbh
+python: 3.13.14
+rdkit: 2026.09.1
+cwd: C:\Users\huawei\.workbuddy\skills\admet-screening
+inputs:
+  out_wbh\reliability.csv: 5306d48ddb521db27fbe27957ca98187b7eb1b9f
+  out_wbh\coverage_matrix.csv: 738059b970251a35fb62d258135e4506e6cf34d5
+  out_wbh\measurements_merged.csv: 852baa5cf0cd68efe790e3495cde511ae576ca42
+  out_wbh\compounds.csv: 00597c4a8d09badf2e2f23e829b9375bac8a38f4
+  references\03_endpoint_rules.yaml: f05a0f2e96f794ae9c1ce4a467487135c179d6b5
+extra: {}
+manifest_sha1: 3ead9793f2e4756bff1d3f2a05df42bebd30e730
+content_sha256: 51ce0bb4440ecfd50e2b024f1e97fca2082e4c28170222f5e03ccffaefa74286
+manifest_json: manifest.json
+estimand_id: null
