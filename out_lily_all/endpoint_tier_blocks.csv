@@ -1,0 +1,7 @@
+﻿compound_id,endpoint,original_verdict,new_verdict,reason
+A-13BH9,dili,PASS,UNDETERMINED,endpoint_not_recommended: 本框架实测四源四失效（14/14 阳、0/14 阳、13/14 阴、13/14 拒）
+A-4,ames,PASS,UNDETERMINED,endpoint_qualitative_only: qualitative_requires_expert_rules: ICH M7 要求专家规则+统计互补，本记录未启用结构警示层（adt/alerts.py）
+A-4,dili,PASS,UNDETERMINED,endpoint_not_recommended: 本框架实测四源四失效（14/14 阳、0/14 阳、13/14 阴、13/14 拒）
+BH1,dili,PASS,UNDETERMINED,endpoint_not_recommended: 本框架实测四源四失效（14/14 阳、0/14 阳、13/14 阴、13/14 拒）
+BH11,dili,PASS,UNDETERMINED,endpoint_not_recommended: 本框架实测四源四失效（14/14 阳、0/14 阳、13/14 阴、13/14 拒）
+BH7,dili,PASS,UNDETERMINED,endpoint_not_recommended: 本框架实测四源四失效（14/14 阳、0/14 阳、13/14 阴、13/14 拒）
