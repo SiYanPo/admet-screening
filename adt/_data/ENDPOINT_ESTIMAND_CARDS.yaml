@@ -1,0 +1,131 @@
+# ENDPOINT_ESTIMAND_CARDS.yaml —— 端点 estimand 绑定卡（RETRACTION_NOTE C01 解除前置条件）
+#
+# 为什么需要这个文件：
+#   2026-11-04 的 C01 撤回，根因是把 AUC（随机基线 0.5）与
+#   always-positive accuracy（恒等于 prevalence，量纲="正确分类比例"）放在同一句里比较，
+#   即 `auc < always_positive_accuracy`。这是一个跨量纲比较（cross-dimensional comparison），
+#   两个量有不同的零假设/随机基线，数值大小不可直接比较。
+#   RETRACTION_NOTE.md 明确规定：在本卡完成"端点 estimand 绑定"之前，
+#   被撤回的结论不得进入论文/汇报/基金/组会材料。
+#
+# 本卡是机器可读的 estimand 契约：每条数字主张在对外使用前，
+# 必须声明它测的是哪个 estimand、在什么评测分布上、与哪个基线比较、该基线是否同量纲。
+# 校验器：adt/estimand.py；发布门禁：G13_estimand_binding（blocker）。
+#
+# 纪律：estimand_status != bound 的端点，其任何"域外/门有效性"结论一律 inference_revoked。
+# 不得通过修改本卡把 NOT_AN_ESTIMAND 洗白成 bound —— 绑定需要实验金标准证据（见 requires）。
+
+schema: adt-estimand-cards/1.0
+generated_by: "peer_review_2026-11-17 (G13 落地)"
+policy:
+  tolerance: 1e-6
+  cross_dimensional_is_blocked: true
+  # 未被绑定的端点，禁止产出"门有/无判别力""域外不可用"等推断性结论
+  unbound_blocks_inference: true
+
+# 量纲/基线字典：比较两个数前，先查它们各自的随机基线是否同量纲。
+metrics:
+  auc:
+    label: "AUROC"
+    null_baseline: 0.5
+    baseline_kind: "chance_rank"          # 随机排序基线
+    scale: "ranking"                      # 排序量纲
+    unit: "unitless"
+  auprc:
+    label: "AUPRC / AP"
+    null_baseline: "prevalence"
+    baseline_kind: "prevalence"           # 随机基线=阳性率
+    scale: "ranking"
+    unit: "unitless"
+    note: "AUPRC 的随机基线是 prevalence，不是 0.5；不可与 AUC 的 0.5 基线同句比较"
+  accuracy:
+    label: "分类准确率"
+    null_baseline: "majority_class"       # 恒等于多数类占比；二分类且与 always-positive 同义
+    baseline_kind: "classification_correct_fraction"
+    scale: "correct_fraction"
+    unit: "unitless"
+  always_positive_accuracy:
+    label: "全判阳准确率"
+    null_baseline: "prevalence"
+    baseline_kind: "classification_correct_fraction"
+    scale: "correct_fraction"
+    unit: "unitless"
+    equals: "prevalence"
+  sensitivity:
+    label: "灵敏度 / TPR"
+    null_baseline: "prevalence_dependent"
+    baseline_kind: "conditional_fraction"
+    scale: "conditional_probability"
+    unit: "unitless"
+  brier:
+    label: "Brier score"
+    null_baseline: "prevalence*(1-prevalence)"
+    baseline_kind: "probability_score"
+    scale: "squared_probability"
+    unit: "unitless"
+
+# 唯一合法的"跨指标"比较：同量纲（scale 相同）且各自基线同 kind。
+# 任何 scale 不同的两指标出现在同一比较句（<, >, <=, >=, 低于, 高于）即违规。
+compatible_comparison_scales:
+  - ["auc", "auprc"]                # 同为 ranking，但基线不同 → 仍需显式声明 baseline_kind 一致，见 validate
+  - ["accuracy", "always_positive_accuracy"]
+
+# 端点卡：estimand 是否绑定实验金标准。
+endpoints:
+  hERG:
+    estimand: "hERG 钾通道阻断的体外实测抑制/IC50（膜片钳）"
+    target_quantity: "hERG_blockade"
+    gold_standard: "patch_clamp_IC50_or_pct_inhibition"
+    gold_standard_bound: false           # 三计算源只给概率/类别，无浓度；见 CLAIMS_REGISTRY C83/C84
+    evaluation_distribution: "external_temporal_holdout"
+    admissible_metrics: ["auc", "accuracy", "always_positive_accuracy"]
+    estimand_status: "NOT_AN_ESTIMAND"
+    inference_status: "inference_revoked_pending_estimand"
+    reason: "estimand 未绑定实验金标准，AUC 在此不承载决策含义（外审 B / C01）"
+    requires: "readback 回填膜片钳 IC50 或 %抑制@Cmax，绑定 gold_standard_bound=true 后方可解禁"
+  BBB_Martins:
+    estimand: "BBB 通透性（Martins 数据集 logBB 阈值判定的被动通透类别）"
+    target_quantity: "bbb_permeability_class"
+    gold_standard: "in_vivo_logBB"
+    gold_standard_bound: false
+    evaluation_distribution: "TDC_random_split"
+    admissible_metrics: ["auc", "accuracy"]
+    estimand_status: "PARTIAL"
+    inference_status: "domain_gate_accuracy_not_proven"
+    reason: "gate AUC 0.514[0.440,0.595]，区间上界<0.65，已证明无判别力；但 estimator 本身绑 logBB 类别"
+    requires: "vNN BBB 参考端点 + 外源 logBB 复核"
+  DILI:
+    estimand: "药物性肝损伤的临床诊断标签（TDC DILI）"
+    target_quantity: "dili_class"
+    gold_standard: "clinical_dili_label"
+    gold_standard_bound: false
+    evaluation_distribution: "TDC_random_split"
+    admissible_metrics: ["auc", "accuracy"]
+    estimand_status: "PARTIAL"
+    inference_status: "domain_gate_accuracy_supported_only"
+    reason: "域内外准确率差 −0.193[−0.321,−0.030] 不含0（'域外更差'成立），但'门有判别力'未证"
+    requires: "独立外源 DILI 标签复核"
+  caco2:
+    estimand: "Caco-2 表观通透性 logPapp（cm/s）"
+    target_quantity: "caco2_logpapp"
+    gold_standard: "caco2_assembly_corrected_logpapp"
+    gold_standard_bound: false
+    evaluation_distribution: "MMP_regression_pairs"
+    admissible_metrics: ["ratio_R", "sign_agreement"]
+    estimand_status: "REGRESSION_PROXY"
+    inference_status: "insensitive_vs_compressed_distinguished"
+    reason: "回归端点用位移幅度比 R + 符号一致率，不用翻转率"
+    requires: "实测 logPapp 配对 MMP"
+
+# 已知违规模式（历史事故）：把这些表达式原文登记，validate_text 命中即 BLOCK。
+known_violations:
+  - id: "C01"
+    expression: "auc < always_positive_accuracy"
+    reason: "跨量纲：AUC 基线 0.5（ranking）vs always-positive=prevalence（correct_fraction）"
+    artifact: "out_ext/external/external_cuts_summary_v2.json::robustness.cross_dimensional_comparison"
+    status: "RETRACTED"
+  - id: "C18"
+    expression: "c* 无差异点即准入层条件性优势"
+    reason: "Δu(c)=a−q·c 是一阶线性会计恒等式，零点是恒等式产物，不是可证伪结论"
+    artifact: "references/RETRACTION_NOTE.md §五"
+    status: "RETRACTED"
