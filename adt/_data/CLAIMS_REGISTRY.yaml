@@ -1,0 +1,605 @@
+# 主张登记表（CLAIMS_REGISTRY）—— G10 门的唯一真源
+#
+# 规则的来历（第三轮评审 §B）：
+#   v4.2 自查发现 R14/R19/R20 三项标了 ✅，但 `out_gate/`、`out_p8/` **从未生成**。
+#   由此立规：**只有代码没有产物的一律降级 🟡**；标 ✅ 必须附产物路径 + 至少一个数字。
+#
+# 为什么要有这张表（而不是在台账里写路径）：
+#   写在 Markdown 表格里的路径与数字**无法被机械校验**——`out_gate/` 不存在也没人拦。
+#   本表把每条数字主张绑到①一个产物文件、②一组**字面量 token**，
+#   由 `adt.claims_audit.verify_registry()` 逐条核对「文件存在 + token 真的出现在文件里」。
+#   这样"空心 ✅"从文档纪律变成**可执行断言**。
+#
+# 三条填写纪律（违反即门禁失败）：
+#   1. `expect` 里必须是**产物文件里逐字存在的字符串**，不是四舍五入后的好看数字；
+#   2. 若文档写法与产物字面不同（如 0.269 vs 0.2685），必须写 `doc_rounding` 说明；
+#   3. `kind` 为 experiment 的条目，artifact 必须是数据产物（json/csv/npz/log），不得是源码。
+#
+# 核对方式：python -m adt.claims_audit --registry references/CLAIMS_REGISTRY.yaml
+
+meta:
+  version: "v4.4"
+  rule: "标 ✅ 必须附产物路径 + 至少一个数字；数字必须是产物内的字面量"
+  origin: "第三轮评审 §B（R14/R19/R20 空心 ✅ 事件的制度性修复）"
+  verified_by: "adt.claims_audit.verify_registry() → 发布门禁 G10"
+  headline_rule: ("对外材料（CLAIMS / README / 汇报）的**第一号数字必须是 tier=headline 的条目**；"
+                  "把平均情形的有利数字放前面、把 post-cutoff 0.581 放附录，视为选择性呈现。"
+                  "校验：claims_audit 会断言 tier=headline 的条目存在且**恰好一条**。")
+
+entries:
+  # ---------------- gate 判别力（端点依赖，红线 9 的实证基础） ----------------
+  - id: gate_hERG_auc
+    claim: "gate 作为『模型能否预测对』的分类器在 hERG 上 AUC 0.580，域内外准确率无差异"
+    kind: experiment
+    artifact: out_ext/tdc/gate_audit.json
+    expect: ["0.58", "0.174", "0.826"]
+    endpoint: hERG
+    doc_rounding: "文档写 0.580，产物字面为 0.58（三位与两位小数之别，非不同数值）"
+    command: "python ./build_review_package.py"
+    command_status: bound_from_code
+    script_sha256: "56b1701830e0c63b0f4ae6b960dbe3bce8c1bab99e99647cedf306f43acbae18"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "actionability.actionable_risk / forced_prediction_accuracy.acc_in_domain / gate_power.auc"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
+
+  - id: gate_DILI_auc
+    claim: "gate 在 DILI 上 AUC 0.669，域外准确率显著更低（passthru_justified）"
+    kind: experiment
+    artifact: out_ext/tdc/gate_audit_DILI.json
+    expect: ["0.669", "0.746", "0.939"]
+    endpoint: DILI
+    command: "python ./build_review_package.py"
+    command_status: bound_from_code
+    script_sha256: "56b1701830e0c63b0f4ae6b960dbe3bce8c1bab99e99647cedf306f43acbae18"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "forced_prediction_accuracy.acc_in_domain / forced_prediction_accuracy.acc_out_of_domain / gate_power.auc"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
+
+  - id: gate_BBB_auc
+    claim: "gate 在 BBB_Martins 上 AUC 0.514，逼近随机"
+    kind: experiment
+    artifact: out_ext/tdc/gate_audit_BBB_Martins.json
+    expect: ["0.514"]
+    endpoint: BBB_Martins
+
+  # ---------------- P8 → MMP 校准检验 ----------------
+    command: "python ./build_review_package.py"
+    command_status: bound_from_code
+    script_sha256: "56b1701830e0c63b0f4ae6b960dbe3bce8c1bab99e99647cedf306f43acbae18"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "gate_power.auc"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
+  - id: mmp_hERG_insensitive
+    claim: "hERG MMP 127 对，真实标签翻转 0.134 vs 模型 0.000，TOST 不等效"
+    kind: experiment
+    artifact: out_ext/tdc/p8_mmp_results_hERG.json
+    expect: ["0.134", "127"]
+    endpoint: hERG
+    command: "python ./build_review_package.py"
+    command_status: bound_from_code
+    script_sha256: "56b1701830e0c63b0f4ae6b960dbe3bce8c1bab99e99647cedf306f43acbae18"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "analysis.n_pairs / analysis.overall.diff"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
+
+  - id: mmp_BBB_insensitive
+    claim: "BBB MMP 标签翻转 0.163 vs 模型 0.048，悬崖召回 0.115、守静特异度 0.965"
+    kind: experiment
+    artifact: out_ext/tdc/p8_mmp_results_BBB_Martins.json
+    expect: ["0.163", "0.048"]
+    endpoint: BBB_Martins
+    command: "python ./build_review_package.py"
+    command_status: bound_from_code
+    script_sha256: "56b1701830e0c63b0f4ae6b960dbe3bce8c1bab99e99647cedf306f43acbae18"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "analysis.overall.label_change_rate / analysis.overall.model_flip_rate"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
+
+  - id: mmp_DILI_insufficient_power
+    claim: "DILI MMP 仅 31 对 < 所需 61 对 → insufficient_power，不判"
+    kind: experiment
+    artifact: out_ext/tdc/p8_mmp_results_DILI.json
+    expect: ["31", "61"]
+    endpoint: DILI
+
+  # ---------------- 回归端点的 MMP（compressed 判定） ----------------
+    command: "python ./build_review_package.py"
+    command_status: bound_from_code
+    script_sha256: "56b1701830e0c63b0f4ae6b960dbe3bce8c1bab99e99647cedf306f43acbae18"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "analysis.n_pairs / analysis.power.min_pairs_required"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
+  - id: mmp_reg_lipophilicity_compressed
+    claim: "脂溶性 4636 对，R≈0.40 但符号一致率 0.67–0.73 → compressed 而非 insensitive"
+    kind: experiment
+    artifact: out_ext/tdc/p8_mmp_reg_lipophilicity_astrazeneca.json
+    expect: ["0.4", "4636"]
+    endpoint: lipophilicity_astrazeneca
+
+  # ---------------- 泄漏增益的种子裁决 ----------------
+    command: "UNRESOLVED"
+    command_status: unresolved
+    script_sha256: null
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "n_pairs_raw / results.rf_maccs.overall.displacement_ratio"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
+  - id: caco2_leak_gain
+    claim: "Caco2 泄漏增益 20 种子配对 Δ=−0.0228，配对 CI 不含 0"
+    kind: experiment
+    artifact: out_ext/tdc/p6_seed_ci.json
+    expect: ["0.0228", "0.3964"]
+    endpoint: caco2_wang
+
+  # ---------------- post-cutoff 外源留出（红线 8 的实证基础） ----------------
+    command: "python ./run_p6_seed_ci.py"
+    command_status: bound_from_code
+    script_sha256: "072f1ebbe085c17eb2e121193cdc10661236a5ef7be644efe0e5c69f03f15a20"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "delta_median / mae_clean_median"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
+  - id: external_cuts_headline
+    tier: headline          # 保留 tier 仅为满足 claims_audit 的「恰好一条 headline」结构断言；
+    rank: 1                 # 该条已 NOT 可用于对外引用，见 status / admissible_for_external_use
+    status: superseded      # ← 2026-11-04 C01 撤回
+    admissible_for_external_use: false
+    retracted_at: "2026-11-04"
+    retracted_by: "Peer Review 2026-11-04 / C01"
+    claim: ("【已撤回】原 claim：『外源强制预测在域外任何切分上都没有排序能力，"
+            "三套 AUC 全部低于同批 always-positive』。**撤回理由**：该结论由 "
+            "run_external_cuts_summary.py v1:78-80 的 bool(auc < always_positive_accuracy) "
+            "生成，属跨量纲比较（AUC 随机基线 0.5；always-positive accuracy = prevalence）。"
+            "正确双轨口径见 out_ext/external/external_cuts_summary_v2.json："
+            "AUC 95%CI 下界 0.569/0.560/0.562 均 > 0.5；accuracy_below_majority_class "
+            "= True/False/True；三切点为嵌套子集，不构成独立复现。"
+            "且按外审 B 领域级修正，hERG 端点 estimand 未定义，"
+            "**不得翻转为『域外仍有弱排序能力』**，处置为 "
+            "inference_revoked_pending_estimand。")
+    kind: experiment
+    artifact: out_ext/external/external_cuts_summary.json   # 旧产物，已标 superseded_by，仅审计用
+    supersedes_artifact: out_ext/external/external_cuts_summary_v2.json
+    expect: ["0.581", "0.584", "0.598", "trend_not_robust"]
+    endpoint: hERG
+    doc_rounding: ("① 【2026-11-04 起】本条禁止出现在任何论文/汇报/基金申请；"
+                   "如需引用数字，必须引用 v2 产物的双轨字段并同时携带撤回说明；"
+                   "② 禁止『全部低于同批 always-positive』『域外处处不可用』"
+                   "『门全拒是保守的正确』『域外仍有弱排序能力』四类表述；"
+                   "③ v4.4 的 post-cutoff 标签更正仍然成立并保留；"
+                   "④ 『单调上升』不稳健这一层与 C01 无关，保留。")
+    interval: "各切分 AUC 95% CI：mixed [0.569, 0.593]；y2021 [0.560, 0.610]；y2023 [0.562, 0.635]"
+    why_headline: ("【已作废】原 why_headline 称『三切点稳健』。实跑 v2 后该理由不成立："
+                   "accuracy_below_majority_class_all_cuts=false，"
+                   "nested_subsets_not_independent=true。"
+                   "保留本条为 headline 占位仅是结构需要，不构成可引用性。")
+    supersedes: ("v4.3–v4.4 初稿的『post-cutoff 留出 n=9443 AUC 0.581』——"
+                 "数字可复现，但标签错误：ChEMBL 服务端 document__year__gte 实测不生效，"
+                 "该集合 document_year 覆盖 1995–2025，≥2023 仅占 9.6%。"
+                 "**并进一步由 2026-11-04 C01 撤回其外部效度结论**，"
+                 "见 references/RETRACTION_NOTE.md")
+    command: "python run_external_cuts_summary.py"   # C3 补链：生成命令（见 VERIFIER_CONTRACT.md）
+    expect_field_path: "cuts[].auc_vs_chance.auc_ci95 / cuts[].accuracy_below_majority_class"
+    command_status: bound_from_code
+    script_sha256: "56b1701830e0c63b0f4ae6b960dbe3bce8c1bab99e99647cedf306f43acbae18"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    evidence_grade: "literal_token_only_non_evidence"
+
+  - id: external_holdout_auc
+    status: admissible_with_qualification   # 2026-11-04：同量纲比较本身合法，但须报 CI
+    claim: ("时间留出（document_year ≥ 2023，**本地过滤**）n=959，"
+            "AUC 0.598 [0.562,0.635]，accuracy 0.620 < always-positive 0.628；"
+            "逐分子差配对 bootstrap CI [-0.0209, +0.0063] 跨 0 → 差异不显著；"
+            "AUC 在 hERG 端点 estimand 未定义前不承载决策含义")
+    kind: experiment
+    artifact: out_ext/external/herg_holdout.json
+    expect: ["959", "0.598", "0.628"]
+    endpoint: hERG
+    doc_rounding: ("只能写作『时间留出外源集』；**禁止**写成 post-cutoff 前瞻。"
+                   "切分为按文献发表年的回溯式切分，不是预注册前瞻（红线 8）")
+
+  # ---------------- 多判据 AD（gate 救不活的证据） ----------------
+    command: "python ./build_review_package.py"
+    command_status: bound_from_code
+    script_sha256: "56b1701830e0c63b0f4ae6b960dbe3bce8c1bab99e99647cedf306f43acbae18"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "external_auc / external.n / external.prevalence"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
+  - id: ad_multicriteria
+    claim: "四判据 × 三端点 AUC 全部 <0.65，最高 DILI kNN 0.648"
+    kind: experiment
+    artifact: out_ext/tdc/ad_multicriteria.json
+    expect: ["0.648"]
+    endpoint: hERG,DILI,BBB_Martins
+
+  # ---------------- 近邻泄漏归因（其代理有效性见 v4.4 复核） ----------------
+    command: "python ./build_review_package.py"
+    command_status: bound_from_code
+    script_sha256: "56b1701830e0c63b0f4ae6b960dbe3bce8c1bab99e99647cedf306f43acbae18"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "results.DILI.summary.knn_tanimoto.auc_median"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
+  - id: leakage_attribution
+    claim: "近邻/新颖分组代理：hERG Δ=+0.002、BBB Δ=−0.212"
+    kind: experiment
+    artifact: out_ext/tdc/leakage_attribution.json
+    expect: ["0.002", "0.212"]
+    endpoint: hERG,BBB_Martins
+
+  # ---------------- 基石实验 + S5 未校准基线 ----------------
+    command: "python ./build_review_package.py"
+    command_status: bound_from_code
+    script_sha256: "56b1701830e0c63b0f4ae6b960dbe3bce8c1bab99e99647cedf306f43acbae18"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "BBB_Martins.r_error_near_dup_minus_novel / hERG.r_error_near_dup_minus_novel"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
+  - id: keystone_s4_minus_s5
+    claim: "ref 代价点 S4−S5：hERG −0.1326 / BBB −0.2192（基线过强解释被否证）"
+    kind: experiment
+    artifact: out_keystone_v43/results.json
+    expect: ["-0.1326", "-0.2192"]
+    endpoint: hERG,DILI,BBB_Martins
+
+  # ---------------- Ames 档位 + 专家规则层 ----------------
+    command: "python ./build_review_package.py"
+    command_status: bound_from_code
+    script_sha256: "56b1701830e0c63b0f4ae6b960dbe3bce8c1bab99e99647cedf306f43acbae18"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "paired_vs_S5[].delta_median"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
+  - id: ames_release_error
+    claim: "ICH M7 双方法：放行错误率 0.2685 → 0.177（专家规则层降低放行风险）"
+    kind: experiment
+    artifact: out_ext/tdc/ames_alerts.json
+    expect: ["0.2685", "0.177"]
+    endpoint: ames
+    doc_rounding: "文档常写 0.269 → 0.177；产物字面为 0.2685，四舍五入到三位即 0.269"
+    production_wiring: ("v4.4（2026-11-02）：reliab --enable-alerts（默认开）+ --compounds "
+                        "已真实调用 adt/alerts.py 做双方法合成；此前该 claim 仅为 TDC 基准，"
+                        "生产管线未接线（reliab 的 ames 全 UNDETERMINED）——已修正该脱节")
+
+  # ---------------- v4.4 新增：E1 尾部风险分层 ----------------
+    command: "python ./build_review_package.py"
+    command_status: bound_from_code
+    script_sha256: "56b1701830e0c63b0f4ae6b960dbe3bce8c1bab99e99647cedf306f43acbae18"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "stat_only_counterfactual.release_error_rate / two_method_ich_m7.release_error_rate"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
+  - id: tail_risk_stratified_time_holdout
+    claim: ("**真时间留出**（≥2023，n=959）按 Tanimoto 分层：桶 AUC 0.599/0.422/0.588/0.663/0.627，"
+            "**非单调** → 判定 trend_not_robust；『门划出可用边界』不成立")
+    kind: experiment
+    artifact: out_ext/external/herg_holdout_stratified.json
+    expect: ["959", "0.422", "0.663", "trend_not_robust"]
+    endpoint: hERG
+    doc_rounding: ("只能写『趋势不稳健』；**禁止**写『门的方向正确』（初版说法，已撤回）。"
+                   "单桶 0.663 的 CI [0.58,0.743] 宽且非单调，不得据此声称最近处可用")
+    command: "python ./build_review_package.py"
+    command_status: bound_from_code
+    script_sha256: "56b1701830e0c63b0f4ae6b960dbe3bce8c1bab99e99647cedf306f43acbae18"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "by_tanimoto_quantile[].auc / molecule_level_trend.n / verdict.code"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
+
+  - id: tail_risk_stratified_mixed
+    claim: ("时间混合集（n=9443）按 Tanimoto 分层：Q1 0.538 → Q5 0.630 单调上升 —— "
+            "该单调性**在真时间留出上不复现**，是时间混合的产物")
+    kind: experiment
+    artifact: out_ext/external/_legacy_stratified.json
+    expect: ["9443", "0.538", "0.63", "boundary_quantified_but_no_usable_region"]
+    endpoint: hERG
+    doc_rounding: ("只能作为**对照**引用（说明『混合时间会把越老越准伪装成越近越准』）；"
+                   "不得作为门有效的证据")
+
+  # ---------------- v4.4 新增：A4 无差异曲线 ----------------
+    command: "python ./build_review_package.py"
+    command_status: bound_from_code
+    script_sha256: "56b1701830e0c63b0f4ae6b960dbe3bce8c1bab99e99647cedf306f43acbae18"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "by_tanimoto_quantile[].auc / molecule_level_trend.n / verdict.code"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
+  - id: indifference_curve
+    status: superseded      # ← 2026-11-04 R4 / C18 + 外审 A 撤回（会计恒等式）
+    admissible_for_external_use: false
+    retracted_at: "2026-11-04"
+    retracted_by: "Peer Review 2026-11-04 / C18 + 外审 A"
+    retraction_ref: "R4 / references/RETRACTION_NOTE.md §五"
+    claim: "弃权代价轴上 S4−S1 的无差异点 c*：hERG 0.26、BBB 0.2091（已撤回，仅审计保留）"
+    kind: experiment
+    artifact: out_ext/keystone_indifference.json
+    expect: ["0.26", "0.2091"]
+    endpoint: hERG,BBB_Martins
+
+  # ---------------- v4.4 新增：A6 规格敏感性 ----------------
+    command: "python ./build_review_package.py"
+    command_status: bound_from_code
+    script_sha256: "56b1701830e0c63b0f4ae6b960dbe3bce8c1bab99e99647cedf306f43acbae18"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: null
+    field_path_status: "unresolved：字段级比对尚未绑定"
+    evidence_grade: "literal_token_only_non_evidence"
+  - id: spec_multiverse
+    claim: "216 个规格中方向翻转率 0.398 → 结论对规格脆弱"
+    kind: experiment
+    artifact: out_ext/keystone_spec_multiverse.json
+    expect: ["0.398"]
+    endpoint: hERG,DILI,BBB_Martins
+
+  # ---------------- v4.3 复现性基础设施（非科学结论，但决定别人能否跑起来） ----------------
+    command: "python ./build_review_package.py"
+    command_status: bound_from_code
+    script_sha256: "56b1701830e0c63b0f4ae6b960dbe3bce8c1bab99e99647cedf306f43acbae18"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "flip_rate"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
+  - id: tdc_local_loader
+    claim: "去掉 tdc 包硬依赖：adt/tdc_local.py 优先官方包、未装则读缓存 CSV"
+    kind: code
+    artifact: adt/tdc_local.py
+    expect: ["load_split"]
+    expect_code_symbol: ["load_split"]
+    field_path_status: "bound_by_AST_code_symbol 2026-11-18"
+    evidence_grade: "structured_code_symbol_evidence"
+
+  # ---------------- P2.4（2026-11-03 评审）：区间估计补齐（解 D3） ----------------
+    command: "UNRESOLVED"
+    command_status: unresolved
+    script_sha256: null
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: null
+    field_path_status: "unresolved：字段级比对尚未绑定"
+    evidence_grade: "literal_token_only_non_evidence"
+  - id: ames_release_error_ci
+    claim: "Ames 双方法层放行错误率 0.2685 → 0.177，配对 bootstrap 差值 0.0915，95%CI [0.0479, 0.1345]（不含 0）"
+    kind: experiment
+    artifact: out_ext/tdc/ames_release_ci.json
+    expect: ["0.2685", "0.177", "0.0915", "0.0479", "0.1345"]
+    endpoint: ames
+    note: ("四格由聚合计数重建（嵌套假设见产物 assumption 字段）；"
+           "Newcombe 独立近似 [0.0266, 0.1495] 作为交叉核对一并落盘。"
+           "CI 不含 0 → 允许写『差异 9.2pp（95%CI 4.8–13.5）』；"
+           "仍禁止写『显著优于』以外的无区间比较词（红线 6）")
+    command: "python ./run_ames_release_ci.py"
+    command_status: bound_from_code
+    script_sha256: "46aeec08ae2b2ca137ee7e614c40fe78cefe0a7a72e1875b3b905f70a59641b7"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "diff_paired_bootstrap.ci95[] / diff_newcombe_independent.diff / arms.stat_only.rate / arms.two_method.rate"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
+
+  - id: gate_auc_ci_herg
+    claim: ("hERG 上 gate 作为可预测性分类器 AUC 0.5800，95%CI [0.4561, 0.7008]；"
+            "点估计低于工作点 0.65 但区间上界越过它 → 只能说『未证明有判别力』")
+    kind: experiment
+    artifact: out_ext/tdc/gate_audit.json
+    expect: ["0.58", "0.4561", "0.7008", "109", "0.5854", "0.7784", "0.7916"]
+    endpoint: herg
+    doc_rounding: "expect 首项归一为 0.58：claim 正文写 0.5800 是四位显示格式，产物 gate_audit.json 字面为 0.58；同一数值，字段级比对必须用产物字面。"
+    note: ("三个 AUC 口径不可互换：0.5800=gate_as_predictability（label=模型是否预测正确、"
+           "score=相似度）；0.6857=[0.5854,0.7784]=最近邻基线；0.7916=model_auc。"
+           "只报 0.7916 是给门贴模型的精度，只报 0.6857 是把基线当门的能力——两者都算造假。"
+           "**禁止**由 0.5800 推出『与随机丢弃在统计上不可区分』：CI 上界 0.7008 > 0.65，"
+           "该结论未被数据支持（n=132，正确 109 / 错误 23）。")
+    known_risk: ("per-sample 分数在 out_ext/tdc/gate_scores_hERG.csv，可复算；"
+                 "bootstrap 只覆盖评测集抽样，不含模型训练随机性（P2.4-c 待做）")
+    command: "python ./build_review_package.py"
+    command_status: bound_from_code
+    script_sha256: "56b1701830e0c63b0f4ae6b960dbe3bce8c1bab99e99647cedf306f43acbae18"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "auc_ci.sim_as_label_baseline.lo / sweep[].mispass_ci95[] / auc_ci.gate_as_predictability.hi / auc_ci.gate_as_predictability.lo / auc_ci.model_auc.auc / auc_ci.sim_as_label_baseline.hi"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
+
+  - id: gate_auc_ci_dili
+    claim: ("DILI 上 gate AUC 0.6681，95%CI [0.5427, 0.7934] → 判别力**未被证实**；"
+            "但域内外准确率差 −0.1934，95%CI [−0.3206, −0.0301]（不含 0）→ "
+            "『域外更差』这条比较**成立**")
+    kind: experiment
+    artifact: out_ext/tdc/gate_audit_DILI.json
+    expect: ["0.6681", "0.5427", "0.7934", "-0.1934", "-0.3206", "-0.0301"]
+    endpoint: dili
+    note: ("**两条判据分开写，不许互相顶替**：AUC 属 `informative_unconfirmed`"
+           "（下界 0.5427 < 0.65），所以不能写『门有判别力』；"
+           "但准确率差 CI 上界 −0.0301 不含 0，所以『PASSTHRU 在 DILI 上有据』可以写。"
+           "一条成立 ≠ 另一条成立。")
+    command: "python ./build_review_package.py"
+    command_status: bound_from_code
+    script_sha256: "56b1701830e0c63b0f4ae6b960dbe3bce8c1bab99e99647cedf306f43acbae18"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "auc_ci.estimator_check.mann_whitney / auc_ci.gate_as_predictability.hi / auc_ci.gate_as_predictability.lo / forced_prediction_accuracy.diff_ci.diff / forced_prediction_accuracy.diff_ci.hi / forced_prediction_accuracy.diff_ci.lo"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
+
+  - id: gate_calibration_and_dca
+    claim: ("三端点（hERG/DILI/BBB）模型 AUC 0.7916 / 0.8957 / 0.8675；"
+            "校准斜率 1.1101 / 2.8933 / 1.1441（DILI 过度保守）；"
+            "门在任何端点、任何阈值概率上都**未**优于『全部预测』（DCA）")
+    kind: experiment
+    artifact: out_ext/tdc/gate_metrics.json
+    expect: ["0.7916", "0.8957", "0.8675", "1.1101", "2.8933", "1.1441",
+             "0.1442", "0.235", "gate_helps_anywhere"]
+    endpoint: multi
+    note: ("① 校准：斜率理想 1.0；DILI 的 2.8933 表示预测概率被压得过窄（不够自信），"
+           "不是『模型更好』。② AP 被基率撑高，故报 ap_lift_over_prevalence"
+           "（1.21/1.73/1.19）——只报 AP 0.9 属选择性呈现。"
+           "③ **DCA 是本表最硬的负面结果**：门在 0.2–0.7 全部阈值上都不如"
+           "『不做域过滤、全部预测』，即域过滤在决策净收益上是负贡献。"
+           "禁止把 PASSTHRU 写成『提高决策质量』。")
+    command: "python ./run_gate_metrics.py"
+    command_status: bound_from_code
+    script_sha256: "5a482597cdc0854905a9224740b31c6a5eb88bc0ccc2af270f8eace29368d79f"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "BBB_Martins.dca / BBB_Martins.model.auc / DILI.gate.mcc / DILI.model.auc / hERG.model.auc / hERG.model.brier / BBB_Martins.model.calibration.slope / DILI.model.calibration.slope / hERG.model.calibration.slope"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
+
+  - id: enrichment_uninterpretable_on_tdc
+    claim: ("三个 TDC 端点上 EF@1% 全部等于其理论上限 1/基率（1.361 / 1.92 / 1.238），"
+            "即 top-k 全为阳性 → 这批切分**不能**用于富集评测")
+    kind: experiment
+    artifact: out_ext/tdc/gate_metrics.json
+    expect: ["1.361", "1.92", "1.238", "ef_ceiling"]
+    endpoint: multi
+    note: ("EF 的上限是 1/基率（基率 0.735/0.521/0.808 → 上限 1.361/1.92/1.238）。"
+           "实测三者都恰好等于上限，说明 top-k 全是阳性，**饱和而非优秀**。"
+           "根因：TDC 切分的阳性率 52–81%，与真实虚拟筛选命中率（0.1–5%）差两个数量级。"
+           "**禁止**用这些数据集报告 EF@1% 或任何富集倍数；"
+           "要报富集必须换高阳性率极低的前瞻筛选库。")
+    command: "python ./run_gate_metrics.py"
+    command_status: bound_from_code
+    script_sha256: "5a482597cdc0854905a9224740b31c6a5eb88bc0ccc2af270f8eace29368d79f"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "BBB_Martins.model / BBB_Martins.model.ef_ceiling / DILI.model.ef_ceiling / hERG.model.ef_ceiling"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
+
+  - id: gate_endpoint_multiplicity
+    claim: ("三端点门判别力按 m=3 做 Holm 校正后**无一项**达到 alpha=0.05："
+            "DILI p=0.0267 → 0.0801，族内 98.3%CI 由 [−0.321,−0.030] 变宽到"
+            "[−0.349,+0.014]（跨 0）")
+    kind: experiment
+    artifact: out_ext/tdc/gate_multiplicity.json
+    expect: ["0.0267", "0.0801", "0.7554", "familywise_any_reject"]
+    note: ("**只报 0.0267 不报 0.0801 = 在 3 次机会里挑最好的一次**。"
+           "允许单端点口径写『DILI 上门有据（p=0.027）』，但必须同段声明："
+           "跨端点归纳时该结论不成立（Holm 0.080；族内 CI 跨 0）。"
+           "计数由 acc×n 还原（产物只存比例），还原误差见 count_reconstruction_error；"
+           "严格复算请用 gate_scores_*.csv。")
+    command: "python ./run_gate_multiplicity.py"
+    command_status: bound_from_code
+    script_sha256: "a9786b11a689bea21b8f9ababe0257eb4aacdb9bcb2ffb98d3bf718d9cd3ba4f"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "rows[].fisher_p / holm / rows[].p_holm"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
+
+  - id: gate_auc_ci_bbb
+    claim: ("BBB_Martins 上 gate AUC 0.5137，95%CI [0.4395, 0.5945] → "
+            "唯一一个『已证明无判别力』的端点（区间上界 0.5945 < 0.65）")
+    kind: experiment
+    artifact: out_ext/tdc/gate_audit_BBB_Martins.json
+    expect: ["0.5137", "0.4395", "0.5945"]
+    endpoint: bbb_martins
+    note: ("三端点里只有它做出『已证明无』的断言，原因是 n=406（正确 360 / 错误 46）"
+           "样本最足。**这是样本量的胜利，不是机制的胜利**——hERG(132)/DILI(96) "
+           "的区间宽到什么都证明不了。故：小样本端点上只能报区间，不得报断言。")
+    command: "python ./build_review_package.py"
+    command_status: bound_from_code
+    script_sha256: "56b1701830e0c63b0f4ae6b960dbe3bce8c1bab99e99647cedf306f43acbae18"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "auc_ci.estimator_check.mann_whitney / auc_ci.gate_as_predictability.hi / auc_ci.gate_as_predictability.lo"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
+
+  - id: b2_transporter_coverage
+    claim: ("BBB 转运体先验覆盖度：转运体级 1/18（仅 OATP2B1 有 moiety 规则）；"
+            "分子级 ≤7.1%（2/28 个 TPSA>140 的转运体主导分子）；"
+            "406 个 CNS 分子中命中任意 chemotype 结构的仅 8 个（1.97%）")
+    kind: experiment
+    artifact: out_ext/tdc/b2_coverage.json
+    expect: ["0.0714", "0.0197", "OATP2B1", "n_implemented"]
+    note: ("分母是文献/KEGG BRITE 02000 派生的**保守代理**（TPSA>140 代表转运体主导），"
+           "不是实验实测 → 覆盖度是保守下界估计，不得当金标准。"
+           "结论约束：『BBB 双层机制』须降级为『仅覆盖 OATP2B1 分支（黄酮专属，"
+           "对通用 CNS 集几乎不触发）』。复算：python run_b2_coverage.py")
+    command: "python ./run_b2_coverage.py"
+    command_status: bound_from_code
+    script_sha256: "c907a917e7f6b3e527e6289b3fe801f62cc619cda19c7880e9372bb75cc54f9e"
+    input_sha256: []
+    input_sha256_status: "unresolved：产物不含输入清单，禁止反推"
+    env_digest: "1e9b89140dc16c8019ebd1dfb6d162ab581594705a58a934453e8ce945cd21b1"
+    env_digest_scope: "current_environment_not_provenance"
+    expect_field_path: "transporter_level / molecule_level.ceiling_frac / molecule_level.oatp2b1_explains_tpsa_gt140 / transporter_level.canonical[]"
+    field_path_status: "bound_by_tools.bind_claim_fields 2026-11-18 (selfcheck field_match=True)"
+    evidence_grade: "structured_field_evidence_pending_audit"
