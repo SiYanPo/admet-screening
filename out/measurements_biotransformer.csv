@@ -1,0 +1,3 @@
+﻿compound_id,endpoint,value,unit,source,source_version,retrieved_at,domain_flag,uncertainty,provenance_url,note
+M,metabolite_count_CYP450,,count,biotransformer,3.0,2026-10-27T16:45:44,out_of_domain,,https://biotransformer.ca/queries/361236,"规则引擎活着（对照 {'acetaminophen': 6, 'phenol': 2}）但本分子 0 产物 -> 判为规则未覆盖，不可读作'无代谢'；observed_count=0"
+M,biotransformation_count_CYP450,,count,biotransformer,3.0,2026-10-27T16:45:44,out_of_domain,,https://biotransformer.ca/queries/361236,"规则引擎活着（对照 {'acetaminophen': 6, 'phenol': 2}）但本分子 0 产物 -> 判为规则未覆盖，不可读作'无代谢'；observed_count=0"
