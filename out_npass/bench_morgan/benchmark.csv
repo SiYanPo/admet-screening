@@ -1,0 +1,2 @@
+﻿endpoint,n_pairs,n_pos,coverage,auroc,auroc_p05,auroc_p95,auprc,mean_vote_auroc,delta_median_vs_mean,cluster_n,unit,cal_n,cal_n_pos,brier,brier_skill,oe,cal_slope,cal_intercept,ece,cal_flag,cal_note,note
+npass_ld50_rat,391,51,1.0,0.562,0.481,0.643,0.221,0.562,0.0,391,risk_score,391,51,,,,,,,not_applicable,非概率量纲（unit=risk_score）：校准无定义,
