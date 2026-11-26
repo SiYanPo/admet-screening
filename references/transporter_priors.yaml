@@ -1,0 +1,351 @@
+# 转运体先验表（v2.5.0）
+#
+# ⚠️ 这张表**不是预测模型**，是"该做哪个实验"的决策清单。
+#    它给出的是"该骨架最可能被哪个转运体识别"的先验，来源于转运体底物药效团的
+#    一般规律（教材/综述级），**没有逐条核原文**，也**不能**进 reliab 计票。
+
+version: 2
+
+# 文献锚点（v3.0.0 新增）：
+#   [Peng2023] Peng T, Liu S, Li Y, Zhang H, Hagenbuch B, Gui C.
+#     Investigating the interactions of flavonoids with human OATP2B1:
+#     inhibition assay, IC50 determination, and structure-activity relationship analysis.
+#     RSC Med Chem. 2023;14(5):890-898. DOI: 10.1039/D3MD00078H
+#   核心结论：29 个黄酮中**苷元强于 3-O/7-O 糖苷**（C3/C7 亲水糖基不利结合）；
+#   C6、C3'、C4' 氢键基团增强结合，C8 羟基/糖基不利。
+#   → 直接推翻了"黄酮糖苷天然是 OATP2B1 底物"的笼统说法，故 v2 起对
+#     "糖基是否接在芳环上"分档处理（见下方 moiety_rules）。
+
+data_availability:
+  in_silico_sources: none
+  detail: |
+    现有三个计算源都**不给肠侧转运体动力学**：
+      - ADMETlab 3.0：只有 5 个转运体（OATP1B1 / OATP1B3 / BCRP / BSEP / MRP1），
+        全部是**肝/胆侧**，没有肠侧 OATP2B1，也没有 SGLT1 / ASBT / PEPT1；
+      - ADMET-AI：41 端点里只有 Pgp（Broccatelli，且是**抑制剂**数据集，不是底物）；
+      - vNN-ADMET：Pgp 抑制剂/底物两列，本类 14/14 全 NoPrediction。
+  consequence: |
+    Km / Vmax / Jmax / 外排比 都**无法**在计算层给出。因此本 skill 的处理是：
+      (1) 明确声明缺口，不假装预测；
+      (2) 用 EHR 参数扫描**量化**这个缺口能把 t½/AUC 放大多少倍（adt.cli pbpk --ehr-scan）；
+      (3) 输出本表，指明"测什么、用什么抑制剂、验收标准"；
+      (4) 实测回填后按 role=reference 进管线（domain_flag=measured + provenance）。
+
+# ---------------- 苷元 / 糖苷分档（Peng 2023 的直接推论） ----------------
+# 规则在 transport.moiety_flags() 里做结构判定，这里只声明"判定为真时怎么改档"。
+# 只对单一转运体生效，不改其他转运体——避免"一个结论外溢成全局降权"。
+moiety_rules:
+  - id: oatp2b1_aryl_glycoside_penalty
+    transporter: OATP2B1
+    when: sugar_on_aryl
+    effect: downgrade_one_rank
+    evidence: "[Peng2023] RSC Med Chem 2023;14(5):890-898"
+    detail: |
+      糖基接在芳环碳上（C3-O-糖 / C7-O-糖）时，亲水糖基占据 OATP2B1 的识别面、
+      不利结合，实测 IC50 弱于相应苷元 → 先验档位**下调一档**。
+      这是本条先验唯一有直接实测构效证据的部分。
+
+  - id: oatp2b1_aliphatic_glycoside_uncertain
+    transporter: OATP2B1
+    when: sugar_not_on_aryl
+    effect: downgrade_one_rank_weak   # 半档：medium -> low_to_medium，但标注为外推
+    evidence: "[Peng2023] 外推（非直接证据）"
+    detail: |
+      糖基接在**脂肪碳**（如 1-O-糖基甘油、糖酯）上时，Peng 2023 的 C3/C7 结论
+      **不直接适用**：糖基不占据芳环识别位点，只增加极性与氢键数。
+      故只做**弱下调**（medium → low_to_medium）并标 evidence_level=extrapolated，
+      不允许升档，也不允许当"已证实为底物/非底物"使用。
+      本类（王百合苷）14/14 属于这一情形 → OATP2B1 从 medium 降为 low_to_medium，
+      实测优先级仍为最高（因为它是唯一能解释 Fa 的候选），但**不能预设为底物**。
+
+# ---------------- 化学型 -> 转运体先验 ----------------
+chemotypes:
+  - id: glucopyranoside
+    label: β-D-吡喃葡萄糖苷
+    smarts: "OC1OC(CO)C(O)C(O)C1O"
+    note: 本类 14/14 命中
+    transporters:
+      - name: SGLT1
+        role: intestinal_uptake
+        plausibility: low
+        rationale: >
+          SGLT1 识别葡萄糖的 C1 与 2/3/4/6-OH 特定空间排布，并要求 C1 位有疏水锚定
+          （phlorizin 是经典底物/抑制剂）。本类是 **1-O-糖基甘油**，C1 接的是小分子
+          甘油基、无芳环锚定 → 底物可能性低，但**不能排除**（同系物数据缺乏）。
+          ⚠ v3.4.0 修正：SGLT1 在 **BBB 内皮无功能性表达**（Yu et al. 实证：大鼠 BBB 无
+          SGLT 摄取），其真实作用位点在肠上皮——决定 Fa 而非脑暴露；故 SGLT1 作为
+          "脑暴露正项"权重低，作为"口服吸收正项"才成立。
+        evidence_level: textbook_or_review
+        assay: "HEK293-SGLT1 摄取（2 µM，2 min，± phlorizin 100 µM）或 Caco-2 ± phlorizin"
+      - name: GLUT1
+        role: bbb_endothelial_glucose_transporter
+        plausibility: low_for_intact_glycoside
+        rationale: >
+          GLUT1 是 BBB 内皮细胞的主要葡萄糖转运体（FDG 经 GLUT1 入脑），但**只转运单糖**，
+          不转运完整糖苷（糖基接到苷元/甘油后分子过大、且失去单糖 C1–C6 空间排布）。
+          因此 GLUT1 作为"完整糖苷脑暴露正项"基本不成立；它真正相关的场景是
+          **苷元/单糖形式**经脑内皮摄取，以及作为"为什么糖基水解后暴露变化"的背景机制。
+          列入本报告 2.2 三通道决议的"摄取"通道，但权重须实验定位、不得预设为正项。
+        evidence_level: textbook_or_review
+        assay: "仅在测水解产物/单糖形式时考虑；完整糖苷可先用 Caco-2 ± phlorizin 排除 SGLT1"
+      - name: OATP2B1
+        role: intestinal_uptake
+        plausibility: medium
+        rationale: >
+          ⚠ v3.0.0 修正（[Peng2023]）：黄酮**苷元**才是较强的 OATP2B1 相互作用体，
+          3-O/7-O 糖苷明显弱于苷元。因此"糖苷 → OATP2B1 底物"不再是默认假设：
+          芳环上带糖者下调一档；糖基在脂肪碳上者只做弱下调并标 extrapolated。
+          OATP2B1 仍是本类最值得先测的一个（若确为底物，Fa 会显著高于被动扩散预测），
+          但**不得预设为底物**。
+        evidence_level: textbook_or_review
+        assay: "MDCK-OATP2B1 摄取（2 µM，2 min，± rifampicin 50 µM / estrone-3-sulfate 竞争）"
+      - name: MRP2 / BCRP
+        role: intestinal_and_biliary_efflux
+        plausibility: medium
+        rationale: >
+          糖苷与 II 相代谢物（葡萄糖醛酸/硫酸结合物）是 MRP2/BCRP 的典型底物；
+          两者既在肠上皮顶端外排（压低 Fa），也在胆管侧外排（决定 fbile）。
+          与肠肝循环直接耦合 —— 这也是 fbile 只能给范围、不能给点值的原因。
+        evidence_level: textbook_or_review
+        assay: "Caco-2 双向 + elacridar 2 µM（P-gp/BCRP）/ MK-571 50 µM（MRP2）"
+
+  - id: cinnamoyl_ester
+    label: 肉桂酰/咖啡酰酯
+    smarts: "O=C(O)C=Cc1ccccc1"
+    note: 本类 8/14 命中（C/E/F/G/K/L/M/N）
+    transporters:
+      - name: OATP2B1
+        role: intestinal_uptake
+        plausibility: medium
+        rationale: >
+          咖啡酰基在生理 pH 下部分解离（pKa≈4.6），形成有机阴离子，是 OATP 的偏好底物类型；
+          但酯键在肠腔易水解，实际吸收形式可能是水解后的咖啡酸（另有其转运通路）。
+        evidence_level: textbook_or_review
+        assay: 同 glucopyranoside 的 MDCK-OATP2B1
+      - name: OATP1B1 / OATP1B3
+        role: hepatic_uptake
+        plausibility: low_to_medium
+        rationale: >
+          肝侧 OATP 偏好有机阴离子；ADMETlab 对这两个**有预测**（概率型），
+          可作为相对排序参考，但本类 14 个的预测值区分度低（饱和扫描判无区分度）。
+        evidence_level: textbook_or_review
+        assay: "（可选）HEK-OATP1B1/1B3 摄取"
+      - name: P-gp
+        role: intestinal_efflux
+        plausibility: low
+        rationale: >
+          vNN 本类 Pgp 底物只有 F/G/N 可判且均为 No；Pgp 抑制剂 14/14 NoPrediction。
+          但样本小、且 Pgp 底物预测本身可靠性低。
+        evidence_level: in_house_observation
+        assay: "Caco-2 双向 + verapamil 100 µM（ER 比前后差）"
+
+  - id: catechol
+    label: 邻苯二酚（两个相邻 OH）
+    smarts: "[OH1]c1ccccc1[OH1]"
+    note: 本类 5/14（C/E/K/L/M）；注意不要用 c(O)c(O) 松模式——会把愈创木基误判进来
+    transporters:
+      - name: MRP2 / BCRP
+        role: efflux
+        plausibility: medium
+        rationale: >
+          邻苯二酚易被 COMT/硫酸化/葡萄糖醛酸化，代谢物是 MRP2/BCRP 底物；
+          原形也可能被外排。邻苯二酚同时是 PAINS 结构，实验需加去污剂对照。
+        evidence_level: textbook_or_review
+        assay: 同 MRP2/BCRP
+      - name: MCT / LAT（一元羧酸/氨基酸转运体）
+        role: intestinal_uptake
+        plausibility: low
+        rationale: 咖啡酸（水解产物）有报道经 MCT 转运；糖苷本身不太可能。
+        evidence_level: textbook_or_review
+        assay: 仅在测水解产物时考虑
+
+  - id: guaiacyl
+    label: 愈创木基（4-OH-3-OMe）
+    smarts: "[OH1]c1ccccc1OC"
+    note: 本类 3/14（F/G/N，阿魏酰）
+    transporters:
+      - name: OATP2B1
+        role: intestinal_uptake
+        plausibility: low_to_medium
+        rationale: 甲氧基降低阴离子性、增加亲脂性 → 被动扩散占比升高，转运体依赖下降。
+        evidence_level: textbook_or_review
+        assay: 同 OATP2B1
+
+  - id: high_tpsa
+    label: 高极性（TPSA>140）
+    rule: "tpsa>140"
+    note: 本类 14/14 满足（TPSA ≈ 175–195）
+    transporters:
+      - name: （通用原则）转运体主导
+        role: general
+        plausibility: high
+        rationale: >
+          TPSA>140 时被动跨膜通量极低（Fa 通常 <0.3），此时若观察到吸收，
+          几乎必然是转运体介导 —— 所以本类**必须**做转运体实验才能解释 Fa。
+        evidence_level: textbook_or_review
+        assay: 先做 Caco-2 双向 ± 抑制剂组合，再决定是否上过表达细胞
+
+# ---------------- P-gp / BCRP 外排通道启发式（v? 新增，B2 闭环动作，2026-11-03） ----------------
+# ⚠️ 这些是**启发式结构代理（heuristic）**，不是预测模型，也不是实测：
+#   - P-gp 底物识别本质依赖 HBA 间空间距离（Seelig 1998 的 HBA 距离模型），SMARTS 全部丢失距离信息；
+#   - BCRP 识别面更扁平、与 P-gp 部分重叠，SMARTS 更粗。
+# 所有命中**不得**进 reliab 计票、不得改 verdict/confidence；
+# 只用于把 BBB=UNDETERMINED 时的"外排通道"从纯叙事升级为"有结构依据的可验证假设"，
+# 并**强制绑定** Caco-2 ± verapamil / elacridar 验证后才能下结论。
+# 可执行实现见 adt/efflux_heuristic.py（本块为其人类可读副本，特征定义以代码为准）。
+efflux_heuristics:
+  pgp:
+    label: P-gp (ABCB1) 底物启发式
+    evidence_level: heuristic_consensus_pharmacophore
+    refs:
+      - "Seelig A. Eur J Biochem 1998;250(1):252-261（HBA 距离模型，≥2 个 HBA 中心）"
+      - "Penzotti JE et al. 2002 / Crivori P et al. 2006（ADMET Predictor P-gp 药效团：2 疏水芳香中心 + 2 HBA + 1 正电荷）"
+    features:
+      - id: basic_center
+        smarts: "[N;!$(NC=O);!$(N=O)]"
+        desc: 可质子化的 N（叔/仲胺、吡啶 N、季铵前体）——P-gp 底物常见正电荷中心
+      - id: hba_ge2
+        type: count
+        atom: hba       # rdkit CalcNumHBA
+        min: 2
+        desc: 氢键受体数 ≥ 2（Seelig 要求 ≥2 个 HBA 中心）
+      - id: aromatic_ring_ge2
+        type: count
+        atom: aromatic_rings   # rdkit CalcNumAromaticRings
+        min: 2
+        desc: ≥2 个芳香环（疏水芳香中心）
+      - id: mw_ge400
+        type: count
+        atom: mw               # rdkit MolWt
+        min: 400
+        desc: 分子量 ≥ 400（大体积底物倾向）
+    plausibility_rule:   # 仅文档说明，实际评分在 efflux_heuristic.py
+      medium: "hba_ge2 & aromatic_ring_ge2 & (basic_center | hba_ge4)"
+      low_to_medium: "hba_ge2 & mw_ge400"
+      low: "default"
+    mandatory_assay: >
+      Caco-2 双向 + verapamil 100 µM（P-gp 特异性抑制剂；外排比 ER 前后差 ≥2× 判 P-gp 底物）；
+      同时 + elacridar 2 µM（P-gp/BCRP 共抑制剂）以分离 BCRP 贡献。
+      若任一抑制剂使净通量反转或 ER 下降 ≥2×，则确认外排底物，
+      有效脑暴露须按「被动渗透 × 外排净效应」重算，不得沿用原 BBB 端点值。
+  bcrp:
+    label: BCRP (ABCG2) 底物启发式
+    evidence_level: heuristic_weak
+    refs:
+      - "BCRP 底物多为扁平芳香 + 可电离基团；与 P-gp 部分重叠，特异性低于 P-gp"
+    features:
+      - id: planar_aromatic
+        smarts: "c1ccccc1"
+        desc: 至少一个芳香环（扁平识别面代理）
+      - id: ionizable_basic_n
+        smarts: "[N;!$(NC=O)]"
+        desc: 可电离碱性 N（或另计羧酸）
+      - id: hba_ge3
+        type: count
+        atom: hba
+        min: 3
+        desc: HBA ≥ 3
+    plausibility_rule:
+      low_to_medium: "hba_ge3 & planar_aromatic & ionizable_basic_n"
+      low: "default"
+    mandatory_assay: >
+      Caco-2 双向 + elacridar 2 µM（BCRP/P-gp 共抑制剂）；
+      确认须配合 KO 细胞或特异性探针底物（如 pheophorbide A / sulforhodamine B）。
+
+# ---------------- 摄取通道启发式（2026-11-03 续，B2 闭环动作） ----------------
+# ⚠️ 这些是**启发式结构代理（heuristic）**，不是预测模型，也不是实测：
+#   - OATP1A2 识别大体积有机阴离子（电荷 + 疏水区），SMARTS 仅近似电荷与疏水，丢失空间排布；
+#   - LAT1 识别大体积中性 L-氨基酸（α-氨基 + α-羧基 + 大疏水侧链），SMARTS 对 L-立体专一性近似很差；
+#   - GLUT1 只转运**游离单糖**，不转运完整糖苷（糖基接到苷元/甘油后体积过大且失去单糖空间排布）。
+# 所有命中**不得**进 reliab 计票、不得改 verdict/confidence；
+# 只用于把 BBB=UNDETERMINED 时的"摄取通道"从纯叙事升级为"有结构依据的可验证假设"，
+# 并**强制绑定**对应过表达细胞摄取 ± 竞争抑制剂验证后才能下结论。
+# 可执行实现见 adt/uptake_heuristic.py（本块为其人类可读副本，特征定义以代码为准）。
+# 生物学保真：SGLT1 在 BBB 内皮无功能性表达（属肠侧 Fa 通道），故不含 SGLT1 结构规则。
+uptake_heuristics:
+  oatp1a2:
+    label: OATP1A2 (SLCO1A2) 脑内皮摄取（正项候选）
+    evidence_level: heuristic_consensus
+    refs:
+      - "Hagenbuch B, Meier PJ. Pflugers Arch 2004;447(7):653-665（OATP 家族偏好大体积有机阴离子）"
+      - "König J et al. 综述（OATP1A2 脑内皮表达，estrone-3-sulfate / fexofenadine 为探针底物）"
+    features:
+      - id: anionic_group
+        type: smarts_any
+        smarts: "[$([O-]C(=O)),$([OH]C(=O)),$([S](=O)(=O)[O-]),$([O-]S(=O)(=O)[O-]),$([O-]P(=O)([O-])[O-])]"
+        desc: 生理 pH 下解离的有机阴离子（羧酸根/磺酸根/硫酸根/磷酸根）
+      - id: hba_ge3
+        type: count
+        atom: hba
+        min: 3
+        desc: HBA ≥ 3
+      - id: mw_ge300
+        type: count
+        atom: mw
+        min: 300
+        desc: 分子量 ≥ 300（大体积底物倾向）
+    plausibility_rule:   # 仅文档说明，实际评分在 uptake_heuristic.py
+      medium: "anionic_group & mw_ge300"
+      low_to_medium: "anionic_group & (hba_ge3 | mw_ge300)"
+      low: "default"
+    mandatory_assay: >
+      MDCK-OATP1A2 / HEK293-OATP1A2 摄取（2 µM，2–5 min，37°C）± estrone-3-sulfate 50 µM 或
+      rifampicin 50 µM 竞争；抑制 ≥50% 判底物。须与肠侧 OATP2B1 区分（用脑内皮来源细胞系更贴近脑暴露）。
+  lat1:
+    label: LAT1 (SLC7A5) 脑内皮摄取（正项候选，大中性 L-氨基酸）
+    evidence_level: heuristic_consensus
+    refs:
+      - "Kanai Y et al. J Biol Chem 1998;273(36):23629-23635（系统 L 氨基酸转运体，大中性氨基酸）"
+      - "底物含 L-DOPA、甲状腺氨酸、亮/异亮/缬氨酸、苯丙/色/酪氨酸、加巴喷丁"
+    features:
+      - id: aa_like
+        type: logic
+        desc: "α-氨基酸骨架（N–C(非羰基)–C(=O)[O-,OH]）或（碱性 N 且存在羧基）；L-立体专一性须实验确认"
+      - id: large_sidechain
+        type: logic
+        desc: "芳香侧链（苯环）或碳数 ≥ 6（覆盖亮/异亮/缬/甲硫氨酸等支链）；甘/丙氨酸（C<4）强制降级为 uncertain"
+    plausibility_rule:
+      medium: "aa_like & large_sidechain"
+      low_to_medium: "aa_like（仅）"
+      low: "default"
+    mandatory_assay: >
+      HEK293-LAT1 / MDCK-LAT1 摄取（2 µM，1–2 min，± L-亮氨酸 1 mM 或 BCH 10 mM 竞争）；
+      氨基酸类或氨基酸样分子优先验证；L-立体专一性以实验确认。
+  glut1:
+    label: GLUT1 (SLC2A1) 脑内皮葡萄糖转运（仅游离单糖）
+    evidence_level: heuristic_consensus
+    refs:
+      - "Mueckler M. Eur J Biochem 1994;219(3):713-725（GLUT1 转运游离 D-己糖）"
+      - "不转运完整糖苷：糖基接到苷元/甘油后分子过大且失去单糖 C1–C6 空间排布"
+    features:
+      - id: free_monosaccharide
+        type: smarts
+        smarts: "OC1OC(CO)C(O)C(O)C1O"
+        desc: 游离己糖吡喃环（C1 为游离 OH，即还原端未成苷）
+      - id: mw_lt220
+        type: count
+        atom: mw
+        max: 220
+        desc: 分子量 < 220（区分游离单糖 vs 糖苷/结合态）
+    plausibility_rule:
+      medium: "free_monosaccharide & mw_lt220（游离单糖，GLUT1 候选）"
+      low_excluded: "free_monosaccharide & mw>=220（含糖但偏大 → 极可能为糖苷/结合态 → 完整糖苷非 GLUT1 底物）"
+      low: "default（无糖环）"
+    mandatory_assay: >
+      仅对游离单糖/苷元水解产物考虑：原代 BBB 内皮细胞或 hCMEC/D3 ± cytochalasin B（GLUT 抑制剂）
+      或高浓度 D-葡萄糖竞争。完整糖苷须先水解再评估。
+
+# ---------------- 实验回填用的端点（规则表已登记 role=reference） ----------------
+backfill_endpoints:
+  - id: transporter_oatp2b1_uptake
+    unit: ratio_vs_control
+    note: 抑制剂敏感摄取（加/不加 rifampicin 的比值）；>2 视为有转运体贡献
+  - id: transporter_sglt1_uptake
+    unit: ratio_vs_control
+    note: phlorizin 敏感摄取
+  - id: fraction_excreted_bile
+    unit: fraction
+    note: 胆管插管大鼠胆汁累计排出占剂量分数（= PBPK 的 fbile 实测值）
+  - id: ehr_reabsorption_fraction
+    unit: fraction
+    note: 胆汁回流后二次峰面积占比（= PBPK 的 fre 实测值）
