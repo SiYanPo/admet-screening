@@ -1,0 +1,268 @@
+{
+ "schema": "adt-ratio-margin-sensitivity/1.0",
+ "method": "判定由已存 bootstrap CI 代数重算（不重训模型）；判据与 adt.mmp.analyze_regression 同源",
+ "margins": [
+  0.3,
+  0.4,
+  0.5,
+  0.6,
+  0.7
+ ],
+ "bounds": "equivalent iff CI ⊂ (1-m, 1+m)",
+ "n_cells": 12,
+ "n_flip": 11,
+ "rows": [
+  {
+   "endpoint": "caco2_wang",
+   "model": "rf_morgan",
+   "n_pairs": 220,
+   "R": 0.417,
+   "ci95": [
+    0.318,
+    0.553
+   ],
+   "sign_agreement": 0.575,
+   "sign_z": 2.16,
+   "verdict_by_margin": {
+    "0.3": "NOT_equivalent:insensitive",
+    "0.4": "NOT_equivalent:insensitive",
+    "0.5": "inconclusive",
+    "0.6": "inconclusive",
+    "0.7": "equivalent"
+   },
+   "flips": true,
+   "n_distinct": 3
+  },
+  {
+   "endpoint": "caco2_wang",
+   "model": "rf_maccs",
+   "n_pairs": 220,
+   "R": 0.234,
+   "ci95": [
+    0.166,
+    0.329
+   ],
+   "sign_agreement": 0.54,
+   "sign_z": 1.06,
+   "verdict_by_margin": {
+    "0.3": "NOT_equivalent:insensitive",
+    "0.4": "NOT_equivalent:insensitive",
+    "0.5": "NOT_equivalent:insensitive",
+    "0.6": "NOT_equivalent:insensitive",
+    "0.7": "inconclusive"
+   },
+   "flips": true,
+   "n_distinct": 2
+  },
+  {
+   "endpoint": "caco2_wang",
+   "model": "ridge_desc",
+   "n_pairs": 220,
+   "R": 0.17,
+   "ci95": [
+    0.138,
+    0.221
+   ],
+   "sign_agreement": 0.53,
+   "sign_z": 0.85,
+   "verdict_by_margin": {
+    "0.3": "NOT_equivalent:insensitive",
+    "0.4": "NOT_equivalent:insensitive",
+    "0.5": "NOT_equivalent:insensitive",
+    "0.6": "NOT_equivalent:insensitive",
+    "0.7": "NOT_equivalent:insensitive"
+   },
+   "flips": false,
+   "n_distinct": 1
+  },
+  {
+   "endpoint": "caco2_wang",
+   "model": "ensemble_mean",
+   "n_pairs": 220,
+   "R": 0.286,
+   "ci95": [
+    0.204,
+    0.331
+   ],
+   "sign_agreement": 0.541,
+   "sign_z": 1.18,
+   "verdict_by_margin": {
+    "0.3": "NOT_equivalent:insensitive",
+    "0.4": "NOT_equivalent:insensitive",
+    "0.5": "NOT_equivalent:insensitive",
+    "0.6": "NOT_equivalent:insensitive",
+    "0.7": "inconclusive"
+   },
+   "flips": true,
+   "n_distinct": 2
+  },
+  {
+   "endpoint": "lipophilicity_astrazeneca",
+   "model": "rf_morgan",
+   "n_pairs": 4636,
+   "R": 0.4,
+   "ci95": [
+    0.386,
+    0.42
+   ],
+   "sign_agreement": 0.668,
+   "sign_z": 22.72,
+   "verdict_by_margin": {
+    "0.3": "NOT_equivalent:compressed",
+    "0.4": "NOT_equivalent:compressed",
+    "0.5": "NOT_equivalent:compressed",
+    "0.6": "inconclusive",
+    "0.7": "equivalent"
+   },
+   "flips": true,
+   "n_distinct": 3
+  },
+  {
+   "endpoint": "lipophilicity_astrazeneca",
+   "model": "rf_maccs",
+   "n_pairs": 4636,
+   "R": 0.405,
+   "ci95": [
+    0.384,
+    0.425
+   ],
+   "sign_agreement": 0.673,
+   "sign_z": 23.11,
+   "verdict_by_margin": {
+    "0.3": "NOT_equivalent:compressed",
+    "0.4": "NOT_equivalent:compressed",
+    "0.5": "NOT_equivalent:compressed",
+    "0.6": "inconclusive",
+    "0.7": "equivalent"
+   },
+   "flips": true,
+   "n_distinct": 3
+  },
+  {
+   "endpoint": "lipophilicity_astrazeneca",
+   "model": "ridge_desc",
+   "n_pairs": 4636,
+   "R": 0.373,
+   "ci95": [
+    0.359,
+    0.39
+   ],
+   "sign_agreement": 0.734,
+   "sign_z": 31.32,
+   "verdict_by_margin": {
+    "0.3": "NOT_equivalent:compressed",
+    "0.4": "NOT_equivalent:compressed",
+    "0.5": "NOT_equivalent:compressed",
+    "0.6": "NOT_equivalent:compressed",
+    "0.7": "equivalent"
+   },
+   "flips": true,
+   "n_distinct": 2
+  },
+  {
+   "endpoint": "lipophilicity_astrazeneca",
+   "model": "ensemble_mean",
+   "n_pairs": 4636,
+   "R": 0.323,
+   "ci95": [
+    0.313,
+    0.34
+   ],
+   "sign_agreement": 0.73,
+   "sign_z": 31.11,
+   "verdict_by_margin": {
+    "0.3": "NOT_equivalent:compressed",
+    "0.4": "NOT_equivalent:compressed",
+    "0.5": "NOT_equivalent:compressed",
+    "0.6": "NOT_equivalent:compressed",
+    "0.7": "equivalent"
+   },
+   "flips": true,
+   "n_distinct": 2
+  },
+  {
+   "endpoint": "solubility_aqsoldb",
+   "model": "rf_morgan",
+   "n_pairs": 5684,
+   "R": 0.534,
+   "ci95": [
+    0.506,
+    0.577
+   ],
+   "sign_agreement": 0.642,
+   "sign_z": 20.71,
+   "verdict_by_margin": {
+    "0.3": "NOT_equivalent:compressed",
+    "0.4": "NOT_equivalent:compressed",
+    "0.5": "equivalent",
+    "0.6": "equivalent",
+    "0.7": "equivalent"
+   },
+   "flips": true,
+   "n_distinct": 2
+  },
+  {
+   "endpoint": "solubility_aqsoldb",
+   "model": "rf_maccs",
+   "n_pairs": 5684,
+   "R": 0.623,
+   "ci95": [
+    0.59,
+    0.667
+   ],
+   "sign_agreement": 0.706,
+   "sign_z": 29.64,
+   "verdict_by_margin": {
+    "0.3": "NOT_equivalent:compressed",
+    "0.4": "inconclusive",
+    "0.5": "equivalent",
+    "0.6": "equivalent",
+    "0.7": "equivalent"
+   },
+   "flips": true,
+   "n_distinct": 3
+  },
+  {
+   "endpoint": "solubility_aqsoldb",
+   "model": "ridge_desc",
+   "n_pairs": 5684,
+   "R": 0.516,
+   "ci95": [
+    0.493,
+    0.547
+   ],
+   "sign_agreement": 0.775,
+   "sign_z": 41.16,
+   "verdict_by_margin": {
+    "0.3": "NOT_equivalent:compressed",
+    "0.4": "NOT_equivalent:compressed",
+    "0.5": "inconclusive",
+    "0.6": "equivalent",
+    "0.7": "equivalent"
+   },
+   "flips": true,
+   "n_distinct": 3
+  },
+  {
+   "endpoint": "solubility_aqsoldb",
+   "model": "ensemble_mean",
+   "n_pairs": 5684,
+   "R": 0.486,
+   "ci95": [
+    0.465,
+    0.518
+   ],
+   "sign_agreement": 0.759,
+   "sign_z": 38.94,
+   "verdict_by_margin": {
+    "0.3": "NOT_equivalent:compressed",
+    "0.4": "NOT_equivalent:compressed",
+    "0.5": "inconclusive",
+    "0.6": "equivalent",
+    "0.7": "equivalent"
+   },
+   "flips": true,
+   "n_distinct": 3
+  }
+ ]
+}
