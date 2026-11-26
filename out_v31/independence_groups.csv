@@ -1,0 +1,3 @@
+﻿group,n_pairs,n_endpoints,max_abs_rho,mean_abs_rho,max_pos_rho,n_sign_conflicts,n_unit_mismatch,group_weight,evidence
+descriptor_ml,3,3,0.5736,0.3377,0.2835,1,0,1.0,sign_conflict(1); independent(max_pos_rho<=0.70)
+neighbor_qsar,1,1,,,,0,1,1.0,no_rho_data
