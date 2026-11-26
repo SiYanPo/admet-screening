@@ -1,0 +1,552 @@
+# ADMET 数据源登记表
+# 所有 status / 数值 / 坑 都是 2026-10-27 在本机实测的结果，不是文档抄来的。
+# 接入新源前必须：① 用 assets/controls/controls.csv 跑对照；② 把结论写回本文件。
+version: 2
+verified_at: "2026-10-27"
+
+# independence_group：方法学族 + 训练数据生态重叠。跨源计票时同组只记 1 独立票。
+# 分组依据（本机 2026-10-27 实测归纳）：descriptor_ml 两源喂同类描述符模型；neighbor_qsar 两源
+# 都依赖训练集近邻。deep_learning 的编码（Morgan/MPNN/CNN）与两者不同，单列。
+sources:
+
+  - name: admetlab3
+    label: ADMETlab 3.0
+    url: https://admetlab3.scbdd.com
+    status: ok
+    independence_group: descriptor_ml   # 同组多源同向只记 1 独立票（两票半原则）
+    interface: web-form
+    endpoints_count: 122
+    adapter: adt/adapters/admetlab3.py   # v2.2 收编（2026-10-28 实测：CSRF 通过、POST 429→退避生效；解析/下载沿用已验证的 w1 路径）
+    rate_limit: "连续提交会 429，需要指数退避（实测 0/90/240/420/600/900/1200 s）"
+    pitfalls:
+      - "结果页含 href=/server/result/<id>/download/csv，用正则抓 16 位以上 id"
+      - "行序不可假设，必须用 canonical SMILES 对齐分子名（A 与 L 的 raw_smiles 前缀相同）"
+      - "122 列里没有 CYP 诱导端点"
+      - "转运体只有 OATP1B1/1B3/BCRP/BSEP/MRP1，无 MATE/OCT"
+    blocked_endpoints_in_class:
+      cinnamoyl_glycoside:
+        - {endpoint: DILI, evidence: "14/14 >0.5，区间 0.643–0.914"}
+        - {endpoint: Ames, evidence: "14/14 >0.5，区间 0.830–0.990"}
+        - {endpoint: OATP1B1, evidence: "14/14 >0.5，区间 0.986–0.99998"}
+        - {endpoint: OATP1B3, evidence: "14/14 >0.5，区间 0.987–0.99999"}
+        - {endpoint: NR-ER, evidence: "14/14 >0.5，区间 0.623–0.949"}
+        - {endpoint: BCRP, evidence: "0/14 >0.5，区间 0.009–0.307"}
+        - {endpoint: BSEP, evidence: "0/14 >0.5，区间 0.0015–0.285"}
+        - {endpoint: MRP1, evidence: "0/14 >0.5，区间 0.0008–0.042"}
+        - {endpoint: NR-AhR, evidence: "0/14 >0.5，区间 0.003–0.155"}
+    usable_endpoints_in_class: [NR-AR-LBD, SR-p53, SR-ARE, hERG, H-HT, Fu]
+    note: "整表 108 个数值端点里 66 个在本集合内无区分度（saturated_in_set），42 个可用"
+    corroboration_20261027:
+      - "外部独立工作线用相同流程（CSRF -> /server/screeningCal, method=2）跑通 14/14 —— 两线互证"
+      - "官方 JSON API（api/admet、api/admetCSV）已被攻击停用 404，只有表单端点活着"
+      - "独有产出：fu 预测 22-43%（推翻 fu≈0.99 假设）；Caco-2 -6.46~-5.79 全低于吸收阈 -5.15；hia 0.03-0.23；P-gp 底物 N=0.88"
+      - "无微粒体稳定性端点（缺口）"
+
+  - name: admet_ai
+    label: ADMET-AI (Chemprop-RDKit)
+    url: https://admet.ai.greenstonebio.com
+    status: ok
+    independence_group: descriptor_ml   # 同组多源同向只记 1 独立票（两票半原则）
+    interface: "web-form (multipart: input-type=text, text-smiles)"
+    endpoints_count: 41
+    adapter: adt/adapters/admet_ai.py    # v2.2 收编（2026-10-28 实测 2/2 对齐）；v2.3.4 起支持 --local 本地离线
+    offline: "web --local：admet-ai 2.0.1 + chemprop 2.3.1（pharma-tools/envs/admetai_local），死代理下实测可推理"
+    version_note: "**本地 2.0.1-local 与网页 2.0 权重不同**：分类端点一致，回归端点系统性偏移（Caco2 +0.53 log / PPBR −3.5%，C74）"
+    pip_offline: "admet-ai==2.0.1（阿里云镜像可装，可完全离线）"
+    pitfalls:
+      - "percentile 列是相对 DrugBank 参考分布，会随原始预测值变化，必须一起 splice"
+      - "不是纯 2D 描述符：位置异构体真 M vs 旧 M 有 41/49 个原始端点在动（≤0.03）"
+      - "'同分异构所以不用重跑'是错的"
+    blocked_endpoints_in_class:
+      cinnamoyl_glycoside:
+        - {endpoint: DILI, evidence: "0/14 >0.5，区间 0.226–0.322（近饱和阴性）"}
+        - {endpoint: AMES, evidence: "7/14 >0.5，区间 0.339–0.648，与 ADMETlab 方向相反"}
+
+  - name: protox3
+    label: ProTox-III
+    url: https://tox.charite.de/protox3/
+    status: ok
+    independence_group: neighbor_qsar   # 同组多源同向只记 1 独立票（两票半原则）
+    interface: "web-form (smilesString 字段要填 **molblock 文本**，不是 SMILES)"
+    endpoints_count: 18
+    adapter: adt/adapters/protox3.py     # v2.2 收编（2026-10-28 实测 APAP：LD50 338、DILI=1、mutagen=0，与试点一致）
+    rate_limit: "同会话连提 8 个分子后限流（server_id 与 LD50 全空）；每分子新建 Session + 间隔 3 s"
+    pitfalls:
+      - "Probability 是**该预测类别的置信度**，不是阳性概率（反例：dili_pred=0 而 prob=0.975）"
+      - "无实测近邻的化合物 LD50 一律 5000 / class 5，无区分力"
+      - "tox-new.charite.de 已废（404）"
+    in_class_facts:
+      cinnamoyl_glycoside:
+        - "DILI 阳性只有 A（置信度 0.693），13/14 为 0"
+        - "心脏毒性阳性 F/L/N（0.72/0.50/0.66）"
+
+  - name: vnn_admet
+    label: vNN-ADMET
+    url: https://vnnadmet.bhsai.org/vnnadmet/
+    status: ok
+    independence_group: neighbor_qsar   # 同组多源同向只记 1 独立票（两票半原则）
+    adapter: adt/adapters/vnn.py        # v2.2.1 **已端到端验证**（2026-10-28：登录→ALTCHA→提交→轮询 89 s→2 分子 8 行）；人工桥保留为降级通道
+    credentials: "环境变量 VNN_USER/VNN_PASS，或 ~/.workbuddy/vnn_cred.json（username/password）"
+    interface: "web-form + ALTCHA proof-of-work；需注册登录（注册页 4 字段、无验证码，密码由站方邮件下发）"
+    verified_20261028:
+      - "登录 POST /login（username/password）→ home.xhtml 200 才算真登录"
+      - "提交后 `<redirect ...checkjob.xhtml?myjob=hash>`；2 分子作业 89 s 出结果"
+      - "**C65：就绪判据必须用提取器（parse_checkjob 能拿到预期行数），不能用正则数 33-td——2 分子页是嵌套表，正则法会误判'未就绪'（实测白等 6 分钟）**"
+      - "**C66：移植时 _viewstate 必须取 j_idt32 表单内最后一个、_total 必须匹配 'Total query compounds' 文案——按理解重写会 total 恒 0 直接失败**"
+      - "**14 分子重跑（2026-10-28，分 10+4 两批）：与 2026-10-27 逐格一致 210/210，覆盖率同为 0.112 → 批次稳定**"
+    endpoints_count: 15
+    is_only_applicability_domain_source: true
+    pitfalls:
+      - "bean 是 @ViewScoped：每加一个化合物前重新 GET 会清空列表，必须同一视图连续 postback"
+      - "submit 必须 ajax（PrimeFaces.ab），普通 POST 会消耗视图"
+      - "单次作业上限 10 个化合物"
+      - "结果行 33 个 td = 两套并排，取隐藏列并与可见列逐格交叉校验"
+      - "**就绪判据**：未完成页与完成页都含端点表头 + 化合物列表 + 12 个 NoPrediction，正则数 <td> 会被嵌套子表骗成 0；唯一可靠判据是 parse_one() 不抛异常"
+    in_class_facts:
+      cinnamoyl_glycoside:
+        - "10/15 端点对全部 14 个分子 NoPrediction"
+        - "平均覆盖率 0.17（15 端点含 MRTD，36/210）；官方 10 折 CV 0.73，差 4.3 倍"
+        - "DILI 只有 A 可判（Yes），其余 13 个 NoPrediction"
+
+  - name: deeppurpose
+    label: DeepPurpose (16 端点 × 3 编码)
+    url: local
+    status: ok
+    independence_group: deep_learning   # 同组多源同向只记 1 独立票（两票半原则）
+    interface: "local (python)"
+    pitfalls:
+      - "模型缓存跟 cwd 走：在别的目录跑会重新下载 48 个模型"
+      - "caco2_cnn 对 14/14 只在 −5.8082/−5.8083 两值 → 该编码失效"
+      - "caco2_mpnn 下探到 −13.41（log Papp 物理不可能）"
+      - "aqsoldb 三编码极差均值 7.42、最大 26.60 log 单位"
+    blocked_endpoints_in_class:
+      cinnamoyl_glycoside:
+        - {endpoint: caco2_cnn, evidence: "≤2 个不同值"}
+        - {endpoint: caco2_mpnn, evidence: "越物理边界 −13.41"}
+        - {endpoint: aqsoldb, evidence: "三编码分歧 7.42–26.60 log 单位"}
+    verdict_in_class: "16 端点中 10 个 UNUSABLE，只作背景"
+
+  - name: biotransformer
+    label: BioTransformer 3.0
+    url: https://biotransformer.ca
+    status: ok
+    independence_group: rule_engine   # 同组多源同向只记 1 独立票（两票半原则）
+    interface: "**REST API 可用**"
+    adapter: adt/adapters/biotransformer.py
+    api:
+      submit: "POST https://biotransformer.ca/queries.json（Content-Type 与 Accept 都要 application/json；用 requests 的 json= 会 406，必须 data=json.dumps；allow_redirects=False）"
+      submit_success: "302 + Location: /queries/<id>/status（**不是 200**）"
+      fetch: "GET https://biotransformer.ca/queries/<id>.json -> status=='Done'"
+      payload: "{biotransformer_option, number_of_steps, query_input: 'name\\tSMILES', task_type: 'PREDICTION'}"
+      rate_limit: "2 次 POST/分钟（官方明示）"
+    coverage_test:
+      negative_controls_ok:
+        - {compound: acetaminophen, option: CYP450, metabolites: 6}
+        - {compound: phenol, option: CYP450, metabolites: 2}
+        - {compound: toluene, option: CYP450, metabolites: 3}
+      fails_for_this_class:
+        - {compound: caffeic_acid, option: CYP450, metabolites: 0}
+        - {compound: caffeic_acid, option: PHASEII, metabolites: 0}
+        - {compound: caffeic_acid, option: ALLHUMAN, metabolites: 0}
+        - {compound: M_true_glycoside, option: CYP450, metabolites: 0}
+        - {compound: p_coumaric_acid, option: CYP450, metabolites: 2, problem: "产物化学上荒谬：'2-O-Acylation of 1-monoacylglycerol' 产出咖啡酸"}
+    blocked_classes:
+      - {class: cinnamoyl_glycoside, reason: "CYP450/PHASEII/ALLHUMAN 规则对该类无覆盖；0 产物必须记 out_of_domain，不可读作'无代谢'"}
+    rule: "任何 0 产物结果，必须先跑同 option 的阳性对照；对照 >0 而待测 =0 -> out_of_domain"
+    verified_20261104:
+      - "option 枚举从 https://biotransformer.ca/queries/new 的 <option value> 实取，共 12 个：CYP450 / ECBASED / PHASEII / HGUT / ENVMICRO / ALLHUMAN / SUPERBIO / MULTIBIO / ABIOTICBIO / Combined / Rule Based / CyProduct"
+      - "**HGUT（Human Gut Microbial）实测可用**：acetaminophen -> 3 个唯一代谢物（阳性对照，固定期望值）；quercetin -> 7 个"
+      - "**reaction_type 是规则名、不是机理描述**：acetaminophen 的葡糖醛酸苷被标 'Decarboxylation of aromatic L-amino acid'（Δm=+176.03，方向与标签矛盾）；quercetin 有 2 条标 'Hydroxylation' 而产物实际少一个 O（Δm=−15.99）。实测 7/7 条标注与质量差不符 → **只可引用 smiles/inchikey**"
+      - "**biosystem 过滤是必需的**：同一次 HGUT 查询里出现了一条 biosystem='Human'（儿茶酚 O-甲基化），不过滤就会把人体代谢算成菌群代谢"
+      - "原始响应可用 `adt.cli gut-micro --dump-raw` 落盘审计（bt_raw_<cid>.json）"
+    submodule: "adt/gut_microbiome.py（`adt.cli gut-micro`）：HGUT + biosystem 过滤 + 反应标注一致性 QC + 阳性对照闸门"
+
+  - name: xenosite
+    label: XenoSite
+    url: https://xenosite.org
+    status: license_required
+    independence_group: dl_atomwise   # 同组多源同向只记 1 独立票（两票半原则）
+    interface: "网页免费（学术/非商业）；**程序化 API 需商业许可**"
+    adapter: adt/adapters/xenosite.py
+    models:
+      reactivity: https://xenosite.org/reactivity
+      quinone: https://xenosite.org/quinone      # 邻苯二酚 -> 邻醌，本类最关键
+      ndealk: https://xenosite.org/ndealk
+      epoxidation: https://xenosite.org/epoxidation
+      phase1: https://xenosite.org/phase1
+      ugt: https://xenosite.org/ugt
+    terms_quote: "Licenses are available for secure commercial access and access to the programatic API."
+    note: "前端是 Qwik + RDKit-WASM，无公开 REST 端点（/api、/apiv2 均 404）。本适配器只做 task 生成 + 人工回填，不模拟网页提交（等于绕过许可）。"
+
+  - name: admetasar3
+    label: admetSAR 3.0
+    url: http://lmmd.ecust.edu.cn/admetsar3/
+    status: needs_probe
+    independence_group: legacy_qsar   # 同组多源同向只记 1 独立票（两票半原则）
+    interface: "PHP 表单（服务端渲染，无 JS 框架）"
+    verified_http: 200
+    adapter: null
+    probed:
+      - "GET /admetsar3/predict.php -> 200，页面含两个 form，action=predict_submit.php，method=POST，其中一个 enctype=multipart/form-data"
+      - "字段：smiles-single（文本）或 smiles-multi（.txt 文件）"
+      - "POST predict_submit.php（urlencoded，smiles-single）-> 200，返回页只有 Notice + 一个再查表单，**没有作业链接**"
+      - "POST 同上但 multipart -> 302 回 predict_submit.php（验证未通过）"
+      - "结果页原文：'Results now require the private link issued when a job is submitted'，查询表单要 id-input(Job ID) + access_key"
+    blocker: "二轮探测（2026-10-27）：POST 被接受（响应显示 'You can submit 99 more job(s) today'）但响应里**没有** private link，也无 script 块；Chrome 无头渲染表单页后 DOM 与源码完全一致（无隐藏字段、无 JS 注入字段）。access_key 的发放路径未知（可能邮件/可能服务端条件未满足）——**不要写适配器硬凑**"
+    note: "端点口径与 ADMETlab 不同，不要混用；未做对照集校准前只作背景"
+    next_step: "用 Chrome --headless 提交并截图/抓 DOM，确认 access_key 的生成位置"
+
+  - name: predherg
+    label: Pred-hERG
+    url: https://predherg.labmol.com.br
+    status: needs_probe
+    independence_group: herg_specialist   # 同组多源同向只记 1 独立票（两票半原则）
+    interface: "Next.js 应用（/_next/static/*），无服务端表单"
+    verified_http: 200
+    adapter: null
+    probed:
+      - "首页 200 / 53 KB，无 <form>/<input>/<textarea>"
+      - "静态资源全是 /_next/static/chunks/*.js，说明提交走前端 fetch"
+    blocker: "没有公开的 API 文档，猜测 /api/* 端点属于逆向；本轮不猜"
+    note: "只有 hERG，专而窄，正好用来给'全系列 hERG 全阴'做第二个独立源"
+    next_step: "Chrome --headless 提交一次并抓 network（可导出 HAR），拿到真实 endpoint 再写适配器"
+
+  - name: toxric
+    label: TOXRIC
+    url: https://toxric.bioinforai.tech
+    status: needs_probe
+    independence_group: database   # 同组多源同向只记 1 独立票（两票半原则）
+    interface: "SPA（首页仅 740 字节 + 高德地图脚本）"
+    verified_http: 200
+    adapter: null
+    probed:
+      - "首页 740 字节，只有 webapi.amap.com/maps 脚本，没有任何表单或内容"
+      - "实际应用很可能挂在子路径或子域名"
+    blocker: "入口位置未确定；先定位真实入口再议"
+    note: "端点很多但训练集偏药物样，糖苷要核适用域"
+
+  - name: swissadme
+    label: SwissADME
+    url: https://www.swissadme.ch
+    status: ok
+    independence_group: descriptor_rules   # 同组多源同向只记 1 独立票（两票半原则）
+    interface: web-form（一次 1 个分子）
+    verified_http: 200
+    adapter: "adt/readback.py（**回填通道**，不是爬虫）"
+    verified_20261104:
+      - "GET https://www.swissadme.ch/ -> 200（42909 B），表单 action=index.php 存在"
+      - "GET /index.php -> **403**（bot 防护）；自动化提交不可用，且站点未提供 API/批量接口"
+      - "因此只能人工在浏览器里跑 → 导出 CSV → `adt.cli readback --source swissadme`"
+    fills_gaps:
+      - "**P-gp 底物**：三个计算源里 ADMET-AI 只给抑制剂、ADMETlab 本类 14/14 恒为 N、vNN 全 NoPrediction → SwissADME 是目前唯一可批量取的第二个底物来源"
+      - "五套 logP（iLOGP/XLOGP3/WLOGP/MLOGP/SILICOS-IT）+ BOILED-Egg：与 descriptor_ml **不同族**，可作跨族一致性检查"
+    note: >
+      共识 logP/logS、BOILED-Egg、PAINS、合成可及性；不做批量。
+      ⚠ 它是 **descriptor_rules 族**：与 ADMETlab/ADMET-AI（descriptor_ml）不同族，
+      所以能提供**跨族**互证；但它的五个 logP 彼此同族，**不得**当成五个独立源。
+      回填 schema 见 references/readback_schemas.yaml；列名不符时用 `--map` 显式覆盖。
+
+  - name: chembl
+    label: ChEMBL
+    url: https://www.ebi.ac.uk/chembl/
+    status: ok
+    independence_group: experimental_truth   # 同组多源同向只记 1 独立票（两票半原则）
+    interface: "REST API（无需 key）"
+    verified_http: 200
+    adapter: adt/adapters/chembl.py
+    role: "外部真值 + **适用域指标**：邻居数/最大 Tanimoto 直接回答'这个分子有没有同系物数据'"
+    api:
+      similarity: "GET /chembl/api/data/similarity/{urlencoded_smiles}/{40-100}.json?limit=N —— 返回 {molecules:[...], page_meta:{total_count}}"
+      similarity_range: "**阈值只允许 40–100**；传 30 会 400（'Invalid Similarity Score supplied: 30. It should be between 40 and 100'）"
+      similarity_pitfall: "老的 `molecule.json?molecule_structures__canonical_smiles__similarity=...&similarity=70` 会 500（'CharField' object has no attribute 'get_related_resource'），不要用"
+      similarity_has_no_score: "返回的 molecule 里**没有 Tanimoto 分数**，只有 canonical_smiles；最大相似度要本地用指纹算"
+      activity: "GET /activity.json?molecule_chembl_id__in=CHEMBL25,CHEMBL112&limit=1000 —— `__in` 逗号分隔可用"
+      herg: "同一 activity 接口加 target_chembl_id=CHEMBL240"
+      activity_fields: "molecule_chembl_id / standard_type / standard_value / standard_units / assay_chembl_id"
+    measured_facts:
+      cinnamoyl_glycoside:
+        - {compound: M_true, tanimoto40_neighbors: 537, max_tanimoto: 0.676, nearest: CHEMBL479699_PUBESCENOSIDE_A, tanimoto70_neighbors: 0}
+        - "结论：Tanimoto>=70 的邻居为 0，但 40% 档有 537 个同类糖苷 —— **适用域用 40% 档判断，用 70% 档会误判为'完全无参考'**"
+
+  - name: pkcsm
+    independence_group: null   # dead/redundant，不参与计票
+    label: pkCSM
+    url: https://biosig.lab.uq.edu.au/pkcsm/   # 2026-11-04：站点已从 unimelb 迁到 UQ（301）
+    old_url: http://biosig.unimelb.edu.au/pkcsm/
+    status: dead
+    evidence: "服务端 500，http/https 共 5 次实测；/pkcsm/run_example 静态页 200 但提交结果页 500"
+    note: >
+      **不要再接入**。多份 AI 分析仍把它列为可用免费工具，实测已死。
+      **2026-11-04 复测（第三次，地点已变）**：域名迁移到 UQ 后，前端全活、
+      预测后端仍死。逐项证据见 `verified_20261104` —— 关键在于**首页 200 是引诱**。
+    verified_20261104:
+      - "GET /pkcsm/ -> 200（8093 B）；GET /pkcsm/prediction -> 200（9653 B），表单完整"
+      - "表单：POST /pkcsm/admet_prediction，字段 smiles_str（文本）/ smiles_file（上传）/ pred_type（button 值）"
+      - "POST urlencoded 或 multipart + pred_type=admet/abso/dist/met/excr/tox → **全部 500**（8/8）"
+      - "上传单列头文件（header=SMILES 或 smiles）→ 也 **500**：说明**通过了文件校验**，崩在预测引擎"
+      - "上传双列头文件（ID,SMILES）或无头 .smi → 200 + 'Error Please provide a valid SMILES file'（被解析器挡下）"
+      - "GET /pkcsm/run_example -> 200 且能显示一份完整结果表（**缓存示例页**，不代表服务可用）"
+      - "结论：pkCSM 的 P-gp 底物 / 总清除率 / hERG 等端点**当前无法通过 API 取得**，"
+      - "替代路径：SwissADME 回填拿 P-gp 底物（见 references/readback_schemas.yaml）"
+    corroboration_20261027:
+      - "外部独立工作线再测：urlencoded/文件上传/补空字段/会话 cookie 四种方式全部 400 —— 与本项目第七轮结论互证，正式除名"
+      - "示例端点(run_example)活着只是引诱，不要据此判断服务可用"
+
+  - name: pass_online
+    independence_group: null   # dead/redundant，不参与计票
+    label: PASS online
+    url: http://www.way2drug.com
+    status: dead
+    evidence: "20 s 连接超时；pass.online 域名不解析"
+
+  - name: admetmesh
+    independence_group: null   # dead/redundant，不参与计票
+    label: ADMETmesh
+    url: https://admetmesh.scbdd.com
+    status: redundant
+    evidence: "302 跳转 ADMETlab 2.0，与 admetlab3 重复"
+
+  - name: pyscf
+    label: PySCF（DFT，免注册）
+    url: https://pyscf.org
+    status: ok
+    independence_group: quantum_chemistry   # 同组多源同向只记 1 独立票（两票半原则）
+    interface: "conda-forge win-64（2.14）"
+    verified_http: 200
+    adapter: null
+    role: "DFT 级 HOMO/LUMO/Fukui/ESP 的免注册方案；ORCA 需注册+慢速下载，本机主线不阻塞"
+    api:
+      install: "conda 装 pyscf；conda 环境运行需 PATH 加 Library\\bin 否则 delay-load DLL 失败"
+      method: "**必须 DF-B3LYP（密度拟合）**：普通 RI-JK 在 8 GB 机器 CVHFallocate_JKArray 崩；DF 内存降一个量级、能量差 0.1 kcal/mol"
+      benchmark: "水 B3LYP/def2-SVP = -76.35821 Eh（文献值）；58 原子 DF 单点 7-25 min"
+      output: "molden 输出**必须 .molden 后缀**（Multiwfn 按扩展名识别）；Multiwfn 批处理：函数 7→1 Hirshfeld / 12→0 ESP，末尾 n 退出"
+    warning: "xTB 与 B3LYP 的轨道能有系统性偏移（xTB -10.3/-8.1 vs B3LYP -5.9/-2.0 eV）；论文只可引 DFT 值；Fukui/ESP 相对描述符两法一致"
+
+  - name: orca
+    label: ORCA（学术注册）
+    url: https://www.faccts.de/customer/
+    status: needs_probe
+    independence_group: quantum_chemistry   # 同组多源同向只记 1 独立票（两票半原则）
+    interface: "本机已装 6.1.1（ADT_ORCA_DIR 指向含 orca.exe 的目录；换机需学术注册下载）"
+    verified_http: 200
+    verified_20261105:
+      - "本机实测：orca.exe --version banner 含 'Program Version 6.1.1  -  RELEASE  -'；该 CLI 固定 rc=2，退出码不可作验收（同 PK-Sim rc=1）"
+      - "HF/def2-SVP H2O 单点实跑 rc=0 / ORCA TERMINATED NORMALLY / FINAL SINGLE POINT ENERGY -75.960838753103 Eh / 10.7 s"
+      - "adt/env_audit.py 的 ext.orca 与 --deep 的 ext.orca.deep 均判 ok；路径走 ADT_ORCA_DIR 或有限广度自动发现，代码零硬编码本机路径"
+      - "status 刻意保留 needs_probe：这是计票/准入层的保守标记，本机装了 ORCA != 该源可作为预测证据；改 status 会改变上游行为，故只更新事实字段"
+    role: "DFT 级 HOMO/LUMO/Fukui/ESP；与 PySCF 同属 quantum_chemistry 独立组，两源同向只记 1 张独立票"
+    adapter: null
+    notes:
+      - "正确入口 faccts.de/customer（注册表单无验证码：姓名/邮箱/机构/密码）；orcaforum 老域名国内超时"
+      - "下载区**不支持 Range 断点续传**（多线程无效，实测返回 200 全量）；手册 PDF 区支持（8 线程提速 9.5 倍）"
+      - "IPv6 线路比 v4 快一倍（38→82 KB/s）；Windows 包 5.95-7.37 GB，选最小变体"
+      - "安装包登录保护：307 跳登录页；WordPress 登录（wp-login.php）可自动化"
+
+  - name: cas_benchchem
+    label: CAS/BenchChem/NCI CIR（SMILES 来源）
+    url: https://commonchemistry.cas.org
+    status: ok
+    independence_group: experimental_truth   # 同组多源同向只记 1 独立票（两票半原则）
+    interface: "网页抓取"
+    verified_http: 200
+    adapter: null
+    role: "供应商/权威 SMILES + **立体 InChI 反算 CIP** 可验证构型映射（实例：Regaloside I CAS 126239-78-9 -> 甘油 C2=R）"
+    warning: "RDKit 原子编号 != InChI 编号，定位甘油 C2 必须按结构特征（O 邻居连羰基）而非索引"
+
+# ================= v4.14–v4.20 新增登记（截图工具收编；全部 2026-11-04 实测） =================
+#
+# 登记原则（与全表一致）：**没实测过的写 needs_probe，不能写成 ok**；
+# 数据库写的角色是 database（文献级证据），模型没有公开入口的写 paper_only。
+# 这三类都 **不参与计票**（independence_group=null 或标注 non_voting）。
+
+  - name: microbetcm
+    label: MicrobeTCM（中药-菌群互作数据库）
+    url: https://www.microbetcm.com
+    status: ok
+    independence_group: database
+    role: database
+    non_voting: true
+    verified_http: 200
+    verified_20261104: ["GET https://www.microbetcm.com -> 200"]
+    interface: "网页查询（无公开 API）"
+    adapter: "adt/readback.py --source microbetcm（人工导出后回填，domain_flag=manual）"
+    note: >
+      171 疾病 / 725 微生物 / 15780 成分。给的是**已知互作/已知代谢物**，不是预测；
+      回填后 predictive_value=none，**不得进 reliab 计票**。
+
+  - name: gutbugdb
+    label: GutBugDB
+    url: https://metabiosys.iiserb.ac.in/gutbugdb/
+    status: ok
+    independence_group: database
+    role: database
+    non_voting: true
+    verified_http: 200
+    verified_20261104: ["GET /gutbugdb/ -> 200"]
+    interface: "网页查询（无公开 API）"
+    adapter: "adt/readback.py --source gutbugdb"
+    note: "1378 种 FDA 药物 + 61 种天然产物的菌群代谢信息。同上：文献级证据，不投票。"
+
+  - name: masi
+    label: MASI（菌群-药物互作，DRBLab）
+    url: https://web.idrblab.cn/masi/
+    status: needs_probe
+    independence_group: database
+    role: database
+    non_voting: true
+    verified_20261104:
+      - "**DNS 解析失败**：urlopen -> getaddrinfo failed（本机 2026-11-04）"
+    blocker: "域名不可达；网址照留，换网络/代理后重试。不要因为'打不开'就用二手数据替代。"
+    interface: "网页查询（预计无 API）"
+    adapter: "adt/readback.py --source masi（待可达后启用）"
+
+  # ---- 心脏离子通道专门模型（截图 §七）：本机均无可用在线端点，登记为 paper_only ----
+  - name: cardiosafe
+    label: CardioSafe（hERG，原子级可解释）
+    url: ""
+    status: paper_only
+    independence_group: herg_specialist
+    role: model
+    non_voting: true
+    verified_20261104: ["**未找到公开推理端点**；待作者提供 web server / docker 后再探"]
+    interface: "未确认"
+    adapter: "adt/readback.py --source cardiosafe（需 --map）"
+    note: >
+      价值在**原子级归因**（哪个子结构在堵孔），这是概率模型给不出的；
+      但在拿到入口前，材料里**不得**写"已接入"。
+
+  - name: cardiosim_tox
+    label: Cardiosim-Tox（hERG/Cav1.2/Nav1.5 多任务）
+    url: ""
+    status: paper_only
+    independence_group: herg_specialist
+    role: model
+    non_voting: true
+    verified_20261104: ["**未找到公开推理端点**"]
+    adapter: "adt/readback.py --source cardiosim_tox（需 --map）"
+    note: >
+      三通道同时给值，正好喂 `adt.cli cardiac`；但**同一模型的三通道不是三个独立源**。
+    dedupe_rule: "与 cardiosafe/mtf_herg 同属 herg_specialist，跨源表决时只记 1 票"
+
+  - name: mtf_herg
+    label: MTF-hERG / FEAOF（补充验证）
+    url: ""
+    status: paper_only
+    independence_group: herg_specialist
+    role: model
+    non_voting: true
+    verified_20261104: ["Hugging Face Space 与代码仓库的存在性未核实；不得写入'可用'"]
+    note: "只作为 hERG 的**第二意见**；与 predherg/cardiosafe 同族，不得叠加成多票。"
+
+  # ---- 中药特异性毒性（截图 §七）：论文模型，均无可验证的公开服务 ----
+  - name: herbtoxnet
+    label: HerbToxNet（中药-成分-靶点异质图）
+    url: ""
+    status: paper_only
+    independence_group: tcm_specific
+    role: model
+    non_voting: true
+    verified_20261104: ["**未找到公开推理端点**；论文声称经典中药毒性标签 96% 准确率，但不可复核"]
+    adapter: "adt/readback.py --source herbtoxnet（需 --map）"
+    note: >
+      这是本领域**真正缺口**（通用 ADMET 源在中药上系统性失准，本 skill 的 14 分子
+      案例即是证据）。但在拿到可执行入口前，只能写"已知存在该方向的工作"，
+      **不得**在材料里写成"已用 HerbToxNet 复核"。
+
+  - name: kan_prospect
+    label: KAN-PROSPECT（天然产物 活性+ADR 双标签）
+    url: ""
+    status: paper_only
+    independence_group: tcm_specific
+    role: model
+    non_voting: true
+    verified_20261104: ["**未找到公开推理端点**"]
+    note: "双标签（活性 + ADR）设计对中药成分很合适；同样受'无入口'限制。"
+
+  # ---- PK/PD 与 PBPK 建模软件（截图外的显式要求）：桌面/R 工具，走 interop 桥 ----
+  - name: pk_sim_mobi
+    label: PK-Sim / MoBi（Open Systems Pharmacology）
+    url: https://www.open-systems-pharmacology.org/
+    status: ok
+    independence_group: pbpk_platform
+    role: platform
+    non_voting: true
+    verified_http: 200
+    verified_20261104:
+      - "官网 200（GPLv2，Windows/Linux/macOS 桌面套件，.NET + R）"
+      - "2026-11-04 补记：portable ZIP 已装（PKSim 12.3.173 / MoBi 12.3.136），
+         `PKSim.CLI snap -p` 往返 **32/32 化合物逐位一致**；adt/interop.py 已写
+         validated_against_tool=pk_sim_cli_snap_passed（化合物层）。
+         **仿真层未闭环**：snap 后 Simulations 恒为 0，不得写入材料。"
+      - "2026-11-05 环境排查复核：`PKSim.CLI --version` 实跑产出版本串（该 CLI 固定返回 rc=1，
+         退出码不可作验收）；路径由 ADT_OSP_DIR / .env_audit_paths.json 解析，换机需重配。"
+    interface: "桌面 GUI + PKSim.CLI（有 CLI，但无 headless 仿真契约）"
+    adapter: "adt/interop.py（化合物参数表 + observed 数据表；**只做桥，不重写求解器**）"
+    note: >
+      本 skill 的 `pbpk` 是自建 12 状态灌注限制模型，**不是** regulator-grade 平台，
+      与 Simcyp/GastroPlus 无可比性声明（既有口径不变）。PK-Sim 用来做"独立第二实现"，
+      正好服务 v4.0 授予条件③（外部第二实现者复现）。
+
+  - name: nlmixr2
+    label: nlmixr2（R，PopPK/PD）
+    url: https://nlmixr2.org/
+    status: ok
+    independence_group: poppk_tooling
+    role: platform
+    non_voting: true
+    verified_http: 200
+    adapter: "adt/interop.py（NONMEM 数据集 + R 模型骨架；template_only）"
+    note: >
+      支持 TMDD 等复杂模型。2026-11-05 环境排查实测：R 4.5.3 + nlmixr2 5.0.0 +
+      rxode2 5.0.2 + 官方 CRAN qs2 0.3.1 已装且 `micromamba run -p <env> Rscript`
+      实跑通过；v4.21 的 `nlmixr2_fit_passed`（FOCEI 收敛，仅 V 可辨识）仍成立。
+      换机重建见 SETUP_REPRODUCE.md §4 / §6。
+
+  - name: pharmpy
+    label: Pharmpy（Python，自动化 PK/PD 模型开发）
+    url: https://pharmpy.github.io/
+    status: ok
+    independence_group: poppk_tooling
+    role: platform
+    non_voting: true
+    verified_http: 200
+    adapter: >
+      adt/interop.py 的 NONMEM 数据集可直接被 Pharmpy 读取。
+      2026-11-05 排查发现主 Python 环境**已缺失**，已从官方 PyPI 补装
+      `pharmpy-core==2.3.0`（注意包名不是 `pharmpy`，后者只有 0.0.1/0.0.2 占位版），
+      并实测 `import pharmpy` + `pharmpy.modeling.create_datainfo` 可用。
+      v4.21 的 `pharmpy_dataset_ok`（11228 行 / 12 列 / 28 受试者）是当时环境的结论；
+      换机后由 bootstrap 重建环境，再用 env-audit + 数据集真读重放验证。
+    note: "与 nlmixr2 同属 poppk_tooling：二者是**同一份数据的两种实现**，不是两个独立证据。"
+
+
+# ---- 化学类 -> 源白名单（本项目的核心资产，每遇到新化学类都要重算） ----
+chemical_classes:
+  cinnamoyl_glycoside:
+    description: "肉桂酰（香豆酰/咖啡酰/阿魏酰）与葡萄糖的甘油酯，含邻苯二酚亚类"
+    trusted_for_decision:
+      - "vNN 的 hERG / MMP（9/14 在域内，全阴）"
+      - "ProTox 的 DILI / Ames 方向（相对量，绝对值不可比）"
+      - "ADMET-AI 的 hERG（14/14 <0.5，与 ADMETlab 一致）"
+      - "本机 E3（ALPB 溶剂化）/ E4（xTB BDE）/ E5（可及性）"
+    background_only: [admetasar3, toxric, deeppurpose]   # v2.2：修正拼写 admet_asar3->admetasar3，删除伪源名 admet_ai_most_endpoints（ADMET-AI 仅部分端点作背景，按端点级 blocked_endpoints_in_class 管理）
+    forbidden: [admetlab3.DILI, admetlab3.Ames, admetlab3.OATP1B1, admetlab3.OATP1B3,
+                admetlab3.NR-ER, deeppurpose.caco2, deeppurpose.aqsoldb, biotransformer]
+    key_risks:
+      - "Michael 受体（全部 14 个）：α,β-不饱和酯"
+      - "邻苯二酚（C/E/K/L/M）：COMT 快速甲基化 + 氧化成醌后共价结合"
+      - "酯键 + 糖苷键的化学不稳定性（口服第一关，未测）"
+
+# ---- 靶点侧元数据（S-1 思想：受体形态决定结论的适用范围） ----
+targets:
+  DP1_PTGDR:
+    receptor: "前列腺素 D2 受体（GPCR）"
+    structures:
+      - pdb: "8ZVZ"
+        chain: "D"
+        cocrystal_ligand: "A1AF8 (BW245C, agonist)"
+        conformational_state: "active-like（激动剂结合态）"
+        usage_limit: "适合激动剂/内源配体的结合比较；用做拮抗剂筛选存在激活态口袋偏差（未量化）——引用结论时必须带此限制"
+        source_facts:
+          - "D 链含 BRIL 融合标签；共晶配体经 PDB CCD 核对 C19H32N2O5"
+          - "受体 2391 原子 / 306 残基；bw245c redocking best RMSD 1.09 Å（外部线实测）"
