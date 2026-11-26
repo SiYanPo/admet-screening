@@ -1,0 +1,12 @@
+﻿endpoint,n_undetermined,dominant,domain_block,phys_range_violation,unit_isomerism,insufficient_independent_groups,spread_exceeded,saturation,no_rule,insufficient_sources,other
+ames,2,insufficient_independent_groups,,,,1.0,,,,,
+caco2_papp_ab,2,insufficient_independent_groups,,,,1.0,,,,,
+carcinogenicity,2,insufficient_independent_groups,,,,1.0,,,,,
+clint_microsome,2,insufficient_independent_groups,,,,1.0,,,,,
+dili,2,spread_exceeded,,,,0.5,0.5,,,,
+herg,2,unit_isomerism,,,1.0,,,,,,
+mmp,1,insufficient_independent_groups,,,,1.0,,,,,
+nr_ar_lbd,2,insufficient_independent_groups,,,,1.0,,,,,
+ppb_fu,2,insufficient_independent_groups,,,,1.0,,,,,
+sr_are,2,insufficient_independent_groups,,,,1.0,,,,,
+sr_p53,2,insufficient_independent_groups,,,,1.0,,,,,
