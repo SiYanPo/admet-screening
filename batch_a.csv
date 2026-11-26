@@ -1,0 +1,13 @@
+compound_id,input_smiles,calc_smiles,state_flag,formula,inchikey,mw,clogp,hard_gate_problems,state_sensitive,note
+A-12BH10,COC1=C(C=CC(=C1)/C=C/C(=O)OCC(CO)O)O,COc1cc(/C=C/C(=O)OCC(O)CO)ccc1O,unchanged,C13H16O6,QXRAHTFDPBQKIM-HWKANZROSA-N,268.26,0.31,,,含 3 个酸性羟基、0 个碱性氮：pH 7.4 下离子化比例需逐源核对
+A-13BH9,C1=CC(=CC=C1/C=C/C(=O)OCC(CO)O)O,O=C(/C=C/c1ccc(O)cc1)OCC(O)CO,unchanged,C12H14O5,YUQSZTOOHLGKGG-ZZXKWVIFSA-N,238.24,0.3,,,含 3 个酸性羟基、0 个碱性氮：pH 7.4 下离子化比例需逐源核对
+BH7,C1=CC(=C(C=C1/C=C/C(=O)OC(CO)CO)O)O,O=C(/C=C/c1ccc(O)c(O)c1)OC(CO)CO,unchanged,C12H14O6,WOUPJVSGYYLKKE-DUXPYHPUSA-N,254.24,0.01,,,含 4 个酸性羟基、0 个碱性氮：pH 7.4 下离子化比例需逐源核对
+BH11,C1=CC(=C(C=C1/C=C/C(=O)OCC(CO)O)O)O,O=C(/C=C/c1ccc(O)c(O)c1)OCC(O)CO,unchanged,C12H14O6,NOHROAYVCRHDHO-DUXPYHPUSA-N,254.24,0.01,,,含 4 个酸性羟基、0 个碱性氮：pH 7.4 下离子化比例需逐源核对
+BH14,O=C(/C=C/c1ccc(OC)cc1)OC[C@@H](O)CO,COc1ccc(/C=C/C(=O)OC[C@@H](O)CO)cc1,unchanged,C13H16O5,TWNMUIOZHQVLGC-ZPMKCOPCSA-N,252.27,0.6,,,含 2 个酸性羟基、0 个碱性氮：pH 7.4 下离子化比例需逐源核对
+BH1,CC(=O)OC[C@@H](O)COC(=O)/C=C/c1ccc(O)c(O)c1,CC(=O)OC[C@@H](O)COC(=O)/C=C/c1ccc(O)c(O)c1,unchanged,C14H16O7,RPGSGRREDSLHQH-JOAKQRRISA-N,296.28,0.58,,,含 3 个酸性羟基、0 个碱性氮：pH 7.4 下离子化比例需逐源核对
+BH2,CC(=O)OC[C@@H](O)COC(=O)/C=C/c1ccc(O)cc1,CC(=O)OC[C@@H](O)COC(=O)/C=C/c1ccc(O)cc1,unchanged,C14H16O6,KYPPXDNYBXBMEB-WXJAXGNASA-N,280.28,0.87,,,含 2 个酸性羟基、0 个碱性氮：pH 7.4 下离子化比例需逐源核对
+BH24,COC1=C(C=CC(=C1)/C=C/C(=O)OCC(COC(=O)/C=C/C2=CC=C(C=C2)O)O)O,COc1cc(/C=C/C(=O)OCC(O)COC(=O)/C=C/c2ccc(O)cc2)ccc1O,unchanged,C22H22O8,GRWHNBXHXKFRHQ-YOYBCKCWSA-N,414.41,2.28,,,含 3 个酸性羟基、0 个碱性氮：pH 7.4 下离子化比例需逐源核对
+BH25,COC1=C(C=CC(=C1)/C=C/C(=O)OCC(O)COC(=O)/C=C/C2=CC(=C(C=C2)O)OC)O,COc1cc(/C=C/C(=O)OCC(O)COC(=O)/C=C/c2ccc(O)c(OC)c2)ccc1O,unchanged,C23H24O9,PATJZXBBUQEFOY-NXZHAISVSA-N,444.44,2.29,,,含 3 个酸性羟基、0 个碱性氮：pH 7.4 下离子化比例需逐源核对
+BH26,COc1cc(/C=C/C(=O)OC[C@@H](O)COC(=O)/C=C/c2ccc(O)c(O)c2)ccc1O,COc1cc(/C=C/C(=O)OC[C@@H](O)COC(=O)/C=C/c2ccc(O)c(O)c2)ccc1O,unchanged,C22H22O9,JKATYZAMIWWOPM-MRBRFFFSSA-N,430.41,1.99,,,含 4 个酸性羟基、0 个碱性氮：pH 7.4 下离子化比例需逐源核对
+BH27,C1=CC(=CC=C1/C=C/C(=O)OCC(COC(=O)/C=C/C2=CC(=C(C=C2)O)O)O)O,O=C(/C=C/c1ccc(O)cc1)OCC(O)COC(=O)/C=C/c1ccc(O)c(O)c1,unchanged,C21H20O8,DISOMVQPNGKRHO-LUZURFALSA-N,400.38,1.98,,,含 4 个酸性羟基、0 个碱性氮：pH 7.4 下离子化比例需逐源核对
+BH28,COC1=C(C=CC(=C1)/C=C/C(=O)OCC(CO)OC(=O)/C=C/C2=CC(=C(C=C2)O)OC)O,COc1cc(/C=C/C(=O)OCC(CO)OC(=O)/C=C/c2ccc(O)c(OC)c2)ccc1O,unchanged,C23H24O9,WNKCXGPZQKICLI-NXZHAISVSA-N,444.44,2.29,,,含 3 个酸性羟基、0 个碱性氮：pH 7.4 下离子化比例需逐源核对
