@@ -1,0 +1,7 @@
+﻿name,formula,exact_mw,precursor_mh,role,note
+Regaloside A,C18H24O10,400.1369,399.1297,parent_A,母体；[M-H]- 399.1 → 子离子 163.0（丢 236.09，即甘油葡萄糖）
+Regaloside B,C20H26O11,442.1475,441.1402,parent_B,母体；[M-H]- 441.1 → 399.1（丢 42.01 = 乙酰基）
+p-coumaric acid,C9H8O3,164.0473,163.0401,aglycone,苷元；163.0 → 119.0
+A minus glucose,C12H14O5,238.0841,237.0768,deglycosylated_A,脱糖产物（LPH/菌群）；237.1 → 163.0
+B minus glucose,C14H16O6,280.0947,279.0874,deglycosylated_B,脱糖产物；279.1 → 163.0 或 219.1
+D-glucose,C6H12O6,180.0634,179.0561,sugar,糖基释放的间接证据（179.1）
