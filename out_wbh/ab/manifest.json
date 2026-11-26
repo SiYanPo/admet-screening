@@ -1,0 +1,15 @@
+{
+  "binding_item": "C2-a / C12 / 外审 C V3",
+  "command": "adt\\cli.py regaloside-ab --outdir out_wbh\\ab",
+  "content_sha256": "4a10bd8d1e478e4bb057968cf4cfa88193197d233720ff5c7812c0c86ddf8804",
+  "data_sha256": [],
+  "env_digest": "60535043a04a0ed8594c46409ab1e1087d1f9d7f006d0a2adec9141669ae10e9",
+  "estimand_id": null,
+  "generated_at": "2026-11-07T09:36:35",
+  "hash_policy": "content_sha256 排除 created_at/generated_at/prev_hash/content_sha256/cwd 等易变字段；同一输入两次运行必须相同",
+  "inputs_sha1": {},
+  "prev_hash": "4a10bd8d1e478e4bb057968cf4cfa88193197d233720ff5c7812c0c86ddf8804",
+  "schema_version": "2.0",
+  "script_sha256": "767d57093d7b881b8a767ed8f165d907e27cbef23cc4b7b1902861ff72fe6f62",
+  "value": null
+}
