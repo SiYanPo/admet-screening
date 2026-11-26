@@ -1,0 +1,136 @@
+[keystone] endpoint=Ames seeds=20 ...
+tdc.BenchmarkGroup will be deprecated soon. Please use tdc.benchmark_group.XXX_group and check out the examples on website!
+Found local copy...
+   S1_naive_majority                            U=-0.6479  cov=1.0    risk=0.242 
+   S1_naive_majority                            U=-0.6479  cov=1.0    risk=0.242 
+   S1_naive_majority                            U=-0.6479  cov=1.0    risk=0.242 
+   S1_naive_majority                            U=-0.6479  cov=1.0    risk=0.242 
+   S1_naive_majority                            U=-0.6479  cov=1.0    risk=0.242 
+   S1_naive_majority                            U=-1.1582  cov=1.0    risk=0.242 
+   S1_naive_majority                            U=-0.3432  cov=1.0    risk=0.242 
+   S1_naive_majority                            U=-0.6479  cov=1.0    risk=0.242 
+   S1_naive_majority                            U=-0.6479  cov=1.0    risk=0.242 
+   S2_ad_guard                               U=-0.4773  cov=0.822  risk=0.227 
+   S2_ad_guard                               U=-0.4862  cov=0.822  risk=0.227 
+   S2_ad_guard                               U=-0.5041  cov=0.822  risk=0.227 
+   S2_ad_guard                               U=-0.5576  cov=0.822  risk=0.227 
+   S2_ad_guard                               U=-0.6468  cov=0.822  risk=0.227 
+   S2_ad_guard                               U=-0.8558  cov=0.822  risk=0.227 
+   S2_ad_guard                               U=-0.2934  cov=0.822  risk=0.227 
+   S2_ad_guard                               U=-0.5041  cov=0.822  risk=0.227 
+   S2_ad_guard                               U=-0.5576  cov=0.822  risk=0.227 
+   S3_calibrated_conformal                            U=-0.1315  cov=0.587  risk=0.189 
+   S3_calibrated_conformal                            U=-0.1522  cov=0.587  risk=0.189 
+   S3_calibrated_conformal                            U=-0.1935  cov=0.587  risk=0.189 
+   S3_calibrated_conformal                            U=-0.3181  cov=0.587  risk=0.189 
+   S3_calibrated_conformal                            U=-0.5237  cov=0.587  risk=0.189 
+   S3_calibrated_conformal                            U=-0.1935  cov=0.587  risk=0.189 
+   S3_calibrated_conformal                            U=-0.1935  cov=0.587  risk=0.189 
+   S3_calibrated_conformal                            U=-0.1935  cov=0.587  risk=0.189 
+   S3_calibrated_conformal                            U=-0.3181  cov=0.587  risk=0.189 
+   S4_full_admission                            U=-0.1007  cov=0.265  risk=0.241 
+   S4_full_admission                            U=-0.1375  cov=0.265  risk=0.241 
+   S4_full_admission                            U=-0.2111  cov=0.265  risk=0.241 
+   S4_full_admission                            U=-0.432   cov=0.265  risk=0.241 
+   S4_full_admission                            U=-0.802   cov=0.265  risk=0.241 
+   S4_full_admission                            U=-0.2111  cov=0.265  risk=0.241 
+   S4_full_admission                            U=-0.2111  cov=0.265  risk=0.241 
+   S4_full_admission                            U=-0.2111  cov=0.265  risk=0.241 
+   S4_full_admission                            U=-0.432   cov=0.265  risk=0.241 
+   S5_uncalibrated_conf                            U=-0.1099  cov=0.542  risk=0.161 
+   S5_uncalibrated_conf                            U=-0.1326  cov=0.542  risk=0.161 
+   S5_uncalibrated_conf                            U=-0.1785  cov=0.542  risk=0.161 
+   S5_uncalibrated_conf                            U=-0.3167  cov=0.542  risk=0.161 
+   S5_uncalibrated_conf                            U=-0.5463  cov=0.542  risk=0.161 
+   S5_uncalibrated_conf                            U=-0.1785  cov=0.542  risk=0.161 
+   S5_uncalibrated_conf                            U=-0.1785  cov=0.542  risk=0.161 
+   S5_uncalibrated_conf                            U=-0.1785  cov=0.542  risk=0.161 
+   S5_uncalibrated_conf                            U=-0.3167  cov=0.542  risk=0.161 
+[keystone] endpoint=CYP3A4_Veith seeds=20 ...
+tdc.BenchmarkGroup will be deprecated soon. Please use tdc.benchmark_group.XXX_group and check out the examples on website!
+Found local copy...
+   S1_naive_majority                            U=-0.7923  cov=1.0    risk=0.223 
+   S1_naive_majority                            U=-0.7923  cov=1.0    risk=0.223 
+   S1_naive_majority                            U=-0.7923  cov=1.0    risk=0.223 
+   S1_naive_majority                            U=-0.7923  cov=1.0    risk=0.223 
+   S1_naive_majority                            U=-0.7923  cov=1.0    risk=0.223 
+   S1_naive_majority                            U=-1.5027  cov=1.0    risk=0.223 
+   S1_naive_majority                            U=-0.3656  cov=1.0    risk=0.223 
+   S1_naive_majority                            U=-0.7923  cov=1.0    risk=0.223 
+   S1_naive_majority                            U=-0.7923  cov=1.0    risk=0.223 
+   S2_ad_guard                               U=-0.6519  cov=0.856  risk=0.217 
+   S2_ad_guard                               U=-0.6591  cov=0.856  risk=0.217 
+   S2_ad_guard                               U=-0.6736  cov=0.856  risk=0.217 
+   S2_ad_guard                               U=-0.7169  cov=0.856  risk=0.217 
+   S2_ad_guard                               U=-0.789   cov=0.856  risk=0.217 
+   S2_ad_guard                               U=-1.2461  cov=0.856  risk=0.217 
+   S2_ad_guard                               U=-0.3294  cov=0.856  risk=0.217 
+   S2_ad_guard                               U=-0.6736  cov=0.856  risk=0.217 
+   S2_ad_guard                               U=-0.7169  cov=0.856  risk=0.217 
+   S3_calibrated_conformal                            U=-0.0733  cov=0.278  risk=0.134 
+   S3_calibrated_conformal                            U=-0.1093  cov=0.278  risk=0.134 
+   S3_calibrated_conformal                            U=-0.1815  cov=0.278  risk=0.134 
+   S3_calibrated_conformal                            U=-0.3988  cov=0.278  risk=0.134 
+   S3_calibrated_conformal                            U=-0.76    cov=0.278  risk=0.134 
+   S3_calibrated_conformal                            U=-0.1815  cov=0.278  risk=0.134 
+   S3_calibrated_conformal                            U=-0.1815  cov=0.278  risk=0.134 
+   S3_calibrated_conformal                            U=-0.1815  cov=0.278  risk=0.134 
+   S3_calibrated_conformal                            U=-0.3988  cov=0.278  risk=0.134 
+   S4_full_admission                            U=-0.0693  cov=0.152  risk=0.177 
+   S4_full_admission                            U=-0.1117  cov=0.152  risk=0.177 
+   S4_full_admission                            U=-0.1966  cov=0.152  risk=0.177 
+   S4_full_admission                            U=-0.4511  cov=0.152  risk=0.177 
+   S4_full_admission                            U=-0.8741  cov=0.152  risk=0.177 
+   S4_full_admission                            U=-0.1966  cov=0.152  risk=0.177 
+   S4_full_admission                            U=-0.1966  cov=0.152  risk=0.177 
+   S4_full_admission                            U=-0.1966  cov=0.152  risk=0.177 
+   S4_full_admission                            U=-0.4511  cov=0.152  risk=0.177 
+   S5_uncalibrated_conf                            U=-0.0774  cov=0.293  risk=0.143 
+   S5_uncalibrated_conf                            U=-0.1126  cov=0.293  risk=0.143 
+   S5_uncalibrated_conf                            U=-0.1835  cov=0.293  risk=0.143 
+   S5_uncalibrated_conf                            U=-0.3955  cov=0.293  risk=0.143 
+   S5_uncalibrated_conf                            U=-0.7495  cov=0.293  risk=0.143 
+   S5_uncalibrated_conf                            U=-0.1835  cov=0.293  risk=0.143 
+   S5_uncalibrated_conf                            U=-0.1835  cov=0.293  risk=0.143 
+   S5_uncalibrated_conf                            U=-0.1835  cov=0.293  risk=0.143 
+   S5_uncalibrated_conf                            U=-0.3955  cov=0.293  risk=0.143 
+[keystone] -> out_keystone_transfer/results.json
+[keystone][C18] legacy_accounting_only=True | pi 决策随代价变化的组 40/40 | cost_sensitive_decision_verified=True | 旧主张=revoked_pending_estimand
+=== 代价扫描 vs S1 ===
+   [cost ref           ] 显著更优 8 / 显著更差 0 / 共 8
+   [cost abstain=0.05  ] 显著更优 8 / 显著更差 0 / 共 8
+   [cost abstain=0.10  ] 显著更优 8 / 显著更差 0 / 共 8
+   [cost abstain=0.20  ] 显著更优 8 / 显著更差 0 / 共 8
+   [cost abstain=0.50  ] 显著更优 8 / 显著更差 0 / 共 8
+   [cost abstain=1.00  ] 显著更优 5 / 显著更差 2 / 共 8
+   [cost false_pass=2.0] 显著更优 8 / 显著更差 0 / 共 8
+   [cost false_pass=5.0] 显著更优 8 / 显著更差 0 / 共 8
+   [cost false_pass=10.0] 显著更优 8 / 显著更差 0 / 共 8
+=== 代价扫描 vs S5(未校准) ===
+   [cost ref           ] 显著更优 0 / 显著更差 7 / 共 8
+   [cost abstain=0.05  ] 显著更优 3 / 显著更差 5 / 共 8
+   [cost abstain=0.10  ] 显著更优 2 / 显著更差 5 / 共 8
+   [cost abstain=0.20  ] 显著更优 1 / 显著更差 7 / 共 8
+   [cost abstain=0.50  ] 显著更优 0 / 显著更差 7 / 共 8
+   [cost abstain=1.00  ] 显著更优 1 / 显著更差 7 / 共 8
+   [cost false_pass=2.0] 显著更优 1 / 显著更差 7 / 共 8
+   [cost false_pass=5.0] 显著更优 1 / 显著更差 7 / 共 8
+   [cost false_pass=10.0] 显著更优 1 / 显著更差 7 / 共 8
+=== 配对差值 vs S1 ===
+   Ames           S2_ad_guard - S1_naive_majority                Δ=+0.0899 CI[+0.0854,+0.0922] SIG
+   Ames           S3_calibrated_conformal - S1_naive_majority    Δ=+0.3308 CI[+0.3271,+0.3389] SIG
+   Ames           S4_full_admission - S1_naive_majority          Δ=+0.2184 CI[+0.2143,+0.2239] SIG
+   Ames           S5_uncalibrated_conf - S1_naive_majority       Δ=+0.3326 CI[+0.3282,+0.3386] SIG
+   CYP3A4_Veith   S2_ad_guard - S1_naive_majority                Δ=+0.0752 CI[+0.0739,+0.0781] SIG
+   CYP3A4_Veith   S3_calibrated_conformal - S1_naive_majority    Δ=+0.3935 CI[+0.3896,+0.3964] SIG
+   CYP3A4_Veith   S4_full_admission - S1_naive_majority          Δ=+0.3418 CI[+0.3378,+0.3451] SIG
+   CYP3A4_Veith   S5_uncalibrated_conf - S1_naive_majority       Δ=+0.3943 CI[+0.3897,+0.3982] SIG
+=== 配对差值 vs S5 ===
+   Ames           S1_naive_majority - S5_uncalibrated_conf       Δ=-0.3326 CI[-0.3386,-0.3282] SIG
+   Ames           S2_ad_guard - S5_uncalibrated_conf             Δ=-0.2413 CI[-0.2505,-0.2371] SIG
+   Ames           S3_calibrated_conformal - S5_uncalibrated_conf Δ=-0.0003 CI[-0.0041,+0.0007] ns
+   Ames           S4_full_admission - S5_uncalibrated_conf       Δ=-0.1151 CI[-0.1177,-0.1128] SIG
+   CYP3A4_Veith   S1_naive_majority - S5_uncalibrated_conf       Δ=-0.3943 CI[-0.3982,-0.3897] SIG
+   CYP3A4_Veith   S2_ad_guard - S5_uncalibrated_conf             Δ=-0.3193 CI[-0.3228,-0.3144] SIG
+   CYP3A4_Veith   S3_calibrated_conformal - S5_uncalibrated_conf Δ=-0.0023 CI[-0.0034,-0.0020] SIG
+   CYP3A4_Veith   S4_full_admission - S5_uncalibrated_conf       Δ=-0.0544 CI[-0.0557,-0.0537] SIG
