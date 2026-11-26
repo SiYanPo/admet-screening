@@ -1,0 +1,4 @@
+﻿method,n,aurc,risk_at_80,risk_at_90,status,label_source
+spread,20,1.0,1.0,1.0,ok,holdout_admetlab3
+structural,20,1.0,1.0,1.0,ok,holdout_admetlab3
+vote_confidence,20,1.0,1.0,1.0,ok,holdout_admetlab3
