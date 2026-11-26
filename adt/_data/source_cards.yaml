@@ -1,0 +1,140 @@
+# 预测源 model card（v3.0.0）
+#
+# 依据：Mitchell M et al. Model Cards for Model Reporting. FAT* '19, pp.220-229.
+#       DOI: 10.1145/3287560.3287596
+# 目的：把"这个源能不能信"从口头经验变成**可核查的文档**。
+#
+# 纪律：
+#   1) 不知道的字段写 not_disclosed，**不猜**。空着比编造好。
+#   2) known_failures 只写本项目实测到的（带案例编号），不写道听途说。
+#   3) 与 02_source_registry.yaml 的分工：registry 记"接口与限流"，
+#      本文件记"模型是什么、适合什么、什么时候会错"。
+
+version: 1
+
+sources:
+
+  - id: admetlab3
+    label: ADMETlab 3.0（web）
+    independence_group: descriptor_ml
+    intended_use: 广谱 ADMET 端点初筛；122 个端点、含毒性与理化
+    model_type: 描述符 + 机器学习（多种子模型集成，具体算法未完全公开）
+    training_data: not_disclosed（文献称基于 ChEMBL/PubChem 大规模 curated 集）
+    applicability_domain: 提供 AD 标志，但本类 14 分子多数端点无区分度
+    known_failures:
+      - "本类 108 个端点中 66 个无区分度（EF19 饱和扫描）"
+      - "无 CYP 诱导端点；转运体仅 5 个（OATP1B1/1B3/BCRP/BSEP/MRP1），全为肝/胆侧"
+      - "无微粒体清除列（Clearance_Microsome 不在 122 端点内）"
+      - "DILI/Ames 对本化学类全部判为阳性（0.64–0.91 / 0.83–0.99）→ 域外，已由 class_blocks 置 out_of_domain（C82）"
+    version_tracking: "源版本写 3.0；网页改版不通知 → 每批必须记 retrieved_at"
+    rate_limit: "极严：约 20 min 封禁（429），需外部守护脚本"
+    access_mode: "无公开 API，网页表单抓取（CSRF + 退避）"
+    evidence_level: "预测（未经本类实测校准）"
+    note: "行序不可信 → 必须按 canonical name 对齐"
+
+  - id: admet_ai
+    label: ADMET-AI（web 2.0 / 本地 2.0.1-local）
+    independence_group: descriptor_ml
+    intended_use: 41 个 ADMET 端点快速打分；可离线
+    model_type: Chemprop-RDKit（D-MPNN + RDKit 描述符）
+    training_data: "TDC ADMET 基准集（公开）"
+    applicability_domain: "无显式 AD 输出；以与本类结构相似度间接判断"
+    known_failures:
+      - "DrugBank 百分位列是**百分位**不是概率，禁止当概率用（C74 同源）"
+      - "本地 2.0.1-local 与网页 2.0 权重不同：分类一致、回归有偏移（Caco2 +0.53 log）→ 一分析只能用一来源"
+      - "会把位置异构体也判成不同值（14/49 列在 L/M 异构体上变化）"
+      - "CLint 会出现物理不可能值（APAP −4.3 µL/min/mg）→ 由 phys_range 拦截（C80）"
+    version_tracking: "必须区分 web-2.0 与 2.0.1-local（source_version 字段）"
+    rate_limit: "网页批量接口较宽松；本地无限制"
+    access_mode: "web 批量 + 本地 Python 包（envs/admetai_local）"
+    evidence_level: "预测（DrugBank 分位可作外部参照）"
+
+  - id: protox3
+    label: ProTox-III（web）
+    independence_group: neighbor_qsar
+    intended_use: 急性口服毒性 LD50 与毒性类别；含 13 类毒性靶点
+    model_type: "分子相似性 + 片段警示（近邻 QSAR）"
+    training_data: not_disclosed
+    applicability_domain: "以近邻相似度隐式定义；无近邻时退化"
+    known_failures:
+      - "Probability 字段是**该类别置信度**，不是阳性概率；判断阳性必须看 Prediction 列"
+      - "无近邻时 LD50 恒为 5000 mg/kg、class 5 → 无区分度（ld50_reliability 标记）"
+      - "同一会话 8 个分子后限流"
+    version_tracking: "III 代；接口为网页表单（需 molblock 而非 SMILES）"
+    rate_limit: "约 8 个/会话"
+    access_mode: "web 表单（smilesString 传 molblock）"
+    evidence_level: "预测（近邻证据可追溯但未回填）"
+
+  - id: vnn_admet
+    label: vNN-ADMET（web，需登录）
+    independence_group: neighbor_qsar
+    intended_use: 15 个端点（含 Tox21 通路、CYP、转运体分类）
+    model_type: "变量最近邻（variable nearest neighbor）QSAR"
+    training_data: "Tox21 / 内部集（论文公开部分）"
+    applicability_domain: "无近邻即 NoPrediction"
+    known_failures:
+      - "本化学类 10/15 端点全部 NoPrediction（覆盖率 0.112，而官方 CV 0.73）→ 属域外"
+      - "输出是**类别 0/1**，与概率型源混算必须经 class_map（C78）"
+      - "单作业 ≤10 分子，需自动分批"
+    version_tracking: "web-2026-10（无版本号，需记抓取月份）"
+    rate_limit: "登录 + ALTCHA + 作业轮询"
+    access_mode: "web（凭据 ~/.workbuddy/vnn_cred.json）"
+    evidence_level: "预测（域外时不得读作阴性）"
+
+  - id: chembl
+    label: ChEMBL（REST）
+    independence_group: measured_reference
+    intended_use: 邻居实测活性参照（分位）、相似性检索
+    model_type: "数据库检索（非模型）"
+    training_data: "文献提取的实测活性"
+    applicability_domain: "以结构相似度阈值（40–100）界定邻居"
+    known_failures:
+      - "相似度阈值只能 40–100，且返回不带分数（需本地 Morgan 计算）"
+      - "本类 14 分子邻居活性 180–340 条**全是 GI50/IC50/细胞毒，ADMET 实测 0 条**（C79）→ 无法给三项湿实验补第二组"
+    version_tracking: "REST API；结果随数据库更新变化 → 必须记 retrieved_at"
+    rate_limit: "免 key，建议 ≤5 req/s"
+    access_mode: "REST"
+    evidence_level: "实测（但测的不是 ADMET 端点）"
+
+  - id: biotransformer
+    label: BioTransformer 3.0（REST）
+    independence_group: metabolite_prediction
+    intended_use: 代谢产物预测（CYP450 / Phase II / 肠菌）
+    model_type: "规则 + 反应库"
+    training_data: "文献反应规则库"
+    applicability_domain: "规则覆盖决定；无规则即 0 产物"
+    known_failures:
+      - "对肉桂酰糖苷**零覆盖**：本类 0 产物 → 记 out_of_domain（不是'不代谢'）"
+    version_tracking: "3.0"
+    rate_limit: "2 POST/min"
+    access_mode: "REST（302 + Location 轮询）"
+    evidence_level: "预测（覆盖不足时不可用）"
+
+  - id: xenosite
+    label: XenoSite（web，需注册）
+    independence_group: metabolite_prediction
+    intended_use: 代谢位点（SOEM/DOI 等）预测
+    model_type: "原子级神经网络"
+    training_data: not_disclosed
+    applicability_domain: not_disclosed
+    known_failures:
+      - "无 API → 只能人工送任务 + 读回（ingest 契约 compound_id/model/endpoint/value/...）"
+      - "许可证需申请，自动化受限"
+    version_tracking: not_disclosed
+    rate_limit: "人工"
+    access_mode: "web（人工桥）"
+    evidence_level: "预测（当前无真实读回数据）"
+
+  - id: deeppurpose
+    label: DeepPurpose（本地模型库）
+    independence_group: descriptor_ml
+    intended_use: 通用 DTI/ADMET 迁移学习
+    model_type: "多种编码器 + DNN"
+    training_data: "随模型而定"
+    applicability_domain: "无"
+    known_failures:
+      - "本类 16 个模型中 10 个 UNUSABLE（输入域不匹配）→ 仅背景信息"
+    version_tracking: "随包更新"
+    rate_limit: "本地"
+    access_mode: "本地 Python"
+    evidence_level: "背景（不进裁决）"
