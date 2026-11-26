@@ -1,0 +1,230 @@
+{
+  "schema": "replication-pack/1",
+  "pack_id": "keystone-v41",
+  "metrics": [
+    {
+      "name": "hERG.S1_naive_majority.auc",
+      "value": 0.8352,
+      "tol": 0.021562,
+      "kind": "auc",
+      "seed_sd": 0.010781,
+      "n_seeds": 20,
+      "definition": "AUC-ROC，以 FAIL=1 为正类，用该策略实际使用的分数（校准后概率或原始概率）",
+      "note": "无准入基线的判别力（校准前原始分数）；期望值取 20 个种子的中位数，容差=2×种子sd",
+      "tol_value_ratio": 0.0258,
+      "weak_discrimination": false,
+      "counted": true
+    },
+    {
+      "name": "hERG.S1_naive_majority.utility",
+      "value": -0.2348,
+      "tol": 0.009128,
+      "kind": "utility",
+      "seed_sd": 0.004564,
+      "n_seeds": 20,
+      "definition": "cost-weighted utility = −(1/N)·Σ cost_i，cost = c_abstain（弃权）/ c_false_PASS（真 FAIL 判 PASS）/ c_false_FAIL（真 PASS 判 FAIL）/ 0（判对）。y=1 表示 FAIL。",
+      "note": "无准入基线的代价加权效用（delta 指标的分母侧，用于定位误差来源）；期望值取 20 个种子的中位数，容差=2×种子sd",
+      "tol_value_ratio": 0.0389,
+      "weak_discrimination": false,
+      "counted": true
+    },
+    {
+      "name": "hERG.S4_full_admission.coverage",
+      "value": 0.182,
+      "tol": 0.05623,
+      "kind": "coverage",
+      "seed_sd": 0.028115,
+      "n_seeds": 20,
+      "definition": "coverage = (给出 PASS/FAIL 的样本数) / N（弃权不进分子）",
+      "note": "完整准入层的判定覆盖率——**准入层的代价就体现在这里**；期望值取 20 个种子的中位数，容差=2×种子sd",
+      "tol_value_ratio": 0.309,
+      "weak_discrimination": false,
+      "counted": true
+    },
+    {
+      "name": "hERG.S4_full_admission.risk_decided",
+      "value": 0.1025,
+      "tol": 0.100698,
+      "kind": "risk_decided",
+      "seed_sd": 0.050349,
+      "n_seeds": 20,
+      "definition": "risk_decided = 在已判定样本中的错误率 = 错判数 / 已判定数",
+      "note": "已判定样本内的错误率（与 coverage 必须成对读，单看会误判）；期望值取 20 个种子的中位数，容差=2×种子sd；⚠ 容差/量级=0.98≥0.5，该指标判别力不足，仅作参考、不计入 all_pass",
+      "tol_value_ratio": 0.9824,
+      "weak_discrimination": true,
+      "counted": false
+    },
+    {
+      "name": "DILI.S4_full_admission.utility",
+      "value": -0.4479,
+      "tol": 0.024396,
+      "kind": "utility",
+      "seed_sd": 0.012198,
+      "n_seeds": 20,
+      "definition": "cost-weighted utility = −(1/N)·Σ cost_i，cost = c_abstain（弃权）/ c_false_PASS（真 FAIL 判 PASS）/ c_false_FAIL（真 PASS 判 FAIL）/ 0（判对）。y=1 表示 FAIL。",
+      "note": "代价加权效用（c=(5,1,0.5)）；期望值取 20 个种子的中位数，容差=2×种子sd",
+      "tol_value_ratio": 0.0545,
+      "weak_discrimination": false,
+      "counted": true
+    },
+    {
+      "name": "BBB_Martins.S4_full_admission.utility",
+      "value": -0.3818,
+      "tol": 0.007082,
+      "kind": "utility",
+      "seed_sd": 0.003541,
+      "n_seeds": 20,
+      "definition": "cost-weighted utility = −(1/N)·Σ cost_i，cost = c_abstain（弃权）/ c_false_PASS（真 FAIL 判 PASS）/ c_false_FAIL（真 PASS 判 FAIL）/ 0（判对）。y=1 表示 FAIL。",
+      "note": "端特异代价（c=(3,1,0.5)）；期望值取 20 个种子的中位数，容差=2×种子sd",
+      "tol_value_ratio": 0.0185,
+      "weak_discrimination": false,
+      "counted": true
+    },
+    {
+      "name": "hERG.delta_utility.S4_minus_S1",
+      "value": -0.197,
+      "tol": 0.015358,
+      "kind": "delta_utility",
+      "seed_sd": 0.007679,
+      "n_seeds": 20,
+      "definition": "Δutility = utility(A) − utility(B)，逐种子配对后取中位数",
+      "note": "逐种子配对差；其余端点中位数（仅供对照，不单独做容差）：DILI +0.0130, BBB_Martins -0.2229",
+      "tol_value_ratio": 0.078,
+      "weak_discrimination": false,
+      "counted": true
+    }
+  ],
+  "n_counted": 6,
+  "spec": {
+    "data": {
+      "source": "TDC ADMET_Group 的 hERG / DILI / BBB_Martins 三个端点",
+      "columns": "SMILES 在列 `Drug`，标签在列 `Y`；列名不同时按下标取第 1/2 列",
+      "split": "对每个端点的 train_val 取 numpy.random.default_rng(0).permutation(n)，前 80% 为 fit 集、后 20% 为 calibration 集（取整：cut=int(0.8*n)）；test 集全量用于评估，**不参与任何拟合、校准或阈值选择**",
+      "label_semantics": "y=1 表示 FAIL（阳性）",
+      "invalid_molecules": "RDKit 无法解析的 SMILES 直接丢弃，不插补、不替换"
+    },
+    "sources": [
+      {
+        "name": "rf_morgan",
+        "features": "Morgan 指纹 radius=2, nBits=2048（ECFP4 等价）",
+        "model": "RandomForestClassifier(n_estimators=300, random_state=seed, n_jobs=1)",
+        "score": "predict_proba(X)[:, 1]"
+      },
+      {
+        "name": "ridge_desc",
+        "features": "10 个 RDKit 描述符，顺序固定：MolWt, MolLogP, TPSA, NumHDonors, NumHAcceptors, RingCount, CalcFractionCSP3, NumRotatableBonds, NumAromaticRings, MaxPartialCharge；NaN/inf 一律置 0",
+        "model": "StandardScaler（在 fit 集拟合）+ RidgeClassifier(alpha=1.0)",
+        "score": "sigmoid(decision_function)；这是伪概率，只用于排序与求均值"
+      },
+      {
+        "name": "rf_maccs",
+        "features": "MACCS keys，167 位",
+        "model": "RandomForestClassifier(n_estimators=300, random_state=seed, n_jobs=1)",
+        "score": "predict_proba(X)[:, 1]"
+      }
+    ],
+    "calibration": {
+      "method": "每个源各拟合一个 IsotonicRegression(out_of_bounds='clip')，x=该源在 calibration 集上的原始分数，y=calibration 标签；同一转换再应用到 test",
+      "mean": "mean_pc = 三个源校准后概率的算术平均",
+      "fallback": "任一源拟合抛异常时，该源退化为恒等映射（不得借此剔除该源）"
+    },
+    "domain": {
+      "rule": "对每个 test 分子，计算它到 **fit 集全部训练分子** 的 Morgan2-2048 Tanimoto 相似度的最大值；max_sim ≥ 0.35 判为域内",
+      "note": "域判据只用 fit 集做参照，不得用 calibration 或 test"
+    },
+    "threshold_rule": {
+      "grid": "t 取 numpy.linspace(0.05, 0.95, 19)",
+      "min_keep": "只接受 keep=(mean_pc_cal ≥ t) 且 keep.sum() ≥ max(10, 0.2×len(cal)) 的 t",
+      "risk": "在 keep 子集上 pred=(mean_pc_cal ≥ 0.5)，risk=mean(pred ≠ y_cal)",
+      "select": "在 risk ≤ 0.15 的候选中取 coverage 最大者对应的 t；若无候选满足，取 t=0.5",
+      "apply": "选出的 t 原样用于 test，不得在 test 上重新调"
+    },
+    "strategies": {
+      "S1_naive_majority": "pred = 三源**未校准**概率各自以 0.5 二值化后的多数投票（≥2 票为 FAIL）；对全部 test 样本给出判定（不弃权）。注意：不是用均值概率阈值（那与票数多数在本数据上差约 0.03 效用），而是用三源二值票数的多数",
+      "S2_ad_guard": "pred 同 S1（票数多数）；仅当 max_sim ≥ 0.35 时给出判定，否则弃权",
+      "S3_calibrated_conformal": "pred = (mean_pc ≥ 0.5)；仅当 mean_pc ≥ t 时给出判定",
+      "S4_full_admission": "pred = (mean_pc ≥ 0.5)；仅当 mean_pc ≥ t 且 max_sim ≥ 0.35 且 spread ≤ 0.30 时给出判定，其中 spread = max(三源**未校准**概率) − min(三源未校准概率)",
+      "口径说明（重要）": "auc / risk 字段一律在 mean_pc_te（三源校准后概率均值）上计算，**与策略无关**；指标名前缀只表示该策略对应的基线，不代表 AUC 用的是该策略自己的二值分数——这是已知的命名缺陷，读取时请按本条理解"
+    },
+    "utility": {
+      "formula": "utility = −(1/N)·Σ_i cost_i，N=test 样本数；cost = 0（判对）/ c_false_PASS（y=1 判成 PASS）/ c_false_FAIL（y=0 判成 FAIL）/ c_abstain（弃权）",
+      "costs": {
+        "hERG": [
+          5.0,
+          1.0,
+          0.5
+        ],
+        "DILI": [
+          5.0,
+          1.0,
+          0.5
+        ],
+        "BBB_Martins": [
+          3.0,
+          1.0,
+          0.5
+        ]
+      },
+      "note": "弃权样本计入分母 N，且只计 c_abstain"
+    },
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "environment": {
+      "note": "提交时必须附 python/rdkit/scikit-learn/numpy 实测版本"
+    }
+  },
+  "snapshots": [
+    {
+      "source": "admet_ai",
+      "snapshot_id": "batch_run6__0739335b93b1__20261031T140641Z",
+      "sha256": "0739335b93b166202bdb13a57a437700b807eb90631bbaf1416ebbc08c5b1aa1",
+      "bytes": 13701
+    },
+    {
+      "source": "admetlab3",
+      "snapshot_id": "batch_run6__ab79d850b067__20261031T140641Z",
+      "sha256": "ab79d850b067f6c642561a9fea5d4645575b621e9a023e84caebb856f132639d",
+      "bytes": 13441
+    },
+    {
+      "source": "biotransformer",
+      "snapshot_id": "batch_run6__39f960aeba29__20261031T140651Z",
+      "sha256": "39f960aeba295a410434afe6f260cbae43a02d14e9217b5feef7109e152faaec",
+      "bytes": 2019
+    },
+    {
+      "source": "chembl",
+      "snapshot_id": "batch_run6__dbce090ea31a__20261031T140641Z",
+      "sha256": "dbce090ea31a27e28ab2365f689bfaa72b8a5bd481f15baf501c69df4d3ab932",
+      "bytes": 14703
+    },
+    {
+      "source": "protox3",
+      "snapshot_id": "batch_run6__7a0f5d563cd2__20261031T140651Z",
+      "sha256": "7a0f5d563cd2091492d0e541d787f9937476a13e4cbc8688ae5c2e86b25536de",
+      "bytes": 4625
+    }
+  ],
+  "spec_complete": true,
+  "spec_missing": []
+}
