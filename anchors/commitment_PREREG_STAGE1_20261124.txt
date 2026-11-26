@@ -1,0 +1,55 @@
+PREREGISTRATION COMMITMENT — PREREG-STAGE1-20261118-01
+======================================================
+
+Statement
+---------
+This is a public, time-stamped commitment to the frozen protocol identified below.
+The primary analysis set is prospective: endpoint x compound records whose labels
+are acquired AFTER the anchor date. The retrospective set was used for power
+analysis and method development only, and its numbers are disclosed in the protocol.
+
+Frozen document
+---------------
+File: PREREG_STAGE1_PACKAGE.md
+SHA256: 3399cdf5e4465081d6e4d9f8a2f84500f2507e93d229473936bffb7a97da2cf6
+Package ID: PREREG-STAGE1-20261118-01
+Frozen date: 2026-11-18
+
+Third-party time proof (RFC 3161, freeTSA)
+------------------------------------------
+TSA serial: 0x0A6E1091
+genTime: 2026-11-23T08:23:52Z (16:23:52 GMT+8)
+Proof files: anchors/tsa/PREREG_STAGE1_PACKAGE.md.tsq / .tsr
+Verify: openssl ts -verify -in <file>.tsr -queryfile <file>.tsq -CAfile cacert.pem
+
+Frozen primary hypothesis (verbatim abridgement)
+------------------------------------------------
+H1: At reference cost c_ref = (c_false_PASS, c_false_FAIL, c_abstain) = (5, 1, 0.5),
+AD threshold tau = 0.35 and target_risk = 0.15, the paired decision-utility
+difference dU(S4 - S1) between the full evidence-source admission layer (S4)
+and no-admission majority vote (S1) is significantly positive (paired bootstrap
+95% CI lower bound > 0) on at least 2 of 3 endpoints (hERG, DILI, BBB_Martins).
+
+H0: dU <= 0, or CI crosses 0, on >= 2 endpoints.
+
+Failure-as-conclusion clause
+----------------------------
+If >=2/3 endpoints have CI lower bound <= 0, H1 is not supported and the negative
+result is published without endpoint substitution, sample top-up or threshold
+re-tuning. If an endpoint estimand remains NOT_BOUND, inferential claims for that
+endpoint are withdrawn and it is described only.
+
+Prospective data window (frozen)
+--------------------------------
+Rule: min(data_ts) > anchor_date.
+Checker: Prereg.temporal_validity / adt.cli prereg-status --data-timestamps
+(exit 4 on violation; violating records are excluded from the primary analysis set).
+
+Status / honest disclosure
+--------------------------
+This public paste is an INTERIM third-party timestamp and public commitment,
+not a registry DOI. OSF registration is blocked platform-side
+(POST /v2/nodes/ -> 405 "Project creation is currently disabled"); Zenodo is
+blocked at email confirmation. A Zenodo deposition (restricted files + DOI) will
+be added when access is restored, and this paste will be referenced as the
+interim proof. Do not describe this as "registered on OSF/Zenodo".
