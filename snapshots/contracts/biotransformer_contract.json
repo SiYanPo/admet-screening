@@ -1,0 +1,13 @@
+﻿compound_id,endpoint,value,unit,source,source_version,retrieved_at,domain_flag,uncertainty,provenance_url,note
+Terfenadine,metabolite_count_CYP450,15,count,biotransformer,3.0,2026-10-31T17:34:32,predicted,,https://biotransformer.ca/queries/361947,15 个唯一代谢产物
+Terfenadine,biotransformation_count_CYP450,13,count,biotransformer,3.0,2026-10-31T17:34:32,predicted,,https://biotransformer.ca/queries/361947,13 条生化转化
+Diclofenac,metabolite_count_CYP450,6,count,biotransformer,3.0,2026-10-31T17:35:10,predicted,,https://biotransformer.ca/queries/361949,6 个唯一代谢产物
+Diclofenac,biotransformation_count_CYP450,6,count,biotransformer,3.0,2026-10-31T17:35:10,predicted,,https://biotransformer.ca/queries/361949,6 条生化转化
+Digoxin,metabolite_count_CYP450,20,count,biotransformer,3.0,2026-10-31T17:35:34,predicted,,https://biotransformer.ca/queries/361950,20 个唯一代谢产物
+Digoxin,biotransformation_count_CYP450,9,count,biotransformer,3.0,2026-10-31T17:35:34,predicted,,https://biotransformer.ca/queries/361950,9 条生化转化
+Quercetin,metabolite_count_CYP450,1,count,biotransformer,3.0,2026-10-31T17:36:12,predicted,,https://biotransformer.ca/queries/361951,1 个唯一代谢产物
+Quercetin,biotransformation_count_CYP450,1,count,biotransformer,3.0,2026-10-31T17:36:12,predicted,,https://biotransformer.ca/queries/361951,1 条生化转化
+Donepezil,metabolite_count_CYP450,16,count,biotransformer,3.0,2026-10-31T17:36:36,predicted,,https://biotransformer.ca/queries/361953,16 个唯一代谢产物
+Donepezil,biotransformation_count_CYP450,14,count,biotransformer,3.0,2026-10-31T17:36:36,predicted,,https://biotransformer.ca/queries/361953,14 条生化转化
+APAP,metabolite_count_CYP450,6,count,biotransformer,3.0,2026-10-31T17:38:01,predicted,,https://biotransformer.ca/queries/361954,6 个唯一代谢产物
+APAP,biotransformation_count_CYP450,6,count,biotransformer,3.0,2026-10-31T17:38:01,predicted,,https://biotransformer.ca/queries/361954,6 条生化转化
