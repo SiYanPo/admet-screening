@@ -1,0 +1,9 @@
+﻿level,scope,id,status,value,evidence,note
+model,source,admet_ai,out_of_domain,0.0,coverage_matrix 12 端点,该源在本批所有端点均无可判值
+model,source,admetlab3,out_of_domain,0.0,coverage_matrix 9 端点,该源在本批所有端点均无可判值
+model,source,chembl,out_of_domain,0.0,coverage_matrix 4 端点,该源在本批所有端点均无可判值
+model,source,protox3,out_of_domain,0.0,coverage_matrix 3 端点,该源在本批所有端点均无可判值
+model,source,vnn_admet,out_of_domain,0.0,coverage_matrix 15 端点,该源在本批所有端点均无可判值
+prediction,compound,WBLG-A,limited,0.091,可判 1 / 未判 10 / 参照 16,未判多于可判：结论只能逐条看，不能汇总
+prediction,compound,WBLG-B,out_of_domain,0.0,可判 0 / 未判 11 / 参照 16,本分子无任何可判端点
+decision,project,T2,partial,T2,tier=T2 → max_conclusion=decision_support,支持项目决策，不支持论文结论
