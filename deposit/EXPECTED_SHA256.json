@@ -1,0 +1,13 @@
+{
+  "note": "SHA-256 of the four deterministic table outputs and of the two per-seed result files, computed after normalising CRLF to LF so that the digest describes content rather than the checkout platform. Regenerate with \"./reproduce.sh\"; verify with \"python tools/verify_table_hashes.py\". Nothing that depends on a model retrain is included, because retraining is reproducible to tolerance rather than byte for byte.",
+  "generated_at": "2026-11-25T01:26:36+08:00",
+  "algorithm": "sha256",
+  "files": {
+    "out_sensitivity/table2_paired.csv": "378e924bf92ed2e55e3920a2250c2de5d54ad252b528accbceff525e46a58b05",
+    "out_sensitivity/table_h2_cost_sweep.csv": "ae1a68d8fa5b1c946b0b830c85cda3735573b6ef295b58db23cb15cc556ccaa5",
+    "out_sensitivity/critical_cost.csv": "793cf38959e6dbd022d5e87fd71881fb786941faa0ec81ab99854ea9253c2b1a",
+    "out_sensitivity/critical_cost_transfer.csv": "60af6570019b44cee253d3ee1919c0a7d5c6d86e5567ec161f204e83cbacef35",
+    "out_keystone_v43/results.json": "840c6716e112abd98884aa9e5ff7321e2e9e9afeef5658364bc8754ab0267259",
+    "out_keystone_transfer/results.json": "942760824d0b6efab1d87de3869bb7e14174a3956d0d0578baea7cc0f6f6a81d"
+  }
+}
