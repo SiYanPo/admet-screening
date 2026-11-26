@@ -1,0 +1,49 @@
+# SEED_POLICY · 随机性去耦合规范（C13 / B5，2026-11-04）
+# 用途：CI 与 release-check 按本表校验「不同脚本 seed 不重复」，防止相关性被高估。
+
+meta:
+  version: "1.0"
+  status: machine_readable
+  owner: "admet-screening maintainers"
+  rationale: >-
+    全仓大量 default_rng(0)，且 replication/second_implementer/impl.py 与主实现
+    同 seed、同 permutation 规则，使「外部第二实现者」退化为确定性复制。
+    外审 A N6 另证：216 规格共享 20 种子，有效 n=20 而非 216x20；
+    去 seed 只是必要不充分——不独立的是 utility 公式与 COSTS，不只是 seed。
+
+rules:
+  - id: SP1
+    rule: "任何产生论文数字的脚本不得硬编码 default_rng(0)；seed 必须由显式参数或本表分配"
+    enforcement: "CI grep -rn 'default_rng(0)' adt/ run_*.py replication/ 必须零命中或标注豁免"
+    status: pending_full_migration
+
+  - id: SP2
+    rule: "不同脚本/不同实验层的 seed 必须互不相同；同一脚本内切分与 bootstrap 不得共用 seed"
+    enforcement: "release-check 读取本表 allocated_seeds，重复即 warn（strict 下 blocker）"
+    known_violation: "run_ad_multicriteria.py:91/177 切分与 bootstrap 共用 seed 0 —— 待修"
+
+  - id: SP3
+    rule: "第二实现者必须与主实现不同 seed，且至少报告 seed∈{0,1,2} 三组结果与离散度"
+    enforcement: "replication/second_implementer/impl.py 已改为 ADT_REPLICATION_SEED（默认 20261104）"
+    status: partially_done
+
+  - id: SP4
+    rule: "『独立复算』不得复用同一 utility 公式与同一 COSTS；仅换 seed 不构成独立"
+    enforcement: "references/ESTIMAND.yaml 的 Y(a) 与 COST_ELICITATION.md 的代价链必须单独登记"
+    status: open_binding_B6
+
+allocated_seeds:
+  main_pipeline: 0
+  replication_second_implementer: 20261104
+  paired_tost_bootstrap: 20261104
+  external_cuts_bootstrap: 20261105
+  spec_curve_permutation: 20261106
+
+verification_commands:
+  - "grep -rn 'default_rng(0)' adt/ run_*.py replication/ | grep -v SEED_POLICY"
+  - "python -c \"import yaml;d=yaml.safe_load(open('references/SEED_POLICY.yaml'));print(len(set(d['allocated_seeds'].values()))==len(d['allocated_seeds']))\""
+  - "ADT_REPLICATION_SEED=0 python replication/second_implementer/impl.py  # 仅做与主实现的对照，不得标独立复现"
+
+notes:
+  - "本表是 B5 的一部分；真正的独立性由 L+2 的 estimand 与代价链解决（见 ELEVATION_GAP.md）"
+  - "seed 去耦合本身被 §5.1 判为不解决根本问题，禁止在对外材料中写成『已修复独立复现』"
