@@ -1,0 +1,69 @@
+﻿compound_id,endpoint,value,unit,source,source_version,retrieved_at,domain_flag,uncertainty,provenance_url,note
+A-12BH10,protox_ld50,978.0,mg/kg,protox3,III,2026-11-01T19:56:38,predicted,,https://tox.charite.de/protox3/index.php,tox_class=4; 近邻相似度=74.76%; 近邻最低类别=4; 可信度=MODERATE（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+A-12BH10,dili,0,class,protox3,III,2026-11-01T19:56:39,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.891 是**该类别置信度**，不是阳性概率
+A-12BH10,ames,0,class,protox3,III,2026-11-01T19:56:39,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.7626666666666666 是**该类别置信度**，不是阳性概率
+A-13BH9,protox_ld50,5000.0,mg/kg,protox3,III,2026-11-01T19:56:46,predicted,,https://tox.charite.de/protox3/index.php,tox_class=5; 近邻相似度=72.8%; 近邻最低类别=5; 可信度=LOW_neighbors_unclassified（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+A-13BH9,dili,0,class,protox3,III,2026-11-01T19:56:52,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.893 是**该类别置信度**，不是阳性概率
+A-13BH9,ames,0,class,protox3,III,2026-11-01T19:56:52,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.7763333333333332 是**该类别置信度**，不是阳性概率
+BH7,protox_ld50,5000.0,mg/kg,protox3,III,2026-11-01T19:56:57,predicted,,https://tox.charite.de/protox3/index.php,tox_class=5; 近邻相似度=71.12%; 近邻最低类别=4; 可信度=MODERATE（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+BH7,dili,0,class,protox3,III,2026-11-01T19:57:04,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.84 是**该类别置信度**，不是阳性概率
+BH7,ames,0,class,protox3,III,2026-11-01T19:57:04,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.7876666666666667 是**该类别置信度**，不是阳性概率
+BH11,protox_ld50,3800.0,mg/kg,protox3,III,2026-11-01T19:57:08,predicted,,https://tox.charite.de/protox3/index.php,tox_class=5; 近邻相似度=69.98%; 近邻最低类别=5; 可信度=LOW_neighbors_unclassified（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+BH11,dili,0,class,protox3,III,2026-11-01T19:57:15,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.879 是**该类别置信度**，不是阳性概率
+BH11,ames,0,class,protox3,III,2026-11-01T19:57:15,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.7956666666666666 是**该类别置信度**，不是阳性概率
+BH14,protox_ld50,3800.0,mg/kg,protox3,III,2026-11-01T19:57:22,predicted,,https://tox.charite.de/protox3/index.php,tox_class=5; 近邻相似度=76.61%; 近邻最低类别=6; 可信度=MODERATE（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+BH14,dili,0,class,protox3,III,2026-11-01T19:57:28,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.901 是**该类别置信度**，不是阳性概率
+BH14,ames,0,class,protox3,III,2026-11-01T19:57:28,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.7316666666666666 是**该类别置信度**，不是阳性概率
+BH1,protox_ld50,3800.0,mg/kg,protox3,III,2026-11-01T19:57:33,predicted,,https://tox.charite.de/protox3/index.php,tox_class=5; 近邻相似度=69.78%; 近邻最低类别=5; 可信度=LOW_neighbors_unclassified（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+BH1,dili,0,class,protox3,III,2026-11-01T19:57:39,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.812 是**该类别置信度**，不是阳性概率
+BH1,ames,0,class,protox3,III,2026-11-01T19:57:39,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.676 是**该类别置信度**，不是阳性概率
+BH2,protox_ld50,5000.0,mg/kg,protox3,III,2026-11-01T19:57:44,predicted,,https://tox.charite.de/protox3/index.php,tox_class=5; 近邻相似度=72.48%; 近邻最低类别=5; 可信度=LOW_neighbors_unclassified（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+BH2,dili,0,class,protox3,III,2026-11-01T19:57:51,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.813 是**该类别置信度**，不是阳性概率
+BH2,ames,0,class,protox3,III,2026-11-01T19:57:51,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.6705 是**该类别置信度**，不是阳性概率
+BH24,protox_ld50,978.0,mg/kg,protox3,III,2026-11-01T19:57:55,predicted,,https://tox.charite.de/protox3/index.php,tox_class=4; 近邻相似度=74.53%; 近邻最低类别=4; 可信度=MODERATE（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+BH24,dili,0,class,protox3,III,2026-11-01T19:58:01,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.786 是**该类别置信度**，不是阳性概率
+BH24,ames,0,class,protox3,III,2026-11-01T19:58:01,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.8168000000000001 是**该类别置信度**，不是阳性概率
+BH25,protox_ld50,978.0,mg/kg,protox3,III,2026-11-01T19:58:06,predicted,,https://tox.charite.de/protox3/index.php,tox_class=4; 近邻相似度=74.53%; 近邻最低类别=4; 可信度=MODERATE（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+BH25,dili,0,class,protox3,III,2026-11-01T19:58:12,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.8 是**该类别置信度**，不是阳性概率
+BH25,ames,0,class,protox3,III,2026-11-01T19:58:12,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.8494666666666667 是**该类别置信度**，不是阳性概率
+BH26,protox_ld50,978.0,mg/kg,protox3,III,2026-11-01T19:58:16,predicted,,https://tox.charite.de/protox3/index.php,tox_class=4; 近邻相似度=74.53%; 近邻最低类别=4; 可信度=MODERATE（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+BH26,dili,0,class,protox3,III,2026-11-01T19:58:23,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.8 是**该类别置信度**，不是阳性概率
+BH26,ames,0,class,protox3,III,2026-11-01T19:58:23,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.82045 是**该类别置信度**，不是阳性概率
+BH27,protox_ld50,3800.0,mg/kg,protox3,III,2026-11-01T19:58:27,predicted,,https://tox.charite.de/protox3/index.php,tox_class=5; 近邻相似度=69.78%; 近邻最低类别=5; 可信度=LOW_neighbors_unclassified（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+BH27,dili,0,class,protox3,III,2026-11-01T19:58:34,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.793 是**该类别置信度**，不是阳性概率
+BH27,ames,0,class,protox3,III,2026-11-01T19:58:34,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.8473333333333333 是**该类别置信度**，不是阳性概率
+BH28,protox_ld50,978.0,mg/kg,protox3,III,2026-11-01T19:58:38,predicted,,https://tox.charite.de/protox3/index.php,tox_class=4; 近邻相似度=74.31%; 近邻最低类别=4; 可信度=MODERATE（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+BH28,dili,0,class,protox3,III,2026-11-01T19:58:45,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.822 是**该类别置信度**，不是阳性概率
+BH28,ames,0,class,protox3,III,2026-11-01T19:58:45,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.8158666666666666 是**该类别置信度**，不是阳性概率
+A-1,protox_ld50,5000.0,mg/kg,protox3,III,2026-11-01T19:58:52,predicted,,https://tox.charite.de/protox3/index.php,tox_class=5; 近邻相似度=79.65%; 近邻最低类别=5; 可信度=LOW_neighbors_unclassified（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+A-1,dili,0,class,protox3,III,2026-11-01T19:58:59,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.863 是**该类别置信度**，不是阳性概率
+A-1,ames,0,class,protox3,III,2026-11-01T19:58:59,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.8022 是**该类别置信度**，不是阳性概率
+A-3BH16,protox_ld50,5000.0,mg/kg,protox3,III,2026-11-01T19:59:04,predicted,,https://tox.charite.de/protox3/index.php,tox_class=5; 近邻相似度=77.45%; 近邻最低类别=5; 可信度=LOW_neighbors_unclassified（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+A-3BH16,dili,0,class,protox3,III,2026-11-01T19:59:11,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.871 是**该类别置信度**，不是阳性概率
+A-3BH16,ames,0,class,protox3,III,2026-11-01T19:59:11,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.8052 是**该类别置信度**，不是阳性概率
+A-4,protox_ld50,5000.0,mg/kg,protox3,III,2026-11-01T19:59:16,predicted,,https://tox.charite.de/protox3/index.php,tox_class=5; 近邻相似度=77.45%; 近邻最低类别=5; 可信度=LOW_neighbors_unclassified（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+A-4,dili,0,class,protox3,III,2026-11-01T19:59:22,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.871 是**该类别置信度**，不是阳性概率
+A-4,ames,0,class,protox3,III,2026-11-01T19:59:22,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.8052 是**该类别置信度**，不是阳性概率
+A-5BH17,protox_status,,status,protox3,III,2026-11-01T19:59:26,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+A-6,protox_ld50,5000.0,mg/kg,protox3,III,2026-11-01T19:59:32,predicted,,https://tox.charite.de/protox3/index.php,tox_class=5; 近邻相似度=78.91%; 近邻最低类别=5; 可信度=LOW_neighbors_unclassified（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+A-6,dili,0,class,protox3,III,2026-11-01T19:59:39,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.862 是**该类别置信度**，不是阳性概率
+A-6,ames,0,class,protox3,III,2026-11-01T19:59:39,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.8065999999999999 是**该类别置信度**，不是阳性概率
+A-7BH18,protox_ld50,5000.0,mg/kg,protox3,III,2026-11-01T19:59:48,predicted,,https://tox.charite.de/protox3/index.php,tox_class=5; 近邻相似度=79.3%; 近邻最低类别=5; 可信度=LOW_neighbors_unclassified（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+A-7BH18,dili,0,class,protox3,III,2026-11-01T19:59:55,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.833 是**该类别置信度**，不是阳性概率
+A-7BH18,ames,0,class,protox3,III,2026-11-01T19:59:55,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.7922 是**该类别置信度**，不是阳性概率
+A-8,protox_ld50,5000.0,mg/kg,protox3,III,2026-11-01T20:00:01,predicted,,https://tox.charite.de/protox3/index.php,tox_class=5; 近邻相似度=77.24%; 近邻最低类别=5; 可信度=LOW_neighbors_unclassified（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+A-8,dili,0,class,protox3,III,2026-11-01T20:00:07,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.866 是**该类别置信度**，不是阳性概率
+A-8,ames,0,class,protox3,III,2026-11-01T20:00:07,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.7822 是**该类别置信度**，不是阳性概率
+A-9BH20,protox_status,,status,protox3,III,2026-11-01T20:00:11,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+A-10,protox_status,,status,protox3,III,2026-11-01T20:00:16,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+A-11,protox_status,,status,protox3,III,2026-11-01T20:00:20,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+BH3,protox_status,,status,protox3,III,2026-11-01T20:00:28,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+BH19,protox_status,,status,protox3,III,2026-11-01T20:00:35,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+BH21,protox_status,,status,protox3,III,2026-11-01T20:00:42,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+BH4,protox_status,,status,protox3,III,2026-11-01T20:00:45,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+BH5,protox_status,,status,protox3,III,2026-11-01T20:00:54,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+BH36,protox_status,,status,protox3,III,2026-11-01T20:00:58,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+BH37,protox_status,,status,protox3,III,2026-11-01T20:01:02,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+BH40,protox_status,,status,protox3,III,2026-11-01T20:01:07,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+BH45,protox_status,,status,protox3,III,2026-11-01T20:01:10,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+BH46,protox_status,,status,protox3,III,2026-11-01T20:01:14,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
