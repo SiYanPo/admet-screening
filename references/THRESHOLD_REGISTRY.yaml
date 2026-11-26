@@ -1,0 +1,179 @@
+# 阈值登记表（THRESHOLD_REGISTRY）—— G12 阈值冻结审计的真源
+#
+# 次轮 A8 的处方："阈值冻结审计"。它在问一件很朴素的事：
+#   **框架里那些决定结论的阈值，各自是什么来历？有没有被事后改过？**
+#
+# 为什么必须审计：本包已经吃过一次"阈值随数据漂移"的亏——post-cutoff 外源实验的
+# 阈值与口径是**见到数据之后**才定的（详见 UNRESOLVED_CLOSEOUT_v4.3 §1.4），
+# 这正是它只能叫 temporal external validation、不能叫前瞻预注册的原因。
+# 如果连内部判据也允许悄悄改，那"预注册"就只剩形式。
+#
+# 三类来历（沿用 U9 普查口径，不得含糊）：
+#   · literature  —— 有文献锚定的具体条款（必须写引文）
+#   · calibrated  —— 由本仓库数据校准得出（必须写产物路径）
+#   · ad_hoc      —— 约定值/工程选择（**必须**有敏感性分析，否则记 gap）
+#
+# 审计方式（adt/threshold_audit.py）：
+#   ① 漂移检查：`value_token` 必须逐字出现在 `where` 每个文件里——
+#      防止"文档写 0.65、代码改成 0.60"这种静默失配；
+#   ② 分类普查：统计 literature / calibrated / ad_hoc 各多少；
+#   ③ 敏感性缺口：`provenance: ad_hoc` 且 `sensitivity` 为空 → 记 gap（门禁告警）。
+#
+# 核对：python -m adt.threshold_audit
+
+meta:
+  version: "v4.4"
+  rule: "每个影响结论的阈值必须登记来历、冻结状态与敏感性证据"
+  gate: "G12_threshold_freeze"
+
+thresholds:
+  - id: small_n_banner
+    name: "小样本横幅线（n<30 禁止声称稳健）"
+    value: 30
+    value_token: "30"
+    where: ["adt/guards.py"]
+    provenance: calibrated
+    frozen: true
+    frozen_since: "2026-10-20"
+    sensitivity: "不适用（工程护栏，非统计判据）"
+    note: "SMALL_N_BANNER"
+
+  - id: qualitative_only
+    name: "只出定性结论线（n<10 禁报任何率/差）"
+    value: 10
+    value_token: "10"
+    where: ["adt/guards.py"]
+    provenance: calibrated
+    frozen: true
+    frozen_since: "2026-10-20"
+    sensitivity: "不适用（工程护栏）"
+    note: "QUALITATIVE_ONLY"
+
+  - id: gate_auc_min
+    name: "gate 判别力下限（AUC≥0.65 才可称有判别力）"
+    value: 0.65
+    value_token: "0.65"
+    where: ["adt/guards.py"]
+    provenance: ad_hoc
+    frozen: true
+    frozen_since: "2026-11-01"
+    sensitivity: "GATE_AND_P8_MMP_v4.2.md §1.4：0.5=随机，0.65 为约定；原始 AUC 始终并列输出，可自行改判"
+    note: "约定值。实测三端点 0.580/0.669/0.514、四判据最高 0.648 —— 都在 0.65 附近，故该约定值**本身敏感**，必须随原始 AUC 一起报"
+
+  - id: ad_anchor
+    name: "AD 锚点（kNN Tanimoto 域判别工作点）"
+    value: 0.35
+    value_token: "0.35"
+    where: ["adt/gate_audit.py"]
+    provenance: ad_hoc
+    frozen: false
+    frozen_since: null
+    sensitivity: "2026-11-23 实测网格（adt/knn_sensitivity.py，真实 gate_scores 637 分子，产物 out_sensitivity/knn_threshold_sensitivity.json）：饱和阈值 [0.25,0.30,0.35,0.40,0.45,0.50] 六档，max|Δacc| = hERG 0.142 / DILI 0.194 / BBB_Martins 0.193；污染阈值 [0.60…0.90] 六档，max|Δacc| = 0.080 / 0.250 / 0.367。**读法**：Δacc 是在**变化了的覆盖子集**上算的，属 risk–coverage 权衡；模块同时给 n_new_decided / n_lost_decided 供拆分纯阈值效应。另：post-cutoff 分层（run_tail_risk_stratified.py）显示 AUC 随 Tanimoto 平滑上升、0.35 处无跳变"
+    note: "**未冻结（按设计）**：两条独立证据都说 0.35 不是数据里的自然边界，只是工程工作点 —— post-cutoff 分层无断点，且网格扫描显示改阈值确实改变准确率。把它冻结成『已定值』会掩盖这一事实，故保持 frozen=false 并在 G12 显式告警；预注册 H1 仍把 τ=0.35 作为固定参数，材料必须同时报出上述敏感性带"
+
+  - id: near_dup_tanimoto
+    name: "近重复判定（Lo-Hi 口径）"
+    value: 0.4
+    value_token: "0.4"
+    where: ["run_leakage_attribution.py"]
+    provenance: literature
+    frozen: true
+    frozen_since: "2026-11-01"
+    sensitivity: "同文并列 ≥0.7 档（VERY_CLOSE）作对照；两档结论方向一致"
+    note: "Lo-Hi (NeurIPS 2023 D&B) 用 Tanimoto>0.4 有邻居的比例量化基准泄漏"
+
+  - id: very_close_tanimoto
+    name: "极近重复判定"
+    value: 0.7
+    value_token: "0.7"
+    where: ["run_leakage_attribution.py"]
+    provenance: ad_hoc
+    frozen: true
+    frozen_since: "2026-11-01"
+    sensitivity: "与 0.4 档并列报告；DECONTAMINATION_PROTOCOL.md 另有 0.6/0.7/0.8 三档敏感性"
+    note: "VERY_CLOSE"
+
+  - id: tost_equivalence_margin
+    name: "TOST 等效界（MMP 校准检验）"
+    value: 0.1
+    value_token: "0.10"
+    where: ["adt/mmp.py"]
+    provenance: ad_hoc
+    frozen: true
+    frozen_since: "2026-11-01"
+    sensitivity: "GATE_AND_P8_MMP_v4.2.md §2.5 给 min_pairs_for_power(margin=0.10) 的功效门槛；换 margin 会改变 DILI 的 insufficient_power 边界"
+    note: "equiv_margin"
+
+  - id: sign_z_floor
+    name: "符号一致率显著性下限（compressed 判定）"
+    value: 3.0
+    value_token: "3.0"
+    where: ["adt/mmp.py"]
+    provenance: ad_hoc
+    frozen: true
+    frozen_since: "2026-11-01"
+    sensitivity: "UNRESOLVED_CLOSEOUT_v4.3 §5.1：z≥3.0 ↔ 单侧 p<0.0014；四模型符号一致率 0.642–0.775，全部远高于该线"
+    note: "SIGN_Z_FLOOR"
+
+  # ---- 2026-11-04 / B4 补登记：原可由 CLI 自由修改却未入册的两个等效界 ----
+  - id: ratio_margin_tost
+    name: "回归端点位移幅度比 R 的 TOST 等效界"
+    value: [0.5, 1.5]
+    value_token: "0.5"
+    where: ["adt/mmp.py", "run_p8_mmp_regression.py"]
+    provenance: ad_hoc
+    frozen: false
+    inferential_use: forbidden_pending_preregistration
+    sensitivity: "2026-11-23 实测（tools/ratio_margin_sensitivity.py，由已存 bootstrap CI 代数重算，不重训模型；产物 out_sensitivity/ratio_margin_sensitivity.json）：margin ∈ {0.3,0.4,0.5,0.6,0.7} × 3 端点 × 4 模型 = 12 格，**11 格判定翻转**（例：caco2 rf_morgan 由 insensitive→inconclusive→equivalent；lipophilicity 由 compressed→equivalent）。判据与 adt.mmp.analyze_regression 同源（含 sign_z≥3 的 compressed 降级）"
+    note: "**结论级警告**：等效/不敏感的判定对 margin 极敏感（12 格里 11 格会翻），因此任何 R 类结论**不得**在不报 margin 扫描的情况下引用；当前 frozen=false 且 inferential_use=forbidden_pending_preregistration 与此一致 —— 先预注册 margin，再谈判定"
+    sensitivity: ("±20%/±50% margin 扫描必须给出结论翻转边界；"
+                  "等效界须在揭盲前基于最小有意义差异冻结并附第三方锚 hash，"
+                  "见 references/EQUIVALENCE_MARGIN_PREREG.md")
+    note: "原未登记却可由 CLI 自由改，而 run_p8_mmp_regression.py 自称『预注册』——C10"
+
+  - id: tost_variance_model
+    name: "MMP TOST 的方差模型"
+    value: "paired_bootstrap_required"
+    value_token: "paired_tost"
+    where: ["adt/mmp.py", "adt/paired_stats.py"]
+    provenance: method_correction
+    frozen: true
+    note: ("mmp.py::_tost 用独立两样本 Wald SE 处理配对 MMP 对，方差错误；"
+           "结论须改用 adt/paired_stats.py::paired_tost 或 prospective.paired_mcnemar")
+
+  - id: prob_spread_max
+    name: "跨源分歧阈值（概率类）"
+    value: 0.3
+    value_token: "0.30"
+    where: ["adt/reliability.py"]
+    provenance: ad_hoc
+    frozen: true
+    frozen_since: "2026-10-20"
+    sensitivity: "sensitize --factors 0.2 0.5 提供 ±20%/±50% 摄动；hERG 三源极差 0.37 超出该线"
+    note: "PROB_SPREAD_MAX"
+
+  - id: max_advantage_abstain_cost
+    name: "准入层开始不划算的弃权代价上界【2026-11-04 已撤回推断资格】"
+    value: 0.26
+    value_token: "0.26"
+    where: ["adt/defaults.py"]
+    provenance: point_estimate_pending_ci
+    frozen: true
+    deprecated_as_inference: true
+    note: ("C18 / 外审 A：c* 是 Δu(c)=a-q*c 的会计恒等式零点（R^2=0.9999995），"
+           "代价参数不进入决策掩码，不可证伪。该值仅为历史点估计，"
+           "禁止用于『条件性优势区』或任何推断；见 references/RETRACTION_NOTE.md §5")
+    frozen_since: "2026-11-01"
+    sensitivity: "out_ext/keystone_indifference.json：三端点 c* = hERG 0.26 / BBB 0.2091 / DILI 无识别点；取上界 0.26"
+    note: "**由本轮无差异曲线新定**：跨过该值，S4 准入层由优于转为劣于朴素投票"
+
+  - id: multiverse_flip_threshold
+    name: "规格脆弱性阈值（方向翻转率 ≥20% 判 fragile）"
+    value: 0.2
+    value_token: "0.20"
+    where: ["run_spec_multiverse.py"]
+    provenance: ad_hoc
+    frozen: true
+    frozen_since: "2026-11-01"
+    sensitivity: "本轮实测翻转率 0.398，远高于阈值，故『fragile』判定不依赖阈值的精确取值"
+    note: "约定值"
