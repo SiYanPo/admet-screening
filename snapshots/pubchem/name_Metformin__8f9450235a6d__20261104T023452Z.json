@@ -1,0 +1,11 @@
+{
+  "PropertyTable": {
+    "Properties": [
+      {
+        "CID": 4091,
+        "SMILES": "CN(C)C(=N)N=C(N)N",
+        "ConnectivitySMILES": "CN(C)C(=N)N=C(N)N"
+      }
+    ]
+  }
+}
