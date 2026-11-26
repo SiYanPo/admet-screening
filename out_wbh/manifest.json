@@ -1,0 +1,42 @@
+{
+  "binding_item": "C2-a / C12 / 外审 C V3",
+  "command": "adt\\cli.py qaf --reliability out_wbh\\reliability.csv --coverage out_wbh\\coverage_matrix.csv --measurements out_wbh\\measurements_merged.csv --compounds out_wbh\\compounds.csv --outdir out_wbh",
+  "content_sha256": "51ce0bb4440ecfd50e2b024f1e97fca2082e4c28170222f5e03ccffaefa74286",
+  "data_sha256": [
+    {
+      "path": "out_wbh\\reliability.csv",
+      "sha256": "25c210b5aec443055d441d53a3ec2fc0eb32a048177a6e46da36a908dd141a8f"
+    },
+    {
+      "path": "out_wbh\\coverage_matrix.csv",
+      "sha256": "a5e60df07fcb704c6c3dd42809033b6244557a65fe2505fa7e28e9e50e2ebe49"
+    },
+    {
+      "path": "out_wbh\\measurements_merged.csv",
+      "sha256": "1ef84c71c2c1ccdefd4ab49ce3432bbf42ca89e86c989122003d889226b52b38"
+    },
+    {
+      "path": "out_wbh\\compounds.csv",
+      "sha256": "6c1acb003a37ccef244e48be2e5534be9458aaa7e735a33d51b94418ca9f4150"
+    },
+    {
+      "path": "references\\03_endpoint_rules.yaml",
+      "sha256": "a895ecf93b436475de434701764ddaf2537e17383a763537ed42801d093c1960"
+    }
+  ],
+  "env_digest": "60535043a04a0ed8594c46409ab1e1087d1f9d7f006d0a2adec9141669ae10e9",
+  "estimand_id": null,
+  "generated_at": "2026-11-06T23:48:25",
+  "hash_policy": "content_sha256 排除 created_at/generated_at/prev_hash/content_sha256/cwd 等易变字段；同一输入两次运行必须相同",
+  "inputs_sha1": {
+    "out_wbh\\compounds.csv": "00597c4a8d09badf2e2f23e829b9375bac8a38f4",
+    "out_wbh\\coverage_matrix.csv": "738059b970251a35fb62d258135e4506e6cf34d5",
+    "out_wbh\\measurements_merged.csv": "852baa5cf0cd68efe790e3495cde511ae576ca42",
+    "out_wbh\\reliability.csv": "5306d48ddb521db27fbe27957ca98187b7eb1b9f",
+    "references\\03_endpoint_rules.yaml": "f05a0f2e96f794ae9c1ce4a467487135c179d6b5"
+  },
+  "prev_hash": "529e1d75d93415db761d53cfda3d7f77dd0cefe3f2af220211f7b7517f9463df",
+  "schema_version": "2.0",
+  "script_sha256": "767d57093d7b881b8a767ed8f165d907e27cbef23cc4b7b1902861ff72fe6f62",
+  "value": null
+}
