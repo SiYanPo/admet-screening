@@ -1,0 +1,23 @@
+﻿level,compound_id,claim,evidence,n_records,status
+conclusion,WBLG-A,"ames = UNDETERMINED=0.0 (conf=low, indep_groups=1)",admet_ai:predicted=0.3528|admetlab3:predicted=0.8296|protox3:predicted=0|vnn_admet:out_of_domain=,4,supported
+conclusion,WBLG-A,"caco2_papp_ab = UNDETERMINED=-6.5675 (conf=low, indep_groups=1)",admet_ai:predicted=-6.5675|admetlab3:predicted=-6.3465,2,supported
+conclusion,WBLG-A,"carcinogenicity = UNDETERMINED=0.2219 (conf=low, indep_groups=1)",admetlab3:predicted=0.2219,1,supported
+conclusion,WBLG-A,"clint_microsome = UNDETERMINED=25.8074 (conf=low, indep_groups=1)",admet_ai:predicted=25.8074,1,supported
+conclusion,WBLG-A,"dili = UNDETERMINED (conf=low, indep_groups=1)",admet_ai:predicted=0.2542|admetlab3:predicted=0.6834|protox3:predicted=0|vnn_admet:predicted=1,4,supported
+conclusion,WBLG-A,"herg = UNDETERMINED (conf=low, indep_groups=2)",admet_ai:predicted=0.3689|admetlab3:predicted=0.0487|vnn_admet:predicted=0,3,supported
+conclusion,WBLG-A,"mmp = PASS=0.0288 (conf=medium, indep_groups=2)",admet_ai:predicted=0.0288|vnn_admet:predicted=0,2,supported
+conclusion,WBLG-A,"nr_ar_lbd = UNDETERMINED=0.5272 (conf=low, indep_groups=1)",admetlab3:predicted=0.5272,1,supported
+conclusion,WBLG-A,"ppb_fu = UNDETERMINED=40.9803 (conf=low, indep_groups=1)",admet_ai:predicted=40.9803|admetlab3:predicted=30.3815,2,supported
+conclusion,WBLG-A,"sr_are = UNDETERMINED=0.9012 (conf=low, indep_groups=1)",admetlab3:predicted=0.9012,1,supported
+conclusion,WBLG-A,"sr_p53 = UNDETERMINED=0.8287 (conf=low, indep_groups=1)",admetlab3:predicted=0.8287,1,supported
+conclusion,WBLG-B,"ames = UNDETERMINED=0.0 (conf=low, indep_groups=1)",admet_ai:predicted=0.6012|admetlab3:predicted=0.9674|protox3:predicted=0|vnn_admet:out_of_domain=,4,supported
+conclusion,WBLG-B,"caco2_papp_ab = UNDETERMINED=-6.5247 (conf=low, indep_groups=1)",admet_ai:predicted=-6.5247|admetlab3:predicted=-5.9184,2,supported
+conclusion,WBLG-B,"carcinogenicity = UNDETERMINED=0.3682 (conf=low, indep_groups=1)",admetlab3:predicted=0.3682,1,supported
+conclusion,WBLG-B,"clint_microsome = UNDETERMINED=43.5775 (conf=low, indep_groups=1)",admet_ai:predicted=43.5775,1,supported
+conclusion,WBLG-B,"dili = UNDETERMINED=0.0 (conf=low, indep_groups=1)",admet_ai:predicted=0.2682|admetlab3:predicted=0.8764|protox3:predicted=0|vnn_admet:out_of_domain=,4,supported
+conclusion,WBLG-B,"herg = UNDETERMINED (conf=low, indep_groups=2)",admet_ai:predicted=0.4552|admetlab3:predicted=0.0158|vnn_admet:predicted=0,3,supported
+conclusion,WBLG-B,"mmp = UNDETERMINED=0.0509 (conf=low, indep_groups=1)",admet_ai:predicted=0.0509|vnn_admet:out_of_domain=,2,supported
+conclusion,WBLG-B,"nr_ar_lbd = UNDETERMINED=0.3117 (conf=low, indep_groups=1)",admetlab3:predicted=0.3117,1,supported
+conclusion,WBLG-B,"ppb_fu = UNDETERMINED=32.5236 (conf=low, indep_groups=1)",admet_ai:predicted=32.5236|admetlab3:predicted=35.4187,2,supported
+conclusion,WBLG-B,"sr_are = UNDETERMINED=0.918 (conf=low, indep_groups=1)",admetlab3:predicted=0.918,1,supported
+conclusion,WBLG-B,"sr_p53 = UNDETERMINED=0.9324 (conf=low, indep_groups=1)",admetlab3:predicted=0.9324,1,supported
