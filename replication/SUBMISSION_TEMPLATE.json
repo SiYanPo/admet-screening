@@ -1,0 +1,38 @@
+{
+  "pack_id": "keystone-v41",
+  "metrics": {
+    "hERG.S1_naive_majority.auc": {
+      "value": null
+    },
+    "hERG.S1_naive_majority.utility": {
+      "value": null
+    },
+    "hERG.S4_full_admission.coverage": {
+      "value": null
+    },
+    "hERG.S4_full_admission.risk_decided": {
+      "value": null
+    },
+    "DILI.S4_full_admission.utility": {
+      "value": null
+    },
+    "BBB_Martins.S4_full_admission.utility": {
+      "value": null
+    },
+    "hERG.delta_utility.S4_minus_S1": {
+      "value": null
+    }
+  },
+  "implementation": {
+    "code": null,
+    "repo": null,
+    "files": []
+  },
+  "environment": {
+    "python": null,
+    "rdkit": null,
+    "numpy": null
+  },
+  "submitted_by": null,
+  "submitted_at": null
+}
