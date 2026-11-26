@@ -1,0 +1,27 @@
+{
+  "binding_item": "C2-a / C12 / 外审 C V3",
+  "command": "adt\\cli.py pbpk --in out_wbh\\measurements_merged.csv --compounds out_wbh\\compounds.csv --dose-mg 100 --exposure out_wbh\\exp2\\exposure_backcalc.csv --mc 0 --outdir out_wbh\\exp2\\pbpk_backcalc",
+  "content_sha256": "77d6b402a3aa0d86e7184ab22c19b704fb1c8530d8ae9c95191395b8aee9b337",
+  "data_sha256": [
+    {
+      "path": "out_wbh\\measurements_merged.csv",
+      "sha256": "1ef84c71c2c1ccdefd4ab49ce3432bbf42ca89e86c989122003d889226b52b38"
+    },
+    {
+      "path": "out_wbh\\compounds.csv",
+      "sha256": "6c1acb003a37ccef244e48be2e5534be9458aaa7e735a33d51b94418ca9f4150"
+    }
+  ],
+  "env_digest": "60535043a04a0ed8594c46409ab1e1087d1f9d7f006d0a2adec9141669ae10e9",
+  "estimand_id": null,
+  "generated_at": "2026-11-07T00:29:13",
+  "hash_policy": "content_sha256 排除 created_at/generated_at/prev_hash/content_sha256/cwd 等易变字段；同一输入两次运行必须相同",
+  "inputs_sha1": {
+    "out_wbh\\compounds.csv": "00597c4a8d09badf2e2f23e829b9375bac8a38f4",
+    "out_wbh\\measurements_merged.csv": "852baa5cf0cd68efe790e3495cde511ae576ca42"
+  },
+  "prev_hash": "GENESIS",
+  "schema_version": "2.0",
+  "script_sha256": "767d57093d7b881b8a767ed8f165d907e27cbef23cc4b7b1902861ff72fe6f62",
+  "value": null
+}
