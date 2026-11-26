@@ -1,0 +1,14 @@
+﻿endpoint,source_a,source_b,same_group,group,n,n_unit_mismatch,spearman,mean_abs_diff,max_abs_diff,disagree_rate,sufficient,sign_conflict,note
+ames,admet_ai,admetlab3,True,descriptor_ml,2,0,,0.4215,0.4768,1.0,N,N,
+ames,admet_ai,protox3,False,,0,2,,,,,N,,单位异构，无法配对（不得强行换算）
+ames,admetlab3,protox3,False,,0,2,,,,,N,,单位异构，无法配对（不得强行换算）
+dili,admet_ai,admetlab3,True,descriptor_ml,2,0,,0.5187,0.6082,1.0,N,N,
+dili,admet_ai,protox3,False,,0,2,,,,,N,,单位异构，无法配对（不得强行换算）
+dili,admet_ai,vnn_admet,False,,0,1,,,,,N,,单位异构，无法配对（不得强行换算）
+dili,admetlab3,protox3,False,,0,2,,,,,N,,单位异构，无法配对（不得强行换算）
+dili,admetlab3,vnn_admet,False,,0,1,,,,,N,,单位异构，无法配对（不得强行换算）
+dili,protox3,vnn_admet,True,neighbor_qsar,1,0,,1.0,1.0,1.0,N,N,
+herg,admet_ai,admetlab3,True,descriptor_ml,2,0,,0.3798,0.4394,1.0,N,N,
+herg,admet_ai,vnn_admet,False,,0,2,,,,,N,,单位异构，无法配对（不得强行换算）
+herg,admetlab3,vnn_admet,False,,0,2,,,,,N,,单位异构，无法配对（不得强行换算）
+mmp,admet_ai,vnn_admet,False,,0,1,,,,,N,,单位异构，无法配对（不得强行换算）
