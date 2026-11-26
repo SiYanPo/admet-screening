@@ -1,0 +1,54 @@
+# 端点规则冲突台账（C1-c / 外审 B N2，2026-11-04）
+# 由 adt/endpoints.py::validate_rule_direction() 实跑发现，不是人工推测。
+version: 1
+created_at: "2026-11-04"
+detected_by: "adt.endpoints.validate_rule_direction()"
+source_review: "ADMET_Skill_PeerReview_2026-11-04.html §6.2 外审 B 独有发现 N2 / §4 C1-c"
+status: confirmed_pending_endpoint_estimand_card
+
+description: >
+  references/03_endpoint_rules.yaml 中下列端点同时定义了 class_map（0/1 类别到
+  PASS/FAIL 的人写序数映射）与数值 pass/fail 阈值。二者不是同一量纲：类别投射
+  不是校准概率，数值阈值不适用于 0/1 输入。reliability.py 在跨源单位异构时走
+  class_map 路径（数值阈值被绕过），在数值路径又会把 0/1 当成概率。因此这些端点
+  当前没有绑定实验金标准的 estimand，不得承载 PASS/FAIL 裁决，也不得进入任何
+  AURC / 效用 / 覆盖率分母。
+
+policy:
+  inferential_use: forbidden_pending_estimand_card
+  required_action: >
+    为端点写 estimand 卡（实验金标准、单位与浓度标度、正负判定规则、实际暴露物种、
+    实验室间一致性），并把类别投射路径与数值阈值路径拆成两个互不混算的入口。
+  must_not: >
+    不得靠"禁用其中一条路径"就宣称已修复；不得把 class_map 的 0/1 写进报告数值段；
+    不得据此端点输出 MANDATORY_ASSAY_* 的具体浓度或抑制剂名称。
+  supersedes: null
+
+entries:
+  - id: herg
+    conflict: class_map_with_numeric_thresholds
+    class_map: {"0": PASS, "1": FAIL}
+    numeric_pass: 0.1
+    numeric_fail: 0.5
+    shape: down
+    binding_items: ["C1-c", "外审 B N2", "L+3 端点 estimand 卡"]
+    note: "hERG 需绑定膜片钳 IC50 的电压协议/温度/血清/尾峰电流；现无实验金标准。"
+  - id: dili
+    conflict: class_map_with_numeric_thresholds
+    class_map: {"0": PASS, "1": FAIL}
+    numeric_fail: 0.5
+    shape: step
+    binding_items: ["C1-c", "外审 B N2", "L+3 端点 estimand 卡"]
+    note: "DILI 计算预测本身是全域外端点（本框架已列 tier 3），不应混两条判定路径。"
+  - id: ames
+    conflict: class_map_with_numeric_thresholds
+    class_map: {"0": PASS, "1": FAIL}
+    numeric_fail: 0.5
+    shape: step
+    binding_items: ["C1-c", "外审 B N2", "L+3 端点 estimand 卡", "ICH M7 语境错置"]
+    note: "Ames 需绑定 OECD TG 471 ±S9 / 5 菌株；in_domain 硬编码问题另见 C11 / L+3。"
+  - id: mmp
+    conflict: class_map_with_numeric_thresholds
+    class_map: {"0": PASS, "1": FAIL}
+    binding_items: ["C1-c", "外审 B N2", "L+3 端点 estimand 卡"]
+    note: "MMP 类别 1 = 下降（阳性）；与数值阈值混用时方向不可解释。"
