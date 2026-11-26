@@ -1,0 +1,10 @@
+﻿descriptor,n,mean_rel_delta,max_rel_delta,invariant
+clogp,30,0.1962,1.0215,N
+fsp3,25,0.0,0.0,Y
+hba,25,0.04,0.5,N
+hbd,20,0.05,1.0,N
+heavy,30,0.0333,0.2,N
+mw,30,0.0465,0.2802,N
+rings,20,0.0,0.0,Y
+rotb,15,0.0,0.0,Y
+tpsa,30,0.0068,0.0705,N
