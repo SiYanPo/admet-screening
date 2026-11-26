@@ -1,0 +1,144 @@
+# 外部结果回填 schema（v4.20）
+#
+# 用途：给"没有可编程 API、只能在浏览器里人工跑"的工具一条**可审计**的入口。
+# 每条回填都必须：① 用 SMILES/InChIKey 与 compounds.csv 对齐（铁律 1）；
+#                 ② 未映射的列逐列报出（不静默丢）；③ 落 schema.measurement 长表。
+#
+# 列名不匹配时不要猜：用 CLI 的 `--map "源列名=端点id:单位"` 显式覆盖。
+# 本文件里 `endpoints: {}` 的源 = 已登记但列名尚未实测确认，必须配 --map 才可用。
+version: 1
+verified_at: "2026-11-04"
+
+sources:
+
+  # ---------------- 有机小分子理化 / 早期 ADME（截图 §五 第 1 步） ----------------
+  swissadme:
+    label: SwissADME
+    url: https://www.swissadme.ch
+    source_version: "web (2026-11-04)"
+    key_column: "SMILES"
+    key_kind: smiles
+    domain_flag: predicted
+    ignore_columns: ["Molecule name"]
+    independence_group: descriptor_rules
+    class_tokens: {"yes": 1, "no": 0, "high": 1, "low": 0}
+    notice: >
+      网页表单一次只接 1 个分子；自动化 POST 实测 **403**（需真人浏览器会话）。
+      因此只能"导出 CSV → readback"。**该源不提供批量接口，别写爬虫**。
+      SwissADME 的价值不在"再投一票"：它的 iLOGP/XLOGP3/WLOGP/MLOGP/SILICOS-IT
+      五套 logP 与 BOILED-Egg 是**同一族经验规则**（independence_group=
+      descriptor_rules），与 ADMETlab/ADMET-AI 的 descriptor_ml **不同族**，
+      这是它唯一不可替代的地方（跨族一致性检查）。
+    endpoints:
+      "GI absorption": {id: hia_absorption, unit: class}
+      "BBB permeant": {id: bbb_permeant, unit: class}
+      "Pgp substrate": {id: pgp_substrate, unit: class}
+      "CYP1A2 inhibitor": {id: cyp1a2_inhibition, unit: class}
+      "CYP2D6 inhibitor": {id: cyp2d6_inhibition, unit: class}
+      "CYP3A4 inhibitor": {id: cyp3a4_inhibition, unit: class}
+      "Consensus Log P": {id: logp_consensus, unit: log10}
+      "ESOL Log S": {id: logs_esol, unit: log10(mol/L)}
+
+  # ---------------- 氧化代谢位点（SOM）：与 XenoSite 同族，不得双计 ----------------
+  aoamp:
+    label: AOMP（氧化代谢位点预测）
+    url: ""
+    key_column: "SMILES"
+    key_kind: smiles
+    domain_flag: predicted
+    notice: >
+      **列名未实测确认**（无可编程入口，且本机未跑过），必须用 --map 显式映射。
+      与 XenoSite 同属 `dl_atomwise`（同一方法族）：两者同向**只记 1 独立票**，
+      不得当作"两个独立源支持 SOM"。
+    endpoints: {}
+
+  # ---------------- pKa（电离状态的真值来源） ----------------
+  graphpka:
+    label: Graph-pKa
+    url: ""
+    key_column: "SMILES"
+    key_kind: smiles
+    domain_flag: predicted
+    notice: >
+      **列名未实测确认**（需 --map）。回填后可用于替换 adt/ionization 的
+      类别级区间估计：ionization 只给区间，Graph-pKa 给点值时才算"有数值来源"，
+      但仍须标 predicted，不得写成 measured。
+    endpoints: {}
+
+  # ---------------- 心脏离子通道（截图 §七） ----------------
+  cardiosafe:
+    label: CardioSafe（hERG，原子级可解释）
+    url: ""
+    key_column: "SMILES"
+    key_kind: smiles
+    domain_flag: predicted
+    notice: >
+      **列名与在线服务状态未实测确认**（需 --map）。价值在"原子级归因"
+      ——能指出是哪个子结构在堵孔，这是黑箱概率模型给不出的。
+    endpoints: {}
+
+  cardiosim_tox:
+    label: Cardiosim-Tox（hERG / Cav1.2 / Nav1.5 多任务）
+    url: ""
+    key_column: "SMILES"
+    key_kind: smiles
+    domain_flag: predicted
+    notice: >
+      **列名未实测确认**（需 --map）。三通道同时给值，正好喂 adt/cardiac_panel
+      的 `panel_verdict`——但同一模型给的三通道**不是三个独立源**。
+    endpoints: {}
+
+  # ---------------- 中药特异性毒性（截图 §七） ----------------
+  herbtoxnet:
+    label: HerbToxNet（中药-成分-靶点异质图）
+    url: ""
+    key_column: "SMILES"
+    key_kind: smiles
+    domain_flag: predicted
+    notice: >
+      **未找到可用的公开服务端点**（论文模型）。若作者提供 web server 或 docker，
+      用 --map 回填；在拿到之前，该源在 registry 里是 needs_probe，
+      **不得**在材料里写成"已接入"。
+    endpoints: {}
+
+  kan_prospect:
+    label: KAN-PROSPECT（天然产物 活性+ADR 双标签）
+    url: ""
+    key_column: "SMILES"
+    key_kind: smiles
+    domain_flag: predicted
+    notice: "**未找到公开服务端点**（论文模型）；同上，不得写成已接入。"
+    endpoints: {}
+
+  # ---------------- 菌群互作数据库（文献级证据，不是预测） ----------------
+  microbetcm:
+    label: MicrobeTCM
+    url: https://www.microbetcm.com
+    key_column: "compound_id"
+    key_kind: compound_id
+    domain_flag: manual
+    notice: >
+      数据库注解 = **文献级证据**，不是预测；回填后 predictive_value=none，
+      不得进 reliab 计票。domain_flag 用 manual（人工查询），
+      有 DOI 时可改 measured 并在 provenance_url 写 DOI。
+    endpoints: {}
+
+  gutbugdb:
+    label: GutBugDB
+    url: https://metabiosys.iiserb.ac.in/gutbugdb/
+    key_column: "compound_id"
+    key_kind: compound_id
+    domain_flag: manual
+    notice: "同上：数据库查询结果，文献级证据。"
+    endpoints: {}
+
+  masi:
+    label: MASI
+    url: https://web.idrblab.cn/masi/
+    key_column: "compound_id"
+    key_kind: compound_id
+    domain_flag: manual
+    notice: >
+      **本机 DNS 解析失败（2026-11-04 实测 web.idrblab.cn getaddrinfo failed）**；
+      网址照留，换网络后再试。回填口径同 MicrobeTCM。
+    endpoints: {}
