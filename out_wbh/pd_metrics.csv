@@ -1,0 +1,3 @@
+﻿compound_id,mw,cmax_plasma_uM,ec50_um,emax,ke0,t_above_ec50_h,t_above_ec90_h,frac_interval_above_ec50,effect_auc,effect_peak,t_peak_effect_h,driver,status,label,n_points,cmax_uM_like,ec50,ec90,hill_n,frac_horizon_above_ec50,effect_min,plateau
+WBLG-A,400.38,0.2198,1.0,100.0,,0.0,0.0,0.0,101.832,18.019,1.2,plasma_direct,ok,WBLG-A,400,0.2198,1.0,9.0,1.0,0.0,0.0,False
+WBLG-B,442.42,0.1441,1.0,100.0,,0.0,0.0,0.0,60.951,12.597,1.2,plasma_direct,ok,WBLG-B,400,0.1441,1.0,9.0,1.0,0.0,0.0,False
