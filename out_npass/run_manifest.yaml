@@ -1,0 +1,16 @@
+created_at: '2026-10-29T21:30:10'
+argv:
+- adt\cli.py
+- external
+- --dataset
+- npass
+- --data-dir
+- assets\external\npass
+- --outdir
+- out_npass
+python: 3.13.14
+rdkit: 2026.09.1
+cwd: D:\WorkBuddy\本地文件\2026-10-27-00-40-18\admet-skill
+inputs: {}
+extra: {}
+manifest_sha1: 9d46d8295ee7eaa4ab10f7aef1215d88e8684ab3
