@@ -1,0 +1,17 @@
+created_at: '2026-11-01T20:03:11'
+argv:
+- run.py
+- reliab
+- --in
+- out_lily_all\measurements_merged.csv
+- --outdir
+- out_lily_all
+python: 3.13.14
+rdkit: 2026.03.6
+cwd: C:\Users\huawei\.workbuddy\skills\admet-screening
+inputs:
+  out_lily_all\measurements_merged.csv: cce4a81e49352f21bf8e82b24897d9a3cdfeb8d1
+  references\03_endpoint_rules.yaml: b4864a639187df031244e75e15be327387252350
+  references\02_source_registry.yaml: 8bc9f7890ff3dc5dfe5e49b0ffc228ea86b76900
+extra: {}
+manifest_sha1: 976431bde0eef5e3f88f4f85cc5daa6cd42c8b9f
