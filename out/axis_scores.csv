@@ -1,0 +1,15 @@
+﻿compound_id,axis,n_endpoints,n_audited,coverage,geo_mean,flag,pareto,dominated_by,endpoints_audited,endpoints_skipped
+A,safety,6,3,0.5,0.0,ok,dominated,H;I;J;K;L,nr_ar_lbd;sr_are;sr_p53,Ames;DILI;hERG
+B,safety,6,3,0.5,0.0,ok,dominated,H;I;J;K;L,nr_ar_lbd;sr_are;sr_p53,Ames;DILI;hERG
+C,safety,6,3,0.5,0.0,ok,dominated,H;I;J;K;L,nr_ar_lbd;sr_are;sr_p53,Ames;DILI;hERG
+D,safety,6,3,0.5,0.0,ok,dominated,H;I;J;K;L,nr_ar_lbd;sr_are;sr_p53,Ames;DILI;hERG
+E,safety,6,3,0.5,0.0,ok,dominated,H;I;J;K;L,nr_ar_lbd;sr_are;sr_p53,Ames;DILI;hERG
+F,safety,6,3,0.5,0.0,ok,dominated,H;I;J;K;L,nr_ar_lbd;sr_are;sr_p53,Ames;DILI;hERG
+G,safety,6,3,0.5,0.0,ok,dominated,H;I;J;K;L,nr_ar_lbd;sr_are;sr_p53,Ames;DILI;hERG
+H,safety,6,3,0.5,1.0,ok,front,,nr_ar_lbd;sr_are;sr_p53,Ames;DILI;hERG
+I,safety,6,3,0.5,1.0,ok,front,,nr_ar_lbd;sr_are;sr_p53,Ames;DILI;hERG
+J,safety,6,3,0.5,1.0,ok,front,,nr_ar_lbd;sr_are;sr_p53,Ames;DILI;hERG
+K,safety,6,3,0.5,1.0,ok,front,,nr_ar_lbd;sr_are;sr_p53,Ames;DILI;hERG
+L,safety,6,3,0.5,1.0,ok,front,,nr_ar_lbd;sr_are;sr_p53,Ames;DILI;hERG
+M,safety,6,3,0.5,0.0,ok,dominated,H;I;J;K;L,nr_ar_lbd;sr_are;sr_p53,Ames;DILI;hERG
+N,safety,6,3,0.5,0.0,ok,dominated,H;I;J;K;L,nr_ar_lbd;sr_are;sr_p53,Ames;DILI;hERG
