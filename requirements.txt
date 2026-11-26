@@ -1,0 +1,29 @@
+# 运行期依赖（2026-10-30 全量扫描 adt/ + adt/adapters/ + tests/ 的 import 后补全；
+# "实测"为 2026-11-03 本机 86/86 全绿环境的版本，换机重建后以此为准）
+# 注意：**换机复现请装 requirements.lock（精确钉版）或跑 `python bootstrap.py`**。
+#       本文件只给版本下界，直接装它会在不同时间得到不同版本，无法逐位复现。
+# 安装（floor 参考）：pip install -r requirements.txt -i https://repo.huaweicloud.com/repository/pypi/simple/
+#   （2026-11-03 实测：清华 TUNA 镜像对该解释器返回 "from versions: none"，
+#     官方 pypi.org 索引在 7 分钟内无响应；华为云镜像 8.5MB/s 可用。
+#     故把可用镜像写在此处，避免下一个人再猜一遍。）
+# Python：>= 3.11（实测 3.13.14）
+# 警告：不要降级 numpy<2 或 rdkit<2024.3（那是 PyTDC 的约束，不是本 skill 的）
+# 环境漂移记录（G4）：2026-11-03 宿主 app 升级替换了自带 Python 的 site-packages，
+#   rdkit 2026.03.6→2026.09.1、pandas 2.3.3→3.1.0。**已按新栈重跑全量测试与 gate 审计**：
+#   当时的 86/86 通过（2026-11-05 全量复核为 **89/89**），且 hERG gate AUC 复现为 0.580、
+#   域内外准确率 0.826 与旧栈逐位一致
+#   → 该漂移对现有结论无数值影响（这条比对本身就是一次免费的复现性验证）。
+
+rdkit>=2023.9          # 实测 2026.09.1（旧栈 2026.03.6，见上方漂移记录）
+pyyaml>=6.0            # 实测 6.0.3
+requests>=2.31         # 实测 2.34.2（adapters/web 适配器）
+numpy>=1.24            # 实测 2.5.4；2.x 与 1.26 均可（pytdc 1.1.15 实测可共存，见 SETUP_REPRODUCE.md）
+scipy>=1.10            # 实测 1.18.1（conformal/校准/Newcombe/Fisher）
+scikit-learn>=1.2      # 实测 1.9.1（baseline/isotonic/gate 审计的 RF）
+pandas>=2.1            # 实测 3.1.0（旧栈 2.3.3，见上方漂移记录）
+beautifulsoup4>=4.12   # 实测 4.15.0（adapters 网页解析）
+lxml>=5.0              # 实测 6.1.3（bs4 解析器；2026-10-31 干净机实测缺失会崩 vnn 适配器，
+                       #  代码已改为优先 lxml、缺失降级 html.parser，但显式装上更快更稳）
+
+# dev
+pytest>=7.4            # 实测 9.2.0
