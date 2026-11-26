@@ -1,0 +1,85 @@
+﻿compound_id,endpoint,n_total,n_in_domain,n_measured,sources,value_used,unit,spread,verdict,confidence,reason,action
+A,Ames,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.83,UNDETERMINED,low,源间分歧过大（极差=0.83）,逐源复核适用域；必要时补实测，禁止取平均
+A,DILI,4,4,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.746,UNDETERMINED,low,源间分歧过大（极差=0.746）,逐源复核适用域；必要时补实测，禁止取平均
+A,hERG,3,3,0,admet_ai;admetlab3;vnn_admet,,,0.369,UNDETERMINED,low,源间分歧过大（极差=0.369）,逐源复核适用域；必要时补实测，禁止取平均
+A,nr_ar_lbd,1,1,0,admetlab3,0.5272,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+A,sr_are,1,1,0,admetlab3,0.9012,probability,0.0,FAIL,medium,1 个域内源一致（中位数）,
+A,sr_p53,1,1,0,admetlab3,0.8287,probability,0.0,FAIL,medium,1 个域内源一致（中位数）,
+B,Ames,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.967,UNDETERMINED,low,源间分歧过大（极差=0.967）,逐源复核适用域；必要时补实测，禁止取平均
+B,DILI,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.876,UNDETERMINED,low,源间分歧过大（极差=0.876）,逐源复核适用域；必要时补实测，禁止取平均
+B,hERG,3,3,0,admet_ai;admetlab3;vnn_admet,,,0.455,UNDETERMINED,low,源间分歧过大（极差=0.455）,逐源复核适用域；必要时补实测，禁止取平均
+B,nr_ar_lbd,1,1,0,admetlab3,0.3117,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+B,sr_are,1,1,0,admetlab3,0.918,probability,0.0,FAIL,medium,1 个域内源一致（中位数）,
+B,sr_p53,1,1,0,admetlab3,0.9324,probability,0.0,FAIL,medium,1 个域内源一致（中位数）,
+C,Ames,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.853,UNDETERMINED,low,源间分歧过大（极差=0.853）,逐源复核适用域；必要时补实测，禁止取平均
+C,DILI,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.716,UNDETERMINED,low,源间分歧过大（极差=0.716）,逐源复核适用域；必要时补实测，禁止取平均
+C,hERG,3,3,0,admet_ai;admetlab3;vnn_admet,,,0.397,UNDETERMINED,low,源间分歧过大（极差=0.397）,逐源复核适用域；必要时补实测，禁止取平均
+C,nr_ar_lbd,1,1,0,admetlab3,0.7714,probability,0.0,FAIL,medium,1 个域内源一致（中位数）,
+C,sr_are,1,1,0,admetlab3,0.6024,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+C,sr_p53,1,1,0,admetlab3,0.5357,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+D,Ames,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.978,UNDETERMINED,low,源间分歧过大（极差=0.978）,逐源复核适用域；必要时补实测，禁止取平均
+D,DILI,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.841,UNDETERMINED,low,源间分歧过大（极差=0.841）,逐源复核适用域；必要时补实测，禁止取平均
+D,hERG,3,3,0,admet_ai;admetlab3;vnn_admet,,,0.387,UNDETERMINED,low,源间分歧过大（极差=0.387）,逐源复核适用域；必要时补实测，禁止取平均
+D,nr_ar_lbd,1,1,0,admetlab3,0.2905,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+D,sr_are,1,1,0,admetlab3,0.8894,probability,0.0,FAIL,medium,1 个域内源一致（中位数）,
+D,sr_p53,1,1,0,admetlab3,0.8184,probability,0.0,FAIL,medium,1 个域内源一致（中位数）,
+E,Ames,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.972,UNDETERMINED,low,源间分歧过大（极差=0.972）,逐源复核适用域；必要时补实测，禁止取平均
+E,DILI,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.895,UNDETERMINED,low,源间分歧过大（极差=0.895）,逐源复核适用域；必要时补实测，禁止取平均
+E,hERG,3,3,0,admet_ai;admetlab3;vnn_admet,,,0.468,UNDETERMINED,low,源间分歧过大（极差=0.468）,逐源复核适用域；必要时补实测，禁止取平均
+E,nr_ar_lbd,1,1,0,admetlab3,0.6857,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+E,sr_are,1,1,0,admetlab3,0.6625,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+E,sr_p53,1,1,0,admetlab3,0.8339,probability,0.0,FAIL,medium,1 个域内源一致（中位数）,
+F,Ames,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.837,UNDETERMINED,low,源间分歧过大（极差=0.837）,逐源复核适用域；必要时补实测，禁止取平均
+F,DILI,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.643,UNDETERMINED,low,源间分歧过大（极差=0.643）,逐源复核适用域；必要时补实测，禁止取平均
+F,hERG,3,2,0,admet_ai;admetlab3;vnn_admet,,,0.401,UNDETERMINED,low,源间分歧过大（极差=0.401）,逐源复核适用域；必要时补实测，禁止取平均
+F,nr_ar_lbd,1,1,0,admetlab3,0.7327,probability,0.0,FAIL,medium,1 个域内源一致（中位数）,
+F,sr_are,1,1,0,admetlab3,0.821,probability,0.0,FAIL,medium,1 个域内源一致（中位数）,
+F,sr_p53,1,1,0,admetlab3,0.6869,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+G,Ames,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.978,UNDETERMINED,low,源间分歧过大（极差=0.978）,逐源复核适用域；必要时补实测，禁止取平均
+G,DILI,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.819,UNDETERMINED,low,源间分歧过大（极差=0.819）,逐源复核适用域；必要时补实测，禁止取平均
+G,hERG,3,2,0,admet_ai;admetlab3;vnn_admet,,,0.432,UNDETERMINED,low,源间分歧过大（极差=0.432）,逐源复核适用域；必要时补实测，禁止取平均
+G,nr_ar_lbd,1,1,0,admetlab3,0.5722,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+G,sr_are,1,1,0,admetlab3,0.7828,probability,0.0,FAIL,medium,1 个域内源一致（中位数）,
+G,sr_p53,1,1,0,admetlab3,0.747,probability,0.0,FAIL,medium,1 个域内源一致（中位数）,
+H,Ames,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.974,UNDETERMINED,low,源间分歧过大（极差=0.974）,逐源复核适用域；必要时补实测，禁止取平均
+H,DILI,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.744,UNDETERMINED,low,源间分歧过大（极差=0.744）,逐源复核适用域；必要时补实测，禁止取平均
+H,hERG,3,2,0,admet_ai;admetlab3;vnn_admet,0.1691,probability,0.296,UNDETERMINED,low,2 个域内源一致（中位数）；该端点在本集合内无区分度，**只能按阈值判、不能排序**,值 0.169 落在关注带（pass=0.1 / fail=0.5），不足以判 PASS/FAIL；需实测或增加同向源
+H,nr_ar_lbd,1,1,0,admetlab3,0.3537,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+H,sr_are,1,1,0,admetlab3,0.4748,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+H,sr_p53,1,1,0,admetlab3,0.2308,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+I,Ames,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.953,UNDETERMINED,low,源间分歧过大（极差=0.953）,逐源复核适用域；必要时补实测，禁止取平均
+I,DILI,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.811,UNDETERMINED,low,源间分歧过大（极差=0.811）,逐源复核适用域；必要时补实测，禁止取平均
+I,hERG,3,2,0,admet_ai;admetlab3;vnn_admet,,,0.367,UNDETERMINED,low,源间分歧过大（极差=0.367）,逐源复核适用域；必要时补实测，禁止取平均
+I,nr_ar_lbd,1,1,0,admetlab3,0.1462,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+I,sr_are,1,1,0,admetlab3,0.5125,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+I,sr_p53,1,1,0,admetlab3,0.3482,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+J,Ames,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.979,UNDETERMINED,low,源间分歧过大（极差=0.979）,逐源复核适用域；必要时补实测，禁止取平均
+J,DILI,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.914,UNDETERMINED,low,源间分歧过大（极差=0.914）,逐源复核适用域；必要时补实测，禁止取平均
+J,hERG,3,3,0,admet_ai;admetlab3;vnn_admet,,,0.335,UNDETERMINED,low,源间分歧过大（极差=0.335）,逐源复核适用域；必要时补实测，禁止取平均
+J,nr_ar_lbd,1,1,0,admetlab3,0.3065,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+J,sr_are,1,1,0,admetlab3,0.6875,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+J,sr_p53,1,1,0,admetlab3,0.4252,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+K,Ames,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.98,UNDETERMINED,low,源间分歧过大（极差=0.98）,逐源复核适用域；必要时补实测，禁止取平均
+K,DILI,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.865,UNDETERMINED,low,源间分歧过大（极差=0.865）,逐源复核适用域；必要时补实测，禁止取平均
+K,hERG,3,3,0,admet_ai;admetlab3;vnn_admet,,,0.411,UNDETERMINED,low,源间分歧过大（极差=0.411）,逐源复核适用域；必要时补实测，禁止取平均
+K,nr_ar_lbd,1,1,0,admetlab3,0.6323,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+K,sr_are,1,1,0,admetlab3,0.5496,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+K,sr_p53,1,1,0,admetlab3,0.5704,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+L,Ames,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.977,UNDETERMINED,low,源间分歧过大（极差=0.977）,逐源复核适用域；必要时补实测，禁止取平均
+L,DILI,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.753,UNDETERMINED,low,源间分歧过大（极差=0.753）,逐源复核适用域；必要时补实测，禁止取平均
+L,hERG,3,3,0,admet_ai;admetlab3;vnn_admet,,,0.341,UNDETERMINED,low,源间分歧过大（极差=0.341）,逐源复核适用域；必要时补实测，禁止取平均
+L,nr_ar_lbd,1,1,0,admetlab3,0.5738,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+L,sr_are,1,1,0,admetlab3,0.2119,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+L,sr_p53,1,1,0,admetlab3,0.1564,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+M,Ames,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.921,UNDETERMINED,low,源间分歧过大（极差=0.921）,逐源复核适用域；必要时补实测，禁止取平均
+M,DILI,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.774,UNDETERMINED,low,源间分歧过大（极差=0.774）,逐源复核适用域；必要时补实测，禁止取平均
+M,hERG,3,3,0,admet_ai;admetlab3;vnn_admet,,,0.409,UNDETERMINED,low,源间分歧过大（极差=0.409）,逐源复核适用域；必要时补实测，禁止取平均
+M,nr_ar_lbd,1,1,0,admetlab3,0.7237,probability,0.0,FAIL,medium,1 个域内源一致（中位数）,
+M,sr_are,1,1,0,admetlab3,0.4167,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+M,sr_p53,1,1,0,admetlab3,0.2882,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+N,Ames,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.99,UNDETERMINED,low,源间分歧过大（极差=0.99）,逐源复核适用域；必要时补实测，禁止取平均
+N,DILI,4,3,0,admet_ai;admetlab3;protox3;vnn_admet,,,0.908,UNDETERMINED,low,源间分歧过大（极差=0.908）,逐源复核适用域；必要时补实测，禁止取平均
+N,hERG,3,2,0,admet_ai;admetlab3;vnn_admet,,,0.493,UNDETERMINED,low,源间分歧过大（极差=0.493）,逐源复核适用域；必要时补实测，禁止取平均
+N,nr_ar_lbd,1,1,0,admetlab3,0.6442,probability,0.0,PASS,medium,1 个域内源一致（中位数）,
+N,sr_are,1,1,0,admetlab3,0.8618,probability,0.0,FAIL,medium,1 个域内源一致（中位数）,
+N,sr_p53,1,1,0,admetlab3,0.9474,probability,0.0,FAIL,medium,1 个域内源一致（中位数）,
