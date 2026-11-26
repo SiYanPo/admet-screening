@@ -1,0 +1,85 @@
+﻿mode,compound_id,endpoint,source,detail
+unit_isomerism,A,DILI,admet_ai;admetlab3;protox3;vnn_admet,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,A,Ames,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,B,DILI,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,B,Ames,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,C,DILI,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,C,Ames,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,D,DILI,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,D,Ames,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,E,DILI,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,E,Ames,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,F,DILI,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,F,Ames,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,G,DILI,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,G,Ames,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,H,DILI,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,H,Ames,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,I,DILI,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,I,Ames,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,J,DILI,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,J,Ames,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,K,DILI,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,K,Ames,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,L,DILI,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,L,Ames,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,M,DILI,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,M,Ames,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,N,DILI,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+unit_isomerism,N,Ames,admet_ai;admetlab3;protox3,同一端点混用 class 0/1 与 probability；直接取中位数=假 PASS
+domain_block_unwired,A,DILI,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.643–0.914），但数据仍为 predicted
+domain_block_unwired,A,Ames,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.830–0.990），但数据仍为 predicted
+domain_block_unwired,B,DILI,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.643–0.914），但数据仍为 predicted
+domain_block_unwired,B,Ames,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.830–0.990），但数据仍为 predicted
+domain_block_unwired,C,DILI,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.643–0.914），但数据仍为 predicted
+domain_block_unwired,C,Ames,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.830–0.990），但数据仍为 predicted
+domain_block_unwired,D,DILI,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.643–0.914），但数据仍为 predicted
+domain_block_unwired,D,Ames,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.830–0.990），但数据仍为 predicted
+domain_block_unwired,E,DILI,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.643–0.914），但数据仍为 predicted
+domain_block_unwired,E,Ames,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.830–0.990），但数据仍为 predicted
+domain_block_unwired,F,DILI,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.643–0.914），但数据仍为 predicted
+domain_block_unwired,F,Ames,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.830–0.990），但数据仍为 predicted
+domain_block_unwired,G,DILI,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.643–0.914），但数据仍为 predicted
+domain_block_unwired,G,Ames,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.830–0.990），但数据仍为 predicted
+domain_block_unwired,H,DILI,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.643–0.914），但数据仍为 predicted
+domain_block_unwired,H,Ames,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.830–0.990），但数据仍为 predicted
+domain_block_unwired,I,DILI,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.643–0.914），但数据仍为 predicted
+domain_block_unwired,I,Ames,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.830–0.990），但数据仍为 predicted
+domain_block_unwired,J,DILI,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.643–0.914），但数据仍为 predicted
+domain_block_unwired,J,Ames,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.830–0.990），但数据仍为 predicted
+domain_block_unwired,K,DILI,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.643–0.914），但数据仍为 predicted
+domain_block_unwired,K,Ames,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.830–0.990），但数据仍为 predicted
+domain_block_unwired,L,DILI,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.643–0.914），但数据仍为 predicted
+domain_block_unwired,L,Ames,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.830–0.990），但数据仍为 predicted
+domain_block_unwired,M,DILI,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.643–0.914），但数据仍为 predicted
+domain_block_unwired,M,Ames,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.830–0.990），但数据仍为 predicted
+domain_block_unwired,N,DILI,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.643–0.914），但数据仍为 predicted
+domain_block_unwired,N,Ames,admetlab3,registry 已登记域外（14/14 >0.5，区间 0.830–0.990），但数据仍为 predicted
+domain_block_unwired,A,DILI,admet_ai,registry 已登记域外（0/14 >0.5，区间 0.226–0.322（近饱和阴性）），但数据仍为 predicted
+domain_block_unwired,A,Ames,admet_ai,registry 已登记域外（7/14 >0.5，区间 0.339–0.648，与 ADMETlab 方向相反），但数据仍为 predicted
+domain_block_unwired,B,DILI,admet_ai,registry 已登记域外（0/14 >0.5，区间 0.226–0.322（近饱和阴性）），但数据仍为 predicted
+domain_block_unwired,B,Ames,admet_ai,registry 已登记域外（7/14 >0.5，区间 0.339–0.648，与 ADMETlab 方向相反），但数据仍为 predicted
+domain_block_unwired,C,DILI,admet_ai,registry 已登记域外（0/14 >0.5，区间 0.226–0.322（近饱和阴性）），但数据仍为 predicted
+domain_block_unwired,C,Ames,admet_ai,registry 已登记域外（7/14 >0.5，区间 0.339–0.648，与 ADMETlab 方向相反），但数据仍为 predicted
+domain_block_unwired,D,DILI,admet_ai,registry 已登记域外（0/14 >0.5，区间 0.226–0.322（近饱和阴性）），但数据仍为 predicted
+domain_block_unwired,D,Ames,admet_ai,registry 已登记域外（7/14 >0.5，区间 0.339–0.648，与 ADMETlab 方向相反），但数据仍为 predicted
+domain_block_unwired,E,DILI,admet_ai,registry 已登记域外（0/14 >0.5，区间 0.226–0.322（近饱和阴性）），但数据仍为 predicted
+domain_block_unwired,E,Ames,admet_ai,registry 已登记域外（7/14 >0.5，区间 0.339–0.648，与 ADMETlab 方向相反），但数据仍为 predicted
+domain_block_unwired,F,DILI,admet_ai,registry 已登记域外（0/14 >0.5，区间 0.226–0.322（近饱和阴性）），但数据仍为 predicted
+domain_block_unwired,F,Ames,admet_ai,registry 已登记域外（7/14 >0.5，区间 0.339–0.648，与 ADMETlab 方向相反），但数据仍为 predicted
+domain_block_unwired,G,DILI,admet_ai,registry 已登记域外（0/14 >0.5，区间 0.226–0.322（近饱和阴性）），但数据仍为 predicted
+domain_block_unwired,G,Ames,admet_ai,registry 已登记域外（7/14 >0.5，区间 0.339–0.648，与 ADMETlab 方向相反），但数据仍为 predicted
+domain_block_unwired,H,DILI,admet_ai,registry 已登记域外（0/14 >0.5，区间 0.226–0.322（近饱和阴性）），但数据仍为 predicted
+domain_block_unwired,H,Ames,admet_ai,registry 已登记域外（7/14 >0.5，区间 0.339–0.648，与 ADMETlab 方向相反），但数据仍为 predicted
+domain_block_unwired,I,DILI,admet_ai,registry 已登记域外（0/14 >0.5，区间 0.226–0.322（近饱和阴性）），但数据仍为 predicted
+domain_block_unwired,I,Ames,admet_ai,registry 已登记域外（7/14 >0.5，区间 0.339–0.648，与 ADMETlab 方向相反），但数据仍为 predicted
+domain_block_unwired,J,DILI,admet_ai,registry 已登记域外（0/14 >0.5，区间 0.226–0.322（近饱和阴性）），但数据仍为 predicted
+domain_block_unwired,J,Ames,admet_ai,registry 已登记域外（7/14 >0.5，区间 0.339–0.648，与 ADMETlab 方向相反），但数据仍为 predicted
+domain_block_unwired,K,DILI,admet_ai,registry 已登记域外（0/14 >0.5，区间 0.226–0.322（近饱和阴性）），但数据仍为 predicted
+domain_block_unwired,K,Ames,admet_ai,registry 已登记域外（7/14 >0.5，区间 0.339–0.648，与 ADMETlab 方向相反），但数据仍为 predicted
+domain_block_unwired,L,DILI,admet_ai,registry 已登记域外（0/14 >0.5，区间 0.226–0.322（近饱和阴性）），但数据仍为 predicted
+domain_block_unwired,L,Ames,admet_ai,registry 已登记域外（7/14 >0.5，区间 0.339–0.648，与 ADMETlab 方向相反），但数据仍为 predicted
+domain_block_unwired,M,DILI,admet_ai,registry 已登记域外（0/14 >0.5，区间 0.226–0.322（近饱和阴性）），但数据仍为 predicted
+domain_block_unwired,M,Ames,admet_ai,registry 已登记域外（7/14 >0.5，区间 0.339–0.648，与 ADMETlab 方向相反），但数据仍为 predicted
+domain_block_unwired,N,DILI,admet_ai,registry 已登记域外（0/14 >0.5，区间 0.226–0.322（近饱和阴性）），但数据仍为 predicted
+domain_block_unwired,N,Ames,admet_ai,registry 已登记域外（7/14 >0.5，区间 0.339–0.648，与 ADMETlab 方向相反），但数据仍为 predicted
