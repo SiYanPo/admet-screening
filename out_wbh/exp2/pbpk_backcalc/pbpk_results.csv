@@ -1,0 +1,3 @@
+﻿compound_id,mw,clogp,clint_um,fu_pct,fa,cmax_nM,tmax_h,auc_nMh,thalf_h,F_pbpk,mass_balance_err,clh_lh,clint_app,clint_b_lh,clint_scaled_lh,eh,ehr_n_met,ehr_note,ehr_verdict,fbile,fre,fu_mic,margin_IC50_10uM,margin_IC50_1uM,margin_IC50_30uM,tier_IC50_10uM,tier_IC50_1uM,tier_IC50_30uM
+WBLG-A,400.4,-1.87,25.8,35.7,0.011,9.6,1.44,51.7,1.87,0.005,4.26e-16,12.98,25.81,44.75,125.42,0.187,2/4,部分前提具备：EHR 只能作敏感性分析，不作预测,uncertain,0.0,0.0,1.0,1042.0,104.2,3125.9,WIDE,WIDE,WIDE
+WBLG-B,442.4,-1.3,43.6,34.0,0.254,141.0,1.26,672.8,1.6,0.091,1.71e-15,18.06,43.58,71.95,211.79,0.261,2/4,部分前提具备：EHR 只能作敏感性分析，不作预测,uncertain,0.0,0.0,1.0,70.9,7.1,212.7,OK,FAIL,WIDE
