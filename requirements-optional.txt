@@ -1,0 +1,21 @@
+# requirements-optional.txt —— 可选层精确钉版（2026-11-05 本机实测）
+# 为什么单独一个文件：pytdc 1.1.15 的元数据声明 numpy<2 / pandas<3 / rdkit<2024.3.1，
+#   普通 `pip install pytdc` 会**强制降级核心栈**（实测 dry-run 试图源码编译 numpy，因无编译器直接失败）。
+#   本 skill 实测：--no-deps 安装 + 补齐下列最小运行时集合即可 `from tdc import BenchmarkGroup`。
+#   元数据约束 != 运行期约束，但绝不能让 pip 自己去解析。
+# 安装只能走 bootstrap.py（它按组分别用不同的 pip 参数），不要直接 pip install -r 本文件。
+#
+# [A] Pharmpy：正确的 PyPI 包名是 pharmpy-core，不是 pharmpy
+#     （pharmpy 包只有 0.0.1/0.0.2 两个占位版；照名字装 2.3.0 必然失败）
+pharmpy-core==2.3.0
+#
+# [B] pytdc 及最小运行时集合，全部 --no-deps
+pytdc==1.1.15
+tqdm==4.70.1
+fuzzywuzzy==0.18.0
+openpyxl==3.1.5
+setuptools==80.9.0
+huggingface_hub==2.4.0
+# setuptools 必须钉 80.9.0：更高版本移除 pkg_resources，tdc.utils.load 会直接 ImportError。
+# huggingface_hub 2.4.0 与 pytdc 元数据的 <1.0 不符，但 `create_repo` 实测可用；
+#   若换机后 import tdc 失败，按 env-audit 报出的缺失项逐个补，不要整包降级。
