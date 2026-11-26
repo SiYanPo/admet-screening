@@ -1,0 +1,3 @@
+﻿group,n_pairs,n_endpoints,max_abs_rho,mean_abs_rho,max_pos_rho,n_sign_conflicts,n_unit_mismatch,group_weight,evidence,n_sources,n_eff,n_eff_ratio,independence_status,weight_ci95,power_at_rho,min_detectable_rho
+descriptor_ml,3,3,,,,0,0,1.0,no_rho_data,2,2.0,1.0,insufficient_power,"[1.0, 1.0]",0.0,0
+neighbor_qsar,1,1,,,,0,0,1.0,no_rho_data,2,2.0,1.0,insufficient_power,"[1.0, 1.0]",0.0,0
