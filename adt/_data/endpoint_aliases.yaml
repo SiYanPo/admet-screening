@@ -1,0 +1,96 @@
+# 跨源端点名 -> 规范端点 id 映射（评估报告 P2-9）
+#
+# 为什么必须有这张表：reliab 的"跨源分歧"检测依赖 **同一物理端点被写成同一个名字**。
+# v2.1 之前靠 reliability._match_rule 的子串匹配兜底——`herg` 会命中任何含 "herg"
+# 的端点名，不同适配器若各写一套命名，就会出现"同一端点漏检分歧 / 不同端点假分歧"。
+# 现在改为：**显式映射优先**，子串匹配降为最后兜底并打警告。
+#
+# 规则：
+#   1. canonical 必须与 references/03_endpoint_rules.yaml 的 endpoint id 对齐（大小写不敏感）
+#   2. **只映射语义已核对的列**；语义/单位未对齐的一律留空并在 note 说明——
+#      宁可少映射，也不能把 AqSolDB 的 log mol/L 冒充 µg/mL 的动力学溶解度。
+#   3. reference 段是"参照值"（role=reference，只报告不裁决）。
+
+version: 1
+verified_at: "2026-10-28"
+
+sources:
+
+  admet_ai:
+    label: ADMET-AI
+    map:
+      DILI: dili
+      AMES: ames
+      hERG: herg
+      SR-MMP: mmp
+      CYP1A2_Veith: cyp1a2_inhibition
+      CYP2C19_Veith: cyp2c19_inhibition
+      CYP2C9_Veith: cyp2c9_inhibition
+      CYP2D6_Veith: cyp2d6_inhibition
+      CYP3A4_Veith: cyp3a4_inhibition
+      Clearance_Microsome_AZ: clint_microsome   # 单位已核（mL/min/g ≡ µL/min/mg）
+      Caco2_Wang: caco2_papp_ab                 # log10(Papp)，规则已改 log 量纲
+      PPBR_AZ: ppb_fu                           # % bound → 适配器转 fu = 100 - x
+    unmapped_note: >
+      其余数值列（AqSolDB log mol/L、Clearance_Hepatocyte_AZ µL/min/10⁶ cells、
+      Half_Life_Obach h 等）暂不映射：单位族与规则阈值未对齐，强行映射会造成量纲错配。
+      需要时在 rules 里新增对应端点并在此显式登记。
+      **三项湿实验替代（Caco-2 / 微粒体 CLint / PPB）到 v2.3.3 才真正接线完毕**：
+      CLint 在 v2.3.2 接，Caco-2 与 PPB 在 v2.3.3 接（C70：声称替代但长表里没有值）。
+
+  admetlab3:
+    label: ADMETlab 3.0
+    map:
+      DILI: dili
+      Ames: ames
+      hERG: herg
+      Carcinogenicity: carcinogenicity
+      NR-AR-LBD: nr_ar_lbd
+      SR-p53: sr_p53
+      SR-ARE: sr_are
+      caco2: caco2_papp_ab                      # log10(Papp)，规则已改 log 量纲
+      PPB: ppb_fu                               # % bound → 适配器转 fu
+    unmapped_note: >
+      转运体（OATP1B1/1B3/BCRP/BSEP/MRP1）与 NR-ER 等列在糖苷类上实测饱和
+      （见 02_source_registry blocked_endpoints_in_class），未映射；如需使用请先过饱和扫描。
+
+  protox3:
+    label: ProTox-III
+    map:
+      dili: dili
+      mutagen: ames
+    reference:
+      ld50: protox_ld50
+    unmapped_note: >
+      cardio 是"综合心脏毒性"而非 hERG 抑制，**不得映射到 herg**（语义不同）；
+      neuro/nephro/respi/carcino/immuno/cyto/bbb/eco/clinical 与 6 个 CYP 暂无
+      对应规则端点，保留在源侧 CSV 供人工查阅。
+
+  vnn_admet:
+    label: vNN-ADMET
+    map:
+      DILI: dili
+      hERG: herg
+      AMES: ames
+      Ames: ames
+      MMP: mmp
+      CYP1A2: cyp1a2_inhibition
+      CYP3A4: cyp3a4_inhibition
+      CYP2D6: cyp2d6_inhibition
+      CYP2C9: cyp2c9_inhibition
+      CYP2C19: cyp2c19_inhibition
+    reference:
+      MRTD: vnn_mrtd
+    unmapped_note: >
+      其余 12 端点（CYP×5、Cytotoxicity、BBB、Pgp 抑制剂/底物、HLM、MMP、MRTD）
+      在糖苷类上多为 NoPrediction；如需入长表，先确认适用域覆盖率（registry 记 0.17）。
+
+  chembl:
+    label: ChEMBL（参照/适用域）
+    reference:
+      chembl_herg_p50: chembl_herg_p50
+      chembl_logd_p50: chembl_logd_p50
+      chembl_solubility_p50: chembl_solubility_p50
+      chembl_clearance_p50: chembl_clearance_p50
+      chembl_ppb_fu_p50: chembl_ppb_fu_p50
+      chembl_half_life_p50: chembl_half_life_p50
