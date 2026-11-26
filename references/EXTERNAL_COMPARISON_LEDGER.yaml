@@ -1,0 +1,96 @@
+# G14 外部对照台账（External Comparison Ledger）
+#
+# 为什么存在：本仓库连续三轮出现"selftest 全绿但实现是错的"——
+#   ① t 分布自由度用 n 而非 n-2；② Holm 按 zip 顺序回填；③ OOT 基线含待检尾部。
+# 三次都是"自测与实现同源，模型错则两边一起错"。唯一能打破闭环的是**另一个来源的实现**。
+#
+# 本台账把这条纪律变成机器可检的账：
+#   * `required_modules` 是棘轮——新增统计模块必须先进这里，否则 G14 blocker；
+#   * 每条 entry 必须挂 ①对照脚本 ②独立审查报告 ③回归测试节点，缺一 blocker；
+#   * 实测最大偏差必须 ≤ 台账声明的容差（G14 会真跑一遍 adt/external_comparison.py 复核，
+#     不采信本文件里的数字自述）。
+#
+# 本台账**不**声称"统计假设成立"或"结论正确"，只声称"实现与参考实现逐点一致"。
+
+schema: adt-external-comparison-ledger/1
+updated: "2026-11-19"
+
+policy:
+  rule: >-
+    任何产出数字并进入结论的统计量，必须有独立来源的对照：scipy/statsmodels 官方实现、
+    教科书闭式、或仓库内第二处独立实现。缺对照 → 该模块不得进 release-check。
+  reference_bias_caveat: >-
+    若参考实现与被测实现同源于同一公式，公式层面的误解无法被发现；因此每条另需人写的
+    独立审查报告（含对抗探针），代码审查与数值对照是两条不同的防线，不可互相替代。
+  tolerance_default: 1.0e-9
+  categorical_tolerance: 0.0
+
+# 棘轮：这些模块必须在 entries 里出现（键 = module 字段）
+required_modules:
+  - stats_ci.clopper_pearson_ci
+  - stats_ci.wilson_ci
+  - stats_ci.newcombe_diff_ci
+  - stats_ci.holm / paired_stats.holm
+  - evidence_streams._p_two_sided
+  - deviation.detect(OOT)
+
+entries:
+  - module: stats_ci.clopper_pearson_ci
+    statistic: 二项精确区间端点（lo/hi）
+    reference: scipy 1.18.1 stats.beta.ppf
+    comparison_script: adt/external_comparison.py
+    review_report: logs/peer_review_20261117/code_review_100papers.md
+    regression_test: tests/test_stats_ci.py::test_clopper_pearson_basic
+    tolerance: 1.0e-9
+    status: verified
+    note: 6 个用例含 k=0 / k=n 两个退化端点
+
+  - module: stats_ci.wilson_ci
+    statistic: Wilson score 区间端点（lo/hi）
+    reference: 闭式公式 + stdlib 正态分位（独立复写）
+    comparison_script: adt/external_comparison.py
+    review_report: logs/peer_review_20261117/code_review_100papers.md
+    regression_test: tests/test_stats_ci.py::test_wilson_endpoints_are_exact
+    tolerance: 1.0e-9
+    status: verified
+
+  - module: stats_ci.newcombe_diff_ci
+    statistic: 两比例差分区间（lo/hi）
+    reference: Newcombe Method 10（独立复写，Wilson 端点另用闭式）
+    comparison_script: adt/external_comparison.py
+    review_report: logs/peer_review_20261117/code_review_100papers.md
+    regression_test: tests/test_stats_ci.py::test_newcombe_diff_ci_sign_and_zero_crossing
+    tolerance: 1.0e-9
+    status: verified
+
+  - module: stats_ci.holm / paired_stats.holm
+    statistic: FWER 逐步校正的拒绝集（分类量）
+    reference: 教科书逐步降（独立复写），两处实现同时比对
+    comparison_script: adt/external_comparison.py
+    review_report: logs/peer_review_20261117/code_review_100papers.md
+    regression_test: tests/test_stats_ci.py::test_holm_example_matches_textbook
+    tolerance: 0.0
+    status: verified
+    note: >-
+      两处实现 API 不同（dict / 布尔表）但判据必须一致；历史上第二轮事故正是
+      "回填顺序错导致结论完全颠倒"，故此处按分类量精确比对。
+
+  - module: evidence_streams._p_two_sided
+    statistic: Pearson/Spearman r 的双尾 p
+    reference: scipy 1.18.1 stats.t.sf（df = n-2）
+    comparison_script: adt/external_comparison.py
+    review_report: logs/peer_review_20261117/code_review_100papers.md
+    regression_test: tests/test_estimand.py::test_evidence_streams_selftest
+    tolerance: 1.0e-9
+    status: verified
+    note: 第一轮事故（df 用 n）的永久哨兵；5 个用例覆盖 r=0 / r=±0.95 / n=500
+
+  - module: deviation.detect(OOT)
+    statistic: 连续 n 点偏离基线 k·SD 的判定（分类量）
+    reference: 独立复算前缀基线（显式排除待检尾部）
+    comparison_script: adt/external_comparison.py
+    review_report: logs/peer_review_20261117/code_review_market100.md
+    regression_test: tests/test_estimand.py::test_deviation_oot_baseline_excludes_tail
+    tolerance: 0.0
+    status: verified
+    note: 第二轮事故（基线含尾部 → SD 膨胀 30× → 系统性漏报）的永久哨兵
