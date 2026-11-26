@@ -1,0 +1,15 @@
+created_at: '2026-11-07T09:36:35'
+argv:
+- adt\cli.py
+- regaloside-ab
+- --outdir
+- out_wbh\ab
+python: 3.13.14
+rdkit: 2026.09.1
+cwd: C:\Users\huawei\.workbuddy\skills\admet-screening
+inputs: {}
+extra: {}
+manifest_sha1: 23f3b81f357e14a603c6663b8b0932b5fb4fdeb7
+content_sha256: 4a10bd8d1e478e4bb057968cf4cfa88193197d233720ff5c7812c0c86ddf8804
+manifest_json: manifest.json
+estimand_id: null
