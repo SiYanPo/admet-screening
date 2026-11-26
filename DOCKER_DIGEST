@@ -1,0 +1,56 @@
+{
+  "purpose": "G6 容器指纹：证明本 skill 能在与宿主解耦的容器里复算，digest 可被第三方核对",
+  "generated_at": "2026-11-23T10:02:00+08:00",
+  "host": {
+    "os": "Windows 11 (amd64)",
+    "docker_client": "29.9.3",
+    "docker_server": "29.9.3",
+    "engine": "Docker Desktop (desktop-linux, buildkit)"
+  },
+  "build": {
+    "dockerfile": "docker/Dockerfile.repro",
+    "dockerfile_sha256": "6f74a5e768d466d83ea7103948c7a11959bbde21ebd2a2955d801594aa315cf0",
+    "verify_script": "docker/verify_in_container.py",
+    "verify_script_sha256": "259b6ffbc35b29efb5754459bdf13be2c78257e4144f6368c4a307d5c06a9d41",
+    "requirements_lock_sha256": "101636597fab2e4b00a3f0b05d07025bcabc39b8fde3342e7ace1a52fc74d4fc",
+    "dockerignore_sha256": "da30ec3b6112de448b8d9b4e004ce06ee59eb69f69740707ec924237ce78999d",
+    "context_policy": "仅 adt/ local_admet/ references/ docker/ pyproject.toml requirements.lock（.dockerignore 排除 1.4 GB 实跑产物）",
+    "build_command": "docker build -f docker/Dockerfile.repro -t admet-screening:2026.11.23 ."
+  },
+  "base_image": {
+    "ref": "docker.m.daocloud.io/library/python:3.13-slim",
+    "pinned_by_digest": "sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90",
+    "note": "按 digest 而非 tag 钉死；选 3.13 是因为 requirements.lock 的 numpy==2.5.4 要求 Python>=3.12（实测宿主 3.13.14），3.11 基座装不上"
+  },
+  "image": {
+    "ref": "admet-screening:2026.11.23",
+    "image_id": "sha256:16d408f9471ceffe165c75cd6bd063bb1cfc05a726fdb421e14111e4022c16fb",
+    "manifest_list_digest": "sha256:16d408f9471ceffe165c75cd6bd063bb1cfc05a726fdb421e14111e4022c16fb",
+    "config_digest": "sha256:b162090ea269fff58804d4349d4dc03b0fd42f0fdcfdc1c9264ada02065e7eee",
+    "size_bytes": 936420118,
+    "created": "2026-11-23T02:00:30.854667496Z",
+    "platform": "linux/amd64"
+  },
+  "selftest": {
+    "command": "docker run --rm admet-screening:2026.11.23",
+    "result": "CONTAINER_SELFTEST {\"ok\": true, \"failures\": [], \"adt_version\": \"0.9.0\"}",
+    "assertions": [
+      "rdkit 导入 2026.09.1（与宿主一致）",
+      "阿司匹林 MW=180.16 / 分子式 C9H8O4（硬编码期望值）",
+      "Morgan 指纹 Tanimoto(aspirin, salicylic)=0.4483 落在 (0,1)，与宿主逐位一致",
+      "adt 0.9.0 可导入",
+      "python -m adt.cli --help 返回 0"
+    ],
+    "significance": "容器与宿主的数值一致（MW/Tanimoto/版本号），说明 digest 指向的不是空壳镜像"
+  },
+  "reproduce": [
+    "docker pull docker.m.daocloud.io/library/python@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90",
+    "docker build -f docker/Dockerfile.repro -t admet-screening:2026.11.23 .",
+    "docker run --rm admet-screening:2026.11.23   # 期望 CONTAINER_SELFTEST ok=true"
+  ],
+  "limitations": [
+    "该镜像是本地构建，未推送到公共注册表，因此没有 registry RepoDigest；上面记录的 image_id 是内容寻址的本地 digest。",
+    "第三方核对方式：用本文件的 Dockerfile + base digest + requirements.lock 重建，`docker image inspect` 比较 config digest 与层哈希（pip wheel 来自同一镜像源时逐层一致）。",
+    "镜像只覆盖运行期 python/rdkit/pandas 栈，不含 Java/BioTransformer 与外部 REST 服务，后者不可容器化的部分仍由 SKILL.md 的降级声明覆盖。"
+  ]
+}
