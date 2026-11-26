@@ -1,0 +1,215 @@
+{
+  "method": "rdkit-filtercatalog-local",
+  "source_version": "rdkit 2026.09.1",
+  "catalog_sizes": {
+    "PAINS_A": 16,
+    "PAINS_B": 55,
+    "PAINS_C": 409,
+    "BRENK": 105,
+    "NIH": 180
+  },
+  "n_compounds": 2,
+  "n_none": 0,
+  "n_weak_only": 2,
+  "n_suspect": 0,
+  "n_invalid": 0,
+  "not_a_vote": true,
+  "deterministic": true,
+  "physical_interference_method": "rdkit-rule-proxy-offline",
+  "n_physical_suspect": 0,
+  "policy_note": "红旗层，不产生 verdict、不进 reliab 计票、不写长表；弱规则命中不折减结论，强命中须降级并做正交实验确认；物理/光学/反应性层同为结构预警，需正交实验确认",
+  "results": [
+    {
+      "compound_id": "WBLG-A",
+      "input_smiles": "O=C(/C=C/c1ccc(O)cc1)OC[C@@H](O)CO[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O",
+      "canonical_smiles": "O=C(/C=C/c1ccc(O)cc1)OC[C@@H](O)CO[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O",
+      "flag": "weak_only",
+      "gate_action": "proceed_with_caveat",
+      "not_a_vote": true,
+      "hits": [
+        {
+          "catalog": "BRENK",
+          "description": "Michael_acceptor_1",
+          "severity": "weak",
+          "reason": "α,β-不饱和羧酸/酯子类：弱 Michael 受体，GRAS / Ames 阴性已知过判（adt/alerts.py；C87）；只单列「需实验确认」"
+        }
+      ],
+      "n_hits": 1,
+      "n_strong": 0,
+      "n_weak": 1,
+      "druglikeness": {
+        "MW": 400.38,
+        "logP_crippen": -1.874,
+        "TPSA": 166.14,
+        "HBD": 6,
+        "HBA": 10,
+        "rotatable_bonds": 8,
+        "lipinski_violations": 1,
+        "lipinski_pass": true,
+        "veber_pass": false,
+        "qed": 0.214838,
+        "admissible_for_rejection": false,
+        "note": "类药性仅作探索层描述；糖苷/天然产物常天然违规，禁止据此淘汰或判 FAIL"
+      },
+      "physical_interference": {
+        "method": "rdkit-rule-proxy-offline",
+        "not_a_vote": true,
+        "admissible_for_rejection": false,
+        "requires_experiment": true,
+        "indicators": {
+          "logP_crippen": -1.874,
+          "aromatic_rings": 1,
+          "conjugated_double_bonds": 2,
+          "phenolic_OH": 1,
+          "chromophore_hits": [],
+          "quinone_precursor_hits": []
+        },
+        "categories": {
+          "colloidal_aggregation": {
+            "flag": "none",
+            "why": "cLogP=-1.87、芳香环=1，均未达关注阈值",
+            "required_evidence": "±0.01% Triton X-100 的活性/抑制曲线对比 + DLS 或 NMR 聚集证据",
+            "endpoint_registry_status": "partially_covered（仅结构预警）"
+          },
+          "fluorescence_interference": {
+            "flag": "none",
+            "why": "无发色团、共轭双键=2、酚羟基=1",
+            "required_evidence": "无酶/无靶对照下的化合物本底荧光与内滤效应测定；正交（非光学）读数复核",
+            "endpoint_registry_status": "partially_covered（仅结构预警）"
+          },
+          "redox_cycling": {
+            "flag": "none",
+            "why": "无邻苯二酚/对苯二酚/邻氨基酚前体",
+            "required_evidence": "GSH 捕获 + HRMS/MS（± NADPH）、或 DCFH/过氧化氢定量",
+            "endpoint_registry_status": "partially_covered（仅结构预警）"
+          }
+        },
+        "policy": "结构级预警（rule-based proxy），非实验判据；不产生 verdict、不进 reliab 计票、不判 FAIL、不淘汰分子；suspect 只表示需要正交读数/去污剂对照/GSH 捕获实验确认"
+      },
+      "phrasing": {
+        "allowed": "命中弱规则/需实验确认类警报；该结果须单列为「需实验确认」，不得写成确认阳性，也不得据此折减既有结论",
+        "forbidden": [
+          "“证明/无毒/安全”等定论词",
+          "由预测值推断人体剂量/安全窗",
+          "把结构警报命中写成化合物无效",
+          "确认阳性",
+          "已排除风险",
+          "未见风险信号",
+          "据该警报判 FAIL"
+        ]
+      },
+      "method": "rdkit-filtercatalog-local",
+      "source_version": "rdkit 2026.09.1",
+      "catalog_sizes": {
+        "PAINS_A": 16,
+        "PAINS_B": 55,
+        "PAINS_C": 409,
+        "BRENK": 105,
+        "NIH": 180
+      },
+      "policy": {
+        "not_a_verdict": true,
+        "admissible_for_rejection": false,
+        "enters_reliab_vote": false,
+        "writes_measurements_long_table": false,
+        "forced_on_strong_hit": "结论降级或转 UNDETERMINED；需正交实验确认"
+      }
+    },
+    {
+      "compound_id": "WBLG-B",
+      "input_smiles": "CC(=O)OC[C@@H](COC(=O)/C=C/c1ccc(O)cc1)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O",
+      "canonical_smiles": "CC(=O)OC[C@@H](COC(=O)/C=C/c1ccc(O)cc1)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O",
+      "flag": "weak_only",
+      "gate_action": "proceed_with_caveat",
+      "not_a_vote": true,
+      "hits": [
+        {
+          "catalog": "BRENK",
+          "description": "Michael_acceptor_1",
+          "severity": "weak",
+          "reason": "α,β-不饱和羧酸/酯子类：弱 Michael 受体，GRAS / Ames 阴性已知过判（adt/alerts.py；C87）；只单列「需实验确认」"
+        }
+      ],
+      "n_hits": 1,
+      "n_strong": 0,
+      "n_weak": 1,
+      "druglikeness": {
+        "MW": 442.417,
+        "logP_crippen": -1.3032,
+        "TPSA": 172.21,
+        "HBD": 5,
+        "HBA": 11,
+        "rotatable_bonds": 9,
+        "lipinski_violations": 1,
+        "lipinski_pass": true,
+        "veber_pass": false,
+        "qed": 0.227165,
+        "admissible_for_rejection": false,
+        "note": "类药性仅作探索层描述；糖苷/天然产物常天然违规，禁止据此淘汰或判 FAIL"
+      },
+      "physical_interference": {
+        "method": "rdkit-rule-proxy-offline",
+        "not_a_vote": true,
+        "admissible_for_rejection": false,
+        "requires_experiment": true,
+        "indicators": {
+          "logP_crippen": -1.3032,
+          "aromatic_rings": 1,
+          "conjugated_double_bonds": 3,
+          "phenolic_OH": 1,
+          "chromophore_hits": [],
+          "quinone_precursor_hits": []
+        },
+        "categories": {
+          "colloidal_aggregation": {
+            "flag": "none",
+            "why": "cLogP=-1.30、芳香环=1，均未达关注阈值",
+            "required_evidence": "±0.01% Triton X-100 的活性/抑制曲线对比 + DLS 或 NMR 聚集证据",
+            "endpoint_registry_status": "partially_covered（仅结构预警）"
+          },
+          "fluorescence_interference": {
+            "flag": "none",
+            "why": "无发色团、共轭双键=3、酚羟基=1",
+            "required_evidence": "无酶/无靶对照下的化合物本底荧光与内滤效应测定；正交（非光学）读数复核",
+            "endpoint_registry_status": "partially_covered（仅结构预警）"
+          },
+          "redox_cycling": {
+            "flag": "none",
+            "why": "无邻苯二酚/对苯二酚/邻氨基酚前体",
+            "required_evidence": "GSH 捕获 + HRMS/MS（± NADPH）、或 DCFH/过氧化氢定量",
+            "endpoint_registry_status": "partially_covered（仅结构预警）"
+          }
+        },
+        "policy": "结构级预警（rule-based proxy），非实验判据；不产生 verdict、不进 reliab 计票、不判 FAIL、不淘汰分子；suspect 只表示需要正交读数/去污剂对照/GSH 捕获实验确认"
+      },
+      "phrasing": {
+        "allowed": "命中弱规则/需实验确认类警报；该结果须单列为「需实验确认」，不得写成确认阳性，也不得据此折减既有结论",
+        "forbidden": [
+          "“证明/无毒/安全”等定论词",
+          "由预测值推断人体剂量/安全窗",
+          "把结构警报命中写成化合物无效",
+          "确认阳性",
+          "已排除风险",
+          "未见风险信号",
+          "据该警报判 FAIL"
+        ]
+      },
+      "method": "rdkit-filtercatalog-local",
+      "source_version": "rdkit 2026.09.1",
+      "catalog_sizes": {
+        "PAINS_A": 16,
+        "PAINS_B": 55,
+        "PAINS_C": 409,
+        "BRENK": 105,
+        "NIH": 180
+      },
+      "policy": {
+        "not_a_verdict": true,
+        "admissible_for_rejection": false,
+        "enters_reliab_vote": false,
+        "writes_measurements_long_table": false,
+        "forced_on_strong_hit": "结论降级或转 UNDETERMINED；需正交实验确认"
+      }
+    }
+  ]
+}
