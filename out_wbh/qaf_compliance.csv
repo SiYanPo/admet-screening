@@ -1,0 +1,5 @@
+﻿principle,title,status,evidence,gap
+P1,端点与算法定义明确,satisfied,端点规则 70 条全部声明单位（endpoints.unit_for 单一真源）；5 个源全部登记版本号；run_manifest 已记录输入哈希（判据可追溯）,-
+P2,物质在适用域内,satisfied,覆盖矩阵 43 个 源×端点；全零端点组合 11 个；21 个 分子×端点 判 UNDETERMINED（域外/单组均不投票）,-
+P3,预测可靠（拟合与验证）,not_met,-,无独立基准：判别力未知
+P4,适配监管目的（fit for purpose）,partial,证据档位 T2,仅支持内部决策；写成论文结论即越级（见 tiers.MAX_CONCLUSION）
