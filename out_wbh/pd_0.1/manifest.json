@@ -1,0 +1,22 @@
+{
+  "binding_item": "C2-a / C12 / 外审 C V3",
+  "command": "adt\\cli.py pd --curves out_wbh\\pbpk_curves.csv --compounds out_wbh\\compounds.csv --ec50 0.1 --emax 100 --hill-n 1 --dosing-interval 12 --outdir out_wbh\\pd_0.1",
+  "content_sha256": "d979be8e0d10dc1cc2ada5ab36f1df59db8f39ed07badb098c937abcd2204393",
+  "data_sha256": [
+    {
+      "path": "out_wbh\\pbpk_curves.csv",
+      "sha256": "64bcaa1f8a10dd247b4be914d4147443dd17c679242af4b8f013e20d22e30ba0"
+    }
+  ],
+  "env_digest": "60535043a04a0ed8594c46409ab1e1087d1f9d7f006d0a2adec9141669ae10e9",
+  "estimand_id": null,
+  "generated_at": "2026-11-06T23:46:57",
+  "hash_policy": "content_sha256 排除 created_at/generated_at/prev_hash/content_sha256/cwd 等易变字段；同一输入两次运行必须相同",
+  "inputs_sha1": {
+    "out_wbh\\pbpk_curves.csv": "634d70ce7854a80c457cb3eebf534b604c650536"
+  },
+  "prev_hash": "GENESIS",
+  "schema_version": "2.0",
+  "script_sha256": "767d57093d7b881b8a767ed8f165d907e27cbef23cc4b7b1902861ff72fe6f62",
+  "value": null
+}
