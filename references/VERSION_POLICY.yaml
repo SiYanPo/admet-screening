@@ -1,0 +1,66 @@
+# 版本单轨策略与分歧台账（C2-c / §7 / 外审 C V8，2026-11-04）
+# 由 `python -m adt.version --json` 实测生成，非人工推测。
+#
+# 2026-11-11 补登记（诚实留痕）：CHANGELOG 已随 v4.23/v4.24/v4.25 迭代到 4.25，
+# 但本台账仍停在 4.22，导致 `python -m adt.version --strict` 出现 3 条未登记分歧、
+# tests/test_contract_write_guard.py::test_version_divergences_all_declared 真实失败。
+# 修复方式是**把台账观测值更新为当前实测值**（不是把四轨数字改成一样——
+# 那属于 policy.do_not 明令禁止的「假统一」）。四轨仍各自保持原量纲。
+version: 1
+created_at: "2026-11-04"
+status: known_divergence_pending_external_anchor
+single_source: "SKILL.md::version（目标态，尚未生效）"
+target_state: "单一 version 由 commit SHA + OCI digest 派生，其余各轨为派生或历史标注"
+
+observed:
+  "SKILL.md::version": "4.0-dev"
+  "pyproject.toml::project.version": "3.2.1"
+  "CHANGELOG.md::latest": "4.35"
+  "references/MODULE_MAP": "4.21"
+
+# 6 条两两分歧全部登记。字符串须为 adt.version 输出 divergence 的子串，
+# 未登记的新分歧会让 `python -m adt.version --strict` 返回 3。
+# 2026-11-19 补登记：v4.33（G14 外部对照台账门）在 CHANGELOG 新增 `## v4.33` 标题，
+# CHANGELOG::latest 由 4.25 → 4.33，3 条与之相关的登记串同步更新（仍登记真实分歧，
+# 未改检测器、未把四轨数字改成一样）。
+# 2026-11-17 修复：D3 重构把 pyproject.toml 从静态 version="3.2.1" 改为
+# dynamic=["version"] + [tool.setuptools.dynamic] version={attr=...}，
+# adt.version.read_sources() 读 project.version 得到 None。旧台账 3 条含 '3.2.1'
+# 的串不再匹配，`python -m adt.version --strict` 由 rc=0 退化为 rc=1（未登记分歧）。
+# 按"登记真实分歧、不伪造统一"的纪律更新为 None，不改检测器、不改版本号。
+known_divergences:
+  - "CHANGELOG.md::latest='4.35' vs SKILL.md::version='4.0-dev'"
+  - "CHANGELOG.md::latest='4.35' vs pyproject.toml::project.version=None"
+  - "CHANGELOG.md::latest='4.35' vs references/MODULE_MAP='4.21'"
+  - "SKILL.md::version='4.0-dev' vs pyproject.toml::project.version=None"
+  - "SKILL.md::version='4.0-dev' vs references/MODULE_MAP='4.21'"
+  - "pyproject.toml::project.version=None vs references/MODULE_MAP='4.21'"
+
+# 为什么**不能**靠「把四个数字改成一样」来收口：
+semantics:
+  "SKILL.md::version": >
+    `4.0-dev` 中的 -dev 不是版本落后，而是 G9 的机器可读约束：v4.0 标签授予的
+    四条条件尚未满足（第三方锚定、外部复现、前瞻证据、红线硬度）。去掉 -dev
+    等于伪造授予状态。
+  "CHANGELOG.md::latest": >
+    v4.35 是文档/能力迭代号，随每次修订递增，与发布标签不是同一量纲。
+  "pyproject.toml::project.version": >
+    3.2.1 是 Python 打包版本，只约束 pip 元数据；与能力等级无关。
+  "references/MODULE_MAP": >
+    文件名里的 v4.21 是历史快照标注，属于文档轨。
+
+blocking_items:
+  - "无钉版容器 OCI digest（requirements.lock 与 env_fingerprint.json 非同一签名容器生成）"
+  - "无第三方签名身份（Sigstore keyless OIDC / 机构 KMS 均未接入）"
+  - "无固定 commit 锚（无法从 commit SHA 派生不可改写版本）"
+  - "无透明日志 / 外部 replay（见 references/TRUST_MODEL.md，L+3 待办）"
+
+policy:
+  do_not: >
+    禁止删除 CI 的 Windows/Py3.13 矩阵行来规避依赖钉版问题；禁止把 -dev 去掉
+    就宣称「版本统一」；禁止只在 CHANGELOG 加一行就说单轨完成。
+  required_before_claiming_single_source: >
+    ① 钉版容器产出 image_digest；② 由 commit_sha + image_digest 派生唯一 version；
+    ③ 其余三轨改为引用该 version 或显式标 historical；④ 第三方可仅凭
+    commit+digest 离线复算该 version。
+  ci_check: "python -m adt.version --strict（未登记分歧即 exit 3）"
