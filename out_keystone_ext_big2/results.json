@@ -1,0 +1,4383 @@
+{
+  "seeds": 3,
+  "endpoints": "CYP2D6_Veith",
+  "costs": {
+    "hERG": [
+      5.0,
+      1.0,
+      0.5
+    ],
+    "DILI": [
+      5.0,
+      1.0,
+      0.5
+    ],
+    "BBB_Martins": [
+      3.0,
+      1.0,
+      0.5
+    ],
+    "Ames": [
+      5.0,
+      1.0,
+      0.5
+    ],
+    "CYP3A4_Veith": [
+      5.0,
+      1.0,
+      0.5
+    ],
+    "CYP2C9_Veith": [
+      5.0,
+      1.0,
+      0.5
+    ],
+    "CYP2D6_Veith": [
+      5.0,
+      1.0,
+      0.5
+    ],
+    "CYP3A4_Substrate_CarbonMangels": [
+      5.0,
+      1.0,
+      0.5
+    ],
+    "CYP2C9_Substrate_CarbonMangels": [
+      5.0,
+      1.0,
+      0.5
+    ],
+    "CYP2D6_Substrate_CarbonMangels": [
+      5.0,
+      1.0,
+      0.5
+    ],
+    "PGP_Broccatelli": [
+      5.0,
+      1.0,
+      0.5
+    ],
+    "Bioavailability_MA": [
+      3.0,
+      1.0,
+      0.5
+    ],
+    "HIA_Hou": [
+      3.0,
+      1.0,
+      0.5
+    ]
+  },
+  "ad_threshold": 0.35,
+  "target_risk": 0.15,
+  "strategies": [
+    "S1_naive_majority",
+    "S2_ad_guard",
+    "S3_calibrated_conformal",
+    "S4_full_admission",
+    "S5_uncalibrated_conf"
+  ],
+  "per_run": [
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S1_naive_majority",
+      "cost_point": "ref",
+      "utility": -0.6299,
+      "coverage": 1.0,
+      "risk_decided": 0.132,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.05",
+      "utility": -0.6299,
+      "coverage": 1.0,
+      "risk_decided": 0.132,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.10",
+      "utility": -0.6299,
+      "coverage": 1.0,
+      "risk_decided": 0.132,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.20",
+      "utility": -0.6299,
+      "coverage": 1.0,
+      "risk_decided": 0.132,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.50",
+      "utility": -0.6299,
+      "coverage": 1.0,
+      "risk_decided": 0.132,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=1.00",
+      "utility": -0.6299,
+      "coverage": 1.0,
+      "risk_decided": 0.132,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S1_naive_majority",
+      "cost_point": "false_pass=2.0",
+      "utility": -0.2563,
+      "coverage": 1.0,
+      "risk_decided": 0.132,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S1_naive_majority",
+      "cost_point": "false_pass=5.0",
+      "utility": -0.6299,
+      "coverage": 1.0,
+      "risk_decided": 0.132,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S1_naive_majority",
+      "cost_point": "false_pass=10.0",
+      "utility": -1.2525,
+      "coverage": 1.0,
+      "risk_decided": 0.132,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S2_ad_guard",
+      "cost_point": "ref",
+      "utility": -0.6217,
+      "coverage": 0.757,
+      "risk_decided": 0.14,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.05",
+      "utility": -0.5125,
+      "coverage": 0.757,
+      "risk_decided": 0.14,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.10",
+      "utility": -0.5246,
+      "coverage": 0.757,
+      "risk_decided": 0.14,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.20",
+      "utility": -0.5489,
+      "coverage": 0.757,
+      "risk_decided": 0.14,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.50",
+      "utility": -0.6217,
+      "coverage": 0.757,
+      "risk_decided": 0.14,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=1.00",
+      "utility": -0.743,
+      "coverage": 0.757,
+      "risk_decided": 0.14,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S2_ad_guard",
+      "cost_point": "false_pass=2.0",
+      "utility": -0.253,
+      "coverage": 0.757,
+      "risk_decided": 0.14,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S2_ad_guard",
+      "cost_point": "false_pass=5.0",
+      "utility": -0.5489,
+      "coverage": 0.757,
+      "risk_decided": 0.14,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S2_ad_guard",
+      "cost_point": "false_pass=10.0",
+      "utility": -1.042,
+      "coverage": 0.757,
+      "risk_decided": 0.14,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "ref",
+      "utility": -0.4749,
+      "coverage": 0.074,
+      "risk_decided": 0.16,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.05",
+      "utility": -0.0581,
+      "coverage": 0.074,
+      "risk_decided": 0.16,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.10",
+      "utility": -0.1044,
+      "coverage": 0.074,
+      "risk_decided": 0.16,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.20",
+      "utility": -0.197,
+      "coverage": 0.074,
+      "risk_decided": 0.16,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.50",
+      "utility": -0.4749,
+      "coverage": 0.074,
+      "risk_decided": 0.16,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=1.00",
+      "utility": -0.9379,
+      "coverage": 0.074,
+      "risk_decided": 0.16,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "false_pass=2.0",
+      "utility": -0.197,
+      "coverage": 0.074,
+      "risk_decided": 0.16,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "false_pass=5.0",
+      "utility": -0.197,
+      "coverage": 0.074,
+      "risk_decided": 0.16,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "false_pass=10.0",
+      "utility": -0.197,
+      "coverage": 0.074,
+      "risk_decided": 0.16,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S4_full_admission",
+      "cost_point": "ref",
+      "utility": -0.4888,
+      "coverage": 0.037,
+      "risk_decided": 0.196,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.05",
+      "utility": -0.0554,
+      "coverage": 0.037,
+      "risk_decided": 0.196,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.10",
+      "utility": -0.1035,
+      "coverage": 0.037,
+      "risk_decided": 0.196,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.20",
+      "utility": -0.1998,
+      "coverage": 0.037,
+      "risk_decided": 0.196,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.50",
+      "utility": -0.4888,
+      "coverage": 0.037,
+      "risk_decided": 0.196,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=1.00",
+      "utility": -0.9703,
+      "coverage": 0.037,
+      "risk_decided": 0.196,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S4_full_admission",
+      "cost_point": "false_pass=2.0",
+      "utility": -0.1998,
+      "coverage": 0.037,
+      "risk_decided": 0.196,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S4_full_admission",
+      "cost_point": "false_pass=5.0",
+      "utility": -0.1998,
+      "coverage": 0.037,
+      "risk_decided": 0.196,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S4_full_admission",
+      "cost_point": "false_pass=10.0",
+      "utility": -0.1998,
+      "coverage": 0.037,
+      "risk_decided": 0.196,
+      "auc": 0.8594,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "ref",
+      "utility": -0.6078,
+      "coverage": 1.0,
+      "risk_decided": 0.128,
+      "auc": 0.8671,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.05",
+      "utility": -0.6078,
+      "coverage": 1.0,
+      "risk_decided": 0.128,
+      "auc": 0.8671,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.10",
+      "utility": -0.6078,
+      "coverage": 1.0,
+      "risk_decided": 0.128,
+      "auc": 0.8671,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.20",
+      "utility": -0.6078,
+      "coverage": 1.0,
+      "risk_decided": 0.128,
+      "auc": 0.8671,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.50",
+      "utility": -0.6078,
+      "coverage": 1.0,
+      "risk_decided": 0.128,
+      "auc": 0.8671,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=1.00",
+      "utility": -0.6078,
+      "coverage": 1.0,
+      "risk_decided": 0.128,
+      "auc": 0.8671,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "false_pass=2.0",
+      "utility": -0.2479,
+      "coverage": 1.0,
+      "risk_decided": 0.128,
+      "auc": 0.8671,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "false_pass=5.0",
+      "utility": -0.6078,
+      "coverage": 1.0,
+      "risk_decided": 0.128,
+      "auc": 0.8671,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "false_pass=10.0",
+      "utility": -1.2075,
+      "coverage": 1.0,
+      "risk_decided": 0.128,
+      "auc": 0.8671,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S1_naive_majority",
+      "cost_point": "ref",
+      "utility": -0.6181,
+      "coverage": 1.0,
+      "risk_decided": 0.128,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.05",
+      "utility": -0.6181,
+      "coverage": 1.0,
+      "risk_decided": 0.128,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.10",
+      "utility": -0.6181,
+      "coverage": 1.0,
+      "risk_decided": 0.128,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.20",
+      "utility": -0.6181,
+      "coverage": 1.0,
+      "risk_decided": 0.128,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.50",
+      "utility": -0.6181,
+      "coverage": 1.0,
+      "risk_decided": 0.128,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=1.00",
+      "utility": -0.6181,
+      "coverage": 1.0,
+      "risk_decided": 0.128,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S1_naive_majority",
+      "cost_point": "false_pass=2.0",
+      "utility": -0.2502,
+      "coverage": 1.0,
+      "risk_decided": 0.128,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S1_naive_majority",
+      "cost_point": "false_pass=5.0",
+      "utility": -0.6181,
+      "coverage": 1.0,
+      "risk_decided": 0.128,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S1_naive_majority",
+      "cost_point": "false_pass=10.0",
+      "utility": -1.2312,
+      "coverage": 1.0,
+      "risk_decided": 0.128,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S2_ad_guard",
+      "cost_point": "ref",
+      "utility": -0.6118,
+      "coverage": 0.757,
+      "risk_decided": 0.135,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.05",
+      "utility": -0.5026,
+      "coverage": 0.757,
+      "risk_decided": 0.135,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.10",
+      "utility": -0.5147,
+      "coverage": 0.757,
+      "risk_decided": 0.135,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.20",
+      "utility": -0.539,
+      "coverage": 0.757,
+      "risk_decided": 0.135,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.50",
+      "utility": -0.6118,
+      "coverage": 0.757,
+      "risk_decided": 0.135,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=1.00",
+      "utility": -0.7331,
+      "coverage": 0.757,
+      "risk_decided": 0.135,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S2_ad_guard",
+      "cost_point": "false_pass=2.0",
+      "utility": -0.2477,
+      "coverage": 0.757,
+      "risk_decided": 0.135,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S2_ad_guard",
+      "cost_point": "false_pass=5.0",
+      "utility": -0.539,
+      "coverage": 0.757,
+      "risk_decided": 0.135,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S2_ad_guard",
+      "cost_point": "false_pass=10.0",
+      "utility": -1.0245,
+      "coverage": 0.757,
+      "risk_decided": 0.135,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "ref",
+      "utility": -0.4751,
+      "coverage": 0.071,
+      "risk_decided": 0.15,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.05",
+      "utility": -0.0571,
+      "coverage": 0.071,
+      "risk_decided": 0.15,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.10",
+      "utility": -0.1035,
+      "coverage": 0.071,
+      "risk_decided": 0.15,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.20",
+      "utility": -0.1964,
+      "coverage": 0.071,
+      "risk_decided": 0.15,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.50",
+      "utility": -0.4751,
+      "coverage": 0.071,
+      "risk_decided": 0.15,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=1.00",
+      "utility": -0.9395,
+      "coverage": 0.071,
+      "risk_decided": 0.15,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "false_pass=2.0",
+      "utility": -0.1964,
+      "coverage": 0.071,
+      "risk_decided": 0.15,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "false_pass=5.0",
+      "utility": -0.1964,
+      "coverage": 0.071,
+      "risk_decided": 0.15,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "false_pass=10.0",
+      "utility": -0.1964,
+      "coverage": 0.071,
+      "risk_decided": 0.15,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S4_full_admission",
+      "cost_point": "ref",
+      "utility": -0.4893,
+      "coverage": 0.034,
+      "risk_decided": 0.182,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.05",
+      "utility": -0.0544,
+      "coverage": 0.034,
+      "risk_decided": 0.182,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.10",
+      "utility": -0.1027,
+      "coverage": 0.034,
+      "risk_decided": 0.182,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.20",
+      "utility": -0.1994,
+      "coverage": 0.034,
+      "risk_decided": 0.182,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.50",
+      "utility": -0.4893,
+      "coverage": 0.034,
+      "risk_decided": 0.182,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=1.00",
+      "utility": -0.9726,
+      "coverage": 0.034,
+      "risk_decided": 0.182,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S4_full_admission",
+      "cost_point": "false_pass=2.0",
+      "utility": -0.1994,
+      "coverage": 0.034,
+      "risk_decided": 0.182,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S4_full_admission",
+      "cost_point": "false_pass=5.0",
+      "utility": -0.1994,
+      "coverage": 0.034,
+      "risk_decided": 0.182,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S4_full_admission",
+      "cost_point": "false_pass=10.0",
+      "utility": -0.1994,
+      "coverage": 0.034,
+      "risk_decided": 0.182,
+      "auc": 0.8595,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "ref",
+      "utility": -0.6161,
+      "coverage": 1.0,
+      "risk_decided": 0.129,
+      "auc": 0.8666,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.05",
+      "utility": -0.6161,
+      "coverage": 1.0,
+      "risk_decided": 0.129,
+      "auc": 0.8666,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.10",
+      "utility": -0.6161,
+      "coverage": 1.0,
+      "risk_decided": 0.129,
+      "auc": 0.8666,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.20",
+      "utility": -0.6161,
+      "coverage": 1.0,
+      "risk_decided": 0.129,
+      "auc": 0.8666,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.50",
+      "utility": -0.6161,
+      "coverage": 1.0,
+      "risk_decided": 0.129,
+      "auc": 0.8666,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=1.00",
+      "utility": -0.6161,
+      "coverage": 1.0,
+      "risk_decided": 0.129,
+      "auc": 0.8666,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "false_pass=2.0",
+      "utility": -0.2506,
+      "coverage": 1.0,
+      "risk_decided": 0.129,
+      "auc": 0.8666,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "false_pass=5.0",
+      "utility": -0.6161,
+      "coverage": 1.0,
+      "risk_decided": 0.129,
+      "auc": 0.8666,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "false_pass=10.0",
+      "utility": -1.2254,
+      "coverage": 1.0,
+      "risk_decided": 0.129,
+      "auc": 0.8666,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S1_naive_majority",
+      "cost_point": "ref",
+      "utility": -0.6291,
+      "coverage": 1.0,
+      "risk_decided": 0.131,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.05",
+      "utility": -0.6291,
+      "coverage": 1.0,
+      "risk_decided": 0.131,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.10",
+      "utility": -0.6291,
+      "coverage": 1.0,
+      "risk_decided": 0.131,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.20",
+      "utility": -0.6291,
+      "coverage": 1.0,
+      "risk_decided": 0.131,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.50",
+      "utility": -0.6291,
+      "coverage": 1.0,
+      "risk_decided": 0.131,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=1.00",
+      "utility": -0.6291,
+      "coverage": 1.0,
+      "risk_decided": 0.131,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S1_naive_majority",
+      "cost_point": "false_pass=2.0",
+      "utility": -0.2555,
+      "coverage": 1.0,
+      "risk_decided": 0.131,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S1_naive_majority",
+      "cost_point": "false_pass=5.0",
+      "utility": -0.6291,
+      "coverage": 1.0,
+      "risk_decided": 0.131,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S1_naive_majority",
+      "cost_point": "false_pass=10.0",
+      "utility": -1.2517,
+      "coverage": 1.0,
+      "risk_decided": 0.131,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S2_ad_guard",
+      "cost_point": "ref",
+      "utility": -0.6228,
+      "coverage": 0.757,
+      "risk_decided": 0.139,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.05",
+      "utility": -0.5137,
+      "coverage": 0.757,
+      "risk_decided": 0.139,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.10",
+      "utility": -0.5258,
+      "coverage": 0.757,
+      "risk_decided": 0.139,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.20",
+      "utility": -0.55,
+      "coverage": 0.757,
+      "risk_decided": 0.139,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.50",
+      "utility": -0.6228,
+      "coverage": 0.757,
+      "risk_decided": 0.139,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=1.00",
+      "utility": -0.7441,
+      "coverage": 0.757,
+      "risk_decided": 0.139,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S2_ad_guard",
+      "cost_point": "false_pass=2.0",
+      "utility": -0.253,
+      "coverage": 0.757,
+      "risk_decided": 0.139,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S2_ad_guard",
+      "cost_point": "false_pass=5.0",
+      "utility": -0.55,
+      "coverage": 0.757,
+      "risk_decided": 0.139,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S2_ad_guard",
+      "cost_point": "false_pass=10.0",
+      "utility": -1.0451,
+      "coverage": 0.757,
+      "risk_decided": 0.139,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "ref",
+      "utility": -0.4768,
+      "coverage": 0.07,
+      "risk_decided": 0.168,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.05",
+      "utility": -0.0583,
+      "coverage": 0.07,
+      "risk_decided": 0.168,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.10",
+      "utility": -0.1048,
+      "coverage": 0.07,
+      "risk_decided": 0.168,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.20",
+      "utility": -0.1978,
+      "coverage": 0.07,
+      "risk_decided": 0.168,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.50",
+      "utility": -0.4768,
+      "coverage": 0.07,
+      "risk_decided": 0.168,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=1.00",
+      "utility": -0.9417,
+      "coverage": 0.07,
+      "risk_decided": 0.168,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "false_pass=2.0",
+      "utility": -0.1978,
+      "coverage": 0.07,
+      "risk_decided": 0.168,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "false_pass=5.0",
+      "utility": -0.1978,
+      "coverage": 0.07,
+      "risk_decided": 0.168,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "false_pass=10.0",
+      "utility": -0.1978,
+      "coverage": 0.07,
+      "risk_decided": 0.168,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S4_full_admission",
+      "cost_point": "ref",
+      "utility": -0.4914,
+      "coverage": 0.033,
+      "risk_decided": 0.241,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.05",
+      "utility": -0.0563,
+      "coverage": 0.033,
+      "risk_decided": 0.241,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.10",
+      "utility": -0.1047,
+      "coverage": 0.033,
+      "risk_decided": 0.241,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.20",
+      "utility": -0.2014,
+      "coverage": 0.033,
+      "risk_decided": 0.241,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.50",
+      "utility": -0.4914,
+      "coverage": 0.033,
+      "risk_decided": 0.241,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=1.00",
+      "utility": -0.9749,
+      "coverage": 0.033,
+      "risk_decided": 0.241,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S4_full_admission",
+      "cost_point": "false_pass=2.0",
+      "utility": -0.2014,
+      "coverage": 0.033,
+      "risk_decided": 0.241,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S4_full_admission",
+      "cost_point": "false_pass=5.0",
+      "utility": -0.2014,
+      "coverage": 0.033,
+      "risk_decided": 0.241,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S4_full_admission",
+      "cost_point": "false_pass=10.0",
+      "utility": -0.2014,
+      "coverage": 0.033,
+      "risk_decided": 0.241,
+      "auc": 0.8619,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "ref",
+      "utility": -0.6196,
+      "coverage": 1.0,
+      "risk_decided": 0.131,
+      "auc": 0.8668,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.05",
+      "utility": -0.6196,
+      "coverage": 1.0,
+      "risk_decided": 0.131,
+      "auc": 0.8668,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.10",
+      "utility": -0.6196,
+      "coverage": 1.0,
+      "risk_decided": 0.131,
+      "auc": 0.8668,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.20",
+      "utility": -0.6196,
+      "coverage": 1.0,
+      "risk_decided": 0.131,
+      "auc": 0.8668,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.50",
+      "utility": -0.6196,
+      "coverage": 1.0,
+      "risk_decided": 0.131,
+      "auc": 0.8668,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=1.00",
+      "utility": -0.6196,
+      "coverage": 1.0,
+      "risk_decided": 0.131,
+      "auc": 0.8668,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "false_pass=2.0",
+      "utility": -0.2529,
+      "coverage": 1.0,
+      "risk_decided": 0.131,
+      "auc": 0.8668,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "false_pass=5.0",
+      "utility": -0.6196,
+      "coverage": 1.0,
+      "risk_decided": 0.131,
+      "auc": 0.8668,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "false_pass=10.0",
+      "utility": -1.2308,
+      "coverage": 1.0,
+      "risk_decided": 0.131,
+      "auc": 0.8668,
+      "score_kind": "raw",
+      "abstain_threshold": 0.05,
+      "n": 2626
+    }
+  ],
+  "summary": [
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.05",
+      "n_seeds": 3,
+      "utility_median": -0.6291,
+      "utility_iqr": [
+        -0.6295,
+        -0.6236
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.131
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.10",
+      "n_seeds": 3,
+      "utility_median": -0.6291,
+      "utility_iqr": [
+        -0.6295,
+        -0.6236
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.131
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.20",
+      "n_seeds": 3,
+      "utility_median": -0.6291,
+      "utility_iqr": [
+        -0.6295,
+        -0.6236
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.131
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.50",
+      "n_seeds": 3,
+      "utility_median": -0.6291,
+      "utility_iqr": [
+        -0.6295,
+        -0.6236
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.131
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=1.00",
+      "n_seeds": 3,
+      "utility_median": -0.6291,
+      "utility_iqr": [
+        -0.6295,
+        -0.6236
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.131
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S1_naive_majority",
+      "cost_point": "false_pass=10.0",
+      "n_seeds": 3,
+      "utility_median": -1.2517,
+      "utility_iqr": [
+        -1.2521,
+        -1.2414
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.131
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S1_naive_majority",
+      "cost_point": "false_pass=2.0",
+      "n_seeds": 3,
+      "utility_median": -0.2555,
+      "utility_iqr": [
+        -0.2559,
+        -0.2529
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.131
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S1_naive_majority",
+      "cost_point": "false_pass=5.0",
+      "n_seeds": 3,
+      "utility_median": -0.6291,
+      "utility_iqr": [
+        -0.6295,
+        -0.6236
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.131
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S1_naive_majority",
+      "cost_point": "ref",
+      "n_seeds": 3,
+      "utility_median": -0.6291,
+      "utility_iqr": [
+        -0.6295,
+        -0.6236
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.131
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.05",
+      "n_seeds": 3,
+      "utility_median": -0.5125,
+      "utility_iqr": [
+        -0.5131,
+        -0.5075
+      ],
+      "coverage_median": 0.757,
+      "risk_decided_median": 0.139
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.10",
+      "n_seeds": 3,
+      "utility_median": -0.5246,
+      "utility_iqr": [
+        -0.5252,
+        -0.5196
+      ],
+      "coverage_median": 0.757,
+      "risk_decided_median": 0.139
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.20",
+      "n_seeds": 3,
+      "utility_median": -0.5489,
+      "utility_iqr": [
+        -0.5494,
+        -0.544
+      ],
+      "coverage_median": 0.757,
+      "risk_decided_median": 0.139
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.50",
+      "n_seeds": 3,
+      "utility_median": -0.6217,
+      "utility_iqr": [
+        -0.6222,
+        -0.6168
+      ],
+      "coverage_median": 0.757,
+      "risk_decided_median": 0.139
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=1.00",
+      "n_seeds": 3,
+      "utility_median": -0.743,
+      "utility_iqr": [
+        -0.7435,
+        -0.738
+      ],
+      "coverage_median": 0.757,
+      "risk_decided_median": 0.139
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S2_ad_guard",
+      "cost_point": "false_pass=10.0",
+      "n_seeds": 3,
+      "utility_median": -1.042,
+      "utility_iqr": [
+        -1.0435,
+        -1.0333
+      ],
+      "coverage_median": 0.757,
+      "risk_decided_median": 0.139
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S2_ad_guard",
+      "cost_point": "false_pass=2.0",
+      "n_seeds": 3,
+      "utility_median": -0.253,
+      "utility_iqr": [
+        -0.253,
+        -0.2504
+      ],
+      "coverage_median": 0.757,
+      "risk_decided_median": 0.139
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S2_ad_guard",
+      "cost_point": "false_pass=5.0",
+      "n_seeds": 3,
+      "utility_median": -0.5489,
+      "utility_iqr": [
+        -0.5494,
+        -0.544
+      ],
+      "coverage_median": 0.757,
+      "risk_decided_median": 0.139
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S2_ad_guard",
+      "cost_point": "ref",
+      "n_seeds": 3,
+      "utility_median": -0.6217,
+      "utility_iqr": [
+        -0.6222,
+        -0.6168
+      ],
+      "coverage_median": 0.757,
+      "risk_decided_median": 0.139
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.05",
+      "n_seeds": 3,
+      "utility_median": -0.0581,
+      "utility_iqr": [
+        -0.0582,
+        -0.0576
+      ],
+      "coverage_median": 0.071,
+      "risk_decided_median": 0.16
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.10",
+      "n_seeds": 3,
+      "utility_median": -0.1044,
+      "utility_iqr": [
+        -0.1046,
+        -0.104
+      ],
+      "coverage_median": 0.071,
+      "risk_decided_median": 0.16
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.20",
+      "n_seeds": 3,
+      "utility_median": -0.197,
+      "utility_iqr": [
+        -0.1974,
+        -0.1967
+      ],
+      "coverage_median": 0.071,
+      "risk_decided_median": 0.16
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.50",
+      "n_seeds": 3,
+      "utility_median": -0.4751,
+      "utility_iqr": [
+        -0.4759,
+        -0.475
+      ],
+      "coverage_median": 0.071,
+      "risk_decided_median": 0.16
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=1.00",
+      "n_seeds": 3,
+      "utility_median": -0.9395,
+      "utility_iqr": [
+        -0.9406,
+        -0.9387
+      ],
+      "coverage_median": 0.071,
+      "risk_decided_median": 0.16
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "false_pass=10.0",
+      "n_seeds": 3,
+      "utility_median": -0.197,
+      "utility_iqr": [
+        -0.1974,
+        -0.1967
+      ],
+      "coverage_median": 0.071,
+      "risk_decided_median": 0.16
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "false_pass=2.0",
+      "n_seeds": 3,
+      "utility_median": -0.197,
+      "utility_iqr": [
+        -0.1974,
+        -0.1967
+      ],
+      "coverage_median": 0.071,
+      "risk_decided_median": 0.16
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "false_pass=5.0",
+      "n_seeds": 3,
+      "utility_median": -0.197,
+      "utility_iqr": [
+        -0.1974,
+        -0.1967
+      ],
+      "coverage_median": 0.071,
+      "risk_decided_median": 0.16
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "ref",
+      "n_seeds": 3,
+      "utility_median": -0.4751,
+      "utility_iqr": [
+        -0.4759,
+        -0.475
+      ],
+      "coverage_median": 0.071,
+      "risk_decided_median": 0.16
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.05",
+      "n_seeds": 3,
+      "utility_median": -0.0554,
+      "utility_iqr": [
+        -0.0558,
+        -0.0549
+      ],
+      "coverage_median": 0.034,
+      "risk_decided_median": 0.196
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.10",
+      "n_seeds": 3,
+      "utility_median": -0.1035,
+      "utility_iqr": [
+        -0.1041,
+        -0.1031
+      ],
+      "coverage_median": 0.034,
+      "risk_decided_median": 0.196
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.20",
+      "n_seeds": 3,
+      "utility_median": -0.1998,
+      "utility_iqr": [
+        -0.2006,
+        -0.1996
+      ],
+      "coverage_median": 0.034,
+      "risk_decided_median": 0.196
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.50",
+      "n_seeds": 3,
+      "utility_median": -0.4893,
+      "utility_iqr": [
+        -0.4904,
+        -0.489
+      ],
+      "coverage_median": 0.034,
+      "risk_decided_median": 0.196
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=1.00",
+      "n_seeds": 3,
+      "utility_median": -0.9726,
+      "utility_iqr": [
+        -0.9738,
+        -0.9715
+      ],
+      "coverage_median": 0.034,
+      "risk_decided_median": 0.196
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S4_full_admission",
+      "cost_point": "false_pass=10.0",
+      "n_seeds": 3,
+      "utility_median": -0.1998,
+      "utility_iqr": [
+        -0.2006,
+        -0.1996
+      ],
+      "coverage_median": 0.034,
+      "risk_decided_median": 0.196
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S4_full_admission",
+      "cost_point": "false_pass=2.0",
+      "n_seeds": 3,
+      "utility_median": -0.1998,
+      "utility_iqr": [
+        -0.2006,
+        -0.1996
+      ],
+      "coverage_median": 0.034,
+      "risk_decided_median": 0.196
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S4_full_admission",
+      "cost_point": "false_pass=5.0",
+      "n_seeds": 3,
+      "utility_median": -0.1998,
+      "utility_iqr": [
+        -0.2006,
+        -0.1996
+      ],
+      "coverage_median": 0.034,
+      "risk_decided_median": 0.196
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S4_full_admission",
+      "cost_point": "ref",
+      "n_seeds": 3,
+      "utility_median": -0.4893,
+      "utility_iqr": [
+        -0.4904,
+        -0.489
+      ],
+      "coverage_median": 0.034,
+      "risk_decided_median": 0.196
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.05",
+      "n_seeds": 3,
+      "utility_median": -0.6161,
+      "utility_iqr": [
+        -0.6179,
+        -0.6119
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.129
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.10",
+      "n_seeds": 3,
+      "utility_median": -0.6161,
+      "utility_iqr": [
+        -0.6179,
+        -0.6119
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.129
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.20",
+      "n_seeds": 3,
+      "utility_median": -0.6161,
+      "utility_iqr": [
+        -0.6179,
+        -0.6119
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.129
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.50",
+      "n_seeds": 3,
+      "utility_median": -0.6161,
+      "utility_iqr": [
+        -0.6179,
+        -0.6119
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.129
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=1.00",
+      "n_seeds": 3,
+      "utility_median": -0.6161,
+      "utility_iqr": [
+        -0.6179,
+        -0.6119
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.129
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "false_pass=10.0",
+      "n_seeds": 3,
+      "utility_median": -1.2254,
+      "utility_iqr": [
+        -1.2281,
+        -1.2165
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.129
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "false_pass=2.0",
+      "n_seeds": 3,
+      "utility_median": -0.2506,
+      "utility_iqr": [
+        -0.2518,
+        -0.2492
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.129
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "false_pass=5.0",
+      "n_seeds": 3,
+      "utility_median": -0.6161,
+      "utility_iqr": [
+        -0.6179,
+        -0.6119
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.129
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "ref",
+      "n_seeds": 3,
+      "utility_median": -0.6161,
+      "utility_iqr": [
+        -0.6179,
+        -0.6119
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.129
+    }
+  ],
+  "paired_vs_S1": [
+    {
+      "endpoint": "CYP2D6_Veith",
+      "cost_point": "ref",
+      "compare": "S2_ad_guard - S1_naive_majority",
+      "n_pairs": 3,
+      "delta_median": 0.0063,
+      "delta_iqr": [
+        0.0063,
+        0.0072
+      ],
+      "boot_ci95": [
+        0.0063,
+        0.0082
+      ],
+      "significant": true,
+      "direction": "better"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "cost_point": "ref",
+      "compare": "S3_calibrated_conformal - S1_naive_majority",
+      "n_pairs": 3,
+      "delta_median": 0.1523,
+      "delta_iqr": [
+        0.1476,
+        0.1537
+      ],
+      "boot_ci95": [
+        0.143,
+        0.155
+      ],
+      "significant": true,
+      "direction": "better"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "cost_point": "ref",
+      "compare": "S4_full_admission - S1_naive_majority",
+      "n_pairs": 3,
+      "delta_median": 0.1377,
+      "delta_iqr": [
+        0.1332,
+        0.1394
+      ],
+      "boot_ci95": [
+        0.1288,
+        0.1411
+      ],
+      "significant": true,
+      "direction": "better"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "cost_point": "ref",
+      "compare": "S5_uncalibrated_conf - S1_naive_majority",
+      "n_pairs": 3,
+      "delta_median": 0.0095,
+      "delta_iqr": [
+        0.0057,
+        0.0158
+      ],
+      "boot_ci95": [
+        0.002,
+        0.0221
+      ],
+      "significant": true,
+      "direction": "better"
+    }
+  ],
+  "paired_vs_S5": [
+    {
+      "endpoint": "CYP2D6_Veith",
+      "cost_point": "ref",
+      "compare": "S1_naive_majority - S5_uncalibrated_conf",
+      "n_pairs": 3,
+      "delta_median": -0.0095,
+      "delta_iqr": [
+        -0.0158,
+        -0.0057
+      ],
+      "boot_ci95": [
+        -0.0221,
+        -0.002
+      ],
+      "significant": true,
+      "direction": "worse"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "cost_point": "ref",
+      "compare": "S2_ad_guard - S5_uncalibrated_conf",
+      "n_pairs": 3,
+      "delta_median": -0.0032,
+      "delta_iqr": [
+        -0.0086,
+        0.0005
+      ],
+      "boot_ci95": [
+        -0.0139,
+        0.0043
+      ],
+      "significant": false,
+      "direction": "worse"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "cost_point": "ref",
+      "compare": "S3_calibrated_conformal - S5_uncalibrated_conf",
+      "n_pairs": 3,
+      "delta_median": 0.141,
+      "delta_iqr": [
+        0.1369,
+        0.1419
+      ],
+      "boot_ci95": [
+        0.1329,
+        0.1428
+      ],
+      "significant": true,
+      "direction": "better"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "cost_point": "ref",
+      "compare": "S4_full_admission - S5_uncalibrated_conf",
+      "n_pairs": 3,
+      "delta_median": 0.1268,
+      "delta_iqr": [
+        0.1229,
+        0.1275
+      ],
+      "boot_ci95": [
+        0.119,
+        0.1282
+      ],
+      "significant": true,
+      "direction": "better"
+    }
+  ],
+  "cost_sweep": {
+    "ref": [
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "ref",
+        "compare": "S2_ad_guard - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.0063,
+        "delta_iqr": [
+          0.0063,
+          0.0072
+        ],
+        "boot_ci95": [
+          0.0063,
+          0.0082
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "ref",
+        "compare": "S3_calibrated_conformal - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.1523,
+        "delta_iqr": [
+          0.1476,
+          0.1537
+        ],
+        "boot_ci95": [
+          0.143,
+          0.155
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "ref",
+        "compare": "S4_full_admission - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.1377,
+        "delta_iqr": [
+          0.1332,
+          0.1394
+        ],
+        "boot_ci95": [
+          0.1288,
+          0.1411
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "ref",
+        "compare": "S5_uncalibrated_conf - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.0095,
+        "delta_iqr": [
+          0.0057,
+          0.0158
+        ],
+        "boot_ci95": [
+          0.002,
+          0.0221
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ],
+    "abstain=0.05": [
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.05",
+        "compare": "S2_ad_guard - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.1155,
+        "delta_iqr": [
+          0.1154,
+          0.1164
+        ],
+        "boot_ci95": [
+          0.1154,
+          0.1174
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.05",
+        "compare": "S3_calibrated_conformal - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.5708,
+        "delta_iqr": [
+          0.5659,
+          0.5713
+        ],
+        "boot_ci95": [
+          0.561,
+          0.5718
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.05",
+        "compare": "S4_full_admission - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.5728,
+        "delta_iqr": [
+          0.5682,
+          0.5736
+        ],
+        "boot_ci95": [
+          0.5637,
+          0.5745
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.05",
+        "compare": "S5_uncalibrated_conf - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.0095,
+        "delta_iqr": [
+          0.0057,
+          0.0158
+        ],
+        "boot_ci95": [
+          0.002,
+          0.0221
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ],
+    "abstain=0.10": [
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.10",
+        "compare": "S2_ad_guard - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.1034,
+        "delta_iqr": [
+          0.1033,
+          0.1043
+        ],
+        "boot_ci95": [
+          0.1033,
+          0.1053
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.10",
+        "compare": "S3_calibrated_conformal - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.5243,
+        "delta_iqr": [
+          0.5194,
+          0.5249
+        ],
+        "boot_ci95": [
+          0.5146,
+          0.5255
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.10",
+        "compare": "S4_full_admission - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.5244,
+        "delta_iqr": [
+          0.5199,
+          0.5254
+        ],
+        "boot_ci95": [
+          0.5154,
+          0.5264
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.10",
+        "compare": "S5_uncalibrated_conf - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.0095,
+        "delta_iqr": [
+          0.0057,
+          0.0158
+        ],
+        "boot_ci95": [
+          0.002,
+          0.0221
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ],
+    "abstain=0.20": [
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.20",
+        "compare": "S2_ad_guard - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.0791,
+        "delta_iqr": [
+          0.0791,
+          0.08
+        ],
+        "boot_ci95": [
+          0.0791,
+          0.081
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.20",
+        "compare": "S3_calibrated_conformal - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.4313,
+        "delta_iqr": [
+          0.4265,
+          0.4321
+        ],
+        "boot_ci95": [
+          0.4217,
+          0.4329
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.20",
+        "compare": "S4_full_admission - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.4277,
+        "delta_iqr": [
+          0.4232,
+          0.4289
+        ],
+        "boot_ci95": [
+          0.4187,
+          0.4301
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.20",
+        "compare": "S5_uncalibrated_conf - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.0095,
+        "delta_iqr": [
+          0.0057,
+          0.0158
+        ],
+        "boot_ci95": [
+          0.002,
+          0.0221
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ],
+    "abstain=0.50": [
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.50",
+        "compare": "S2_ad_guard - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.0063,
+        "delta_iqr": [
+          0.0063,
+          0.0072
+        ],
+        "boot_ci95": [
+          0.0063,
+          0.0082
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.50",
+        "compare": "S3_calibrated_conformal - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.1523,
+        "delta_iqr": [
+          0.1476,
+          0.1537
+        ],
+        "boot_ci95": [
+          0.143,
+          0.155
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.50",
+        "compare": "S4_full_admission - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.1377,
+        "delta_iqr": [
+          0.1332,
+          0.1394
+        ],
+        "boot_ci95": [
+          0.1288,
+          0.1411
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.50",
+        "compare": "S5_uncalibrated_conf - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.0095,
+        "delta_iqr": [
+          0.0057,
+          0.0158
+        ],
+        "boot_ci95": [
+          0.002,
+          0.0221
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ],
+    "abstain=1.00": [
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=1.00",
+        "compare": "S2_ad_guard - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": -0.115,
+        "delta_iqr": [
+          -0.115,
+          -0.114
+        ],
+        "boot_ci95": [
+          -0.115,
+          -0.1131
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=1.00",
+        "compare": "S3_calibrated_conformal - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": -0.3126,
+        "delta_iqr": [
+          -0.317,
+          -0.3103
+        ],
+        "boot_ci95": [
+          -0.3214,
+          -0.308
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=1.00",
+        "compare": "S4_full_admission - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": -0.3458,
+        "delta_iqr": [
+          -0.3502,
+          -0.3431
+        ],
+        "boot_ci95": [
+          -0.3545,
+          -0.3404
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=1.00",
+        "compare": "S5_uncalibrated_conf - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.0095,
+        "delta_iqr": [
+          0.0057,
+          0.0158
+        ],
+        "boot_ci95": [
+          0.002,
+          0.0221
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ],
+    "false_pass=2.0": [
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=2.0",
+        "compare": "S2_ad_guard - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.0025,
+        "delta_iqr": [
+          0.0025,
+          0.0029
+        ],
+        "boot_ci95": [
+          0.0025,
+          0.0033
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=2.0",
+        "compare": "S3_calibrated_conformal - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.0577,
+        "delta_iqr": [
+          0.0557,
+          0.0585
+        ],
+        "boot_ci95": [
+          0.0538,
+          0.0593
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=2.0",
+        "compare": "S4_full_admission - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.0541,
+        "delta_iqr": [
+          0.0524,
+          0.0553
+        ],
+        "boot_ci95": [
+          0.0508,
+          0.0565
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=2.0",
+        "compare": "S5_uncalibrated_conf - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.0026,
+        "delta_iqr": [
+          0.0011,
+          0.0055
+        ],
+        "boot_ci95": [
+          -0.0004,
+          0.0084
+        ],
+        "significant": false,
+        "direction": "better"
+      }
+    ],
+    "false_pass=5.0": [
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=5.0",
+        "compare": "S2_ad_guard - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.0791,
+        "delta_iqr": [
+          0.0791,
+          0.08
+        ],
+        "boot_ci95": [
+          0.0791,
+          0.081
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=5.0",
+        "compare": "S3_calibrated_conformal - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.4313,
+        "delta_iqr": [
+          0.4265,
+          0.4321
+        ],
+        "boot_ci95": [
+          0.4217,
+          0.4329
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=5.0",
+        "compare": "S4_full_admission - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.4277,
+        "delta_iqr": [
+          0.4232,
+          0.4289
+        ],
+        "boot_ci95": [
+          0.4187,
+          0.4301
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=5.0",
+        "compare": "S5_uncalibrated_conf - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.0095,
+        "delta_iqr": [
+          0.0057,
+          0.0158
+        ],
+        "boot_ci95": [
+          0.002,
+          0.0221
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ],
+    "false_pass=10.0": [
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=10.0",
+        "compare": "S2_ad_guard - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.2067,
+        "delta_iqr": [
+          0.2067,
+          0.2086
+        ],
+        "boot_ci95": [
+          0.2066,
+          0.2105
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=10.0",
+        "compare": "S3_calibrated_conformal - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 1.0539,
+        "delta_iqr": [
+          1.0444,
+          1.0547
+        ],
+        "boot_ci95": [
+          1.0348,
+          1.0555
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=10.0",
+        "compare": "S4_full_admission - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 1.0503,
+        "delta_iqr": [
+          1.0411,
+          1.0515
+        ],
+        "boot_ci95": [
+          1.0318,
+          1.0527
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=10.0",
+        "compare": "S5_uncalibrated_conf - S1_naive_majority",
+        "n_pairs": 3,
+        "delta_median": 0.0209,
+        "delta_iqr": [
+          0.0134,
+          0.033
+        ],
+        "boot_ci95": [
+          0.0058,
+          0.045
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ]
+  },
+  "cost_sweep_vs_S5": {
+    "ref": [
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "ref",
+        "compare": "S1_naive_majority - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": -0.0095,
+        "delta_iqr": [
+          -0.0158,
+          -0.0057
+        ],
+        "boot_ci95": [
+          -0.0221,
+          -0.002
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "ref",
+        "compare": "S2_ad_guard - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": -0.0032,
+        "delta_iqr": [
+          -0.0086,
+          0.0005
+        ],
+        "boot_ci95": [
+          -0.0139,
+          0.0043
+        ],
+        "significant": false,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "ref",
+        "compare": "S3_calibrated_conformal - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": 0.141,
+        "delta_iqr": [
+          0.1369,
+          0.1419
+        ],
+        "boot_ci95": [
+          0.1329,
+          0.1428
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "ref",
+        "compare": "S4_full_admission - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": 0.1268,
+        "delta_iqr": [
+          0.1229,
+          0.1275
+        ],
+        "boot_ci95": [
+          0.119,
+          0.1282
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ],
+    "abstain=0.05": [
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.05",
+        "compare": "S1_naive_majority - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": -0.0095,
+        "delta_iqr": [
+          -0.0158,
+          -0.0057
+        ],
+        "boot_ci95": [
+          -0.0221,
+          -0.002
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.05",
+        "compare": "S2_ad_guard - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": 0.1059,
+        "delta_iqr": [
+          0.1006,
+          0.1097
+        ],
+        "boot_ci95": [
+          0.0953,
+          0.1135
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.05",
+        "compare": "S3_calibrated_conformal - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": 0.559,
+        "delta_iqr": [
+          0.5543,
+          0.5601
+        ],
+        "boot_ci95": [
+          0.5497,
+          0.5613
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.05",
+        "compare": "S4_full_admission - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": 0.5617,
+        "delta_iqr": [
+          0.5571,
+          0.5625
+        ],
+        "boot_ci95": [
+          0.5524,
+          0.5633
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ],
+    "abstain=0.10": [
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.10",
+        "compare": "S1_naive_majority - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": -0.0095,
+        "delta_iqr": [
+          -0.0158,
+          -0.0057
+        ],
+        "boot_ci95": [
+          -0.0221,
+          -0.002
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.10",
+        "compare": "S2_ad_guard - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": 0.0938,
+        "delta_iqr": [
+          0.0885,
+          0.0976
+        ],
+        "boot_ci95": [
+          0.0832,
+          0.1014
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.10",
+        "compare": "S3_calibrated_conformal - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": 0.5126,
+        "delta_iqr": [
+          0.508,
+          0.5137
+        ],
+        "boot_ci95": [
+          0.5034,
+          0.5148
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.10",
+        "compare": "S4_full_admission - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": 0.5134,
+        "delta_iqr": [
+          0.5089,
+          0.5141
+        ],
+        "boot_ci95": [
+          0.5043,
+          0.5149
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ],
+    "abstain=0.20": [
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.20",
+        "compare": "S1_naive_majority - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": -0.0095,
+        "delta_iqr": [
+          -0.0158,
+          -0.0057
+        ],
+        "boot_ci95": [
+          -0.0221,
+          -0.002
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.20",
+        "compare": "S2_ad_guard - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": 0.0696,
+        "delta_iqr": [
+          0.0642,
+          0.0733
+        ],
+        "boot_ci95": [
+          0.0589,
+          0.0771
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.20",
+        "compare": "S3_calibrated_conformal - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": 0.4197,
+        "delta_iqr": [
+          0.4153,
+          0.4208
+        ],
+        "boot_ci95": [
+          0.4108,
+          0.4218
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.20",
+        "compare": "S4_full_admission - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": 0.4167,
+        "delta_iqr": [
+          0.4123,
+          0.4174
+        ],
+        "boot_ci95": [
+          0.408,
+          0.4182
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ],
+    "abstain=0.50": [
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.50",
+        "compare": "S1_naive_majority - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": -0.0095,
+        "delta_iqr": [
+          -0.0158,
+          -0.0057
+        ],
+        "boot_ci95": [
+          -0.0221,
+          -0.002
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.50",
+        "compare": "S2_ad_guard - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": -0.0032,
+        "delta_iqr": [
+          -0.0086,
+          0.0005
+        ],
+        "boot_ci95": [
+          -0.0139,
+          0.0043
+        ],
+        "significant": false,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.50",
+        "compare": "S3_calibrated_conformal - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": 0.141,
+        "delta_iqr": [
+          0.1369,
+          0.1419
+        ],
+        "boot_ci95": [
+          0.1329,
+          0.1428
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=0.50",
+        "compare": "S4_full_admission - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": 0.1268,
+        "delta_iqr": [
+          0.1229,
+          0.1275
+        ],
+        "boot_ci95": [
+          0.119,
+          0.1282
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ],
+    "abstain=1.00": [
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=1.00",
+        "compare": "S1_naive_majority - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": -0.0095,
+        "delta_iqr": [
+          -0.0158,
+          -0.0057
+        ],
+        "boot_ci95": [
+          -0.0221,
+          -0.002
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=1.00",
+        "compare": "S2_ad_guard - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": -0.1245,
+        "delta_iqr": [
+          -0.1298,
+          -0.1207
+        ],
+        "boot_ci95": [
+          -0.1352,
+          -0.117
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=1.00",
+        "compare": "S3_calibrated_conformal - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": -0.3234,
+        "delta_iqr": [
+          -0.3267,
+          -0.3227
+        ],
+        "boot_ci95": [
+          -0.3301,
+          -0.3221
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "abstain=1.00",
+        "compare": "S4_full_admission - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": -0.3565,
+        "delta_iqr": [
+          -0.3595,
+          -0.3559
+        ],
+        "boot_ci95": [
+          -0.3625,
+          -0.3553
+        ],
+        "significant": true,
+        "direction": "worse"
+      }
+    ],
+    "false_pass=2.0": [
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=2.0",
+        "compare": "S1_naive_majority - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": -0.0026,
+        "delta_iqr": [
+          -0.0055,
+          -0.0011
+        ],
+        "boot_ci95": [
+          -0.0084,
+          0.0004
+        ],
+        "significant": false,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=2.0",
+        "compare": "S2_ad_guard - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": -0.0001,
+        "delta_iqr": [
+          -0.0026,
+          0.0014
+        ],
+        "boot_ci95": [
+          -0.0051,
+          0.0029
+        ],
+        "significant": false,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=2.0",
+        "compare": "S3_calibrated_conformal - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": 0.0542,
+        "delta_iqr": [
+          0.0525,
+          0.0547
+        ],
+        "boot_ci95": [
+          0.0509,
+          0.0551
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=2.0",
+        "compare": "S4_full_admission - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": 0.0512,
+        "delta_iqr": [
+          0.0496,
+          0.0514
+        ],
+        "boot_ci95": [
+          0.0481,
+          0.0515
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ],
+    "false_pass=5.0": [
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=5.0",
+        "compare": "S1_naive_majority - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": -0.0095,
+        "delta_iqr": [
+          -0.0158,
+          -0.0057
+        ],
+        "boot_ci95": [
+          -0.0221,
+          -0.002
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=5.0",
+        "compare": "S2_ad_guard - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": 0.0696,
+        "delta_iqr": [
+          0.0642,
+          0.0733
+        ],
+        "boot_ci95": [
+          0.0589,
+          0.0771
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=5.0",
+        "compare": "S3_calibrated_conformal - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": 0.4197,
+        "delta_iqr": [
+          0.4153,
+          0.4208
+        ],
+        "boot_ci95": [
+          0.4108,
+          0.4218
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=5.0",
+        "compare": "S4_full_admission - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": 0.4167,
+        "delta_iqr": [
+          0.4123,
+          0.4174
+        ],
+        "boot_ci95": [
+          0.408,
+          0.4182
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ],
+    "false_pass=10.0": [
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=10.0",
+        "compare": "S1_naive_majority - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": -0.0209,
+        "delta_iqr": [
+          -0.033,
+          -0.0134
+        ],
+        "boot_ci95": [
+          -0.045,
+          -0.0058
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=10.0",
+        "compare": "S2_ad_guard - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": 0.1857,
+        "delta_iqr": [
+          0.1756,
+          0.1933
+        ],
+        "boot_ci95": [
+          0.1655,
+          0.2009
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=10.0",
+        "compare": "S3_calibrated_conformal - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": 1.029,
+        "delta_iqr": [
+          1.0198,
+          1.031
+        ],
+        "boot_ci95": [
+          1.0105,
+          1.033
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "cost_point": "false_pass=10.0",
+        "compare": "S4_full_admission - S5_uncalibrated_conf",
+        "n_pairs": 3,
+        "delta_median": 1.026,
+        "delta_iqr": [
+          1.0169,
+          1.0277
+        ],
+        "boot_ci95": [
+          1.0077,
+          1.0294
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ]
+  },
+  "cost_decision_audit": {
+    "schema_version": "1.0",
+    "binding_items": [
+      "C18",
+      "B6",
+      "§5.1 复审",
+      "L+2",
+      "外审 A 独立复算"
+    ],
+    "legacy_linearity_by_endpoint": {
+      "CYP2D6_Veith": {
+        "status": "ok",
+        "n": 5,
+        "r2": 0.99999999,
+        "slope": -0.966903,
+        "intercept": 0.621114,
+        "c_star_algebraic": 0.642375,
+        "accounting_only": true,
+        "interpretation": "Δu(c) 对 c 近乎完全线性：代价只进入事后重标价，不进入决策。『无差异点存在且可估计』是会计恒等式，不是可证伪命题。",
+        "forbidden_claims": [
+          "c_star",
+          "无差异点",
+          "条件性优势区",
+          "准入层条件性价值"
+        ]
+      }
+    },
+    "legacy_accounting_only": true,
+    "legacy_claim_status": "revoked_pending_estimand",
+    "cost_sensitive_groups": [
+      {
+        "endpoint": "CYP2D6_Veith",
+        "seed": 0,
+        "n_cost_points": 9,
+        "distinct_decided_masks": 7,
+        "decision_varies_with_cost": true
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "seed": 1,
+        "n_cost_points": 9,
+        "distinct_decided_masks": 7,
+        "decision_varies_with_cost": true
+      },
+      {
+        "endpoint": "CYP2D6_Veith",
+        "seed": 2,
+        "n_cost_points": 9,
+        "distinct_decided_masks": 7,
+        "decision_varies_with_cost": true
+      }
+    ],
+    "n_groups": 3,
+    "groups_with_decision_varying": 3,
+    "cost_sensitive_decision_verified": true,
+    "accounting_only": true,
+    "forbidden_claims": [
+      "c_star",
+      "c*",
+      "无差异点",
+      "条件性优势区",
+      "准入层条件性价值"
+    ],
+    "redline": "R18_accounting_identity",
+    "note": "新流水线证明代价进入决策，仅解除「会计恒等式」这一条技术缺陷；不等于 estimand 可识别、不等于准入层有净收益，也不使已撤回的 c* / 条件性优势区主张复活。旧主张须在 ESTIMAND.yaml 冻结后重新推导。"
+  },
+  "pi_cost_sensitive_rows": [
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "cost_point": "ref",
+      "costs": [
+        5.0,
+        1.0,
+        0.5
+      ],
+      "decided_mask_sha256": "b256ac2ea7c5c59d8dfc5314757474f5fb8ebd8caaee95ef0600f7c142bbc748",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 1357,
+      "n_abstained": 1269,
+      "coverage": 0.517,
+      "utility": -0.322,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "cost_point": "abstain=0.05",
+      "costs": [
+        5.0,
+        1.0,
+        0.05
+      ],
+      "decided_mask_sha256": "620644522f939974efaea24e4ac89c2b0361205f77c7c77a0808a1907e903543",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 2,
+      "n_abstained": 2624,
+      "coverage": 0.001,
+      "utility": -0.05,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "cost_point": "abstain=0.10",
+      "costs": [
+        5.0,
+        1.0,
+        0.1
+      ],
+      "decided_mask_sha256": "c97ec8e19bcf9af49cb2676e9e5bc707f829da91239147453b58aabda6027106",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 38,
+      "n_abstained": 2588,
+      "coverage": 0.014,
+      "utility": -0.0986,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "cost_point": "abstain=0.20",
+      "costs": [
+        5.0,
+        1.0,
+        0.2
+      ],
+      "decided_mask_sha256": "99b58f7fc3adbff0806d24a0359f575f5788622f0908ebcdb4248292ca4c21d2",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 208,
+      "n_abstained": 2418,
+      "coverage": 0.079,
+      "utility": -0.1937,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "cost_point": "abstain=0.50",
+      "costs": [
+        5.0,
+        1.0,
+        0.5
+      ],
+      "decided_mask_sha256": "b256ac2ea7c5c59d8dfc5314757474f5fb8ebd8caaee95ef0600f7c142bbc748",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 1357,
+      "n_abstained": 1269,
+      "coverage": 0.517,
+      "utility": -0.322,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "cost_point": "abstain=1.00",
+      "costs": [
+        5.0,
+        1.0,
+        1.0
+      ],
+      "decided_mask_sha256": "cfc86316f8087e03c77750dc8677c519d06f4119f339a9a7853b070ea230d39c",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 2626,
+      "n_abstained": 0,
+      "coverage": 1.0,
+      "utility": -0.3953,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "cost_point": "false_pass=2.0",
+      "costs": [
+        2.0,
+        1.0,
+        0.2
+      ],
+      "decided_mask_sha256": "b20e9d0d901cc4260360cf9394565f5c2ff66e96fc8f162c6cd3c0235a1005ea",
+      "bayes_fail_threshold": 0.3333,
+      "n_decided": 1180,
+      "n_abstained": 1446,
+      "coverage": 0.449,
+      "utility": -0.1375,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "cost_point": "false_pass=5.0",
+      "costs": [
+        5.0,
+        1.0,
+        0.2
+      ],
+      "decided_mask_sha256": "99b58f7fc3adbff0806d24a0359f575f5788622f0908ebcdb4248292ca4c21d2",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 208,
+      "n_abstained": 2418,
+      "coverage": 0.079,
+      "utility": -0.1937,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 0,
+      "cost_point": "false_pass=10.0",
+      "costs": [
+        10.0,
+        1.0,
+        0.2
+      ],
+      "decided_mask_sha256": "e0c1d5fc03e0f9e4d8c4425615882cde30c0c26345d21fd9e86d9a9c568c41a3",
+      "bayes_fail_threshold": 0.0909,
+      "n_decided": 55,
+      "n_abstained": 2571,
+      "coverage": 0.021,
+      "utility": -0.1958,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "cost_point": "ref",
+      "costs": [
+        5.0,
+        1.0,
+        0.5
+      ],
+      "decided_mask_sha256": "09e082cf521234b116f59e0cf019b665f537a2ec2e3a2cbbe6f4edaa5eb81ee7",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 1321,
+      "n_abstained": 1305,
+      "coverage": 0.503,
+      "utility": -0.3277,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "cost_point": "abstain=0.05",
+      "costs": [
+        5.0,
+        1.0,
+        0.05
+      ],
+      "decided_mask_sha256": "620644522f939974efaea24e4ac89c2b0361205f77c7c77a0808a1907e903543",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 2,
+      "n_abstained": 2624,
+      "coverage": 0.001,
+      "utility": -0.05,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "cost_point": "abstain=0.10",
+      "costs": [
+        5.0,
+        1.0,
+        0.1
+      ],
+      "decided_mask_sha256": "6461a0bb219241fb3d07a2644bd1f756cea5c07b253a26ae373f8fa4cdb420d4",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 30,
+      "n_abstained": 2596,
+      "coverage": 0.011,
+      "utility": -0.1008,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "cost_point": "abstain=0.20",
+      "costs": [
+        5.0,
+        1.0,
+        0.2
+      ],
+      "decided_mask_sha256": "38a6d193e2d5df8b8f7bd0755f728691c2c9bfb0815a84f4a41a0e562c4c671e",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 207,
+      "n_abstained": 2419,
+      "coverage": 0.079,
+      "utility": -0.1919,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "cost_point": "abstain=0.50",
+      "costs": [
+        5.0,
+        1.0,
+        0.5
+      ],
+      "decided_mask_sha256": "09e082cf521234b116f59e0cf019b665f537a2ec2e3a2cbbe6f4edaa5eb81ee7",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 1321,
+      "n_abstained": 1305,
+      "coverage": 0.503,
+      "utility": -0.3277,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "cost_point": "abstain=1.00",
+      "costs": [
+        5.0,
+        1.0,
+        1.0
+      ],
+      "decided_mask_sha256": "cfc86316f8087e03c77750dc8677c519d06f4119f339a9a7853b070ea230d39c",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 2626,
+      "n_abstained": 0,
+      "coverage": 1.0,
+      "utility": -0.3991,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "cost_point": "false_pass=2.0",
+      "costs": [
+        2.0,
+        1.0,
+        0.2
+      ],
+      "decided_mask_sha256": "1a4f5067a35421ce19b0e355e858186c63b893dac324a9fbca138679807887bc",
+      "bayes_fail_threshold": 0.3333,
+      "n_decided": 1149,
+      "n_abstained": 1477,
+      "coverage": 0.438,
+      "utility": -0.1399,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "cost_point": "false_pass=5.0",
+      "costs": [
+        5.0,
+        1.0,
+        0.2
+      ],
+      "decided_mask_sha256": "38a6d193e2d5df8b8f7bd0755f728691c2c9bfb0815a84f4a41a0e562c4c671e",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 207,
+      "n_abstained": 2419,
+      "coverage": 0.079,
+      "utility": -0.1919,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 1,
+      "cost_point": "false_pass=10.0",
+      "costs": [
+        10.0,
+        1.0,
+        0.2
+      ],
+      "decided_mask_sha256": "39e65d66201690bb3e0099ed72d29e9cf8cea3a2d4904a2ddd8dc035f04eadcc",
+      "bayes_fail_threshold": 0.0909,
+      "n_decided": 45,
+      "n_abstained": 2581,
+      "coverage": 0.017,
+      "utility": -0.2004,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "cost_point": "ref",
+      "costs": [
+        5.0,
+        1.0,
+        0.5
+      ],
+      "decided_mask_sha256": "2aa7e157330e5d21aedda295f4489af072eedeef79998bd16902c6d09b0586c5",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 1377,
+      "n_abstained": 1249,
+      "coverage": 0.524,
+      "utility": -0.3163,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "cost_point": "abstain=0.05",
+      "costs": [
+        5.0,
+        1.0,
+        0.05
+      ],
+      "decided_mask_sha256": "0410b8692aef163fce57e8701e346adc4a74cf16a25d6873bb1041c757c196be",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 3,
+      "n_abstained": 2623,
+      "coverage": 0.001,
+      "utility": -0.0499,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "cost_point": "abstain=0.10",
+      "costs": [
+        5.0,
+        1.0,
+        0.1
+      ],
+      "decided_mask_sha256": "4e7029b500771c10f0bc399ac59d922a486c8293abd06c836d165570877e6b77",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 30,
+      "n_abstained": 2596,
+      "coverage": 0.011,
+      "utility": -0.0989,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "cost_point": "abstain=0.20",
+      "costs": [
+        5.0,
+        1.0,
+        0.2
+      ],
+      "decided_mask_sha256": "54fdff73a54e3ebce728bde5667097e08e4cc3850539156085de740fa4c8c549",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 209,
+      "n_abstained": 2417,
+      "coverage": 0.08,
+      "utility": -0.1898,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "cost_point": "abstain=0.50",
+      "costs": [
+        5.0,
+        1.0,
+        0.5
+      ],
+      "decided_mask_sha256": "2aa7e157330e5d21aedda295f4489af072eedeef79998bd16902c6d09b0586c5",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 1377,
+      "n_abstained": 1249,
+      "coverage": 0.524,
+      "utility": -0.3163,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "cost_point": "abstain=1.00",
+      "costs": [
+        5.0,
+        1.0,
+        1.0
+      ],
+      "decided_mask_sha256": "cfc86316f8087e03c77750dc8677c519d06f4119f339a9a7853b070ea230d39c",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 2626,
+      "n_abstained": 0,
+      "coverage": 1.0,
+      "utility": -0.3915,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "cost_point": "false_pass=2.0",
+      "costs": [
+        2.0,
+        1.0,
+        0.2
+      ],
+      "decided_mask_sha256": "3a4f892667770328f22db216ca2e97d6adbae8465cbbba7a2fd89bfe5f10be66",
+      "bayes_fail_threshold": 0.3333,
+      "n_decided": 1209,
+      "n_abstained": 1417,
+      "coverage": 0.46,
+      "utility": -0.1346,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "cost_point": "false_pass=5.0",
+      "costs": [
+        5.0,
+        1.0,
+        0.2
+      ],
+      "decided_mask_sha256": "54fdff73a54e3ebce728bde5667097e08e4cc3850539156085de740fa4c8c549",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 209,
+      "n_abstained": 2417,
+      "coverage": 0.08,
+      "utility": -0.1898,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "CYP2D6_Veith",
+      "seed": 2,
+      "cost_point": "false_pass=10.0",
+      "costs": [
+        10.0,
+        1.0,
+        0.2
+      ],
+      "decided_mask_sha256": "586e35801c3d4674e9a2431857f824cf130d0194f949fc7d6976eb9bbbe7c476",
+      "bayes_fail_threshold": 0.0909,
+      "n_decided": 46,
+      "n_abstained": 2580,
+      "coverage": 0.018,
+      "utility": -0.1965,
+      "n": 2626,
+      "pipeline": "pi_cost_sensitive_S6"
+    }
+  ],
+  "schema_version": "2.0_cost_sensitive"
+}
