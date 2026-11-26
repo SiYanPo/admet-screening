@@ -1,0 +1,55 @@
+﻿compound_id,endpoint,verdict,confidence,reason,abstention_reason_attribution,abstention_reason_label,abstention_reason_secondary,abstention_resolution
+WBLG-A,ames,UNDETERMINED,low,域内源 1 个但独立方法组仅 1 个 < 要求的 2,insufficient_independent_groups,独立方法组不足：同生态多源只算一票,,补一个**独立生态**的源（不是同一训练生态的镜像）
+WBLG-A,caco2_papp_ab,UNDETERMINED,low,域内源 2 个但独立方法组仅 1 个 < 要求的 2,insufficient_independent_groups,独立方法组不足：同生态多源只算一票,,补一个**独立生态**的源（不是同一训练生态的镜像）
+WBLG-A,carcinogenicity,UNDETERMINED,low,域内源 1 个但独立方法组仅 1 个 < 要求的 2,insufficient_independent_groups,独立方法组不足：同生态多源只算一票,,补一个**独立生态**的源（不是同一训练生态的镜像）
+WBLG-A,chembl_admet_assay_count,PASSTHRU,,role=applicability 端点：不裁决,,,,
+WBLG-A,chembl_max_tanimoto,PASSTHRU,,role=applicability 端点：不裁决,,,,
+WBLG-A,chembl_neighbors_t40,PASSTHRU,,role=applicability 端点：不裁决,,,,
+WBLG-A,chembl_neighbors_t70,PASSTHRU,,role=applicability 端点：不裁决,,,,
+WBLG-A,clint_microsome,UNDETERMINED,low,域内源 1 个但独立方法组仅 1 个 < 要求的 2,insufficient_independent_groups,独立方法组不足：同生态多源只算一票,,补一个**独立生态**的源（不是同一训练生态的镜像）
+WBLG-A,cyp1a2_inhibition,PASSTHRU,,role=reference 端点：不裁决,,,,
+WBLG-A,cyp2c19_inhibition,PASSTHRU,,role=reference 端点：不裁决,,,,
+WBLG-A,cyp2c9_inhibition,PASSTHRU,,role=reference 端点：不裁决,,,,
+WBLG-A,cyp2d6_inhibition,PASSTHRU,,role=reference 端点：不裁决,,,,
+WBLG-A,cyp3a4_inhibition,PASSTHRU,,role=reference 端点：不裁决,,,,
+WBLG-A,dili,UNDETERMINED,low,源间分歧过大（极差=1.0）,spread_exceeded,源间分歧过大：方向不一致，须补实验或第三源,,补一个独立源或做一次确认性实测；不要用中位数强行裁决
+WBLG-A,herg,UNDETERMINED,low,"跨源单位不一致（class/probability）且至少一个源落在灰区：[None, 'PASS', 'PASS']",unit_isomerism,单位异构：跨源口径不可比且缺 class_map,,统一单位或补 class_map 后重跑（低成本，优先）
+WBLG-A,mmp,PASS,medium,"2 个域内源（2 个独立方法组），单位异构（class/probability）按 class_map 类别投射后方向一致：['PASS', 'PASS']（**投射结果，非原始数值共识**）",,,,
+WBLG-A,nr_ar_lbd,UNDETERMINED,low,域内源 1 个但独立方法组仅 1 个 < 要求的 2,insufficient_independent_groups,独立方法组不足：同生态多源只算一票,,补一个**独立生态**的源（不是同一训练生态的镜像）
+WBLG-A,ppb_fu,UNDETERMINED,low,域内源 2 个但独立方法组仅 1 个 < 要求的 2,insufficient_independent_groups,独立方法组不足：同生态多源只算一票,,补一个**独立生态**的源（不是同一训练生态的镜像）
+WBLG-A,protox_ld50,PASSTHRU,,role=reference 端点：不裁决,,,,
+WBLG-A,sr_are,UNDETERMINED,low,域内源 1 个但独立方法组仅 1 个 < 要求的 2,insufficient_independent_groups,独立方法组不足：同生态多源只算一票,,补一个**独立生态**的源（不是同一训练生态的镜像）
+WBLG-A,sr_p53,UNDETERMINED,low,域内源 1 个但独立方法组仅 1 个 < 要求的 2,insufficient_independent_groups,独立方法组不足：同生态多源只算一票,,补一个**独立生态**的源（不是同一训练生态的镜像）
+WBLG-A,vnn_bbb,PASSTHRU,,role=reference 端点：不裁决,,,,
+WBLG-A,vnn_cytotoxicity,PASSTHRU,,role=reference 端点：不裁决,,,,
+WBLG-A,vnn_hlm,PASSTHRU,,role=reference 端点：不裁决,,,,
+WBLG-A,vnn_mrtd,PASSTHRU,,role=reference 端点：不裁决,,,,
+WBLG-A,vnn_pgp_inhibitor,PASSTHRU,,role=reference 端点：不裁决,,,,
+WBLG-A,vnn_pgp_substrate,PASSTHRU,,role=reference 端点：不裁决,,,,
+WBLG-B,ames,UNDETERMINED,low,域内源 1 个但独立方法组仅 1 个 < 要求的 2,insufficient_independent_groups,独立方法组不足：同生态多源只算一票,,补一个**独立生态**的源（不是同一训练生态的镜像）
+WBLG-B,caco2_papp_ab,UNDETERMINED,low,域内源 2 个但独立方法组仅 1 个 < 要求的 2,insufficient_independent_groups,独立方法组不足：同生态多源只算一票,,补一个**独立生态**的源（不是同一训练生态的镜像）
+WBLG-B,carcinogenicity,UNDETERMINED,low,域内源 1 个但独立方法组仅 1 个 < 要求的 2,insufficient_independent_groups,独立方法组不足：同生态多源只算一票,,补一个**独立生态**的源（不是同一训练生态的镜像）
+WBLG-B,chembl_admet_assay_count,PASSTHRU,,role=applicability 端点：不裁决,,,,
+WBLG-B,chembl_max_tanimoto,PASSTHRU,,role=applicability 端点：不裁决,,,,
+WBLG-B,chembl_neighbors_t40,PASSTHRU,,role=applicability 端点：不裁决,,,,
+WBLG-B,chembl_neighbors_t70,PASSTHRU,,role=applicability 端点：不裁决,,,,
+WBLG-B,clint_microsome,UNDETERMINED,low,域内源 1 个但独立方法组仅 1 个 < 要求的 2,insufficient_independent_groups,独立方法组不足：同生态多源只算一票,,补一个**独立生态**的源（不是同一训练生态的镜像）
+WBLG-B,cyp1a2_inhibition,PASSTHRU,,role=reference 端点：不裁决,,,,
+WBLG-B,cyp2c19_inhibition,PASSTHRU,,role=reference 端点：不裁决,,,,
+WBLG-B,cyp2c9_inhibition,PASSTHRU,,role=reference 端点：不裁决,,,,
+WBLG-B,cyp2d6_inhibition,PASSTHRU,,role=reference 端点：不裁决,,,,
+WBLG-B,cyp3a4_inhibition,PASSTHRU,,role=reference 端点：不裁决,,,,
+WBLG-B,dili,UNDETERMINED,low,域内源 1 个但独立方法组仅 1 个 < 要求的 2,insufficient_independent_groups,独立方法组不足：同生态多源只算一票,,补一个**独立生态**的源（不是同一训练生态的镜像）
+WBLG-B,herg,UNDETERMINED,low,"跨源单位不一致（class/probability）且至少一个源落在灰区：[None, 'PASS', 'PASS']",unit_isomerism,单位异构：跨源口径不可比且缺 class_map,,统一单位或补 class_map 后重跑（低成本，优先）
+WBLG-B,mmp,UNDETERMINED,low,域内源 1 个但独立方法组仅 1 个 < 要求的 2,insufficient_independent_groups,独立方法组不足：同生态多源只算一票,,补一个**独立生态**的源（不是同一训练生态的镜像）
+WBLG-B,nr_ar_lbd,UNDETERMINED,low,域内源 1 个但独立方法组仅 1 个 < 要求的 2,insufficient_independent_groups,独立方法组不足：同生态多源只算一票,,补一个**独立生态**的源（不是同一训练生态的镜像）
+WBLG-B,ppb_fu,UNDETERMINED,low,域内源 2 个但独立方法组仅 1 个 < 要求的 2,insufficient_independent_groups,独立方法组不足：同生态多源只算一票,,补一个**独立生态**的源（不是同一训练生态的镜像）
+WBLG-B,protox_ld50,PASSTHRU,,role=reference 端点：不裁决,,,,
+WBLG-B,sr_are,UNDETERMINED,low,域内源 1 个但独立方法组仅 1 个 < 要求的 2,insufficient_independent_groups,独立方法组不足：同生态多源只算一票,,补一个**独立生态**的源（不是同一训练生态的镜像）
+WBLG-B,sr_p53,UNDETERMINED,low,域内源 1 个但独立方法组仅 1 个 < 要求的 2,insufficient_independent_groups,独立方法组不足：同生态多源只算一票,,补一个**独立生态**的源（不是同一训练生态的镜像）
+WBLG-B,vnn_bbb,PASSTHRU,,role=reference 端点：不裁决,,,,
+WBLG-B,vnn_cytotoxicity,PASSTHRU,,role=reference 端点：不裁决,,,,
+WBLG-B,vnn_hlm,PASSTHRU,,role=reference 端点：不裁决,,,,
+WBLG-B,vnn_mrtd,PASSTHRU,,role=reference 端点：不裁决,,,,
+WBLG-B,vnn_pgp_inhibitor,PASSTHRU,,role=reference 端点：不裁决,,,,
+WBLG-B,vnn_pgp_substrate,PASSTHRU,,role=reference 端点：不裁决,,,,
