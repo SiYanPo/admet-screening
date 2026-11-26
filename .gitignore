@@ -1,0 +1,46 @@
+# ---------------------------------------------------------------------------
+# Inputs that cannot be redistributed (size, and third-party licences).
+# Neither is needed to verify the deterministic tables; both are needed only
+# for --full retraining, and README.md explains how to obtain them.
+# ---------------------------------------------------------------------------
+assets/
+out_ext/
+
+# ---------------------------------------------------------------------------
+# Run products, caches and scratch directories. Regenerable, and large enough
+# to make a clone unpleasant.
+# ---------------------------------------------------------------------------
+fullrun_*/
+logs/
+out_review/
+out_case/
+run6/
+_r/
+_pilot/
+_smoke_out/
+instances/
+build/
+*.egg-info/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.pytest_tmp/
+.env_audit_paths.json
+
+# ---------------------------------------------------------------------------
+# Deliberately kept, because they are the basis of the bit-exact claim:
+#   out_keystone_v43/results.json        per-seed records, primary endpoints
+#   out_keystone_transfer/results.json   per-seed records, transfer endpoints
+#   out_sensitivity/*.csv                the four deposited tables
+#   deposit/EXPECTED_SHA256.json         their checksums
+# Do not add rules that exclude these.
+# ---------------------------------------------------------------------------
+out_keystone_smoke/
+ou_keystone_ext_big/
+tests/.scratch/
+assets/external/
+logs/
+fullrun_20261122/
+out_review/
+.gh_token_tmp
+.commitmsg.tmp
