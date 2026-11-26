@@ -1,0 +1,153 @@
+{
+ "score": 73.2,
+ "n": 17,
+ "items": [
+  {
+   "id": "A1_prereg_anchor",
+   "name": "预注册第三方锚定（claim_allowed）",
+   "status": "GAP",
+   "weight": 3,
+   "evidence": "prereg/prereg.jsonl 不存在",
+   "action": "OSF 恢复后 osf_register2.py + tools/prereg_anchor_stage1.py"
+  },
+  {
+   "id": "A2_prospective_window",
+   "name": "前瞻数据时间窗（min(data_ts)>anchor）",
+   "status": "GAP",
+   "weight": 3,
+   "evidence": "链上无 prospective_data_window 声明（能力已实现：Prereg.temporal_validity）",
+   "action": "register_criteria(..., prospective_data_window={...}) 后跑 prereg-status --data-timestamps"
+  },
+  {
+   "id": "A3_failure_clause",
+   "name": "失败即结论条款已登记",
+   "status": "PASS",
+   "weight": 2,
+   "evidence": "失败判据=True 负结果照发=True 禁止事后调参=True",
+   "action": ""
+  },
+  {
+   "id": "B1_estimand_cards",
+   "name": "端点 estimand 绑定卡（≥3 端点）",
+   "status": "PASS",
+   "weight": 3,
+   "evidence": "4 端点；未绑定/部分：['hERG']",
+   "action": ""
+  },
+  {
+   "id": "B2_external_holdout",
+   "name": "独立外部队列（未参与开发）",
+   "status": "PASS",
+   "weight": 3,
+   "evidence": "out_ext\\external\\herg_holdout.json",
+   "action": ""
+  },
+  {
+   "id": "B3_wetlab_anchor",
+   "name": "至少一个端点的湿实验金标准",
+   "status": "GAP",
+   "weight": 3,
+   "evidence": "estimand_status=bound 条目 0；湿实验产物 0 个",
+   "action": "需湿实验（膜片钳 IC50 等）或与实验组合作，纯 in-silico 无法闭合"
+  },
+  {
+   "id": "B4_data_manifest",
+   "name": "数据清单（SHA256+来源+许可）",
+   "status": "PASS",
+   "weight": 2,
+   "evidence": "17 条资产",
+   "action": ""
+  },
+  {
+   "id": "C1_paired_stats",
+   "name": "配对统计（DeLong/McNemar/Holm）",
+   "status": "PASS",
+   "weight": 2,
+   "evidence": "adt/paired_stats.py 函数齐备=True",
+   "action": ""
+  },
+  {
+   "id": "C2_ci_reported",
+   "name": "主结果带 bootstrap CI",
+   "status": "PASS",
+   "weight": 3,
+   "evidence": "out_keystone_v43\\results.json",
+   "action": ""
+  },
+  {
+   "id": "C3_metric_completeness",
+   "name": "指标齐备（AUROC/AUPRC/MCC/ECE/Brier）",
+   "status": "PASS",
+   "weight": 3,
+   "evidence": "缺：无",
+   "action": ""
+  },
+  {
+   "id": "C4_threshold_sensitivity",
+   "name": "阈值敏感性已实测",
+   "status": "PASS",
+   "weight": 2,
+   "evidence": "knn_threshold_sensitivity.json、ratio_margin_sensitivity.json",
+   "action": ""
+  },
+  {
+   "id": "D1_container",
+   "name": "容器 digest",
+   "status": "PASS",
+   "weight": 2,
+   "evidence": "sha256:16d408f9471ceffe165c75cd6bd063bb1",
+   "action": ""
+  },
+  {
+   "id": "D2_one_command_verify",
+   "name": "一条命令复现（verify_all/bootstrap）",
+   "status": "PASS",
+   "weight": 2,
+   "evidence": "verify_all.py、bootstrap.py",
+   "action": ""
+  },
+  {
+   "id": "D3_lock",
+   "name": "精确依赖锁",
+   "status": "PASS",
+   "weight": 1,
+   "evidence": "requirements.lock",
+   "action": ""
+  },
+  {
+   "id": "E1_stage1_draft",
+   "name": "Stage 1 稿（引言+假设+方法）",
+   "status": "PASS",
+   "weight": 2,
+   "evidence": "PAPER_STAGE1_v4.28.md",
+   "action": ""
+  },
+  {
+   "id": "E2_figure_inventory",
+   "name": "图表清单无待补占位",
+   "status": "GAP",
+   "weight": 2,
+   "evidence": "占位/待补 5 处",
+   "action": "补齐或缺图声明"
+  },
+  {
+   "id": "E3_sota_baseline",
+   "name": "SOTA 基线数值对照（非仅文献列表）",
+   "status": "PASS",
+   "weight": 3,
+   "evidence": "prior-art 扫描=True；基线产物=4",
+   "action": ""
+  }
+ ],
+ "tiers": {
+  "IF≥10（Nat 子刊 / Nat Commun / Sci Adv 级）": [
+   "A1_prereg_anchor",
+   "A2_prospective_window",
+   "B3_wetlab_anchor"
+  ],
+  "IF 6–9（J Cheminform / Digital Discovery / Brief Bioinform）": [
+   "A2_prospective_window"
+  ],
+  "IF 4–6（JCIM / Mol Inform / J Comput Aided Mol Des）": []
+ }
+}
