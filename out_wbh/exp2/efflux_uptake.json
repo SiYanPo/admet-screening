@@ -1,0 +1,138 @@
+[
+  {
+    "compound_id": "WBLG-A",
+    "pgp": {
+      "features": {
+        "basic_center": false,
+        "hba": 10,
+        "hba_ge2": true,
+        "hba_ge4": true,
+        "aromatic_rings": 1,
+        "aromatic_ring_ge2": false,
+        "mw": 400.4,
+        "mw_ge400": true
+      },
+      "plausibility": "low_to_medium",
+      "verdict": "plausible_efflux",
+      "mandatory_assay": "Caco-2 双向 + verapamil 100 µM（P-gp 特异性抑制剂；外排比 ER 前后差 ≥2× 判 P-gp 底物）；同时 + elacridar 2 µM（P-gp/BCRP 共抑制剂）以分离 BCRP 贡献。若任一抑制剂使净通量反转或 ER 下降 ≥2×，则确认外排底物，有效脑暴露须按『被动渗透 × 外排净效应』重算，不得沿用原 BBB 端点值。"
+    },
+    "bcrp": {
+      "features": {
+        "planar_aromatic": true,
+        "ionizable_basic_n": false,
+        "hba": 10,
+        "hba_ge3": true
+      },
+      "plausibility": "low",
+      "verdict": "uncertain",
+      "mandatory_assay": "Caco-2 双向 + elacridar 2 µM（BCRP/P-gp 共抑制剂）；确认须配合 KO 细胞或特异性探针底物（如 pheophorbide A / sulforhodamine B）。"
+    },
+    "uptake": {
+      "available": true,
+      "oatp1a2": {
+        "features": {
+          "anionic_group": false,
+          "hba": 10,
+          "hba_ge3": true,
+          "aromatic_rings": 1,
+          "mw": 400.4,
+          "mw_ge300": true
+        },
+        "plausibility": "low",
+        "verdict": "uncertain",
+        "mandatory_assay": "MDCK-OATP1A2 / HEK293-OATP1A2 摄取（2 µM，2–5 min，37°C）± estrone-3-sulfate 50 µM 或 rifampicin 50 µM 竞争；摄取抑制 ≥50%（IC50 < 对照）判底物。注意与 OATP2B1（肠侧）区分：用脑内皮来源细胞系或人原代 BBB 模型更贴近脑暴露；若确为底物，脑暴露截距上调，但须与外排通道（P-gp/BCRP）净效应叠乘。"
+      },
+      "lat1": {
+        "features": {
+          "aa_backbone": false,
+          "basic_n_and_carboxylate": false,
+          "aromatic_sidechain": true,
+          "n_carbon": 18,
+          "hba": 10,
+          "mw": 400.4,
+          "large_sidechain": true
+        },
+        "plausibility": "low",
+        "verdict": "uncertain",
+        "mandatory_assay": "HEK293-LAT1 / MDCK-LAT1 摄取（2 µM，1–2 min，± L-亮氨酸 1 mM 或 BCH 10 mM 竞争）；氨基酸类或氨基酸样分子（如 L-DOPA、甲状腺氨酸、加巴喷丁）优先验证。L-立体专一性无法由本启发式保证，必须以实验确认。"
+      },
+      "glut1": {
+        "features": {
+          "free_monosaccharide": true,
+          "mw": 400.4
+        },
+        "plausibility": "low",
+        "verdict": "excluded_for_intact_glycoside",
+        "mandatory_assay": "仅对**游离单糖/苷元水解产物**考虑：原代 BBB 内皮细胞或 hCMEC/D3 ± cytochalasin B（GLUT 抑制剂）或高浓度 D-葡萄糖竞争。⚠️ **完整糖苷不是 GLUT1 底物**（糖基接到苷元/甘油后体积过大且失去单糖空间排布）；若分子为糖苷，其 GLUT1 相关性仅存在于**苷元/单糖水解产物**，须先水解再评估。"
+      }
+    }
+  },
+  {
+    "compound_id": "WBLG-B",
+    "pgp": {
+      "features": {
+        "basic_center": false,
+        "hba": 11,
+        "hba_ge2": true,
+        "hba_ge4": true,
+        "aromatic_rings": 1,
+        "aromatic_ring_ge2": false,
+        "mw": 442.4,
+        "mw_ge400": true
+      },
+      "plausibility": "low_to_medium",
+      "verdict": "plausible_efflux",
+      "mandatory_assay": "Caco-2 双向 + verapamil 100 µM（P-gp 特异性抑制剂；外排比 ER 前后差 ≥2× 判 P-gp 底物）；同时 + elacridar 2 µM（P-gp/BCRP 共抑制剂）以分离 BCRP 贡献。若任一抑制剂使净通量反转或 ER 下降 ≥2×，则确认外排底物，有效脑暴露须按『被动渗透 × 外排净效应』重算，不得沿用原 BBB 端点值。"
+    },
+    "bcrp": {
+      "features": {
+        "planar_aromatic": true,
+        "ionizable_basic_n": false,
+        "hba": 11,
+        "hba_ge3": true
+      },
+      "plausibility": "low",
+      "verdict": "uncertain",
+      "mandatory_assay": "Caco-2 双向 + elacridar 2 µM（BCRP/P-gp 共抑制剂）；确认须配合 KO 细胞或特异性探针底物（如 pheophorbide A / sulforhodamine B）。"
+    },
+    "uptake": {
+      "available": true,
+      "oatp1a2": {
+        "features": {
+          "anionic_group": false,
+          "hba": 11,
+          "hba_ge3": true,
+          "aromatic_rings": 1,
+          "mw": 442.4,
+          "mw_ge300": true
+        },
+        "plausibility": "low",
+        "verdict": "uncertain",
+        "mandatory_assay": "MDCK-OATP1A2 / HEK293-OATP1A2 摄取（2 µM，2–5 min，37°C）± estrone-3-sulfate 50 µM 或 rifampicin 50 µM 竞争；摄取抑制 ≥50%（IC50 < 对照）判底物。注意与 OATP2B1（肠侧）区分：用脑内皮来源细胞系或人原代 BBB 模型更贴近脑暴露；若确为底物，脑暴露截距上调，但须与外排通道（P-gp/BCRP）净效应叠乘。"
+      },
+      "lat1": {
+        "features": {
+          "aa_backbone": false,
+          "basic_n_and_carboxylate": false,
+          "aromatic_sidechain": true,
+          "n_carbon": 20,
+          "hba": 11,
+          "mw": 442.4,
+          "large_sidechain": true
+        },
+        "plausibility": "low",
+        "verdict": "uncertain",
+        "mandatory_assay": "HEK293-LAT1 / MDCK-LAT1 摄取（2 µM，1–2 min，± L-亮氨酸 1 mM 或 BCH 10 mM 竞争）；氨基酸类或氨基酸样分子（如 L-DOPA、甲状腺氨酸、加巴喷丁）优先验证。L-立体专一性无法由本启发式保证，必须以实验确认。"
+      },
+      "glut1": {
+        "features": {
+          "free_monosaccharide": true,
+          "mw": 442.4
+        },
+        "plausibility": "low",
+        "verdict": "excluded_for_intact_glycoside",
+        "mandatory_assay": "仅对**游离单糖/苷元水解产物**考虑：原代 BBB 内皮细胞或 hCMEC/D3 ± cytochalasin B（GLUT 抑制剂）或高浓度 D-葡萄糖竞争。⚠️ **完整糖苷不是 GLUT1 底物**（糖基接到苷元/甘油后体积过大且失去单糖空间排布）；若分子为糖苷，其 GLUT1 相关性仅存在于**苷元/单糖水解产物**，须先水解再评估。"
+      }
+    }
+  }
+]
