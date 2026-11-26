@@ -1,0 +1,2835 @@
+{
+  "seeds": 1,
+  "endpoints": "Ames",
+  "costs": {
+    "hERG": [
+      5.0,
+      1.0,
+      0.5
+    ],
+    "DILI": [
+      5.0,
+      1.0,
+      0.5
+    ],
+    "BBB_Martins": [
+      3.0,
+      1.0,
+      0.5
+    ],
+    "Ames": [
+      5.0,
+      1.0,
+      0.5
+    ],
+    "CYP3A4_Veith": [
+      5.0,
+      1.0,
+      0.5
+    ]
+  },
+  "ad_threshold": 0.35,
+  "target_risk": 0.15,
+  "strategies": [
+    "S1_naive_majority",
+    "S2_ad_guard",
+    "S3_calibrated_conformal",
+    "S4_full_admission",
+    "S5_uncalibrated_conf"
+  ],
+  "per_run": [
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S1_naive_majority",
+      "cost_point": "ref",
+      "utility": -0.6321,
+      "coverage": 1.0,
+      "risk_decided": 0.237,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.05",
+      "utility": -0.6321,
+      "coverage": 1.0,
+      "risk_decided": 0.237,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.10",
+      "utility": -0.6321,
+      "coverage": 1.0,
+      "risk_decided": 0.237,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.20",
+      "utility": -0.6321,
+      "coverage": 1.0,
+      "risk_decided": 0.237,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.50",
+      "utility": -0.6321,
+      "coverage": 1.0,
+      "risk_decided": 0.237,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=1.00",
+      "utility": -0.6321,
+      "coverage": 1.0,
+      "risk_decided": 0.237,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S1_naive_majority",
+      "cost_point": "false_pass=2.0",
+      "utility": -0.3356,
+      "coverage": 1.0,
+      "risk_decided": 0.237,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S1_naive_majority",
+      "cost_point": "false_pass=5.0",
+      "utility": -0.6321,
+      "coverage": 1.0,
+      "risk_decided": 0.237,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S1_naive_majority",
+      "cost_point": "false_pass=10.0",
+      "utility": -1.1263,
+      "coverage": 1.0,
+      "risk_decided": 0.237,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S2_ad_guard",
+      "cost_point": "ref",
+      "utility": -0.5463,
+      "coverage": 0.822,
+      "risk_decided": 0.222,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.05",
+      "utility": -0.466,
+      "coverage": 0.822,
+      "risk_decided": 0.222,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.10",
+      "utility": -0.4749,
+      "coverage": 0.822,
+      "risk_decided": 0.222,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.20",
+      "utility": -0.4928,
+      "coverage": 0.822,
+      "risk_decided": 0.222,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.50",
+      "utility": -0.5463,
+      "coverage": 0.822,
+      "risk_decided": 0.222,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=1.00",
+      "utility": -0.6356,
+      "coverage": 0.822,
+      "risk_decided": 0.222,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S2_ad_guard",
+      "cost_point": "false_pass=2.0",
+      "utility": -0.2869,
+      "coverage": 0.822,
+      "risk_decided": 0.222,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S2_ad_guard",
+      "cost_point": "false_pass=5.0",
+      "utility": -0.4928,
+      "coverage": 0.822,
+      "risk_decided": 0.222,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S2_ad_guard",
+      "cost_point": "false_pass=10.0",
+      "utility": -0.836,
+      "coverage": 0.822,
+      "risk_decided": 0.222,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "ref",
+      "utility": -0.3191,
+      "coverage": 0.596,
+      "risk_decided": 0.197,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.05",
+      "utility": -0.1375,
+      "coverage": 0.596,
+      "risk_decided": 0.197,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.10",
+      "utility": -0.1577,
+      "coverage": 0.596,
+      "risk_decided": 0.197,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.20",
+      "utility": -0.1981,
+      "coverage": 0.596,
+      "risk_decided": 0.197,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.50",
+      "utility": -0.3191,
+      "coverage": 0.596,
+      "risk_decided": 0.197,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=1.00",
+      "utility": -0.5209,
+      "coverage": 0.596,
+      "risk_decided": 0.197,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "false_pass=2.0",
+      "utility": -0.1981,
+      "coverage": 0.596,
+      "risk_decided": 0.197,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "false_pass=5.0",
+      "utility": -0.1981,
+      "coverage": 0.596,
+      "risk_decided": 0.197,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "false_pass=10.0",
+      "utility": -0.1981,
+      "coverage": 0.596,
+      "risk_decided": 0.197,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S4_full_admission",
+      "cost_point": "ref",
+      "utility": -0.4324,
+      "coverage": 0.271,
+      "risk_decided": 0.251,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.05",
+      "utility": -0.1044,
+      "coverage": 0.271,
+      "risk_decided": 0.251,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.10",
+      "utility": -0.1408,
+      "coverage": 0.271,
+      "risk_decided": 0.251,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.20",
+      "utility": -0.2137,
+      "coverage": 0.271,
+      "risk_decided": 0.251,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.50",
+      "utility": -0.4324,
+      "coverage": 0.271,
+      "risk_decided": 0.251,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=1.00",
+      "utility": -0.7968,
+      "coverage": 0.271,
+      "risk_decided": 0.251,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S4_full_admission",
+      "cost_point": "false_pass=2.0",
+      "utility": -0.2137,
+      "coverage": 0.271,
+      "risk_decided": 0.251,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S4_full_admission",
+      "cost_point": "false_pass=5.0",
+      "utility": -0.2137,
+      "coverage": 0.271,
+      "risk_decided": 0.251,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S4_full_admission",
+      "cost_point": "false_pass=10.0",
+      "utility": -0.2137,
+      "coverage": 0.271,
+      "risk_decided": 0.251,
+      "auc": 0.8245,
+      "score_kind": "calibrated",
+      "abstain_threshold": 0.5,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "ref",
+      "utility": -0.3143,
+      "coverage": 0.546,
+      "risk_decided": 0.16,
+      "auc": 0.8411,
+      "score_kind": "raw",
+      "abstain_threshold": 0.55,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.05",
+      "utility": -0.1099,
+      "coverage": 0.546,
+      "risk_decided": 0.16,
+      "auc": 0.8411,
+      "score_kind": "raw",
+      "abstain_threshold": 0.55,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.10",
+      "utility": -0.1326,
+      "coverage": 0.546,
+      "risk_decided": 0.16,
+      "auc": 0.8411,
+      "score_kind": "raw",
+      "abstain_threshold": 0.55,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.20",
+      "utility": -0.178,
+      "coverage": 0.546,
+      "risk_decided": 0.16,
+      "auc": 0.8411,
+      "score_kind": "raw",
+      "abstain_threshold": 0.55,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.50",
+      "utility": -0.3143,
+      "coverage": 0.546,
+      "risk_decided": 0.16,
+      "auc": 0.8411,
+      "score_kind": "raw",
+      "abstain_threshold": 0.55,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=1.00",
+      "utility": -0.5415,
+      "coverage": 0.546,
+      "risk_decided": 0.16,
+      "auc": 0.8411,
+      "score_kind": "raw",
+      "abstain_threshold": 0.55,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "false_pass=2.0",
+      "utility": -0.178,
+      "coverage": 0.546,
+      "risk_decided": 0.16,
+      "auc": 0.8411,
+      "score_kind": "raw",
+      "abstain_threshold": 0.55,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "false_pass=5.0",
+      "utility": -0.178,
+      "coverage": 0.546,
+      "risk_decided": 0.16,
+      "auc": 0.8411,
+      "score_kind": "raw",
+      "abstain_threshold": 0.55,
+      "n": 1457
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "false_pass=10.0",
+      "utility": -0.178,
+      "coverage": 0.546,
+      "risk_decided": 0.16,
+      "auc": 0.8411,
+      "score_kind": "raw",
+      "abstain_threshold": 0.55,
+      "n": 1457
+    }
+  ],
+  "summary": [
+    {
+      "endpoint": "Ames",
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.05",
+      "n_seeds": 1,
+      "utility_median": -0.6321,
+      "utility_iqr": [
+        -0.6321,
+        -0.6321
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.237
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.10",
+      "n_seeds": 1,
+      "utility_median": -0.6321,
+      "utility_iqr": [
+        -0.6321,
+        -0.6321
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.237
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.20",
+      "n_seeds": 1,
+      "utility_median": -0.6321,
+      "utility_iqr": [
+        -0.6321,
+        -0.6321
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.237
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=0.50",
+      "n_seeds": 1,
+      "utility_median": -0.6321,
+      "utility_iqr": [
+        -0.6321,
+        -0.6321
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.237
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S1_naive_majority",
+      "cost_point": "abstain=1.00",
+      "n_seeds": 1,
+      "utility_median": -0.6321,
+      "utility_iqr": [
+        -0.6321,
+        -0.6321
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.237
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S1_naive_majority",
+      "cost_point": "false_pass=10.0",
+      "n_seeds": 1,
+      "utility_median": -1.1263,
+      "utility_iqr": [
+        -1.1263,
+        -1.1263
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.237
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S1_naive_majority",
+      "cost_point": "false_pass=2.0",
+      "n_seeds": 1,
+      "utility_median": -0.3356,
+      "utility_iqr": [
+        -0.3356,
+        -0.3356
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.237
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S1_naive_majority",
+      "cost_point": "false_pass=5.0",
+      "n_seeds": 1,
+      "utility_median": -0.6321,
+      "utility_iqr": [
+        -0.6321,
+        -0.6321
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.237
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S1_naive_majority",
+      "cost_point": "ref",
+      "n_seeds": 1,
+      "utility_median": -0.6321,
+      "utility_iqr": [
+        -0.6321,
+        -0.6321
+      ],
+      "coverage_median": 1.0,
+      "risk_decided_median": 0.237
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.05",
+      "n_seeds": 1,
+      "utility_median": -0.466,
+      "utility_iqr": [
+        -0.466,
+        -0.466
+      ],
+      "coverage_median": 0.822,
+      "risk_decided_median": 0.222
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.10",
+      "n_seeds": 1,
+      "utility_median": -0.4749,
+      "utility_iqr": [
+        -0.4749,
+        -0.4749
+      ],
+      "coverage_median": 0.822,
+      "risk_decided_median": 0.222
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.20",
+      "n_seeds": 1,
+      "utility_median": -0.4928,
+      "utility_iqr": [
+        -0.4928,
+        -0.4928
+      ],
+      "coverage_median": 0.822,
+      "risk_decided_median": 0.222
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=0.50",
+      "n_seeds": 1,
+      "utility_median": -0.5463,
+      "utility_iqr": [
+        -0.5463,
+        -0.5463
+      ],
+      "coverage_median": 0.822,
+      "risk_decided_median": 0.222
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S2_ad_guard",
+      "cost_point": "abstain=1.00",
+      "n_seeds": 1,
+      "utility_median": -0.6356,
+      "utility_iqr": [
+        -0.6356,
+        -0.6356
+      ],
+      "coverage_median": 0.822,
+      "risk_decided_median": 0.222
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S2_ad_guard",
+      "cost_point": "false_pass=10.0",
+      "n_seeds": 1,
+      "utility_median": -0.836,
+      "utility_iqr": [
+        -0.836,
+        -0.836
+      ],
+      "coverage_median": 0.822,
+      "risk_decided_median": 0.222
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S2_ad_guard",
+      "cost_point": "false_pass=2.0",
+      "n_seeds": 1,
+      "utility_median": -0.2869,
+      "utility_iqr": [
+        -0.2869,
+        -0.2869
+      ],
+      "coverage_median": 0.822,
+      "risk_decided_median": 0.222
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S2_ad_guard",
+      "cost_point": "false_pass=5.0",
+      "n_seeds": 1,
+      "utility_median": -0.4928,
+      "utility_iqr": [
+        -0.4928,
+        -0.4928
+      ],
+      "coverage_median": 0.822,
+      "risk_decided_median": 0.222
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S2_ad_guard",
+      "cost_point": "ref",
+      "n_seeds": 1,
+      "utility_median": -0.5463,
+      "utility_iqr": [
+        -0.5463,
+        -0.5463
+      ],
+      "coverage_median": 0.822,
+      "risk_decided_median": 0.222
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.05",
+      "n_seeds": 1,
+      "utility_median": -0.1375,
+      "utility_iqr": [
+        -0.1375,
+        -0.1375
+      ],
+      "coverage_median": 0.596,
+      "risk_decided_median": 0.197
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.10",
+      "n_seeds": 1,
+      "utility_median": -0.1577,
+      "utility_iqr": [
+        -0.1577,
+        -0.1577
+      ],
+      "coverage_median": 0.596,
+      "risk_decided_median": 0.197
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.20",
+      "n_seeds": 1,
+      "utility_median": -0.1981,
+      "utility_iqr": [
+        -0.1981,
+        -0.1981
+      ],
+      "coverage_median": 0.596,
+      "risk_decided_median": 0.197
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=0.50",
+      "n_seeds": 1,
+      "utility_median": -0.3191,
+      "utility_iqr": [
+        -0.3191,
+        -0.3191
+      ],
+      "coverage_median": 0.596,
+      "risk_decided_median": 0.197
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "abstain=1.00",
+      "n_seeds": 1,
+      "utility_median": -0.5209,
+      "utility_iqr": [
+        -0.5209,
+        -0.5209
+      ],
+      "coverage_median": 0.596,
+      "risk_decided_median": 0.197
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "false_pass=10.0",
+      "n_seeds": 1,
+      "utility_median": -0.1981,
+      "utility_iqr": [
+        -0.1981,
+        -0.1981
+      ],
+      "coverage_median": 0.596,
+      "risk_decided_median": 0.197
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "false_pass=2.0",
+      "n_seeds": 1,
+      "utility_median": -0.1981,
+      "utility_iqr": [
+        -0.1981,
+        -0.1981
+      ],
+      "coverage_median": 0.596,
+      "risk_decided_median": 0.197
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "false_pass=5.0",
+      "n_seeds": 1,
+      "utility_median": -0.1981,
+      "utility_iqr": [
+        -0.1981,
+        -0.1981
+      ],
+      "coverage_median": 0.596,
+      "risk_decided_median": 0.197
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S3_calibrated_conformal",
+      "cost_point": "ref",
+      "n_seeds": 1,
+      "utility_median": -0.3191,
+      "utility_iqr": [
+        -0.3191,
+        -0.3191
+      ],
+      "coverage_median": 0.596,
+      "risk_decided_median": 0.197
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.05",
+      "n_seeds": 1,
+      "utility_median": -0.1044,
+      "utility_iqr": [
+        -0.1044,
+        -0.1044
+      ],
+      "coverage_median": 0.271,
+      "risk_decided_median": 0.251
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.10",
+      "n_seeds": 1,
+      "utility_median": -0.1408,
+      "utility_iqr": [
+        -0.1408,
+        -0.1408
+      ],
+      "coverage_median": 0.271,
+      "risk_decided_median": 0.251
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.20",
+      "n_seeds": 1,
+      "utility_median": -0.2137,
+      "utility_iqr": [
+        -0.2137,
+        -0.2137
+      ],
+      "coverage_median": 0.271,
+      "risk_decided_median": 0.251
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=0.50",
+      "n_seeds": 1,
+      "utility_median": -0.4324,
+      "utility_iqr": [
+        -0.4324,
+        -0.4324
+      ],
+      "coverage_median": 0.271,
+      "risk_decided_median": 0.251
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S4_full_admission",
+      "cost_point": "abstain=1.00",
+      "n_seeds": 1,
+      "utility_median": -0.7968,
+      "utility_iqr": [
+        -0.7968,
+        -0.7968
+      ],
+      "coverage_median": 0.271,
+      "risk_decided_median": 0.251
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S4_full_admission",
+      "cost_point": "false_pass=10.0",
+      "n_seeds": 1,
+      "utility_median": -0.2137,
+      "utility_iqr": [
+        -0.2137,
+        -0.2137
+      ],
+      "coverage_median": 0.271,
+      "risk_decided_median": 0.251
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S4_full_admission",
+      "cost_point": "false_pass=2.0",
+      "n_seeds": 1,
+      "utility_median": -0.2137,
+      "utility_iqr": [
+        -0.2137,
+        -0.2137
+      ],
+      "coverage_median": 0.271,
+      "risk_decided_median": 0.251
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S4_full_admission",
+      "cost_point": "false_pass=5.0",
+      "n_seeds": 1,
+      "utility_median": -0.2137,
+      "utility_iqr": [
+        -0.2137,
+        -0.2137
+      ],
+      "coverage_median": 0.271,
+      "risk_decided_median": 0.251
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S4_full_admission",
+      "cost_point": "ref",
+      "n_seeds": 1,
+      "utility_median": -0.4324,
+      "utility_iqr": [
+        -0.4324,
+        -0.4324
+      ],
+      "coverage_median": 0.271,
+      "risk_decided_median": 0.251
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.05",
+      "n_seeds": 1,
+      "utility_median": -0.1099,
+      "utility_iqr": [
+        -0.1099,
+        -0.1099
+      ],
+      "coverage_median": 0.546,
+      "risk_decided_median": 0.16
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.10",
+      "n_seeds": 1,
+      "utility_median": -0.1326,
+      "utility_iqr": [
+        -0.1326,
+        -0.1326
+      ],
+      "coverage_median": 0.546,
+      "risk_decided_median": 0.16
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.20",
+      "n_seeds": 1,
+      "utility_median": -0.178,
+      "utility_iqr": [
+        -0.178,
+        -0.178
+      ],
+      "coverage_median": 0.546,
+      "risk_decided_median": 0.16
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=0.50",
+      "n_seeds": 1,
+      "utility_median": -0.3143,
+      "utility_iqr": [
+        -0.3143,
+        -0.3143
+      ],
+      "coverage_median": 0.546,
+      "risk_decided_median": 0.16
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "abstain=1.00",
+      "n_seeds": 1,
+      "utility_median": -0.5415,
+      "utility_iqr": [
+        -0.5415,
+        -0.5415
+      ],
+      "coverage_median": 0.546,
+      "risk_decided_median": 0.16
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "false_pass=10.0",
+      "n_seeds": 1,
+      "utility_median": -0.178,
+      "utility_iqr": [
+        -0.178,
+        -0.178
+      ],
+      "coverage_median": 0.546,
+      "risk_decided_median": 0.16
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "false_pass=2.0",
+      "n_seeds": 1,
+      "utility_median": -0.178,
+      "utility_iqr": [
+        -0.178,
+        -0.178
+      ],
+      "coverage_median": 0.546,
+      "risk_decided_median": 0.16
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "false_pass=5.0",
+      "n_seeds": 1,
+      "utility_median": -0.178,
+      "utility_iqr": [
+        -0.178,
+        -0.178
+      ],
+      "coverage_median": 0.546,
+      "risk_decided_median": 0.16
+    },
+    {
+      "endpoint": "Ames",
+      "strategy": "S5_uncalibrated_conf",
+      "cost_point": "ref",
+      "n_seeds": 1,
+      "utility_median": -0.3143,
+      "utility_iqr": [
+        -0.3143,
+        -0.3143
+      ],
+      "coverage_median": 0.546,
+      "risk_decided_median": 0.16
+    }
+  ],
+  "paired_vs_S1": [
+    {
+      "endpoint": "Ames",
+      "cost_point": "ref",
+      "compare": "S2_ad_guard - S1_naive_majority",
+      "n_pairs": 1,
+      "delta_median": 0.0858,
+      "delta_iqr": [
+        0.0858,
+        0.0858
+      ],
+      "boot_ci95": [
+        0.0858,
+        0.0858
+      ],
+      "significant": true,
+      "direction": "better"
+    },
+    {
+      "endpoint": "Ames",
+      "cost_point": "ref",
+      "compare": "S3_calibrated_conformal - S1_naive_majority",
+      "n_pairs": 1,
+      "delta_median": 0.313,
+      "delta_iqr": [
+        0.313,
+        0.313
+      ],
+      "boot_ci95": [
+        0.313,
+        0.313
+      ],
+      "significant": true,
+      "direction": "better"
+    },
+    {
+      "endpoint": "Ames",
+      "cost_point": "ref",
+      "compare": "S4_full_admission - S1_naive_majority",
+      "n_pairs": 1,
+      "delta_median": 0.1997,
+      "delta_iqr": [
+        0.1997,
+        0.1997
+      ],
+      "boot_ci95": [
+        0.1997,
+        0.1997
+      ],
+      "significant": true,
+      "direction": "better"
+    },
+    {
+      "endpoint": "Ames",
+      "cost_point": "ref",
+      "compare": "S5_uncalibrated_conf - S1_naive_majority",
+      "n_pairs": 1,
+      "delta_median": 0.3178,
+      "delta_iqr": [
+        0.3178,
+        0.3178
+      ],
+      "boot_ci95": [
+        0.3178,
+        0.3178
+      ],
+      "significant": true,
+      "direction": "better"
+    }
+  ],
+  "paired_vs_S5": [
+    {
+      "endpoint": "Ames",
+      "cost_point": "ref",
+      "compare": "S1_naive_majority - S5_uncalibrated_conf",
+      "n_pairs": 1,
+      "delta_median": -0.3178,
+      "delta_iqr": [
+        -0.3178,
+        -0.3178
+      ],
+      "boot_ci95": [
+        -0.3178,
+        -0.3178
+      ],
+      "significant": true,
+      "direction": "worse"
+    },
+    {
+      "endpoint": "Ames",
+      "cost_point": "ref",
+      "compare": "S2_ad_guard - S5_uncalibrated_conf",
+      "n_pairs": 1,
+      "delta_median": -0.232,
+      "delta_iqr": [
+        -0.232,
+        -0.232
+      ],
+      "boot_ci95": [
+        -0.232,
+        -0.232
+      ],
+      "significant": true,
+      "direction": "worse"
+    },
+    {
+      "endpoint": "Ames",
+      "cost_point": "ref",
+      "compare": "S3_calibrated_conformal - S5_uncalibrated_conf",
+      "n_pairs": 1,
+      "delta_median": -0.0048,
+      "delta_iqr": [
+        -0.0048,
+        -0.0048
+      ],
+      "boot_ci95": [
+        -0.0048,
+        -0.0048
+      ],
+      "significant": true,
+      "direction": "worse"
+    },
+    {
+      "endpoint": "Ames",
+      "cost_point": "ref",
+      "compare": "S4_full_admission - S5_uncalibrated_conf",
+      "n_pairs": 1,
+      "delta_median": -0.1181,
+      "delta_iqr": [
+        -0.1181,
+        -0.1181
+      ],
+      "boot_ci95": [
+        -0.1181,
+        -0.1181
+      ],
+      "significant": true,
+      "direction": "worse"
+    }
+  ],
+  "cost_sweep": {
+    "ref": [
+      {
+        "endpoint": "Ames",
+        "cost_point": "ref",
+        "compare": "S2_ad_guard - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.0858,
+        "delta_iqr": [
+          0.0858,
+          0.0858
+        ],
+        "boot_ci95": [
+          0.0858,
+          0.0858
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "ref",
+        "compare": "S3_calibrated_conformal - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.313,
+        "delta_iqr": [
+          0.313,
+          0.313
+        ],
+        "boot_ci95": [
+          0.313,
+          0.313
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "ref",
+        "compare": "S4_full_admission - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.1997,
+        "delta_iqr": [
+          0.1997,
+          0.1997
+        ],
+        "boot_ci95": [
+          0.1997,
+          0.1997
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "ref",
+        "compare": "S5_uncalibrated_conf - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.3178,
+        "delta_iqr": [
+          0.3178,
+          0.3178
+        ],
+        "boot_ci95": [
+          0.3178,
+          0.3178
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ],
+    "abstain=0.05": [
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.05",
+        "compare": "S2_ad_guard - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.1661,
+        "delta_iqr": [
+          0.1661,
+          0.1661
+        ],
+        "boot_ci95": [
+          0.1661,
+          0.1661
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.05",
+        "compare": "S3_calibrated_conformal - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.4946,
+        "delta_iqr": [
+          0.4946,
+          0.4946
+        ],
+        "boot_ci95": [
+          0.4946,
+          0.4946
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.05",
+        "compare": "S4_full_admission - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.5277,
+        "delta_iqr": [
+          0.5277,
+          0.5277
+        ],
+        "boot_ci95": [
+          0.5277,
+          0.5277
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.05",
+        "compare": "S5_uncalibrated_conf - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.5222,
+        "delta_iqr": [
+          0.5222,
+          0.5222
+        ],
+        "boot_ci95": [
+          0.5222,
+          0.5222
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ],
+    "abstain=0.10": [
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.10",
+        "compare": "S2_ad_guard - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.1572,
+        "delta_iqr": [
+          0.1572,
+          0.1572
+        ],
+        "boot_ci95": [
+          0.1572,
+          0.1572
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.10",
+        "compare": "S3_calibrated_conformal - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.4744,
+        "delta_iqr": [
+          0.4744,
+          0.4744
+        ],
+        "boot_ci95": [
+          0.4744,
+          0.4744
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.10",
+        "compare": "S4_full_admission - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.4913,
+        "delta_iqr": [
+          0.4913,
+          0.4913
+        ],
+        "boot_ci95": [
+          0.4913,
+          0.4913
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.10",
+        "compare": "S5_uncalibrated_conf - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.4995,
+        "delta_iqr": [
+          0.4995,
+          0.4995
+        ],
+        "boot_ci95": [
+          0.4995,
+          0.4995
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ],
+    "abstain=0.20": [
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.20",
+        "compare": "S2_ad_guard - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.1393,
+        "delta_iqr": [
+          0.1393,
+          0.1393
+        ],
+        "boot_ci95": [
+          0.1393,
+          0.1393
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.20",
+        "compare": "S3_calibrated_conformal - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.434,
+        "delta_iqr": [
+          0.434,
+          0.434
+        ],
+        "boot_ci95": [
+          0.434,
+          0.434
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.20",
+        "compare": "S4_full_admission - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.4184,
+        "delta_iqr": [
+          0.4184,
+          0.4184
+        ],
+        "boot_ci95": [
+          0.4184,
+          0.4184
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.20",
+        "compare": "S5_uncalibrated_conf - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.4541,
+        "delta_iqr": [
+          0.4541,
+          0.4541
+        ],
+        "boot_ci95": [
+          0.4541,
+          0.4541
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ],
+    "abstain=0.50": [
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.50",
+        "compare": "S2_ad_guard - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.0858,
+        "delta_iqr": [
+          0.0858,
+          0.0858
+        ],
+        "boot_ci95": [
+          0.0858,
+          0.0858
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.50",
+        "compare": "S3_calibrated_conformal - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.313,
+        "delta_iqr": [
+          0.313,
+          0.313
+        ],
+        "boot_ci95": [
+          0.313,
+          0.313
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.50",
+        "compare": "S4_full_admission - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.1997,
+        "delta_iqr": [
+          0.1997,
+          0.1997
+        ],
+        "boot_ci95": [
+          0.1997,
+          0.1997
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.50",
+        "compare": "S5_uncalibrated_conf - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.3178,
+        "delta_iqr": [
+          0.3178,
+          0.3178
+        ],
+        "boot_ci95": [
+          0.3178,
+          0.3178
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ],
+    "abstain=1.00": [
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=1.00",
+        "compare": "S2_ad_guard - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": -0.0035,
+        "delta_iqr": [
+          -0.0035,
+          -0.0035
+        ],
+        "boot_ci95": [
+          -0.0035,
+          -0.0035
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=1.00",
+        "compare": "S3_calibrated_conformal - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.1112,
+        "delta_iqr": [
+          0.1112,
+          0.1112
+        ],
+        "boot_ci95": [
+          0.1112,
+          0.1112
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=1.00",
+        "compare": "S4_full_admission - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": -0.1647,
+        "delta_iqr": [
+          -0.1647,
+          -0.1647
+        ],
+        "boot_ci95": [
+          -0.1647,
+          -0.1647
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=1.00",
+        "compare": "S5_uncalibrated_conf - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.0906,
+        "delta_iqr": [
+          0.0906,
+          0.0906
+        ],
+        "boot_ci95": [
+          0.0906,
+          0.0906
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ],
+    "false_pass=2.0": [
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=2.0",
+        "compare": "S2_ad_guard - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.0487,
+        "delta_iqr": [
+          0.0487,
+          0.0487
+        ],
+        "boot_ci95": [
+          0.0487,
+          0.0487
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=2.0",
+        "compare": "S3_calibrated_conformal - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.1375,
+        "delta_iqr": [
+          0.1375,
+          0.1375
+        ],
+        "boot_ci95": [
+          0.1375,
+          0.1375
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=2.0",
+        "compare": "S4_full_admission - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.1219,
+        "delta_iqr": [
+          0.1219,
+          0.1219
+        ],
+        "boot_ci95": [
+          0.1219,
+          0.1219
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=2.0",
+        "compare": "S5_uncalibrated_conf - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.1576,
+        "delta_iqr": [
+          0.1576,
+          0.1576
+        ],
+        "boot_ci95": [
+          0.1576,
+          0.1576
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ],
+    "false_pass=5.0": [
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=5.0",
+        "compare": "S2_ad_guard - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.1393,
+        "delta_iqr": [
+          0.1393,
+          0.1393
+        ],
+        "boot_ci95": [
+          0.1393,
+          0.1393
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=5.0",
+        "compare": "S3_calibrated_conformal - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.434,
+        "delta_iqr": [
+          0.434,
+          0.434
+        ],
+        "boot_ci95": [
+          0.434,
+          0.434
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=5.0",
+        "compare": "S4_full_admission - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.4184,
+        "delta_iqr": [
+          0.4184,
+          0.4184
+        ],
+        "boot_ci95": [
+          0.4184,
+          0.4184
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=5.0",
+        "compare": "S5_uncalibrated_conf - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.4541,
+        "delta_iqr": [
+          0.4541,
+          0.4541
+        ],
+        "boot_ci95": [
+          0.4541,
+          0.4541
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ],
+    "false_pass=10.0": [
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=10.0",
+        "compare": "S2_ad_guard - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.2903,
+        "delta_iqr": [
+          0.2903,
+          0.2903
+        ],
+        "boot_ci95": [
+          0.2903,
+          0.2903
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=10.0",
+        "compare": "S3_calibrated_conformal - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.9282,
+        "delta_iqr": [
+          0.9282,
+          0.9282
+        ],
+        "boot_ci95": [
+          0.9282,
+          0.9282
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=10.0",
+        "compare": "S4_full_admission - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.9126,
+        "delta_iqr": [
+          0.9126,
+          0.9126
+        ],
+        "boot_ci95": [
+          0.9126,
+          0.9126
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=10.0",
+        "compare": "S5_uncalibrated_conf - S1_naive_majority",
+        "n_pairs": 1,
+        "delta_median": 0.9483,
+        "delta_iqr": [
+          0.9483,
+          0.9483
+        ],
+        "boot_ci95": [
+          0.9483,
+          0.9483
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ]
+  },
+  "cost_sweep_vs_S5": {
+    "ref": [
+      {
+        "endpoint": "Ames",
+        "cost_point": "ref",
+        "compare": "S1_naive_majority - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.3178,
+        "delta_iqr": [
+          -0.3178,
+          -0.3178
+        ],
+        "boot_ci95": [
+          -0.3178,
+          -0.3178
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "ref",
+        "compare": "S2_ad_guard - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.232,
+        "delta_iqr": [
+          -0.232,
+          -0.232
+        ],
+        "boot_ci95": [
+          -0.232,
+          -0.232
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "ref",
+        "compare": "S3_calibrated_conformal - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.0048,
+        "delta_iqr": [
+          -0.0048,
+          -0.0048
+        ],
+        "boot_ci95": [
+          -0.0048,
+          -0.0048
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "ref",
+        "compare": "S4_full_admission - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.1181,
+        "delta_iqr": [
+          -0.1181,
+          -0.1181
+        ],
+        "boot_ci95": [
+          -0.1181,
+          -0.1181
+        ],
+        "significant": true,
+        "direction": "worse"
+      }
+    ],
+    "abstain=0.05": [
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.05",
+        "compare": "S1_naive_majority - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.5222,
+        "delta_iqr": [
+          -0.5222,
+          -0.5222
+        ],
+        "boot_ci95": [
+          -0.5222,
+          -0.5222
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.05",
+        "compare": "S2_ad_guard - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.3561,
+        "delta_iqr": [
+          -0.3561,
+          -0.3561
+        ],
+        "boot_ci95": [
+          -0.3561,
+          -0.3561
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.05",
+        "compare": "S3_calibrated_conformal - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.0276,
+        "delta_iqr": [
+          -0.0276,
+          -0.0276
+        ],
+        "boot_ci95": [
+          -0.0276,
+          -0.0276
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.05",
+        "compare": "S4_full_admission - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": 0.0055,
+        "delta_iqr": [
+          0.0055,
+          0.0055
+        ],
+        "boot_ci95": [
+          0.0055,
+          0.0055
+        ],
+        "significant": true,
+        "direction": "better"
+      }
+    ],
+    "abstain=0.10": [
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.10",
+        "compare": "S1_naive_majority - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.4995,
+        "delta_iqr": [
+          -0.4995,
+          -0.4995
+        ],
+        "boot_ci95": [
+          -0.4995,
+          -0.4995
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.10",
+        "compare": "S2_ad_guard - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.3423,
+        "delta_iqr": [
+          -0.3423,
+          -0.3423
+        ],
+        "boot_ci95": [
+          -0.3423,
+          -0.3423
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.10",
+        "compare": "S3_calibrated_conformal - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.0251,
+        "delta_iqr": [
+          -0.0251,
+          -0.0251
+        ],
+        "boot_ci95": [
+          -0.0251,
+          -0.0251
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.10",
+        "compare": "S4_full_admission - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.0082,
+        "delta_iqr": [
+          -0.0082,
+          -0.0082
+        ],
+        "boot_ci95": [
+          -0.0082,
+          -0.0082
+        ],
+        "significant": true,
+        "direction": "worse"
+      }
+    ],
+    "abstain=0.20": [
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.20",
+        "compare": "S1_naive_majority - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.4541,
+        "delta_iqr": [
+          -0.4541,
+          -0.4541
+        ],
+        "boot_ci95": [
+          -0.4541,
+          -0.4541
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.20",
+        "compare": "S2_ad_guard - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.3148,
+        "delta_iqr": [
+          -0.3148,
+          -0.3148
+        ],
+        "boot_ci95": [
+          -0.3148,
+          -0.3148
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.20",
+        "compare": "S3_calibrated_conformal - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.0201,
+        "delta_iqr": [
+          -0.0201,
+          -0.0201
+        ],
+        "boot_ci95": [
+          -0.0201,
+          -0.0201
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.20",
+        "compare": "S4_full_admission - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.0357,
+        "delta_iqr": [
+          -0.0357,
+          -0.0357
+        ],
+        "boot_ci95": [
+          -0.0357,
+          -0.0357
+        ],
+        "significant": true,
+        "direction": "worse"
+      }
+    ],
+    "abstain=0.50": [
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.50",
+        "compare": "S1_naive_majority - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.3178,
+        "delta_iqr": [
+          -0.3178,
+          -0.3178
+        ],
+        "boot_ci95": [
+          -0.3178,
+          -0.3178
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.50",
+        "compare": "S2_ad_guard - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.232,
+        "delta_iqr": [
+          -0.232,
+          -0.232
+        ],
+        "boot_ci95": [
+          -0.232,
+          -0.232
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.50",
+        "compare": "S3_calibrated_conformal - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.0048,
+        "delta_iqr": [
+          -0.0048,
+          -0.0048
+        ],
+        "boot_ci95": [
+          -0.0048,
+          -0.0048
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=0.50",
+        "compare": "S4_full_admission - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.1181,
+        "delta_iqr": [
+          -0.1181,
+          -0.1181
+        ],
+        "boot_ci95": [
+          -0.1181,
+          -0.1181
+        ],
+        "significant": true,
+        "direction": "worse"
+      }
+    ],
+    "abstain=1.00": [
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=1.00",
+        "compare": "S1_naive_majority - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.0906,
+        "delta_iqr": [
+          -0.0906,
+          -0.0906
+        ],
+        "boot_ci95": [
+          -0.0906,
+          -0.0906
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=1.00",
+        "compare": "S2_ad_guard - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.0941,
+        "delta_iqr": [
+          -0.0941,
+          -0.0941
+        ],
+        "boot_ci95": [
+          -0.0941,
+          -0.0941
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=1.00",
+        "compare": "S3_calibrated_conformal - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": 0.0206,
+        "delta_iqr": [
+          0.0206,
+          0.0206
+        ],
+        "boot_ci95": [
+          0.0206,
+          0.0206
+        ],
+        "significant": true,
+        "direction": "better"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "abstain=1.00",
+        "compare": "S4_full_admission - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.2553,
+        "delta_iqr": [
+          -0.2553,
+          -0.2553
+        ],
+        "boot_ci95": [
+          -0.2553,
+          -0.2553
+        ],
+        "significant": true,
+        "direction": "worse"
+      }
+    ],
+    "false_pass=2.0": [
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=2.0",
+        "compare": "S1_naive_majority - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.1576,
+        "delta_iqr": [
+          -0.1576,
+          -0.1576
+        ],
+        "boot_ci95": [
+          -0.1576,
+          -0.1576
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=2.0",
+        "compare": "S2_ad_guard - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.1089,
+        "delta_iqr": [
+          -0.1089,
+          -0.1089
+        ],
+        "boot_ci95": [
+          -0.1089,
+          -0.1089
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=2.0",
+        "compare": "S3_calibrated_conformal - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.0201,
+        "delta_iqr": [
+          -0.0201,
+          -0.0201
+        ],
+        "boot_ci95": [
+          -0.0201,
+          -0.0201
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=2.0",
+        "compare": "S4_full_admission - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.0357,
+        "delta_iqr": [
+          -0.0357,
+          -0.0357
+        ],
+        "boot_ci95": [
+          -0.0357,
+          -0.0357
+        ],
+        "significant": true,
+        "direction": "worse"
+      }
+    ],
+    "false_pass=5.0": [
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=5.0",
+        "compare": "S1_naive_majority - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.4541,
+        "delta_iqr": [
+          -0.4541,
+          -0.4541
+        ],
+        "boot_ci95": [
+          -0.4541,
+          -0.4541
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=5.0",
+        "compare": "S2_ad_guard - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.3148,
+        "delta_iqr": [
+          -0.3148,
+          -0.3148
+        ],
+        "boot_ci95": [
+          -0.3148,
+          -0.3148
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=5.0",
+        "compare": "S3_calibrated_conformal - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.0201,
+        "delta_iqr": [
+          -0.0201,
+          -0.0201
+        ],
+        "boot_ci95": [
+          -0.0201,
+          -0.0201
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=5.0",
+        "compare": "S4_full_admission - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.0357,
+        "delta_iqr": [
+          -0.0357,
+          -0.0357
+        ],
+        "boot_ci95": [
+          -0.0357,
+          -0.0357
+        ],
+        "significant": true,
+        "direction": "worse"
+      }
+    ],
+    "false_pass=10.0": [
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=10.0",
+        "compare": "S1_naive_majority - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.9483,
+        "delta_iqr": [
+          -0.9483,
+          -0.9483
+        ],
+        "boot_ci95": [
+          -0.9483,
+          -0.9483
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=10.0",
+        "compare": "S2_ad_guard - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.658,
+        "delta_iqr": [
+          -0.658,
+          -0.658
+        ],
+        "boot_ci95": [
+          -0.658,
+          -0.658
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=10.0",
+        "compare": "S3_calibrated_conformal - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.0201,
+        "delta_iqr": [
+          -0.0201,
+          -0.0201
+        ],
+        "boot_ci95": [
+          -0.0201,
+          -0.0201
+        ],
+        "significant": true,
+        "direction": "worse"
+      },
+      {
+        "endpoint": "Ames",
+        "cost_point": "false_pass=10.0",
+        "compare": "S4_full_admission - S5_uncalibrated_conf",
+        "n_pairs": 1,
+        "delta_median": -0.0357,
+        "delta_iqr": [
+          -0.0357,
+          -0.0357
+        ],
+        "boot_ci95": [
+          -0.0357,
+          -0.0357
+        ],
+        "significant": true,
+        "direction": "worse"
+      }
+    ]
+  },
+  "cost_decision_audit": {
+    "schema_version": "1.0",
+    "binding_items": [
+      "C18",
+      "B6",
+      "§5.1 复审",
+      "L+2",
+      "外审 A 独立复算"
+    ],
+    "legacy_linearity_by_endpoint": {
+      "Ames": {
+        "status": "ok",
+        "n": 5,
+        "r2": 0.99999999,
+        "slope": -0.728872,
+        "intercept": 0.564163,
+        "c_star_algebraic": 0.774021,
+        "accounting_only": true,
+        "interpretation": "Δu(c) 对 c 近乎完全线性：代价只进入事后重标价，不进入决策。『无差异点存在且可估计』是会计恒等式，不是可证伪命题。",
+        "forbidden_claims": [
+          "c_star",
+          "无差异点",
+          "条件性优势区",
+          "准入层条件性价值"
+        ]
+      }
+    },
+    "legacy_accounting_only": true,
+    "legacy_claim_status": "revoked_pending_estimand",
+    "cost_sensitive_groups": [
+      {
+        "endpoint": "Ames",
+        "seed": 0,
+        "n_cost_points": 9,
+        "distinct_decided_masks": 6,
+        "decision_varies_with_cost": true
+      }
+    ],
+    "n_groups": 1,
+    "groups_with_decision_varying": 1,
+    "cost_sensitive_decision_verified": true,
+    "accounting_only": true,
+    "forbidden_claims": [
+      "c_star",
+      "c*",
+      "无差异点",
+      "条件性优势区",
+      "准入层条件性价值"
+    ],
+    "redline": "R18_accounting_identity",
+    "note": "新流水线证明代价进入决策，仅解除「会计恒等式」这一条技术缺陷；不等于 estimand 可识别、不等于准入层有净收益，也不使已撤回的 c* / 条件性优势区主张复活。旧主张须在 ESTIMAND.yaml 冻结后重新推导。"
+  },
+  "pi_cost_sensitive_rows": [
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "cost_point": "ref",
+      "costs": [
+        5.0,
+        1.0,
+        0.5
+      ],
+      "decided_mask_sha256": "cedfa405187ff6072cb29cf9e8df414cc0fefb4fe3d0920817e8121a1347423d",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 871,
+      "n_abstained": 586,
+      "coverage": 0.598,
+      "utility": -0.3253,
+      "n": 1457,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "cost_point": "abstain=0.05",
+      "costs": [
+        5.0,
+        1.0,
+        0.05
+      ],
+      "decided_mask_sha256": "b886c072839651d94e4a359f3f1782d7090681a06f7a3a59177fcaeee1fae04b",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 26,
+      "n_abstained": 1431,
+      "coverage": 0.018,
+      "utility": -0.0491,
+      "n": 1457,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "cost_point": "abstain=0.10",
+      "costs": [
+        5.0,
+        1.0,
+        0.1
+      ],
+      "decided_mask_sha256": "79844dbf3e65762c7cdbb22f86ea6e3186c14a7dc18deba5965c93c6e46d82ff",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 119,
+      "n_abstained": 1338,
+      "coverage": 0.082,
+      "utility": -0.0953,
+      "n": 1457,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "cost_point": "abstain=0.20",
+      "costs": [
+        5.0,
+        1.0,
+        0.2
+      ],
+      "decided_mask_sha256": "120d52ced50bee861bab26e821e5efc8dae063ff43c8e47b40010da9da5b694d",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 361,
+      "n_abstained": 1096,
+      "coverage": 0.248,
+      "utility": -0.1745,
+      "n": 1457,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "cost_point": "abstain=0.50",
+      "costs": [
+        5.0,
+        1.0,
+        0.5
+      ],
+      "decided_mask_sha256": "cedfa405187ff6072cb29cf9e8df414cc0fefb4fe3d0920817e8121a1347423d",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 871,
+      "n_abstained": 586,
+      "coverage": 0.598,
+      "utility": -0.3253,
+      "n": 1457,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "cost_point": "abstain=1.00",
+      "costs": [
+        5.0,
+        1.0,
+        1.0
+      ],
+      "decided_mask_sha256": "dff87a70e1ee0a81d8c928e51860086d97a48ff54769ca786ce95a8fd295ca9a",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 1457,
+      "n_abstained": 0,
+      "coverage": 1.0,
+      "utility": -0.3974,
+      "n": 1457,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "cost_point": "false_pass=2.0",
+      "costs": [
+        2.0,
+        1.0,
+        0.2
+      ],
+      "decided_mask_sha256": "32c26a24cf2fdf39425101a5d12de300841b97dfc56eda3584c47564230ac70d",
+      "bayes_fail_threshold": 0.3333,
+      "n_decided": 363,
+      "n_abstained": 1094,
+      "coverage": 0.249,
+      "utility": -0.1769,
+      "n": 1457,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "cost_point": "false_pass=5.0",
+      "costs": [
+        5.0,
+        1.0,
+        0.2
+      ],
+      "decided_mask_sha256": "120d52ced50bee861bab26e821e5efc8dae063ff43c8e47b40010da9da5b694d",
+      "bayes_fail_threshold": 0.1667,
+      "n_decided": 361,
+      "n_abstained": 1096,
+      "coverage": 0.248,
+      "utility": -0.1745,
+      "n": 1457,
+      "pipeline": "pi_cost_sensitive_S6"
+    },
+    {
+      "endpoint": "Ames",
+      "seed": 0,
+      "cost_point": "false_pass=10.0",
+      "costs": [
+        10.0,
+        1.0,
+        0.2
+      ],
+      "decided_mask_sha256": "120d52ced50bee861bab26e821e5efc8dae063ff43c8e47b40010da9da5b694d",
+      "bayes_fail_threshold": 0.0909,
+      "n_decided": 361,
+      "n_abstained": 1096,
+      "coverage": 0.248,
+      "utility": -0.1745,
+      "n": 1457,
+      "pipeline": "pi_cost_sensitive_S6"
+    }
+  ],
+  "schema_version": "2.0_cost_sensitive"
+}
