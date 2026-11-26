@@ -1,0 +1,77 @@
+[
+  {
+    "n_pairs": 3,
+    "alpha": 0.05,
+    "power_target": 0.8,
+    "min_detectable_rho": null,
+    "power_by_rho": {
+      "0.2": 0.0,
+      "0.3": 0.0,
+      "0.5": 0.0,
+      "0.7": 0.0,
+      "0.9": 0.0
+    },
+    "verdict": "insufficient",
+    "note": "Fisher z 双侧检验；n<20 时禁止输出收缩权重（structural: sample_size）"
+  },
+  {
+    "n_pairs": 5,
+    "alpha": 0.05,
+    "power_target": 0.8,
+    "min_detectable_rho": 0.963,
+    "power_by_rho": {
+      "0.2": 0.059,
+      "0.3": 0.072,
+      "0.5": 0.121,
+      "0.7": 0.232,
+      "0.9": 0.549
+    },
+    "verdict": "insufficient",
+    "note": "Fisher z 双侧检验；n<20 时禁止输出收缩权重（structural: sample_size）"
+  },
+  {
+    "n_pairs": 10,
+    "alpha": 0.05,
+    "power_target": 0.8,
+    "min_detectable_rho": 0.785,
+    "power_by_rho": {
+      "0.2": 0.084,
+      "0.3": 0.13,
+      "0.5": 0.307,
+      "0.7": 0.631,
+      "0.9": 0.974
+    },
+    "verdict": "insufficient",
+    "note": "Fisher z 双侧检验；n<20 时禁止输出收缩权重（structural: sample_size）"
+  },
+  {
+    "n_pairs": 20,
+    "alpha": 0.05,
+    "power_target": 0.8,
+    "min_detectable_rho": 0.591,
+    "power_by_rho": {
+      "0.2": 0.133,
+      "0.3": 0.248,
+      "0.5": 0.62,
+      "0.7": 0.947,
+      "0.9": 1.0
+    },
+    "verdict": "weak",
+    "note": "Fisher z 双侧检验；n<20 时禁止输出收缩权重（structural: sample_size）"
+  },
+  {
+    "n_pairs": 30,
+    "alpha": 0.05,
+    "power_target": 0.8,
+    "min_detectable_rho": 0.492,
+    "power_by_rho": {
+      "0.2": 0.184,
+      "0.3": 0.363,
+      "0.5": 0.814,
+      "0.7": 0.995,
+      "0.9": 1.0
+    },
+    "verdict": "weak",
+    "note": "Fisher z 双侧检验；n<20 时禁止输出收缩权重（structural: sample_size）"
+  }
+]
