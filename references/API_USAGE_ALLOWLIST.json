@@ -1,0 +1,8 @@
+{
+  "_comment": "零引用公共 API 的显式登记。新增条目必须写理由；未登记即 CI 失败（tools/api_usage_audit.py）。",
+  "allowed": {
+    "conformal.build_class_conditional_endpoint": "【演示/自校准】同一批 pairs 既算 q 又算 coverage；生产入口是 build_class_conditional_disjoint。保留仅为历史复现，不得用于覆盖率声明。",
+    "mmp.negative_control": "【兼容入口】仅保留旧调用方；新代码用 controls()（同时含正/负对照与 test_has_power）。",
+    "pubchem.fetch_by_name": "【交互辅助】名称→结构走网络快照层；流水线入口禁止按名称输入，必须 InChIKey 锚定，故不接入自动链路。"
+  }
+}
