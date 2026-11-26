@@ -1,0 +1,33 @@
+compound_id,sugar_ring,glycosidic_bond,glycoside_bond_type,ester_bond,phenolic_acid_moiety,bond_position,n_ester_bonds,acetylated,intestinal_hydrolysis_risk,aglycone_first_pass_risk,summary
+A-12BH10,False,False,none,True,True,n/a,1,False,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+A-13BH9,False,False,none,True,True,n/a,1,False,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+BH7,False,False,none,True,True,n/a,1,False,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+BH11,False,False,none,True,True,n/a,1,False,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+BH14,False,False,none,True,True,n/a,1,False,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+BH1,False,False,none,True,True,n/a,2,True,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+BH2,False,False,none,True,True,n/a,2,True,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+BH24,False,False,none,True,True,n/a,2,False,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+BH25,False,False,none,True,True,n/a,2,False,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+BH26,False,False,none,True,True,n/a,2,False,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+BH27,False,False,none,True,True,n/a,2,False,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+BH28,False,False,none,True,True,n/a,2,False,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+A-1,True,True,alkyl_glycoside,True,True,secondary,1,False,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+A-3BH16,True,True,alkyl_glycoside,True,True,primary,1,False,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+A-4,True,True,alkyl_glycoside,True,True,primary,1,False,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+A-5BH17,True,True,alkyl_glycoside,True,True,secondary,2,True,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+A-6,True,True,alkyl_glycoside,True,True,primary,1,False,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+A-7BH18,True,True,alkyl_glycoside,True,True,secondary,1,False,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+A-8,True,True,alkyl_glycoside,True,True,primary,1,False,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+A-9BH20,True,True,alkyl_glycoside,True,True,secondary,1,False,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+A-10,True,True,alkyl_glycoside,True,True,primary,2,True,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+A-11,True,True,alkyl_glycoside,True,True,primary,2,True,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+BH3,True,True,alkyl_glycoside,True,True,secondary,2,True,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+BH19,True,True,alkyl_glycoside,True,True,secondary,2,True,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+BH21,True,True,alkyl_glycoside,True,True,secondary,1,False,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+BH4,True,True,alkyl_glycoside,False,False,secondary,0,False,medium,medium,糖苷水解-苷元暴露轴：肠道水解风险=medium、苷元首过风险=medium。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+BH5,True,True,alkyl_glycoside,False,False,secondary,0,False,medium,medium,糖苷水解-苷元暴露轴：肠道水解风险=medium、苷元首过风险=medium。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+BH36,True,True,alkyl_glycoside,False,False,primary,0,False,medium,medium,糖苷水解-苷元暴露轴：肠道水解风险=medium、苷元首过风险=medium。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+BH37,True,True,alkyl_glycoside,False,False,secondary,0,False,medium,medium,糖苷水解-苷元暴露轴：肠道水解风险=medium、苷元首过风险=medium。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+BH40,True,True,alkyl_glycoside,False,False,secondary,0,False,medium,medium,糖苷水解-苷元暴露轴：肠道水解风险=medium、苷元首过风险=medium。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+BH45,False,False,none,False,False,n/a,0,False,low,low,糖苷水解警示：非糖苷（无 O-糖苷键、无酯键）→ 本轴不适用；注意若含自由羧酸仍可能走 acyl_glucuronide 轴
+BH46,True,False,none,False,False,n/a,0,False,low,low,糖苷水解警示：有糖环但无苷元 O-糖苷键（可能已在苷元端闭环）→ 本轴低相关
