@@ -1,0 +1,3 @@
+compound_id,has_carboxylic_acid,has_ester,alpha_substitution,enolizable,conjugated,acyl_glucuronide_risk,reasons
+WBLG-A,0,1,none,0,1,low,含酯键（无自由羧酸）：酯酶水解可能释放羧酸，间接产生酰基葡萄糖醛酸化风险，但本结构本身不形成酰基葡萄糖醛酸苷
+WBLG-B,0,1,none,0,1,low,含酯键（无自由羧酸）：酯酶水解可能释放羧酸，间接产生酰基葡萄糖醛酸化风险，但本结构本身不形成酰基葡萄糖醛酸苷
