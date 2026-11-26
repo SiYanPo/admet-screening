@@ -1,0 +1,26 @@
+[impl] hERG ...
+tdc.BenchmarkGroup will be deprecated soon. Please use tdc.benchmark_group.XXX_group and check out the examples on website!
+Found local copy...
+Error importing huggingface_hub.hf_api: No module named 'httpcore2'
+  [hERG] n_tv=523 n_fit=418 n_cal=105 n_te=132  指纹(tv)=f7701a87fc1aac85  指纹(te)=635c90e14f252dff
+  [hERG] 用时 68s
+[impl] DILI ...
+tdc.BenchmarkGroup will be deprecated soon. Please use tdc.benchmark_group.XXX_group and check out the examples on website!
+Found local copy...
+  [DILI] n_tv=379 n_fit=303 n_cal=76 n_te=96  指纹(tv)=229abfcb6ef77a7f  指纹(te)=275b6895e40e5ef5
+  [DILI] 用时 120s
+[impl] BBB_Martins ...
+tdc.BenchmarkGroup will be deprecated soon. Please use tdc.benchmark_group.XXX_group and check out the examples on website!
+Found local copy...
+  [BBB_Martins] n_tv=1624 n_fit=1299 n_cal=325 n_te=406  指纹(tv)=0bfbe72ab2601cbc  指纹(te)=0c6bf418662e6c4d
+  [BBB_Martins] 用时 378s
+
+[impl] 指标（20 种子中位数）：
+  hERG.S1_naive_majority.auc                     0.8352
+  hERG.S4_full_admission.coverage                0.1818
+  hERG.S4_full_admission.risk_decided            0.1026
+  DILI.S4_full_admission.utility                 -0.4479
+  BBB_Martins.S4_full_admission.utility          -0.3818
+  hERG.delta_utility.S4_minus_S1                 -0.1705
+[impl] 规范缺口 0 条：
+[impl] -> C:\Users\huawei\.workbuddy\skills\admet-screening\replication\second_implementer\submission.json (378s)
