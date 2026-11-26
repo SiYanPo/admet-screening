@@ -1,0 +1,15 @@
+﻿compound_id,endpoint,value,unit,source,source_version,retrieved_at,domain_flag,uncertainty,provenance_url,note
+A-5BH17,protox_status,,status,protox3,III,2026-11-01T20:01:41,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+A-9BH20,protox_status,,status,protox3,III,2026-11-01T20:01:45,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+A-10,protox_status,,status,protox3,III,2026-11-01T20:01:49,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+A-11,protox_status,,status,protox3,III,2026-11-01T20:01:55,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+BH3,protox_status,,status,protox3,III,2026-11-01T20:02:00,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+BH19,protox_status,,status,protox3,III,2026-11-01T20:02:04,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+BH21,protox_status,,status,protox3,III,2026-11-01T20:02:08,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+BH4,protox_status,,status,protox3,III,2026-11-01T20:02:13,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+BH5,protox_status,,status,protox3,III,2026-11-01T20:02:18,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+BH36,protox_status,,status,protox3,III,2026-11-01T20:02:22,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+BH37,protox_status,,status,protox3,III,2026-11-01T20:02:25,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+BH40,protox_status,,status,protox3,III,2026-11-01T20:02:29,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+BH45,protox_status,,status,protox3,III,2026-11-01T20:02:33,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
+BH46,protox_status,,status,protox3,III,2026-11-01T20:02:38,error,,https://tox.charite.de/protox3/index.php,未返回 server_id（可能是会话级限流；LD50 仍已解析）
