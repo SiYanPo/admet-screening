@@ -1,0 +1,4 @@
+﻿compound_id,endpoint,value,unit,source,source_version,retrieved_at,domain_flag,uncertainty,provenance_url,note
+M,chembl_neighbors_t40,537,count,chembl,api-2026-10,2026-10-27T17:36:18,predicted,,https://www.ebi.ac.uk/chembl/api/data/similarity/CC(=O)O[C@@H](COC(=O)/C=C/c1ccc(O)c(O)c1)CO[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O/40.json,ChEMBL 中 Tanimoto>=40 的邻居总数 537；仅取前 40 个做活性统计
+M,chembl_max_tanimoto,0.676,similarity,chembl,api-2026-10,2026-10-27T17:36:18,predicted,,https://www.ebi.ac.uk/chembl/api/data/similarity/CC(=O)O[C@@H](COC(=O)/C=C/c1ccc(O)c(O)c1)CO[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O/40.json,最近邻 CHEMBL479699，本地 Morgan r2 计算
+M,chembl_neighbors_t70,0,count,chembl,api-2026-10,2026-10-27T17:36:27,predicted,,https://www.ebi.ac.uk/chembl/api/data/similarity/CC(=O)O[C@@H](COC(=O)/C=C/c1ccc(O)c(O)c1)CO[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O/40.json,Tanimoto>=70 的邻居数（严格阈值）
