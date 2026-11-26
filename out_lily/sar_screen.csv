@@ -1,0 +1,33 @@
+compound_id,TPSA,MW,HBD,HBA,XlogP,nearest_ref,nearest_label,passive_permeability_screen,bbb_determinant_layer,bottleneck,summary
+A-12BH10,96.2,268.3,3,6,0.31,atenolol,-,uncertain,passive_closed → transporter_resolution_required,TPSA:96.2 > 90 Å²（超出 6）,被动渗透预筛：uncertain（单条包络违反）
+A-13BH9,87.0,238.2,3,5,0.3,atenolol,-,plausible,passive_open → passive_permeability_decisive,,被动渗透预筛：在 BBB 包络内， plausible 入脑（仍需 P-gp 双层核查）
+BH7,107.2,254.2,4,6,0.01,atenolol,-,unlikely,passive_closed → transporter_resolution_required,HBD:4 > 3; TPSA:107.2 > 90 Å²（超出 17）,被动渗透预筛：unlikely（多重包络违反）
+BH11,107.2,254.2,4,6,0.01,atenolol,-,unlikely,passive_closed → transporter_resolution_required,HBD:4 > 3; TPSA:107.2 > 90 Å²（超出 17）,被动渗透预筛：unlikely（多重包络违反）
+BH14,76.0,252.3,2,5,0.6,atenolol,-,plausible,passive_open → passive_permeability_decisive,,被动渗透预筛：在 BBB 包络内， plausible 入脑（仍需 P-gp 双层核查）
+BH1,113.3,296.3,3,7,0.58,ranitidine,-,uncertain,passive_closed → transporter_resolution_required,TPSA:113.3 > 90 Å²（超出 23）,被动渗透预筛：uncertain（单条包络违反）
+BH2,93.1,280.3,2,6,0.87,ranitidine,-,uncertain,passive_closed → transporter_resolution_required,TPSA:93.1 > 90 Å²（超出 3）,被动渗透预筛：uncertain（单条包络违反）
+BH24,122.5,414.4,3,8,2.28,ranitidine,-,uncertain,passive_closed → transporter_resolution_required,TPSA:122.5 > 90 Å²（超出 32）,被动渗透预筛：uncertain（单条包络违反）
+BH25,131.8,444.4,3,9,2.29,ranitidine,-,unlikely,passive_closed → transporter_resolution_required,HBA:9 > 8; TPSA:131.8 > 90 Å²（超出 42）,被动渗透预筛：unlikely（多重包络违反）
+BH26,142.8,430.4,4,9,1.99,ranitidine,-,unlikely,passive_closed → transporter_resolution_required,HBD:4 > 3; HBA:9 > 8; TPSA:142.8 > 90 Å²（超出 53）,被动渗透预筛：unlikely（多重包络违反）
+BH27,133.5,400.4,4,8,1.98,ranitidine,-,unlikely,passive_closed → transporter_resolution_required,HBD:4 > 3; TPSA:133.5 > 90 Å²（超出 44）,被动渗透预筛：unlikely（多重包络违反）
+BH28,131.8,444.4,3,9,2.29,ranitidine,-,unlikely,passive_closed → transporter_resolution_required,HBA:9 > 8; TPSA:131.8 > 90 Å²（超出 42）,被动渗透预筛：unlikely（多重包络违反）
+A-1,245.3,562.5,9,15,-4.05,sucrose,-,unlikely,passive_closed → transporter_resolution_required,"HBA:15 > 8; HBD:9 > 3; TPSA:245.3 > 90 Å²（超出 155）; XlogP:-4.05 越界(-2.0,5.0); MW:562.5 > 450（超出 112）",被动渗透预筛：unlikely（多重包络违反）
+A-3BH16,166.1,400.4,6,10,-1.87,sucrose,-,unlikely,passive_closed → transporter_resolution_required,HBD:6 > 3; HBA:10 > 8; TPSA:166.1 > 90 Å²（超出 76）,被动渗透预筛：unlikely（多重包络违反）
+A-4,166.1,400.4,6,10,-1.87,sucrose,-,unlikely,passive_closed → transporter_resolution_required,HBD:6 > 3; HBA:10 > 8; TPSA:166.1 > 90 Å²（超出 76）,被动渗透预筛：unlikely（多重包络违反）
+A-5BH17,172.2,442.4,5,11,-1.3,sucrose,-,unlikely,passive_closed → transporter_resolution_required,HBA:11 > 8; HBD:5 > 3; TPSA:172.2 > 90 Å²（超出 82）,被动渗透预筛：unlikely（多重包络违反）
+A-6,186.4,416.4,7,11,-2.17,sucrose,-,unlikely,passive_closed → transporter_resolution_required,"HBD:7 > 3; HBA:11 > 8; TPSA:186.4 > 90 Å²（超出 96）; XlogP:-2.17 越界(-2.0,5.0)",被动渗透预筛：unlikely（多重包络违反）
+A-7BH18,166.1,400.4,6,10,-1.87,sucrose,-,unlikely,passive_closed → transporter_resolution_required,HBD:6 > 3; HBA:10 > 8; TPSA:166.1 > 90 Å²（超出 76）,被动渗透预筛：unlikely（多重包络违反）
+A-8,175.4,430.4,6,11,-1.87,sucrose,-,unlikely,passive_closed → transporter_resolution_required,HBD:6 > 3; HBA:11 > 8; TPSA:175.4 > 90 Å²（超出 85）,被动渗透预筛：unlikely（多重包络违反）
+A-9BH20,175.4,430.4,6,11,-1.87,sucrose,-,unlikely,passive_closed → transporter_resolution_required,HBD:6 > 3; HBA:11 > 8; TPSA:175.4 > 90 Å²（超出 85）,被动渗透预筛：unlikely（多重包络违反）
+A-10,172.2,442.4,5,11,-1.3,sucrose,-,unlikely,passive_closed → transporter_resolution_required,HBA:11 > 8; HBD:5 > 3; TPSA:172.2 > 90 Å²（超出 82）,被动渗透预筛：unlikely（多重包络违反）
+A-11,192.4,458.4,6,12,-1.6,sucrose,-,unlikely,passive_closed → transporter_resolution_required,HBA:12 > 8; HBD:6 > 3; TPSA:192.4 > 90 Å²（超出 102）; MW:458.4 > 450（超出 8）,被动渗透预筛：unlikely（多重包络违反）
+BH3,181.4,472.4,5,12,-1.29,sucrose,-,unlikely,passive_closed → transporter_resolution_required,HBA:12 > 8; HBD:5 > 3; TPSA:181.4 > 90 Å²（超出 91）; MW:472.4 > 450（超出 22）,被动渗透预筛：unlikely（多重包络违反）
+BH19,192.4,458.4,6,12,-1.6,sucrose,-,unlikely,passive_closed → transporter_resolution_required,HBA:12 > 8; HBD:6 > 3; TPSA:192.4 > 90 Å²（超出 102）; MW:458.4 > 450（超出 8）,被动渗透预筛：unlikely（多重包络违反）
+BH21,186.4,416.4,7,11,-2.17,sucrose,-,unlikely,passive_closed → transporter_resolution_required,"HBD:7 > 3; HBA:11 > 8; TPSA:186.4 > 90 Å²（超出 96）; XlogP:-2.17 越界(-2.0,5.0)",被动渗透预筛：unlikely（多重包络违反）
+BH4,179.6,723.9,7,12,2.04,sucrose,-,unlikely,passive_closed → transporter_resolution_required,HBD:7 > 3; HBA:12 > 8; TPSA:179.6 > 90 Å²（超出 90）; MW:723.9 > 450（超出 274）,被动渗透预筛：unlikely（多重包络违反）
+BH5,258.7,886.1,10,17,-0.13,sucrose,-,unlikely,passive_closed → transporter_resolution_required,HBA:17 > 8; HBD:10 > 3; TPSA:258.7 > 90 Å²（超出 169）; MW:886.1 > 450（超出 436）,被动渗透预筛：unlikely（多重包络违反）
+BH36,58.9,430.6,2,4,4.83,atenolol,-,plausible,passive_open → passive_permeability_decisive,,被动渗透预筛：在 BBB 包络内， plausible 入脑（仍需 P-gp 双层核查）
+BH37,198.8,642.8,8,12,-0.04,sucrose,-,unlikely,passive_closed → transporter_resolution_required,HBD:8 > 3; HBA:12 > 8; TPSA:198.8 > 90 Å²（超出 109）; MW:642.8 > 450（超出 193）,被动渗透预筛：unlikely（多重包络违反）
+BH40,235.7,869.1,8,16,1.24,sucrose,-,unlikely,passive_closed → transporter_resolution_required,HBA:16 > 8; HBD:8 > 3; TPSA:235.7 > 90 Å²（超出 146）; MW:869.1 > 450（超出 419）,被动渗透预筛：unlikely（多重包络违反）
+BH45,20.2,414.7,1,1,8.02,diphenhydramine,+,uncertain,passive_closed → transporter_resolution_required,"XlogP:8.02 越界(-2.0,5.0)",被动渗透预筛：uncertain（单条包络违反）
+BH46,41.5,415.7,2,3,5.37,diphenhydramine,+,uncertain,passive_closed → transporter_resolution_required,"XlogP:5.37 越界(-2.0,5.0)",被动渗透预筛：uncertain（单条包络违反）
