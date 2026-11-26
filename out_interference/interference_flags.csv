@@ -1,0 +1,3 @@
+﻿compound_id,canonical_smiles,flag,gate_action,n_hits,n_strong,n_weak,strong_hits,weak_hits,lipinski_violations,lipinski_pass,veber_pass,qed,admissible_for_rejection,phys_aggregation,phys_fluorescence,phys_redox_cycling,phys_requires_experiment,note
+WBLG-A,O=C(/C=C/c1ccc(O)cc1)OC[C@@H](O)CO[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O,weak_only,proceed_with_caveat,1,0,1,,Michael_acceptor_1,1,True,False,0.214838,False,none,none,none,True,命中弱规则/需实验确认类警报；该结果须单列为「需实验确认」，不得写成确认阳性，也不得据此折减既有结论
+WBLG-B,CC(=O)OC[C@@H](COC(=O)/C=C/c1ccc(O)cc1)O[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O,weak_only,proceed_with_caveat,1,0,1,,Michael_acceptor_1,1,True,False,0.227165,False,none,none,none,True,命中弱规则/需实验确认类警报；该结果须单列为「需实验确认」，不得写成确认阳性，也不得据此折减既有结论
