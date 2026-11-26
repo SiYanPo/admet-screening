@@ -1,0 +1,37 @@
+{
+  "binding_item": "C2-a / C12 / 外审 C V3",
+  "command": "adt\\cli.py reliab --in out_wbh\\measurements_merged.csv --outdir out_wbh_rep --rules references\\03_endpoint_rules.yaml --saturation out_wbh\\admetlab3_raw_saturation.csv --chemical-class cinnamoyl_glycoside --compounds out_wbh\\compounds.csv --enable-alerts",
+  "content_sha256": "eb409c332e917260d7e2fed7c70cf1bfdc57a40c9930d19877f81ac32f790772",
+  "data_sha256": [
+    {
+      "path": "out_wbh\\measurements_merged.csv",
+      "sha256": "1ef84c71c2c1ccdefd4ab49ce3432bbf42ca89e86c989122003d889226b52b38"
+    },
+    {
+      "path": "references\\03_endpoint_rules.yaml",
+      "sha256": "a895ecf93b436475de434701764ddaf2537e17383a763537ed42801d093c1960"
+    },
+    {
+      "path": "out_wbh\\admetlab3_raw_saturation.csv",
+      "sha256": "7f2c726a73cf7403ac50dd1df40793b09ea7a9a2036e01d67b49f047389e793b"
+    },
+    {
+      "path": "references\\02_source_registry.yaml",
+      "sha256": "765e370f5fa742c55e80632dff65459b7f67726d6e2c2d65d70fcf7c66228fca"
+    }
+  ],
+  "env_digest": "60535043a04a0ed8594c46409ab1e1087d1f9d7f006d0a2adec9141669ae10e9",
+  "estimand_id": null,
+  "generated_at": "2026-11-06T23:48:58",
+  "hash_policy": "content_sha256 排除 created_at/generated_at/prev_hash/content_sha256/cwd 等易变字段；同一输入两次运行必须相同",
+  "inputs_sha1": {
+    "out_wbh\\admetlab3_raw_saturation.csv": "b982f0032591d3523b21d37f0b12112c1ca16a43",
+    "out_wbh\\measurements_merged.csv": "852baa5cf0cd68efe790e3495cde511ae576ca42",
+    "references\\02_source_registry.yaml": "b3690ba2a2af38451edb9da3f050c0f38f5775ea",
+    "references\\03_endpoint_rules.yaml": "f05a0f2e96f794ae9c1ce4a467487135c179d6b5"
+  },
+  "prev_hash": "GENESIS",
+  "schema_version": "2.0",
+  "script_sha256": "767d57093d7b881b8a767ed8f165d907e27cbef23cc4b7b1902861ff72fe6f62",
+  "value": null
+}
