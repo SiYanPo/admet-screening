@@ -1,0 +1,537 @@
+# 自动生成，请勿手改（python tools/build_evidence_dag.py）
+meta:
+  schema: "adt-evidence-dag/1.0"
+  status: "active"
+  generated_by: "tools/build_evidence_dag.py"
+  source: "adt/command_roles.py"
+  source_sha256: "753c30f0ed265cebdc2e6b41a3d02832a19280b1191a6ca9dbacb502adcb2eca"
+  n_nodes: 78
+  n_edges: 50
+  layers:
+    core: 14
+    sources: 13
+    decision: 13
+    evidence: 31
+    experimental: 7
+  rule: "edge iff producer.output tokens ∩ consumer.input tokens ≠ ∅（token 级契约匹配）"
+  caveat: "契约级依赖不等于统计依赖：本 DAG 说明 A 的产物是 B 的合法输入，不说明 A 对 B 的结论有贡献；贡献判定见 adt/ablation.py 的同覆盖判据。"
+nodes:
+  - id: ablate
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "panel+truth"
+    output_contract: "ablation_summary.csv"
+    claimable: true
+  - id: abstain-cmp
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "abstention"
+    output_contract: "compare.csv"
+    claimable: true
+  - id: abstain-why
+    layer: decision
+    evidence_role: decision_chain
+    input_contract: "abstention"
+    output_contract: "attribution.csv"
+    claimable: true
+  - id: ac-plan
+    layer: experimental
+    evidence_role: experimental
+    input_contract: "compounds"
+    output_contract: "plan.csv"
+    claimable: false
+  - id: acyl-glucuronide
+    layer: sources
+    evidence_role: evidence_only
+    input_contract: "compounds.csv"
+    output_contract: "measurements.csv"
+    claimable: true
+  - id: advisory-check
+    layer: decision
+    evidence_role: decision_chain
+    input_contract: "decision"
+    output_contract: "advisory.json"
+    claimable: true
+  - id: background
+    layer: sources
+    evidence_role: evidence_only
+    input_contract: "compounds.csv"
+    output_contract: "background.csv"
+    claimable: true
+  - id: baseline
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "train+test"
+    output_contract: "baseline.csv"
+    claimable: true
+  - id: benchmark
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "predictions+truth"
+    output_contract: "benchmark.csv"
+    claimable: true
+  - id: bt
+    layer: sources
+    evidence_role: evidence_only
+    input_contract: "compounds.csv"
+    output_contract: "metabolites.csv"
+    claimable: true
+  - id: cardiac
+    layer: sources
+    evidence_role: evidence_only
+    input_contract: "compounds.csv"
+    output_contract: "cardiac_panel.csv"
+    claimable: true
+  - id: certainty
+    layer: decision
+    evidence_role: decision_chain
+    input_contract: "decision"
+    output_contract: "certainty.csv"
+    claimable: true
+  - id: chembl
+    layer: sources
+    evidence_role: evidence_only
+    input_contract: "compounds.csv"
+    output_contract: "measurements.csv"
+    claimable: true
+  - id: claims-fragility
+    layer: decision
+    evidence_role: decision_chain
+    input_contract: "claims"
+    output_contract: "fragility.csv"
+    claimable: true
+  - id: conformal
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "pred+truth"
+    output_contract: "conformal.csv"
+    claimable: true
+  - id: conformal-check
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "conformal"
+    output_contract: "check.json"
+    claimable: true
+  - id: conformal-class
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "pred+truth"
+    output_contract: "class_coverage.csv"
+    claimable: true
+  - id: conformal-scale
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "conformal"
+    output_contract: "scale.csv"
+    claimable: true
+  - id: coverage
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "measurements+truth"
+    output_contract: "coverage_matrix.csv"
+    claimable: true
+  - id: coverage-gate
+    layer: decision
+    evidence_role: decision_chain
+    input_contract: "coverage"
+    output_contract: "gate.json"
+    claimable: true
+  - id: cross-class
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "panel"
+    output_contract: "cross_class.csv"
+    claimable: true
+  - id: decision-value
+    layer: decision
+    evidence_role: decision_chain
+    input_contract: "decisions+truth"
+    output_contract: "value.csv"
+    claimable: true
+  - id: desire
+    layer: decision
+    evidence_role: decision_chain
+    input_contract: "scores"
+    output_contract: "desirability.csv"
+    claimable: true
+  - id: dst
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "scores"
+    output_contract: "dst.csv"
+    claimable: true
+  - id: endpoint-tiers
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "endpoints"
+    output_contract: "tiers.csv"
+    claimable: true
+  - id: env-audit
+    layer: core
+    evidence_role: governance
+    input_contract: "environment"
+    output_contract: "env_audit.json"
+    claimable: false
+  - id: env-fp
+    layer: core
+    evidence_role: governance
+    input_contract: "environment"
+    output_contract: "fingerprint.json"
+    claimable: false
+  - id: estimand
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "decisions"
+    output_contract: "estimand.csv"
+    claimable: true
+  - id: external
+    layer: sources
+    evidence_role: evidence_only
+    input_contract: "dataset"
+    output_contract: "measurements.csv"
+    claimable: true
+  - id: fail-layers
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "artifacts"
+    output_contract: "fail_layers.csv"
+    claimable: true
+  - id: failure-modes
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "artifacts"
+    output_contract: "failure_modes.csv"
+    claimable: true
+  - id: glycoside-hyd
+    layer: sources
+    evidence_role: evidence_only
+    input_contract: "compounds.csv"
+    output_contract: "measurements.csv"
+    claimable: true
+  - id: gut-micro
+    layer: sources
+    evidence_role: evidence_only
+    input_contract: "compounds.csv"
+    output_contract: "metabolites.csv"
+    claimable: true
+  - id: indep-bayes
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "raters"
+    output_contract: "posterior.csv"
+    claimable: true
+  - id: indep-power
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "raters"
+    output_contract: "power.csv"
+    claimable: true
+  - id: independence
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "sources"
+    output_contract: "independence.csv"
+    claimable: true
+  - id: interference
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "version-banner"
+    output_contract: "interference.json"
+    claimable: true
+  - id: interop
+    layer: core
+    evidence_role: io_utility
+    input_contract: "artifacts"
+    output_contract: "interop.csv"
+    claimable: false
+  - id: knn-sensitivity
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "threshold-grid"
+    output_contract: "sensitivity.csv"
+    claimable: true
+  - id: landscape
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "decisions"
+    output_contract: "landscape.csv"
+    claimable: true
+  - id: ledger
+    layer: core
+    evidence_role: governance
+    input_contract: "artifacts"
+    output_contract: "ledger.csv"
+    claimable: false
+  - id: local-tools
+    layer: experimental
+    evidence_role: experimental
+    input_contract: "smiles"
+    output_contract: "local.csv"
+    claimable: false
+  - id: merge
+    layer: core
+    evidence_role: io_utility
+    input_contract: "long-tables"
+    output_contract: "merged.csv"
+    claimable: false
+  - id: normalize
+    layer: core
+    evidence_role: io_utility
+    input_contract: "smiles-or-file"
+    output_contract: "compounds.csv"
+    claimable: false
+  - id: pbpk
+    layer: experimental
+    evidence_role: experimental
+    input_contract: "compounds"
+    output_contract: "pbpk.csv"
+    claimable: false
+  - id: pbpk-qualify
+    layer: experimental
+    evidence_role: experimental
+    input_contract: "pbpk"
+    output_contract: "qualify.json"
+    claimable: false
+  - id: pd
+    layer: experimental
+    evidence_role: experimental
+    input_contract: "compounds"
+    output_contract: "pd.csv"
+    claimable: false
+  - id: perturb
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "decisions"
+    output_contract: "perturb.csv"
+    claimable: true
+  - id: pka
+    layer: sources
+    evidence_role: evidence_only
+    input_contract: "compounds.csv"
+    output_contract: "pka.csv"
+    claimable: true
+  - id: pred-shift
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "compounds"
+    output_contract: "shift.csv"
+    claimable: true
+  - id: prereg-init
+    layer: evidence
+    evidence_role: governance
+    input_contract: "criteria-json"
+    output_contract: "prereg.jsonl"
+    claimable: false
+  - id: prereg-status
+    layer: evidence
+    evidence_role: governance
+    input_contract: "prereg"
+    output_contract: "status.json"
+    claimable: false
+  - id: prospect
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "measurements+truth"
+    output_contract: "prospective.csv"
+    claimable: true
+  - id: qaf
+    layer: decision
+    evidence_role: decision_chain
+    input_contract: "reliability"
+    output_contract: "qaf.csv"
+    claimable: true
+  - id: rank
+    layer: decision
+    evidence_role: decision_chain
+    input_contract: "reliability"
+    output_contract: "ranking.csv"
+    claimable: true
+  - id: readback
+    layer: core
+    evidence_role: governance
+    input_contract: "artifacts"
+    output_contract: "readback.json"
+    claimable: false
+  - id: regaloside-ab
+    layer: experimental
+    evidence_role: experimental
+    input_contract: "compounds"
+    output_contract: "case.csv"
+    claimable: false
+  - id: release-check
+    layer: core
+    evidence_role: governance
+    input_contract: "repo"
+    output_contract: "gate.json"
+    claimable: false
+  - id: reliab
+    layer: decision
+    evidence_role: decision_chain
+    input_contract: "measurements"
+    output_contract: "reliability.csv"
+    claimable: true
+  - id: report
+    layer: core
+    evidence_role: io_utility
+    input_contract: "artifacts"
+    output_contract: "report.md"
+    claimable: false
+  - id: reporting
+    layer: core
+    evidence_role: io_utility
+    input_contract: "artifacts"
+    output_contract: "reporting.csv"
+    claimable: false
+  - id: sar
+    layer: experimental
+    evidence_role: experimental
+    input_contract: "compounds"
+    output_contract: "sar.csv"
+    claimable: false
+  - id: saturate
+    layer: core
+    evidence_role: io_utility
+    input_contract: "wide-table"
+    output_contract: "saturation.csv"
+    claimable: false
+  - id: selective
+    layer: decision
+    evidence_role: decision_chain
+    input_contract: "risk-pairs"
+    output_contract: "abstention.csv"
+    claimable: true
+  - id: sensitize
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "decisions"
+    output_contract: "sensitivity.csv"
+    claimable: true
+  - id: snapshot-summary
+    layer: core
+    evidence_role: io_utility
+    input_contract: "outdir"
+    output_contract: "snapshot.json"
+    claimable: false
+  - id: snapshot-verify
+    layer: core
+    evidence_role: governance
+    input_contract: "snapshot"
+    output_contract: "verify.json"
+    claimable: false
+  - id: source-admit
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "source-measurements"
+    output_contract: "admission.json"
+    claimable: true
+  - id: source-health
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "sources"
+    output_contract: "health.csv"
+    claimable: true
+  - id: source-rho
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "source-scores"
+    output_contract: "rho.csv"
+    claimable: true
+  - id: tier
+    layer: decision
+    evidence_role: decision_chain
+    input_contract: "reliability+coverage"
+    output_contract: "tier.csv"
+    claimable: true
+  - id: transfer
+    layer: evidence
+    evidence_role: evidence_only
+    input_contract: "datasets"
+    output_contract: "transfer.csv"
+    claimable: true
+  - id: transport
+    layer: sources
+    evidence_role: evidence_only
+    input_contract: "compounds.csv"
+    output_contract: "measurements.csv"
+    claimable: true
+  - id: trust
+    layer: decision
+    evidence_role: decision_chain
+    input_contract: "compounds+measurements"
+    output_contract: "trust.csv"
+    claimable: true
+  - id: validate
+    layer: core
+    evidence_role: governance
+    input_contract: "long-tables"
+    output_contract: "validation.json"
+    claimable: false
+  - id: web
+    layer: sources
+    evidence_role: evidence_only
+    input_contract: "query"
+    output_contract: "raw.json"
+    claimable: true
+  - id: xeno-ingest
+    layer: sources
+    evidence_role: evidence_only
+    input_contract: "manual-file"
+    output_contract: "measurements.csv"
+    claimable: true
+  - id: xeno-prep
+    layer: sources
+    evidence_role: evidence_only
+    input_contract: "compounds.csv"
+    output_contract: "prep.csv"
+    claimable: true
+edges:
+  - {src: acyl-glucuronide, dst: coverage, contract: measurement}
+  - {src: acyl-glucuronide, dst: prospect, contract: measurement}
+  - {src: acyl-glucuronide, dst: reliab, contract: measurement}
+  - {src: acyl-glucuronide, dst: trust, contract: measurement}
+  - {src: chembl, dst: coverage, contract: measurement}
+  - {src: chembl, dst: prospect, contract: measurement}
+  - {src: chembl, dst: reliab, contract: measurement}
+  - {src: chembl, dst: trust, contract: measurement}
+  - {src: conformal, dst: conformal-check, contract: conformal}
+  - {src: conformal, dst: conformal-scale, contract: conformal}
+  - {src: external, dst: coverage, contract: measurement}
+  - {src: external, dst: prospect, contract: measurement}
+  - {src: external, dst: reliab, contract: measurement}
+  - {src: external, dst: trust, contract: measurement}
+  - {src: glycoside-hyd, dst: coverage, contract: measurement}
+  - {src: glycoside-hyd, dst: prospect, contract: measurement}
+  - {src: glycoside-hyd, dst: reliab, contract: measurement}
+  - {src: glycoside-hyd, dst: trust, contract: measurement}
+  - {src: normalize, dst: ac-plan, contract: compound}
+  - {src: normalize, dst: acyl-glucuronide, contract: compound}
+  - {src: normalize, dst: background, contract: compound}
+  - {src: normalize, dst: bt, contract: compound}
+  - {src: normalize, dst: cardiac, contract: compound}
+  - {src: normalize, dst: chembl, contract: compound}
+  - {src: normalize, dst: glycoside-hyd, contract: compound}
+  - {src: normalize, dst: gut-micro, contract: compound}
+  - {src: normalize, dst: pbpk, contract: compound}
+  - {src: normalize, dst: pd, contract: compound}
+  - {src: normalize, dst: pka, contract: compound}
+  - {src: normalize, dst: pred-shift, contract: compound}
+  - {src: normalize, dst: regaloside-ab, contract: compound}
+  - {src: normalize, dst: sar, contract: compound}
+  - {src: normalize, dst: transport, contract: compound}
+  - {src: normalize, dst: trust, contract: compound}
+  - {src: normalize, dst: xeno-prep, contract: compound}
+  - {src: pbpk, dst: pbpk-qualify, contract: pbpk}
+  - {src: reliab, dst: qaf, contract: reliability}
+  - {src: reliab, dst: rank, contract: reliability}
+  - {src: reliab, dst: tier, contract: reliability}
+  - {src: selective, dst: abstain-cmp, contract: abstention}
+  - {src: selective, dst: abstain-why, contract: abstention}
+  - {src: snapshot-summary, dst: snapshot-verify, contract: snapshot}
+  - {src: transport, dst: coverage, contract: measurement}
+  - {src: transport, dst: prospect, contract: measurement}
+  - {src: transport, dst: reliab, contract: measurement}
+  - {src: transport, dst: trust, contract: measurement}
+  - {src: xeno-ingest, dst: coverage, contract: measurement}
+  - {src: xeno-ingest, dst: prospect, contract: measurement}
+  - {src: xeno-ingest, dst: reliab, contract: measurement}
+  - {src: xeno-ingest, dst: trust, contract: measurement}
