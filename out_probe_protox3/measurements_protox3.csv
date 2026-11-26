@@ -1,0 +1,7 @@
+﻿compound_id,endpoint,value,unit,source,source_version,retrieved_at,domain_flag,uncertainty,provenance_url,note
+A-12BH10,protox_ld50,978.0,mg/kg,protox3,III,2026-11-01T19:56:04,predicted,,https://tox.charite.de/protox3/index.php,tox_class=4; 近邻相似度=74.76%; 近邻最低类别=4; 可信度=MODERATE（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+A-12BH10,dili,0,class,protox3,III,2026-11-01T19:56:10,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.891 是**该类别置信度**，不是阳性概率
+A-12BH10,ames,0,class,protox3,III,2026-11-01T19:56:10,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.7626666666666666 是**该类别置信度**，不是阳性概率
+BH4,protox_ld50,500.0,mg/kg,protox3,III,2026-11-01T19:56:15,predicted,,https://tox.charite.de/protox3/index.php,tox_class=4; 近邻相似度=100%; 近邻最低类别=4; 可信度=MODERATE（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+BH4,dili,0,class,protox3,III,2026-11-01T19:56:21,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.894 是**该类别置信度**，不是阳性概率
+BH4,ames,0,class,protox3,III,2026-11-01T19:56:21,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.8046666666666666 是**该类别置信度**，不是阳性概率
