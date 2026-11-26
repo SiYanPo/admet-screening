@@ -1,0 +1,54 @@
+[
+  {
+    "option": "ABIOTICBIO",
+    "n_measurements": 4,
+    "n_metabolites": 15,
+    "batch_qa": [
+      {
+        "source": "biotransformer",
+        "option": "ABIOTICBIO",
+        "control": "acetaminophen",
+        "observed": 7,
+        "expected_min": null,
+        "expected_max": null,
+        "drift": ""
+      },
+      {
+        "source": "biotransformer",
+        "option": "ABIOTICBIO",
+        "control": "phenol",
+        "observed": 5,
+        "expected_min": null,
+        "expected_max": null,
+        "drift": ""
+      }
+    ],
+    "errors": null
+  },
+  {
+    "option": "HGUT",
+    "n_measurements": 4,
+    "n_metabolites": 14,
+    "batch_qa": [
+      {
+        "source": "biotransformer",
+        "option": "HGUT",
+        "control": "acetaminophen",
+        "observed": 3,
+        "expected_min": null,
+        "expected_max": null,
+        "drift": ""
+      },
+      {
+        "source": "biotransformer",
+        "option": "HGUT",
+        "control": "phenol",
+        "observed": 1,
+        "expected_min": null,
+        "expected_max": null,
+        "drift": ""
+      }
+    ],
+    "errors": null
+  }
+]
