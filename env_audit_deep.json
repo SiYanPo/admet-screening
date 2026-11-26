@@ -1,0 +1,392 @@
+{
+  "schema": "adt-env-audit/1.0",
+  "generated_at": "2026-11-05T23:08:30+08:00",
+  "skill_root": "C:\\Users\\huawei\\.workbuddy\\skills\\admet-screening",
+  "python": {
+    "version": "3.13.14",
+    "executable": "C:\\Users\\huawei\\.workbuddy\\binaries\\python\\versions\\3.13.12\\python.exe",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "resolved_paths": {
+    "osp_dir": "C:\\Users\\huawei\\.workbuddy\\binaries\\osp",
+    "pksim": "C:\\Users\\huawei\\.workbuddy\\binaries\\osp\\PKSim\\PKSim.CLI.exe",
+    "mobi": "C:\\Users\\huawei\\.workbuddy\\binaries\\osp\\MoBi\\MoBi.exe",
+    "mamba": "C:\\Users\\huawei\\.workbuddy\\binaries\\micromamba\\Library\\bin\\micromamba.exe",
+    "mamba_root": "D:/mm",
+    "pkpd": "D:/mm/envs/pkpd",
+    "pyscf_env": "D:/WorkBuddy/pharma-tools/mm/root/envs/pyscf",
+    "openmm_env": "D:/WorkBuddy/pharma-tools/envs/md",
+    "orca_dir": "D:\\WorkBuddy\\pharma-tools\\ORCA611",
+    "orca": "D:\\WorkBuddy\\pharma-tools\\ORCA611\\orca.exe",
+    "oneadmet_csv": "C:\\Users\\huawei\\.workbuddy\\skills\\admet-screening\\assets\\external\\oneadmet\\oneADMET.csv"
+  },
+  "summary": {
+    "n_checks": 45,
+    "required_missing": [],
+    "optional_issues": [],
+    "external_issues": [],
+    "exit_code": 0
+  },
+  "checks": [
+    {
+      "id": "py.version",
+      "tier": "required",
+      "status": "ok",
+      "detail": "Python 3.13.14 (Windows-11-10.0.26200-SP0)",
+      "evidence": "C:\\Users\\huawei\\.workbuddy\\binaries\\python\\versions\\3.13.12\\python.exe",
+      "fix": ""
+    },
+    {
+      "id": "pkg.rdkit",
+      "tier": "required",
+      "status": "ok",
+      "detail": "可用",
+      "evidence": "import ok, version=2026.9.1; MolFromSmiles(CCO) atoms=3",
+      "fix": ""
+    },
+    {
+      "id": "pkg.numpy",
+      "tier": "required",
+      "status": "ok",
+      "detail": "可用",
+      "evidence": "import ok, version=2.5.4; sum=6",
+      "fix": ""
+    },
+    {
+      "id": "pkg.scipy",
+      "tier": "required",
+      "status": "ok",
+      "detail": "可用",
+      "evidence": "import ok, version=1.18.1; spearmanr=1.0",
+      "fix": ""
+    },
+    {
+      "id": "pkg.sklearn",
+      "tier": "required",
+      "status": "ok",
+      "detail": "可用",
+      "evidence": "import ok, version=1.9.1; roc_auc=1.0",
+      "fix": ""
+    },
+    {
+      "id": "pkg.pandas",
+      "tier": "required",
+      "status": "ok",
+      "detail": "可用",
+      "evidence": "import ok, version=3.1.0; DataFrame=(1, 1)",
+      "fix": ""
+    },
+    {
+      "id": "pkg.yaml",
+      "tier": "required",
+      "status": "ok",
+      "detail": "可用",
+      "evidence": "import ok, version=6.0.3; safe_load={'a': 1}",
+      "fix": ""
+    },
+    {
+      "id": "pkg.requests",
+      "tier": "required",
+      "status": "ok",
+      "detail": "可用",
+      "evidence": "import ok, version=2.34.2; Session=Session",
+      "fix": ""
+    },
+    {
+      "id": "pkg.bs4",
+      "tier": "required",
+      "status": "ok",
+      "detail": "可用",
+      "evidence": "import ok, version=4.15.0; parse='x'",
+      "fix": ""
+    },
+    {
+      "id": "pkg.pytest",
+      "tier": "required",
+      "status": "ok",
+      "detail": "可用",
+      "evidence": "import ok, version=9.2.0",
+      "fix": ""
+    },
+    {
+      "id": "pkg.lxml",
+      "tier": "optional",
+      "status": "ok",
+      "detail": "可用",
+      "evidence": "import ok, version=6.1.3; etree.tag='a'",
+      "fix": ""
+    },
+    {
+      "id": "opt.pharmpy",
+      "tier": "optional",
+      "status": "ok",
+      "detail": "可用",
+      "evidence": "import ok, version=2.3.0; create_datainfo=True",
+      "fix": ""
+    },
+    {
+      "id": "opt.pytdc",
+      "tier": "optional",
+      "status": "ok",
+      "detail": "可用",
+      "evidence": "import ok, version=1.1.15; BenchmarkGroup=True",
+      "fix": ""
+    },
+    {
+      "id": "opt.tqdm",
+      "tier": "optional",
+      "status": "ok",
+      "detail": "可用",
+      "evidence": "import ok, version=4.70.1",
+      "fix": ""
+    },
+    {
+      "id": "opt.fuzzywuzzy",
+      "tier": "optional",
+      "status": "ok",
+      "detail": "可用",
+      "evidence": "import ok, version=0.18.0",
+      "fix": ""
+    },
+    {
+      "id": "opt.openpyxl",
+      "tier": "optional",
+      "status": "ok",
+      "detail": "可用",
+      "evidence": "import ok, version=3.1.5",
+      "fix": ""
+    },
+    {
+      "id": "opt.pkg_resources",
+      "tier": "optional",
+      "status": "ok",
+      "detail": "可用",
+      "evidence": "import ok, version=80.9.0",
+      "fix": ""
+    },
+    {
+      "id": "ext.pksim",
+      "tier": "external",
+      "status": "ok",
+      "detail": "PKSim.CLI 可执行（版本串已产出）",
+      "evidence": "[rc=1; rc=1 为该 CLI 固有行为] PKSim.CLI 12.3.173+7617934a187ed8d58e4e6ca0a7dac1cc40b59296",
+      "fix": ""
+    },
+    {
+      "id": "ext.mobi",
+      "tier": "external",
+      "status": "ok",
+      "detail": "MoBi GUI 已就位（无 headless CLI，不实跑）",
+      "evidence": "C:\\Users\\huawei\\.workbuddy\\binaries\\osp\\MoBi\\MoBi.exe (95480 bytes)",
+      "fix": ""
+    },
+    {
+      "id": "ext.micromamba",
+      "tier": "external",
+      "status": "ok",
+      "detail": "micromamba 可执行",
+      "evidence": "[rc=0] 2.10.0",
+      "fix": ""
+    },
+    {
+      "id": "ext.r_pkpd",
+      "tier": "external",
+      "status": "ok",
+      "detail": "R/nlmixr2/rxode2/qs2 实跑通过",
+      "evidence": "[rc=0] ========================================================================\nThe 'm2w64-gcc' package is obsolete and is no longer updated.\nPlease use 'gcc', 'gxx', 'gfortran' packages instead.\n========================================================================\nR version 4.5.3 (2026-03-11 ucrt) |5.0.0 |5.0.2 |0.3.1 \n\nDuring startup - Warning messages:\n1: Setting LC_COLLATE=C.UTF-8 failed \n2: Setti",
+      "fix": ""
+    },
+    {
+      "id": "opt.pyscf",
+      "tier": "optional",
+      "status": "ok",
+      "detail": "DF-B3LYP 量子化学（playbook §2.4） 实跑通过",
+      "evidence": "[rc=0] 2.14.0",
+      "fix": ""
+    },
+    {
+      "id": "opt.openmm",
+      "tier": "optional",
+      "status": "ok",
+      "detail": "MD（playbook §2.3 要求 8.1.2） 实跑通过",
+      "evidence": "[rc=0] 8.1.2",
+      "fix": ""
+    },
+    {
+      "id": "ext.orca",
+      "tier": "external",
+      "status": "ok",
+      "detail": "ORCA 6.1.1 可执行（版本串已产出）",
+      "evidence": "[rc=2; rc!=0 为该 CLI 固有行为] *****************\n                                 * O   R   C   A *\n                                 *****************\n\n                                            #,                                       \n                                            ###",
+      "fix": ""
+    },
+    {
+      "id": "ext.orca.deep",
+      "tier": "external",
+      "status": "ok",
+      "detail": "ORCA HF/def2-SVP H2O 单点实跑通过",
+      "evidence": "[rc=0] E=-75.960838753103 Eh",
+      "fix": ""
+    },
+    {
+      "id": "data.assets.herg_reference_ic50.csv",
+      "tier": "required",
+      "status": "ok",
+      "detail": "存在且非空",
+      "evidence": "2555 bytes / 13 lines",
+      "fix": ""
+    },
+    {
+      "id": "data.assets.controls.controls.csv",
+      "tier": "required",
+      "status": "ok",
+      "detail": "存在且非空",
+      "evidence": "1281 bytes / 7 lines",
+      "fix": ""
+    },
+    {
+      "id": "data.assets.truth_template.csv",
+      "tier": "required",
+      "status": "ok",
+      "detail": "存在且非空",
+      "evidence": "5864 bytes / 43 lines",
+      "fix": ""
+    },
+    {
+      "id": "data.assets.external.openadmet.expansion_data_train.csv",
+      "tier": "required",
+      "status": "ok",
+      "detail": "存在且非空",
+      "evidence": "464076 bytes / 5327 lines",
+      "fix": ""
+    },
+    {
+      "id": "data.assets.external.openadmet.expansion_data_test.csv",
+      "tier": "required",
+      "status": "ok",
+      "detail": "存在且非空",
+      "evidence": "221291 bytes / 2283 lines",
+      "fix": ""
+    },
+    {
+      "id": "data.assets.external.openadmet.expansion_data_raw.csv",
+      "tier": "required",
+      "status": "ok",
+      "detail": "存在且非空",
+      "evidence": "686791 bytes / 7619 lines",
+      "fix": ""
+    },
+    {
+      "id": "data.assets.external.openadmet.LICENSE.md",
+      "tier": "required",
+      "status": "ok",
+      "detail": "存在且非空",
+      "evidence": "1013 bytes / 19 lines",
+      "fix": ""
+    },
+    {
+      "id": "data.assets.external.openadmet.PROVENANCE.json",
+      "tier": "required",
+      "status": "ok",
+      "detail": "存在且非空",
+      "evidence": "1147 bytes / 34 lines",
+      "fix": ""
+    },
+    {
+      "id": "data.assets.external.npass.npass_adme_subset.csv",
+      "tier": "required",
+      "status": "ok",
+      "detail": "存在且非空",
+      "evidence": "11646 bytes / 77 lines",
+      "fix": ""
+    },
+    {
+      "id": "data.assets.external.npass.npass_structures_subset.csv",
+      "tier": "required",
+      "status": "ok",
+      "detail": "存在且非空",
+      "evidence": "87795 bytes / 1339 lines",
+      "fix": ""
+    },
+    {
+      "id": "data.assets.external.npass.npass_tox_ld50_rat.csv",
+      "tier": "required",
+      "status": "ok",
+      "detail": "存在且非空",
+      "evidence": "137791 bytes / 1308 lines",
+      "fix": ""
+    },
+    {
+      "id": "data.assets.external.npass.PROVENANCE.json",
+      "tier": "required",
+      "status": "ok",
+      "detail": "存在且非空",
+      "evidence": "636 bytes / 16 lines",
+      "fix": ""
+    },
+    {
+      "id": "data.references.02_source_registry.yaml",
+      "tier": "required",
+      "status": "ok",
+      "detail": "存在且非空",
+      "evidence": "33651 bytes / 546 lines",
+      "fix": ""
+    },
+    {
+      "id": "data.references.03_endpoint_rules.yaml",
+      "tier": "required",
+      "status": "ok",
+      "detail": "存在且非空",
+      "evidence": "20552 bytes / 491 lines",
+      "fix": ""
+    },
+    {
+      "id": "data.references.readback_schemas.yaml",
+      "tier": "required",
+      "status": "ok",
+      "detail": "存在且非空",
+      "evidence": "5813 bytes / 144 lines",
+      "fix": ""
+    },
+    {
+      "id": "data.requirements.lock",
+      "tier": "required",
+      "status": "ok",
+      "detail": "存在且非空",
+      "evidence": "1378 bytes / 22 lines",
+      "fix": ""
+    },
+    {
+      "id": "data.SETUP_REPRODUCE.md",
+      "tier": "required",
+      "status": "ok",
+      "detail": "存在且非空",
+      "evidence": "17149 bytes / 262 lines",
+      "fix": ""
+    },
+    {
+      "id": "data.oneadmet",
+      "tier": "required",
+      "status": "ok",
+      "detail": "OneADMET SI 大小/表头校验通过",
+      "evidence": "1197248494 bytes (expected 1197248494); header='SMILES,Clearance-Microsomal_Mouse-pmL%min%kg_Public.csv,Clearance-Microsomal_Rat'",
+      "fix": ""
+    },
+    {
+      "id": "data.oneadmet.deep",
+      "tier": "required",
+      "status": "ok",
+      "detail": "OneADMET SI SHA256 校验通过",
+      "evidence": "sha256=c0860bf9c47806d9867f95b84bdfda8a62c189f891e1d951765fdd283d51034c lines=738162",
+      "fix": ""
+    },
+    {
+      "id": "env.fingerprint",
+      "tier": "optional",
+      "status": "ok",
+      "detail": "环境指纹一致",
+      "evidence": "{\"python\": \"3.13.14\", \"platform\": \"Windows-11-10.0.26200-SP0\", \"machine\": \"AMD64\", \"impl\": \"CPython\", \"rdkit\": \"2026.09.1\", \"numpy\": \"2.5.4\", \"scipy\": \"1.18.1\", \"sklearn\": \"1.9.1\", \"pandas\": \"3.1.0\", \"yaml\": \"6.0.3\"}",
+      "fix": ""
+    }
+  ]
+}
