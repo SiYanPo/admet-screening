@@ -1,0 +1,106 @@
+# 负结果默认配置（NEGATIVE_RESULT_DEFAULTS）—— G11 门的真源
+#
+# 第三轮评审 §E4 的处方原文精神：
+#   "负结果进默认配置（S2 默认关闭 + G10 门）、无差异曲线、规格敏感性、阈值冻结审计
+#    四项次轮处方在 v4.2/v4.3 的三轮密集实验中**被挤掉了**，本轮重新置顶。"
+#
+# 这条为什么重要：一个框架把自己的负结果写在论文里、却**默认仍按旧信念运行**，
+# 等于负结果只对读者生效、对自己不生效。所以每条负结果都必须落成一个**默认值**，
+# 并由 `adt/defaults.py` 读取、由发布门禁 G11 断言：
+#   · yaml 里每条必须带 `evidence`（产物路径 + 数字字面量），G11 会核对产物存在且数字在文件里；
+#   · yaml 的 `default` 值必须与 `adt/defaults.py` 的 DEFAULTS 逐个相等（防"文档改了代码没改"）。
+#
+# 核对：python -c "from adt import defaults; print(defaults.assert_consistent())"
+
+meta:
+  version: "v4.4"
+  rule: "每条负结果必须落成一个默认值，且默认值必须带产物级证据"
+  gate: "G11_negative_result_defaults"
+
+defaults:
+  - key: decision_strategy
+    default: S1_naive_majority
+    negative_result: "完整准入层（S4）在 ref 代价点上打不过朴素多数投票（S1），且结论对规格脆弱"
+    evidence:
+      artifact: out_keystone_v43/results.json
+      expect: ["-0.1326", "-0.2192"]
+    rationale: |
+      S4−S1 在 ref 上为负（规格敏感性 flip 0.398），故默认策略取 S1。
+      【2026-11-04 已撤回 / C18 + 外审 A】原「弃权代价落在 c* ≈ 0.21–0.26 以内
+      即可切到准入层」是 Δu(c)=a−q·c 一阶线性会计恒等式的零点，代价未进入决策，
+      不得作为切换依据；切换须有实测代价矩阵且在 SAP 中预注册。
+      见 references/RETRACTION_NOTE.md §五。
+
+  - key: admission_layer_enabled
+    default: false
+    negative_result: |
+      【2026-11-04 已撤回 / C18 + 外审 A】「准入层优势是条件性的
+      （无差异点 c*≈0.21–0.26）」已撤回：属会计恒等式，不得作为结论引用。
+      保留的默认事实是：准入层默认关闭，且在 ref 代价点上未优于朴素多数投票。
+    evidence:
+      artifact: out_ext/keystone_indifference.json
+      expect: ["0.26", "0.2091"]
+    rationale: |
+      默认关闭；开启需同时给 --cost-ratio 与 --strategy S4，且代价必须来自实测。
+      【2026-11-04 已撤回 / R4】不得以「c* 无差异点」作为依据；
+      见 references/RETRACTION_NOTE.md §五。
+
+  - key: require_cost_ratio
+    default: true
+    negative_result: "效用差异是代价比的函数；不给代价比就没有可比较的结论"
+    evidence:
+      artifact: out_ext/keystone_indifference.json
+      expect: ["c_star"]
+    rationale: "不提供代价比时，只允许报告 coverage/risk，不允许报告 utility 差。"
+
+  - key: ranking_enabled
+    default: false
+    negative_result: "欠校准/小样本下排序不可信（MPO 排序 Spearman ρ 从 0.024 起）"
+    evidence:
+      artifact: references/03_endpoint_rules.yaml
+      expect: ["desirability"]
+    rationale: "沿用铁律 3：校准证据充分且 n≥30 才允许，且必须带 bootstrap 名次区间。"
+
+  - key: gate_passthru_interpretation
+    default: unweighted_abstention
+    negative_result: "gate 判别力端点依赖：DILI 有据、hERG/BBB 无据；不得全局称『域外诚实』"
+    evidence:
+      artifact: out_ext/tdc/gate_audit_DILI.json
+      expect: ["0.669"]
+    rationale: "未逐端点测 AUC 前，PASSTHRU 只能叫『未加权弃权』（红线 7 的默认侧实现）。"
+
+  - key: multi_criteria_ad_default
+    default: false
+    negative_result: "四判据 × 三端点 AUC 全部 <0.65，多判据救不活 gate"
+    evidence:
+      artifact: out_ext/tdc/ad_multicriteria.json
+      expect: ["0.648"]
+    rationale: "多判据 AD 只作对照实验开关，不进默认链路（否则是花算力买同一结论）。"
+
+  - key: mmp_endpoints_default
+    default: "hERG,BBB_Martins"
+    negative_result: "DILI 的 MMP 只有 31 对 < 所需 61 对，检验无功效"
+    evidence:
+      artifact: out_ext/tdc/p8_mmp_results_DILI.json
+      expect: ["31", "61"]
+    rationale: "DILI 可跑但必须落 insufficient_power，不进入默认结论集。"
+
+  - key: external_claim_scope
+    default: no_extrapolation
+    negative_result: |
+      外源强制预测在三个切分上都没排序能力：时间混合 0.581（n=9443）、
+      时间留出 ≥2021 0.584（n=1941）、≥2023 0.598（n=959），
+      全部低于同批 always-positive（0.679 / 0.632 / 0.628）——【2026-11-04 已撤回 / C01·R1】
+      该跨量纲比较不得作为「域外无排序能力」的推论；
+      以上数字仅作审计记录，正确双轨口径见 out_ext/external/external_cuts_summary_v2.json；
+      且"随 Tanimoto 单调上升"只在时间混合集成立，两个真时间留出切点均判 trend_not_robust。
+    evidence:
+      artifact: out_ext/external/external_cuts_summary.json
+      expect: ["0.581", "0.584", "0.598", "trend_not_robust"]
+    rationale: |
+      默认禁跨骨架外推。【2026-11-04 已撤回 / C01·R2】「域外处处不可用；门全拒是
+      保守的正确」由已撤回的 R1 推出，支点失效，不得作为对外表述。
+      现阶段允许的最强表述是 inference_revoked_pending_estimand：估的目标未定义，
+      不作任何域外能力断言（红线 8/9 的默认侧仍由 default: no_extrapolation 实现）。
+      **v4.4 更正**：原表述"门划出的边界方向正确"已撤回——它只在时间混合集上成立，
+      而那个集合的"post-cutoff"标签本身是错的（服务端年份过滤失效，见 TAIL_RISK_THESIS §0）。
