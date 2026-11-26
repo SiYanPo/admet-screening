@@ -1,0 +1,13 @@
+﻿endpoint,source_a,source_b,same_group,group,n,n_unit_mismatch,spearman,mean_abs_diff,max_abs_diff,disagree_rate,sufficient,sign_conflict,note
+Ames,admet_ai,admetlab3,True,descriptor_ml,14,0,0.156,0.448,0.6403,1.0,Y,N,
+Ames,admet_ai,protox3,False,,0,14,,,,,N,,单位异构，无法配对（不得强行换算）
+Ames,admetlab3,protox3,False,,0,14,,,,,N,,单位异构，无法配对（不得强行换算）
+DILI,admet_ai,admetlab3,True,descriptor_ml,14,0,0.2835,0.5226,0.613,1.0,Y,N,
+DILI,admet_ai,protox3,False,,0,14,,,,,N,,单位异构，无法配对（不得强行换算）
+DILI,admet_ai,vnn_admet,False,,1,0,,0.7458,0.7458,1.0,N,N,
+DILI,admetlab3,protox3,False,,0,14,,,,,N,,单位异构，无法配对（不得强行换算）
+DILI,admetlab3,vnn_admet,False,,1,0,,0.3166,0.3166,1.0,N,N,
+DILI,protox3,vnn_admet,True,neighbor_qsar,0,1,,,,,N,,单位异构，无法配对（不得强行换算）
+hERG,admet_ai,admetlab3,True,descriptor_ml,14,0,-0.5736,0.3828,0.493,0.9286,Y,Y,
+hERG,admet_ai,vnn_admet,False,,9,0,,0.3971,0.4681,1.0,Y,N,
+hERG,admetlab3,vnn_admet,False,,9,0,,0.0225,0.0487,0.0,Y,N,
