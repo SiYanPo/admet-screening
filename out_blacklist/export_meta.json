@@ -1,0 +1,23 @@
+{
+  "hERG": {
+    "n_te": 132,
+    "n_cal": 105,
+    "bytes": 52307,
+    "pos_rate_te": 0.7348,
+    "pos_rate_cal": 0.6571
+  },
+  "DILI": {
+    "n_te": 96,
+    "n_cal": 76,
+    "bytes": 37598,
+    "pos_rate_te": 0.5208,
+    "pos_rate_cal": 0.4737
+  },
+  "BBB_Martins": {
+    "n_te": 406,
+    "n_cal": 325,
+    "bytes": 177911,
+    "pos_rate_te": 0.8079,
+    "pos_rate_cal": 0.7692
+  }
+}
