@@ -1,0 +1,20 @@
+{
+  "dataset": "NPASS 3.0 curated",
+  "source_url": "https://bidd.group/NPASS/index.php",
+  "license_note": "academic/non-commercial; cite Lin et al. NAR 2026",
+  "split_rule": "md5(np_id)%10<7 -> train",
+  "counts": {
+    "train": {
+      "compounds": 916,
+      "measurements": 916,
+      "truth": 916
+    },
+    "test": {
+      "compounds": 391,
+      "measurements": 391,
+      "truth": 391
+    }
+  },
+  "n_adme": 76,
+  "threshold": "LD50 300 mg/kg (analysis choice)"
+}
