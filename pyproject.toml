@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "admet-screening"
+# D3：版本单一源在 adt/_version.py；此处不写死数字，避免与 SKILL.md /
+# CHANGELOG / __init__ 形成新的轨间分歧。
+dynamic = ["version"]
+description = "分层 ADMET 评估：适用域优先的多源裁决、饱和扫描、证据治理（PASS/FAIL/UNDETERMINED）"
+readme = "README_CN.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "admet-screening contributors" }]
+keywords = ["ADMET", "applicability domain", "virtual screening", "cheminformatics"]
+dependencies = [
+    "rdkit>=2023.9",
+    "pyyaml>=6.0",
+    "requests>=2.31",
+    "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4", "build>=1.0"]
+# 离线全流程所需的本地工具（可选）：不装也能跑，doctor 会标"降级"
+local = ["pandas>=2.0", "scipy>=1.10"]
+
+[project.scripts]
+adt = "adt.cli:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "adt._version.__version__" }
+
+[tool.setuptools]
+# D1：local_admet 必须入包，否则 `adt local-tools` 在安装态直接
+# "无法加载 local_admet"（adt/cli.py 的 cmd_local_tools 走 import_module）。
+# adt._data 是随包分发的判据快照（D2 的最后一档回落）。
+packages = ["adt", "adt.adapters", "adt._data", "adt.governance_ext", "local_admet"]
+
+[tool.setuptools.package-data]
+"adt._data" = ["*.yaml", "*.yml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# 这些测试文件是"脚本式"（import 时执行断言并 sys.exit），不能被 pytest 直接收集；
+# 它们由 test_smoke_pytest.py 以子进程方式运行。
+python_files = ["test_smoke_pytest.py"]
+addopts = "-q"
+markers = [
+    "network: 需要联网的测试（默认不跑：pytest -m network）",
+]
+
+[tool.black]
+# Pinned so that "conforms to an external linter" is a reproducible claim rather
+# than a one-off action: re-running `black --check adt tools` with this config
+# must report no changes. 88 is black's default; it is stated explicitly so a
+# future default change cannot silently move the line.
+line-length = 88
+target-version = ["py312"]
