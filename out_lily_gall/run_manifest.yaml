@@ -1,0 +1,19 @@
+created_at: '2026-11-01T20:03:29'
+argv:
+- run.py
+- reliab
+- --in
+- out_lily_gall\measurements_merged.csv
+- --outdir
+- out_lily_gall
+- --chemical-class
+- cinnamoyl_glycoside
+python: 3.13.14
+rdkit: 2026.03.6
+cwd: C:\Users\huawei\.workbuddy\skills\admet-screening
+inputs:
+  out_lily_gall\measurements_merged.csv: a9c8e38804288c31435a3500e00dcbecd77fee5a
+  references\03_endpoint_rules.yaml: b4864a639187df031244e75e15be327387252350
+  references\02_source_registry.yaml: 8bc9f7890ff3dc5dfe5e49b0ffc228ea86b76900
+extra: {}
+manifest_sha1: 26012b4b152e5a6732bf793df49bbe4ff7e545ea
