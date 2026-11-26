@@ -1,0 +1,4 @@
+compound_id,endpoint,value,unit,source,source_version,retrieved_at,domain_flag,uncertainty,provenance_url,note
+mol_1,esol_logS_mol_per_L,-0.1247,log10(mol/L),local_admet,1.0.0,2026-11-11T12:50:04+08:00,predicted,,,rule-based local proxy (rule-based-local-proxy); NOT SciMiner model
+mol_1,esol_solubility_mg_per_L,34567.1031,mg/L,local_admet,1.0.0,2026-11-11T12:50:04+08:00,predicted,,,rule-based local proxy (rule-based-local-proxy); NOT SciMiner model
+mol_1,dG_solv_proxy_kcal_per_mol,0.17,kcal/mol,local_admet,1.0.0,2026-11-11T12:50:04+08:00,predicted,,,rule-based local proxy (rule-based-local-proxy); NOT SciMiner model
