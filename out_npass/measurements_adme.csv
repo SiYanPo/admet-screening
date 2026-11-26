@@ -1,0 +1,77 @@
+﻿compound_id,endpoint,value,unit,source,source_version,retrieved_at,domain_flag,uncertainty,provenance_url,note
+NPC36836,npass_ppb_bound,95.0,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC321053,npass_ppb_bound,58.0,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC80089,npass_ppb_bound,54.0,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=n.a.
+NPC80089,npass_ppb_bound,88.0,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC325599,npass_ppb_bound,94.5,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC325599,npass_ppb_bound,92.7,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Rattus norvegicus
+NPC325599,npass_ppb_bound,93.5,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC325599,npass_ppb_bound,89.2,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC317400,npass_ppb_bound,96.0,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC160506,npass_ppb_bound,99.0,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC230942,npass_ppb_bound,20.0,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC230942,npass_ppb_bound,9.7,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC171426,npass_ppb_bound,94.0,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC318591,npass_ppb_bound,62.5,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC323937,npass_ppb_bound,25.1,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC323937,npass_ppb_bound,4.4,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC329556,npass_ppb_bound,99.2,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC329556,npass_ppb_bound,98.7,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC256849,npass_ppb_bound,37.8,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC34046,npass_ppb_bound,93.0,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=n.a.
+NPC34046,npass_ppb_bound,98.5,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Bos taurus
+NPC34046,npass_ppb_bound,96.0,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC319645,npass_ppb_bound,36.0,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC319645,npass_ppb_bound,21.0,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC319645,npass_ppb_bound,6.4,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC314743,npass_ppb_bound,10.0,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC2989,npass_ppb_bound,97.8,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC2989,npass_ppb_bound,97.9,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Rattus norvegicus
+NPC2989,npass_ppb_bound,98.5,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC2989,npass_ppb_bound,98.0,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC2989,npass_ppb_bound,99.16,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC2989,npass_ppb_bound,99.9,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC2989,npass_ppb_bound,91.5,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC330326,npass_ppb_bound,6.8,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC330326,npass_ppb_bound,10.9,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC332382,npass_ppb_bound,11.9,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC611779,npass_ppb_bound,92.5,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC489313,npass_ppb_bound,51.0,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC611711,npass_logd,3.97,logD,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=LogD7.4; organism=n.a.
+NPC599875,npass_logd,-0.37,logD,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=LogD7.4; organism=n.a.
+NPC602252,npass_logd,3.8,logD,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=LogD7.4; organism=n.a.
+NPC602654,npass_logd,0.95,logD,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=LogD7.4; organism=n.a.
+NPC609041,npass_logd,2.8,logD,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=LogD7.4; organism=n.a.
+NPC602602,npass_logd,0.8,logD,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=LogD7.4; organism=n.a.
+NPC605818,npass_logd,1.9,logD,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=LogD7.4; organism=n.a.
+NPC605936,npass_logd,2.03,logD,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=LogD7.4; organism=n.a.
+NPC612013,npass_logd,-0.48,logD,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=LogD7.4; organism=n.a.
+NPC608325,npass_logd,-0.34,logD,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=LogD7.4; organism=n.a.
+NPC612013,npass_logd,-0.95,logD,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=LogD7.4; organism=n.a.
+NPC611779,npass_logd,2.28,logD,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=LogD7.4; organism=n.a.
+NPC611675,npass_logd,2.56,logD,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=LogD7.4; organism=n.a.
+NPC608539,npass_logd,3.7,logD,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=CLogD; organism=n.a.
+NPC36836,npass_clearance,27.0,uL/min,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=Clearance; organism=Rattus norvegicus
+NPC325599,npass_clearance,21.0,uL/min,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=Clearance; organism=Rattus norvegicus
+NPC201055,npass_clearance,54.6,uL/min,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=Clearance; organism=Rattus norvegicus
+NPC326792,npass_clearance,0.4,uL/min,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=Clearance; organism=Rattus norvegicus
+NPC318591,npass_clearance,51.0,uL/min,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=Clearance; organism=Rattus norvegicus
+NPC256849,npass_clearance,0.6,uL/min,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=Clearance; organism=Rattus norvegicus
+NPC7688,npass_ppb_bound,70.0,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Rattus norvegicus
+NPC252603,npass_clearance,0.2,uL/min,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=Clearance; organism=Rattus norvegicus
+NPC7154,npass_ppb_bound,70.0,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Rattus norvegicus
+NPC36836,npass_clearance,16.0,uL/min,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=Clearance; organism=Canis lupus familiaris
+NPC36836,npass_clearance,7.3,uL/min,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=Clearance; organism=Homo sapiens
+NPC325599,npass_clearance,30.7,uL/min,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=Clearance; organism=Canis lupus familiaris
+NPC325599,npass_clearance,0.7,uL/min,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=Clearance; organism=Homo sapiens
+NPC201055,npass_clearance,32.1,uL/min,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=Clearance; organism=Canis lupus familiaris
+NPC201055,npass_clearance,16.7,uL/min,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=Clearance; organism=Homo sapiens
+NPC326792,npass_clearance,1.0,uL/min,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=Clearance; organism=Canis lupus familiaris
+NPC326792,npass_clearance,0.1,uL/min,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=Clearance; organism=Homo sapiens
+NPC318591,npass_clearance,19.0,uL/min,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=Clearance; organism=Canis lupus familiaris
+NPC318591,npass_clearance,4.2,uL/min,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=Clearance; organism=Homo sapiens
+NPC256849,npass_clearance,0.2,uL/min,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=Clearance; organism=Canis lupus familiaris
+NPC256849,npass_clearance,0.1,uL/min,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=Clearance; organism=Homo sapiens
+NPC314743,npass_ppb_bound,50.0,%,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=PPB; organism=Homo sapiens
+NPC252603,npass_clearance,0.2,uL/min,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=Clearance; organism=Canis lupus familiaris
+NPC252603,npass_clearance,0.1,uL/min,npass3,3.0,2026-10-29T21:30:11,measured,,https://bidd.group/NPASS/index.php,activity_type=Clearance; organism=Homo sapiens
