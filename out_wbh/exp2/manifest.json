@@ -1,0 +1,27 @@
+{
+  "binding_item": "C2-a / C12 / 外审 C V3",
+  "command": "adt\\cli.py decision-value --reliability out_wbh\\reliability.csv --measurements out_wbh\\measurements_merged.csv --proxy majority --budget 2 --p-convert 0.35 --outdir out_wbh\\exp2",
+  "content_sha256": "7e40e3bae9c4a7f31b90721e746e65c0c91e211db0fc217379521ef55a5b8022",
+  "data_sha256": [
+    {
+      "path": "out_wbh\\reliability.csv",
+      "sha256": "25c210b5aec443055d441d53a3ec2fc0eb32a048177a6e46da36a908dd141a8f"
+    },
+    {
+      "path": "out_wbh\\measurements_merged.csv",
+      "sha256": "1ef84c71c2c1ccdefd4ab49ce3432bbf42ca89e86c989122003d889226b52b38"
+    }
+  ],
+  "env_digest": "60535043a04a0ed8594c46409ab1e1087d1f9d7f006d0a2adec9141669ae10e9",
+  "estimand_id": null,
+  "generated_at": "2026-11-07T00:28:04",
+  "hash_policy": "content_sha256 排除 created_at/generated_at/prev_hash/content_sha256/cwd 等易变字段；同一输入两次运行必须相同",
+  "inputs_sha1": {
+    "out_wbh\\measurements_merged.csv": "852baa5cf0cd68efe790e3495cde511ae576ca42",
+    "out_wbh\\reliability.csv": "5306d48ddb521db27fbe27957ca98187b7eb1b9f"
+  },
+  "prev_hash": "968f55cab101f2bf4d41b585a08eef0724685e4fce81b5e96bd065f2cde2cb59",
+  "schema_version": "2.0",
+  "script_sha256": "767d57093d7b881b8a767ed8f165d907e27cbef23cc4b7b1902861ff72fe6f62",
+  "value": null
+}
