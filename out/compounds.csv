@@ -1,0 +1,2 @@
+﻿compound_id,input_smiles,calc_smiles,state_flag,formula,inchikey,mw,note
+M,CC(=O)O[C@@H](COC(=O)/C=C/c1ccc(O)c(O)c1)CO[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O,CC(=O)O[C@@H](COC(=O)/C=C/c1ccc(O)c(O)c1)CO[C@@H]1O[C@H](CO)[C@@H](O)[C@H](O)[C@H]1O,unchanged,C20H26O12,MPZFXDIZHZVXBJ-SGKFEUNSSA-N,458.42,
