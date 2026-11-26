@@ -1,0 +1,19 @@
+﻿compound_id,endpoint,value,unit,source,source_version,retrieved_at,domain_flag,uncertainty,provenance_url,note
+Terfenadine,protox_ld50,5000.0,mg/kg,protox3,III,2026-10-31T17:31:46,predicted,,https://tox.charite.de/protox3/index.php,tox_class=5; 近邻相似度=100%; 近邻最低类别=5; 可信度=LOW_neighbors_unclassified（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+Terfenadine,dili,0,class,protox3,III,2026-10-31T17:31:46,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.979 是**该类别置信度**，不是阳性概率
+Terfenadine,ames,0,class,protox3,III,2026-10-31T17:31:46,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.8409166666666666 是**该类别置信度**，不是阳性概率
+Diclofenac,protox_ld50,53.0,mg/kg,protox3,III,2026-10-31T17:31:52,predicted,,https://tox.charite.de/protox3/index.php,tox_class=3; 近邻相似度=100%; 近邻最低类别=3; 可信度=MODERATE（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+Diclofenac,dili,1,class,protox3,III,2026-10-31T17:31:53,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=1.0（类别标签）；Probability=0.813 是**该类别置信度**，不是阳性概率
+Diclofenac,ames,0,class,protox3,III,2026-10-31T17:31:53,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.789289393939394 是**该类别置信度**，不是阳性概率
+Digoxin,protox_ld50,5.0,mg/kg,protox3,III,2026-10-31T17:31:58,predicted,,https://tox.charite.de/protox3/index.php,tox_class=1; 近邻相似度=100%; 近邻最低类别=2; 可信度=MODERATE（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+Digoxin,dili,0,class,protox3,III,2026-10-31T17:31:58,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.98 是**该类别置信度**，不是阳性概率
+Digoxin,ames,0,class,protox3,III,2026-10-31T17:31:58,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.9049880952380952 是**该类别置信度**，不是阳性概率
+Quercetin,protox_ld50,159.0,mg/kg,protox3,III,2026-10-31T17:32:02,predicted,,https://tox.charite.de/protox3/index.php,tox_class=3; 近邻相似度=100%; 近邻最低类别=3; 可信度=MODERATE（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+Quercetin,dili,0,class,protox3,III,2026-10-31T17:32:03,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.693 是**该类别置信度**，不是阳性概率
+Quercetin,ames,1,class,protox3,III,2026-10-31T17:32:03,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=1.0（类别标签）；Probability=0.5185083333333331 是**该类别置信度**，不是阳性概率
+Donepezil,protox_ld50,505.0,mg/kg,protox3,III,2026-10-31T17:32:09,predicted,,https://tox.charite.de/protox3/index.php,tox_class=4; 近邻相似度=67.82%; 近邻最低类别=3; 可信度=MODERATE（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+Donepezil,dili,0,class,protox3,III,2026-10-31T17:32:09,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=0.0（类别标签）；Probability=0.982 是**该类别置信度**，不是阳性概率
+Donepezil,ames,0,class,protox3,III,2026-10-31T17:32:09,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.5368333333333334 是**该类别置信度**，不是阳性概率
+APAP,protox_ld50,338.0,mg/kg,protox3,III,2026-10-31T17:32:14,predicted,,https://tox.charite.de/protox3/index.php,tox_class=4; 近邻相似度=100%; 近邻最低类别=4; 可信度=MODERATE（无实测近邻时 LD50 恒为 5000/class 5，无区分力）
+APAP,dili,1,class,protox3,III,2026-10-31T17:32:14,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 dili：Prediction=1.0（类别标签）；Probability=0.746 是**该类别置信度**，不是阳性概率
+APAP,ames,0,class,protox3,III,2026-10-31T17:32:14,predicted,,https://tox.charite.de/protox3/src/run_models.php,ProTox 端点 mutagen：Prediction=0.0（类别标签）；Probability=0.9036333333333332 是**该类别置信度**，不是阳性概率
