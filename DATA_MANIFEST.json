@@ -1,0 +1,195 @@
+{
+  "generated_by": "tools/data_manifest.py",
+  "n_files": 17,
+  "core_mode": {
+    "description": "不含 1.2 GB OneADMET 的最小可复现文件集",
+    "required_files": [
+      "assets/controls/controls.csv",
+      "assets/external/npass/PROVENANCE.json",
+      "assets/external/npass/npass_adme_subset.csv",
+      "assets/external/npass/npass_structures_subset.csv",
+      "assets/external/npass/npass_tox_ld50_rat.csv",
+      "assets/external/openadmet/LICENSE.md",
+      "assets/external/openadmet/PROVENANCE.json",
+      "assets/external/openadmet/expansion_data_test.csv",
+      "assets/external/openadmet/expansion_data_train.csv",
+      "assets/herg_reference_ic50.csv",
+      "assets/truth_template.csv"
+    ],
+    "excluded_large_file": "assets/external/oneadmet/oneADMET.csv",
+    "all_core_hashes_match": true
+  },
+  "files": [
+    {
+      "path": "assets/herg_reference_ic50.csv",
+      "bytes": 2555,
+      "sha256": "6c838d9c7a5d2b80fcf304a9352f4fcabc381679e103bdd7edbe787a7a09027b",
+      "declared_sha256": null,
+      "sha256_matches": null,
+      "source_url": "",
+      "license": "",
+      "core": "yes"
+    },
+    {
+      "path": "assets/truth_template.csv",
+      "bytes": 5864,
+      "sha256": "a24c433f15846a4139004bd5f88a41b65429847095042b0c19b8f9f038bba497",
+      "declared_sha256": null,
+      "sha256_matches": null,
+      "source_url": "",
+      "license": "",
+      "core": "yes"
+    },
+    {
+      "path": "assets/controls/controls.csv",
+      "bytes": 1281,
+      "sha256": "ede901e560cdc64e57a573b2db971882b2d6b91941b95d6ed7d37c95a5d5d55f",
+      "declared_sha256": null,
+      "sha256_matches": null,
+      "source_url": "",
+      "license": "",
+      "core": "yes"
+    },
+    {
+      "path": "assets/external/README.md",
+      "bytes": 4559,
+      "sha256": "edef68e69723fcf5cead70a8c7cb15bf8d635cc572b911ff264a731f0056f974",
+      "declared_sha256": null,
+      "sha256_matches": null,
+      "source_url": "",
+      "license": "",
+      "core": "no"
+    },
+    {
+      "path": "assets/external/npass/PROVENANCE.json",
+      "bytes": 636,
+      "sha256": "b372e5dd1af69860c45fb539a5dcf8a1b52bc1e8b286b6141155901390d743ba",
+      "declared_sha256": null,
+      "sha256_matches": null,
+      "source_url": "https://bidd.group/NPASS/index.php",
+      "license": "NPASS is free for academic/non-commercial use; cite Lin et al. Nucleic Acids Res 2026;54:D1519-D1527 (DOI 10.1093/nar/gkaf1196). This is a curated subset, not the full NPASS database.",
+      "core": "yes"
+    },
+    {
+      "path": "assets/external/npass/README.md",
+      "bytes": 2336,
+      "sha256": "31e47fa5616066f8f896047eb68e2339925da17cc02efd4fca8e7e3635b126a3",
+      "declared_sha256": null,
+      "sha256_matches": null,
+      "source_url": "https://bidd.group/NPASS/index.php",
+      "license": "NPASS is free for academic/non-commercial use; cite Lin et al. Nucleic Acids Res 2026;54:D1519-D1527 (DOI 10.1093/nar/gkaf1196). This is a curated subset, not the full NPASS database.",
+      "core": "no"
+    },
+    {
+      "path": "assets/external/npass/npass_adme_subset.csv",
+      "bytes": 11646,
+      "sha256": "c0a23b22c73f62464b06b46ecaaa9abff8d1f29b69736bf3f5801bc32a1cc34b",
+      "declared_sha256": null,
+      "sha256_matches": null,
+      "source_url": "https://bidd.group/NPASS/index.php",
+      "license": "NPASS is free for academic/non-commercial use; cite Lin et al. Nucleic Acids Res 2026;54:D1519-D1527 (DOI 10.1093/nar/gkaf1196). This is a curated subset, not the full NPASS database.",
+      "core": "yes"
+    },
+    {
+      "path": "assets/external/npass/npass_structures_subset.csv",
+      "bytes": 87795,
+      "sha256": "d6ab5c55e3507739f263ceabb1c9b926c861d600b8c94b13a9acd077952118db",
+      "declared_sha256": null,
+      "sha256_matches": null,
+      "source_url": "https://bidd.group/NPASS/index.php",
+      "license": "NPASS is free for academic/non-commercial use; cite Lin et al. Nucleic Acids Res 2026;54:D1519-D1527 (DOI 10.1093/nar/gkaf1196). This is a curated subset, not the full NPASS database.",
+      "core": "yes"
+    },
+    {
+      "path": "assets/external/npass/npass_tox_ld50_rat.csv",
+      "bytes": 137791,
+      "sha256": "2d76843bbe3894f601c9d295fd29ed6d30178101fd516226ead2ad96a5277e5b",
+      "declared_sha256": null,
+      "sha256_matches": null,
+      "source_url": "https://bidd.group/NPASS/index.php",
+      "license": "NPASS is free for academic/non-commercial use; cite Lin et al. Nucleic Acids Res 2026;54:D1519-D1527 (DOI 10.1093/nar/gkaf1196). This is a curated subset, not the full NPASS database.",
+      "core": "yes"
+    },
+    {
+      "path": "assets/external/oneadmet/PROVENANCE.json",
+      "bytes": 2190,
+      "sha256": "23ab662e1df2c91120401a9b1cb71991a43c6579900b5ecf5b2fb9f7502ff9a5",
+      "declared_sha256": null,
+      "sha256_matches": null,
+      "source_url": "https://pubs.acs.org/doi/10.1021/acs.jmedchem.6c00049",
+      "license": "ACS Supporting Information, free to download; cite the J. Med. Chem. 2026 paper when reusing",
+      "core": "no"
+    },
+    {
+      "path": "assets/external/oneadmet/oneADMET.csv",
+      "bytes": 1197248494,
+      "sha256": "c0860bf9c47806d9867f95b84bdfda8a62c189f891e1d951765fdd283d51034c",
+      "declared_sha256": "c0860bf9c47806d9867f95b84bdfda8a62c189f891e1d951765fdd283d51034c",
+      "sha256_matches": true,
+      "source_url": "https://pubs.acs.org/doi/10.1021/acs.jmedchem.6c00049",
+      "license": "ACS Supporting Information, free to download; cite the J. Med. Chem. 2026 paper when reusing",
+      "core": "no"
+    },
+    {
+      "path": "assets/external/openadmet/LICENSE.md",
+      "bytes": 1013,
+      "sha256": "b95cc83a6247972f2c1b7a73d21bd7724f8eeef5a108bb6f086d535f7bebc707",
+      "declared_sha256": null,
+      "sha256_matches": null,
+      "source_url": "https://zenodo.org/records/21504733",
+      "license": "CC-BY-4.0",
+      "core": "yes"
+    },
+    {
+      "path": "assets/external/openadmet/PROVENANCE.json",
+      "bytes": 1147,
+      "sha256": "d901e2dae1b398abb9bce9e704c9ef678d12425de8220105be9daf8d28c8d4ee",
+      "declared_sha256": null,
+      "sha256_matches": null,
+      "source_url": "https://zenodo.org/records/21504733",
+      "license": "CC-BY-4.0",
+      "core": "yes"
+    },
+    {
+      "path": "assets/external/openadmet/README.md",
+      "bytes": 4388,
+      "sha256": "cb8a82b1414ab82bce1a50822d916327a414ea51e5cb129a01c855621e3d33d8",
+      "declared_sha256": null,
+      "sha256_matches": null,
+      "source_url": "https://zenodo.org/records/21504733",
+      "license": "CC-BY-4.0",
+      "core": "no"
+    },
+    {
+      "path": "assets/external/openadmet/expansion_data_raw.csv",
+      "bytes": 686791,
+      "sha256": "f674ec74cca1146bc386f832a32d4b8d921d3c312f92cb436cc005901c724a3c",
+      "declared_sha256": null,
+      "sha256_matches": null,
+      "source_url": "https://zenodo.org/records/21504733",
+      "license": "CC-BY-4.0",
+      "core": "no"
+    },
+    {
+      "path": "assets/external/openadmet/expansion_data_test.csv",
+      "bytes": 221291,
+      "sha256": "e21c0ef19795317216287e924e00ca3ef9388b7032a7fa4c7f27e2580372c85e",
+      "declared_sha256": null,
+      "sha256_matches": null,
+      "source_url": "https://zenodo.org/records/21504733",
+      "license": "CC-BY-4.0",
+      "core": "yes"
+    },
+    {
+      "path": "assets/external/openadmet/expansion_data_train.csv",
+      "bytes": 464076,
+      "sha256": "c5214ad8c8a4d7d4d09082fcce24fe16c97a980a1e0873b91b8c8e474b79f6e4",
+      "declared_sha256": null,
+      "sha256_matches": null,
+      "source_url": "https://zenodo.org/records/21504733",
+      "license": "CC-BY-4.0",
+      "core": "yes"
+    }
+  ],
+  "note": "1.2 GB OneADMET SI 的许可/下载需人工过 Cloudflare 验证；本 manifest 校验本地文件 SHA256，不承诺公开镜像可获得性。"
+}
