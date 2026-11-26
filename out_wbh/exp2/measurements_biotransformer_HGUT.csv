@@ -1,0 +1,5 @@
+﻿compound_id,endpoint,value,unit,source,source_version,retrieved_at,domain_flag,uncertainty,provenance_url,note
+WBLG-A,metabolite_count_HGUT,5,count,biotransformer,3.0,2026-11-11T11:31:33,predicted,,https://biotransformer.ca/queries/365053,5 个唯一代谢产物
+WBLG-A,biotransformation_count_HGUT,3,count,biotransformer,3.0,2026-11-11T11:31:33,predicted,,https://biotransformer.ca/queries/365053,3 条生化转化
+WBLG-B,metabolite_count_HGUT,8,count,biotransformer,3.0,2026-11-11T11:32:04,predicted,,https://biotransformer.ca/queries/365054,8 个唯一代谢产物
+WBLG-B,biotransformation_count_HGUT,3,count,biotransformer,3.0,2026-11-11T11:32:04,predicted,,https://biotransformer.ca/queries/365054,3 条生化转化
