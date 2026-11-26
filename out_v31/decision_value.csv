@@ -1,0 +1,4 @@
+﻿strategy,n_selected,tp,fp,expected_utility,utility_per_experiment,note
+vote_all,10,3,7,-18.0,-1.8,全部候选强行排序后取前 budget
+admission,5.0,1.0,4.0,-11.0,-2.2,PASS+确定性优先；UNDETERMINED-可解决按 p_convert=0.50 折算
+random,10,2.14,7.86,-21.43,-2.143,基线：随机送 budget 个（base_rate=0.21）
