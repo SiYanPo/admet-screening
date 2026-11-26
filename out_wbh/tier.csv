@@ -1,0 +1,2 @@
+﻿tier,max_conclusion,n_rows,n_measured,n_judged,n_judged_indep2,has_benchmark,benchmark_ok,has_coverage_decl,risk_of_bias,missing
+T2,decision_support,54,0,1,1,False,False,True,high,实测真值（T3 必须）；独立基准（benchmark --demo 不算）；偏倚风险降为低/中（PROBAST 当前 high：无实测真值/单方法组）
