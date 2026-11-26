@@ -1,0 +1,16 @@
+======================================================================
+OPTION ABIOTICBIO
+[biotransformer] 阳性对照 ABIOTICBIO: {'acetaminophen': 7, 'phenol': 5}
+[biotransformer] [1/2] WBLG-A ok
+[biotransformer] [2/2] WBLG-B ok
+[bt] ABIOTICBIO: 4 行长表
+[bt] ABIOTICBIO: 15 个代谢产物
+======================================================================
+OPTION HGUT
+[biotransformer] 阳性对照 HGUT: {'acetaminophen': 3, 'phenol': 1}
+[biotransformer] [1/2] WBLG-A ok
+[biotransformer] [2/2] WBLG-B ok
+[bt] HGUT: 4 行长表
+[bt] HGUT: 14 个代谢产物
+DONE_ALL
+BT_RECOVERED_RC=0
