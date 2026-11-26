@@ -1,0 +1,9 @@
+# 构建上下文最小化：仓库里有 1.4 GB 实跑产物（fullrun_20261122 等），
+# 不排除会把整个目录发给 daemon，构建慢且镜像层无谓变大。
+*
+!adt/
+!local_admet/
+!references/
+!docker/
+!pyproject.toml
+!requirements.lock
