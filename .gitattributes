@@ -1,0 +1,21 @@
+# Shell entry points must keep LF or they fail on GNU/Linux with
+# "bad interpreter: /usr/bin/env bash^M". This is the single most common way a
+# reproducibility repository breaks for the reviewer, so it is pinned here
+# rather than left to the platform's core.autocrlf.
+*.sh    text eol=lf
+*.py    text eol=lf
+*.lock  text eol=lf
+*.json  text eol=lf
+*.csv   text eol=lf
+*.cff   text eol=lf
+*.md    text eol=lf
+Makefile text eol=lf
+*.bat   text eol=crlf
+
+# Binary artefacts must never be line-ending converted.
+*.png   binary
+*.jpg   binary
+*.zip   binary
+*.pkl   binary
+*.pt    binary
+.gitattributes text eol=lf
