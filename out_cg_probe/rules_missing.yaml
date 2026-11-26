@@ -1,0 +1,509 @@
+version: 1
+threshold_source: literature
+defaults:
+  clip: true
+  missing: UNDETERMINED
+endpoints:
+- id: solubility_kinetic_ph74
+  unit: ug/mL
+  axis: exposure
+  shape: up
+  fail: 10
+  pass: 60
+  note: 按预计剂量换算剂量数 Do=dose/solubility 后再映射
+- id: logd_74
+  unit: log10
+  axis: exposure
+  shape: window
+  window:
+  - -1
+  - 3
+  soft:
+  - -2
+  - 4
+  note: 倒 U：窗口外两侧线性衰减
+- id: caco2_papp_ab
+  unit: log10(cm/s)
+  axis: exposure
+  shape: up
+  fail: -6.0
+  pass: -5.3
+  require_sources: 2
+  phys_range:
+  - -12
+  - 0
+  note: '**v2.3.5 严化**：单组不下 PASS/FAIL，值保留在报告的"单组证据"段（信息不丢、结论不越界）。 Caco-2 表观渗透系数，**统一用
+    log10(Papp, cm/s)** 存储。 ADMETlab 的 `caco2` 列与 ADMET-AI 的 `Caco2_Wang` 列本身就是 log10，原样透传；
+    阈值 −6.0 / −5.3 对应线性 1e-6 / 5e-6 cm/s（常用分档）。 **v2.3.3 修正（C71）**：原写 cm/s + 线性阈值
+    1e-6/5e-6，且 `scale` 字段 没有任何代码读取（死字段）；与源的 log 值混用会让**所有分子恒判 FAIL** （−6.5 < 1e-6
+    恒成立）。已改 log 量纲并删死字段。 单组（同 descriptor_ml）→ confidence 恒 low，只作相对排序参考。
+
+    '
+- id: efflux_ratio
+  unit: ratio
+  axis: exposure
+  shape: down
+  pass: 2
+  fail: 3
+- id: clint_microsome
+  unit: uL/min/mg
+  axis: stability
+  shape: down
+  pass: 30
+  fail: 100
+  require_sources: 2
+  phys_range:
+  - 0
+  - 5000
+  note: '微粒体固有清除率，阈值 30/100 µL/min/mg 为文献起点值。 **单位已核实（2026-10-28）**：TDC 定义 Clearance_Microsome_AZ
+    = mL·min⁻¹·g⁻¹， 与 µL·min⁻¹·mg⁻¹ **数值等价**（1 mL/min/g = 1000 µL/min ÷ 1000 mg）；
+    Hepatocyte 那列是 µL/min/10⁶ cells，**不能混用**。 单源（仅 ADMET-AI descriptor_ml）→ confidence
+    必为 low；且本化学类为外推区 （预测值 23.6–50.2 对高极性糖苷偏高，与 logD 相关性相悖）， **只能作相对快慢参考，不得写定量清除结论**。待第
+    2 独立组（如 ChEMBL 邻居实测 清除分位作参照、或湿实验）到位后再收紧。
+
+    '
+- id: ppb_fu
+  unit: percent
+  axis: exposure
+  shape: up
+  fail: 1
+  pass: 10
+  require_sources: 2
+  phys_range:
+  - 0
+  - 100
+  note: '游离分数 fu(%)。ADMETlab 的 `PPB` 与 ADMET-AI 的 `PPBR_AZ` 都是 % bound， 适配器已换算为 **fu%
+    = 100 − bound**（方向相反，直接并表会得出相反结论，C70）。 fu<1% 时安全裕度计算不可靠，Margin 只能给档位（见 05_qa_gates
+    G10）。 单组（descriptor_ml）→ confidence 恒 low；ChEMBL 邻居实测 fu 分位 （chembl_ppb_fu_p*)
+    是**独立的实验参照**，可用于合理性上下界，但不计入这一票。
+
+    '
+- id: herg
+  class_map:
+    '0': PASS
+    '1': FAIL
+  unit: probability
+  axis: safety
+  shape: down
+  pass: 0.1
+  fail: 0.5
+  require_sources: 2
+  phys_range:
+  - 0
+  - 1
+  note: 两个独立源同向才算；单源时标 UNDETERMINED
+- id: dili
+  class_map:
+    '0': PASS
+    '1': FAIL
+  unit: probability
+  axis: safety
+  shape: step
+  fail: 0.5
+  require_sources: 2
+  phys_range:
+  - 0
+  - 1
+  note: 本项目 ADMETlab 在该化学类上 14/14 饱和，禁用作决策；只用绝对阈值且需 ≥2 源一致
+- id: ames
+  class_map:
+    '0': PASS
+    '1': FAIL
+  unit: probability
+  axis: safety
+  shape: step
+  fail: 0.5
+  require_sources: 2
+  phys_range:
+  - 0
+  - 1
+- id: carcinogenicity
+  unit: probability
+  axis: safety
+  shape: step
+  fail: 0.5
+  require_sources: 2
+- id: nr_ar_lbd
+  unit: probability
+  axis: safety
+  shape: step
+  fail: 0.7
+  note: 本项目唯一有区分度的内分泌端点之一（9/14 >0.5，区间 0.146–0.771）
+- id: sr_p53
+  unit: probability
+  axis: safety
+  shape: step
+  fail: 0.7
+  note: 9/14 >0.5，区间 0.156–0.947
+- id: sr_are
+  unit: probability
+  axis: safety
+  shape: step
+  fail: 0.7
+  note: 11/14 >0.5，区间 0.212–0.918
+- id: chemical_stability_t_half
+  unit: h
+  axis: stability
+  shape: up
+  fail: 2
+  pass: 8
+  note: 本项目完全没测；糖苷+酯键在 pH 1.2/血浆里很可能 <2 h
+- id: metabolite_count_CYP450
+  unit: count
+  axis: coverage
+  shape: none
+  note: 不是质量指标，是覆盖指标：0 必须判 out_of_domain（见 registry 的 BioTransformer 证据）
+- id: margin_ic50u_over_cmaxu
+  unit: ratio
+  axis: safety
+  shape: up
+  tiers:
+    fail: 10
+    pass: 30
+    stretch: 100
+  note: '分档依据 Redfern WS et al. (2003) 的暂行安全边际：危及生命适应症（肿瘤/AIDS/ 部分感染）10 倍可接受；严重疾病（卒中/帕金森/癫痫/哮喘/关节炎）30
+    倍； 轻度适应症（鼻炎/湿疹）或抗精神病药（超量风险）需 100 倍。现行业界趋势更保守： 目标 ≥100 倍或 10 µM 下无可检出抑制。 **v2.2
+    修正**：v2.1 写"Margin >10 才敢说心脏安全边界足够"——10 倍仅在危及生命 适应症下成立，作为通用表述过于宽松（评估报告 S2/P1-8）。
+    只给档位不给小数；fu 单源时标低置信。
+
+    '
+- id: herg_ic50_lit_anchor
+  role: reference
+  unit: uM
+  note: 'hERG IC50 的**类似物实测锚点**（assets/herg_reference_ic50.csv，10 个数值）。 为什么需要：ADMETlab
+    / ADMET-AI / vNN 三者都只给概率或类别，**没有一家给 IC50（浓度）**， 所以 Margin 的 IC50 只能用证据锚点而非预测值（C83）。
+    锚点集合：咖啡酸 qHTS 2.51 µM（标准类型是 Potency 不是 IC50）、curcumin 5.55 µM （手工膜片钳）/ >100 µM（自动化平台，**同分子差
+    20 倍**）、taxifolin 3-O-葡萄糖苷 9.6 µM（relative IC50，最大抑制仅 36.9%）、CAPE 10.6 µM、atractylodin
+    26.4、 β-eudesmol 33.4、naringenin 36.5、ligustilide 37.3、EPMC（肉桂酸酯）53 µM； 全集中位 29.9
+    µM。**与本研究咖啡酰/肉桂酸酯骨架最接近的 3 个几何均值 = 11.2 µM**。 **只用于给档位，不得用于报精确 Margin**（C84：IC50
+    不确定度 ≥10×）。 **糖苷不必然是阻断剂**：人参皂苷 Rg3 是 hERG 激动剂（EC50 0.4 µM）； taxifolin 糖苷与 CAPE
+    都表现为门控调节/部分阻断，尾电流 IC50 会高估扭转风险（C85）。
+
+    '
+- id: chembl_admet_assay_count
+  role: applicability
+  unit: count
+  note: '邻居中 ADMET 类**实测**记录数（Caco-2/蛋白结合/微粒体清除）。C79 实测： 肉桂酰糖苷类 14 个分子各有 180–340 条邻居活性记录，但
+    ADMET 实测**合计 0 条** （全是 GI50/IC50/细胞毒）→ 本类无法用 ChEMBL 给三项湿实验替代补第 2 组。
+
+    '
+- id: chembl_neighbors_t40
+  role: applicability
+  unit: count
+  note: 适用域：邻居数；只报告，不裁决
+- id: chembl_neighbors_t70
+  role: applicability
+  unit: count
+- id: chembl_max_tanimoto
+  role: applicability
+  unit: similarity
+- id: chembl_herg_p50
+  role: reference
+  unit: uM
+  note: 邻居实验真值分位：给预测值做参照，不是本分子的预测
+- id: chembl_logd_p50
+  role: reference
+  unit: log10
+- id: chembl_solubility_p50
+  role: reference
+  unit: logS
+- id: chembl_clearance_p50
+  role: reference
+  unit: mL/min/kg
+- id: chembl_herg_p10
+  role: reference
+  unit: uM
+- id: chembl_herg_p90
+  role: reference
+  unit: uM
+- id: chembl_logd_p10
+  role: reference
+  unit: log10
+- id: chembl_logd_p90
+  role: reference
+  unit: log10
+- id: chembl_solubility_p10
+  role: reference
+  unit: logS
+- id: chembl_solubility_p90
+  role: reference
+  unit: logS
+- id: chembl_clearance_p10
+  role: reference
+  unit: mL/min/kg
+- id: chembl_clearance_p90
+  role: reference
+  unit: mL/min/kg
+- id: biotransformation_count_CYP450
+  role: applicability
+  unit: count
+- id: protox_ld50
+  role: reference
+  unit: mg/kg
+  note: ProTox 近邻推断的 LD50；无实测近邻时恒为 5000/class 5，无区分力（见 registry）
+- id: protox_status
+  role: applicability
+  unit: status
+  note: 该分子 ProTox 调用状态（error 时说明未取到 server_id/JSON）
+- id: chembl_reference_status
+  role: applicability
+  unit: status
+  note: ChEMBL 活性查询失败时记录（适用域指标仍有效）
+- id: chembl_ppb_fu_p10
+  role: reference
+  unit: fraction
+  note: 邻居实验 fu 分位（已把 % bound 方向统一为 fu 分数）
+- id: chembl_ppb_fu_p50
+  role: reference
+  unit: fraction
+- id: chembl_ppb_fu_p90
+  role: reference
+  unit: fraction
+- id: chembl_half_life_p10
+  role: reference
+  unit: h
+  note: 邻居实验半衰期分位（h）；**不是清除率**，与 clearance 分桶（C52）
+- id: chembl_half_life_p50
+  role: reference
+  unit: h
+- id: chembl_half_life_p90
+  role: reference
+  unit: h
+- id: mmp
+  class_map:
+    '0': PASS
+    '1': FAIL
+  unit: probability
+  axis: safety
+  shape: down
+  pass: 0.3
+  fail: 0.7
+  require_sources: 2
+  phys_range:
+  - 0
+  - 1
+  note: 'Tox21 SR-MMP（线粒体膜电位下降）。活性定义：qHTS 曲线 class 1/2 且 efficacy>50% （Tox21 10K 中
+    11% 化合物 1 h 内降 MMP 且无细胞毒）。 两源：vNN Yes/No（映射 1/0，neighbor_qsar）+ ADMET-AI SR-MMP
+    概率（descriptor_ml）。 **为什么不用单点 0.5**：ADMET-AI 官方说明"分类端点输出概率，0.5 是惯例且 arbitrary，
+    0.55 与掷硬币无异"——单点切会把模型误差变成判决。故采用**三区带**（与 hERG 同款）： <0.3 PASS / >0.7 FAIL / 0.3–0.7
+    灰区→UNDETERMINED（补实验或加源）。 阈值本身仍是 provisional（Tox21 原判定是曲线类+效能，不是概率），但灰区设计 使结论对阈值位置不敏感：本批两源
+    9/9 一致、ADMET-AI 概率 0.016–0.060， 在任何 0.06–0.3 的 pass 下结论都不变。
+
+    '
+- id: acyl_glucuronide_risk
+  role: reference
+  unit: structural_flag
+  shape: none
+  note: '**结构警示 + 风险分级（不预测发生率）**。检测：自由羧酸存在（SMARTS `[CX3](=O)[OX1H0-,OX2H1]`）+ α-碳取代模式（primary/secondary/tertiary，决定烯醇化能力）
+    + 共轭程度（α,β-不饱和或芳环共轭，决定酰基葡萄糖醛酸苷亲电反应性）。 分级：high = 羧酸 + α-碳可烯醇化 + 共轭（如肉桂酸/咖啡酸/阿魏酸类）；
+    medium = 羧酸 + 共轭但 α 无烯醇化氢，或羧酸 + 可烯醇化但非共轭； low = 无羧酸（仅酯，水解释放酸为间接风险），或 α-碳全取代无烯醇化氢。
+    **失眠适应症关键权衡**：上述苷元（尤其阿魏酸）是促睡眠机制载体（5-HT/GABA 能）， 但同一骨架生成酰基葡萄糖醛酸需要肝安全监测——获益与风险是同一结构的两种后果，
+    框架必须让两轴在裁决记录里同时显式出现，而非留白。 CLI：`adt/cli acyl-glucuronide --in compounds.csv`。
+
+    '
+- id: cyp1a2_inhibition
+  role: reference
+  unit: probability
+  note: CYP1A2 抑制。vNN 14/14 NoPrediction；ADMET-AI Veith 中位 0.016（0.008–0.06）→ 单方法组，不裁决
+- id: cyp2c19_inhibition
+  role: reference
+  unit: probability
+  note: CYP2C19 抑制。vNN 14/14 NoPrediction；ADMET-AI 中位 0.100 —— 本组 CYP 里最高，仍 <0.5
+- id: cyp2c9_inhibition
+  role: reference
+  unit: probability
+  note: CYP2C9 抑制。vNN 14/14 NoPrediction；ADMET-AI 中位 0.025
+- id: cyp2d6_inhibition
+  role: reference
+  unit: probability
+  note: CYP2D6 抑制。vNN 14/14 NoPrediction；ADMET-AI 中位 0.056
+- id: cyp3a4_inhibition
+  role: reference
+  unit: probability
+  note: CYP3A4 抑制。vNN 14/14 NoPrediction；ADMET-AI 中位 0.015
+- id: vnn_cytotoxicity
+  role: reference
+  unit: class_0_1
+  note: vNN 细胞毒分类；本化学类 14/14 NoPrediction（域外）
+- id: vnn_hlm
+  role: reference
+  unit: class_0_1
+  note: vNN 人肝微粒体稳定性分类；14/14 NoPrediction。与 clint_microsome（µL/min/mg）语义不同，勿混用
+- id: vnn_bbb
+  role: reference
+  unit: class_0_1
+  note: vNN 血脑屏障穿透分类；14/14 NoPrediction（糖苷类合理）
+- id: vnn_pgp_inhibitor
+  role: reference
+  unit: class_0_1
+  note: vNN P-gp 抑制分类；14/14 NoPrediction
+- id: vnn_pgp_substrate
+  role: reference
+  unit: class_0_1
+  note: vNN P-gp 底物分类；仅 F/G/N 可判（均 No）。与 efflux_ratio（B-A/A-B 比值）语义不同
+- id: vnn_mrtd
+  role: reference
+  unit: mg/day
+  note: vNN 的 MRTD（最大推荐治疗剂量），分类模型衍生，仅作参照；不参与裁决
+- id: transporter_oatp2b1_uptake
+  role: reference
+  unit: ratio_vs_control
+  note: '抑制剂敏感摄取比（±rifampicin 50 µM 或 E1S 竞争）。>2 视为有转运体贡献。 **无任何 in-silico 源**（ADMETlab
+    无肠侧 OATP2B1）→ 只能实测（见 transporter_priors.yaml）。
+
+    '
+- id: transporter_sglt1_uptake
+  role: reference
+  unit: ratio_vs_control
+  note: phlorizin 敏感摄取比。同样无计算源，只能实测。
+- id: fraction_excreted_bile
+  role: reference
+  unit: fraction
+  phys_range:
+  - 0
+  - 1
+  note: '胆管插管大鼠的胆汁累计排出占剂量分数 = PBPK 的 `fbile` 实测值。 本类 14 个分子完全无数据 → 现只能用 pbpk --ehr-scan
+    给参数边界（C86）。
+
+    '
+- id: ehr_reabsorption_fraction
+  role: reference
+  unit: fraction
+  phys_range:
+  - 0
+  - 1
+  note: 胆汁回流后的二次峰占比 = PBPK 的 `fre` 实测值。无数据，只能用扫描给边界。
+- id: cardiac_herg_ic50
+  role: reference
+  unit: uM
+  shape: none
+  phys_range:
+  - 1.0e-05
+  - 10000
+  note: 'hERG 膜片钳 IC50（µM，**必须注明是尾电流还是峰电流、是否含血清**）。 单独无意义：必须与 Cmax,u 联用算裕度（见 adt/cardiac_panel.py）。
+    与 herg_ic50_lit_anchor 的区别：那条是**类似物锚点**，这条是**本分子实测**。
+
+    '
+- id: cardiac_cav12_ic50
+  role: reference
+  unit: uM
+  shape: none
+  phys_range:
+  - 1.0e-05
+  - 10000
+  note: 'Cav1.2（L 型钙流）IC50。**为什么必须有**：Cav1.2 阻断会缩短 APD， 可**抵消** hERG 阻断的 APD 延长 ——
+    单看 hERG 会高估扭转风险。
+
+    '
+- id: cardiac_nav15_ic50
+  role: reference
+  unit: uM
+  shape: none
+  phys_range:
+  - 1.0e-05
+  - 10000
+  note: 'Nav1.5 IC50。峰钠流抑制减慢传导（QRS 增宽）；而**晚钠流增强**是完全不同的机制 （长 QT/早后除极），需要 late-INa
+    专项测定，不能用峰电流 IC50 代替。
+
+    '
+- id: cardiac_herg_inh_pct
+  role: reference
+  unit: pct
+  shape: none
+  phys_range:
+  - 0
+  - 100
+  note: 治疗暴露（Cmax,u）下的 %抑制。≥50% 是膜片钳常规'显著阻断'工作点，非法规线。
+- id: cardiac_cav12_inh_pct
+  role: reference
+  unit: pct
+  shape: none
+  phys_range:
+  - 0
+  - 100
+- id: cardiac_nav15_inh_pct
+  role: reference
+  unit: pct
+  shape: none
+  phys_range:
+  - 0
+  - 100
+- id: pgp_substrate
+  role: reference
+  unit: class
+  class_map:
+    '0': PASS
+    '1': FAIL
+  note: '**P-gp 底物**（不是抑制剂）。这是本 skill 长期缺口：三个计算源中 ADMET-AI 只给 "Pgp 抑制剂"，ADMETlab 的
+    `P-gp 底物` 列在本化学类上 14/14 恒为 N（无区分度）， vNN 全 NoPrediction。SwissADME 的 "Pgp substrate"
+    列是目前唯一可批量取的 第二个来源（回填通道，见 references/readback_schemas.yaml）。 **单源不得下判决**：这仍是 require_sources
+    意义上的 1 票。
+
+    '
+- id: bbb_permeant
+  role: reference
+  unit: class
+  class_map:
+    '0': PASS
+    '1': FAIL
+  note: BOILED-Egg 判定的 BBB 穿透（Yes/No）。与 bbb 概率端点**不是同一量纲**，不得混算。
+- id: hia_absorption
+  role: reference
+  unit: class
+  class_map:
+    '0': PASS
+    '1': FAIL
+  note: SwissADME 的 GI absorption（High/Low）。只作参照：与 ADMETlab 的 hia 概率不可混算。
+- id: microbiome_metabolite_count
+  role: reference
+  unit: count
+  shape: none
+  note: 'BioTransformer HGUT 给出的菌群来源唯一代谢物数（adt.cli gut-micro）。 **0 必须记 out_of_domain
+    而不是''无代谢''**：本化学类在 ALLHUMAN 下实测 0 产物， 而同一 option 对乙酰氨基酚给 3 个（阳性对照）→ 0 是规则无覆盖。
+
+    '
+- id: f_oral
+  role: reference
+  unit: fraction
+  shape: none
+  phys_range:
+  - 0
+  - 1
+  provenance_classes:
+  - assumption
+  - predicted_proxy
+  - measured
+  note: "口服生物利用度 F。**三种来源必须分开记，禁止混用**： ① assumption —— PBPK 里手工设定的 Fa/F 输入（王百合苷案例\
+    \ Fa=0.26 即此类），\n   是情景假设，不是预测、更不是实测；只能写「在 Fa=X 假设下」；\n② predicted_proxy —— OBA\
+    \ / HIA 类别或规则评分，只给档位与区间，不得当 F 点估计； ③ measured —— 仅由 iv + po 体内 PK 反解得到，须带剂量/物种/制剂/显式引文。\
+    \ **F = Fa·Fg·Fh**：Fa 只是吸收分数，与 F 不是同一 estimand，不得互相代称。 本端点 role=reference / shape=none，不设\
+    \ pass/fail，不进 reliab 计票。\n"
+not_covered_endpoints:
+- id: cyp_induction
+  label: CYP 诱导（PXR / AhR / CAR）
+  status: not_covered
+  reason: ADMETlab 3.0 的 122 列里没有 CYP 诱导端点（02_source_registry.yaml 已实测登记）；
+  required_evidence: 人肝细胞 PXR/AhR 报告基因或 mRNA/酶活诱导倍数（≥2 独立供体）
+  note: 抑制 ≠ 诱导。只报 CYP 抑制就下「无 DDI 风险」结论属系统性漏洞。
+- id: colloidal_aggregation
+  label: 胶体聚集导致的假阳性
+  status: partially_covered
+  covered_by: adt/interference.py::physical_interference（cLogP≥3 且芳香环≥2 → suspect；离线结构级预警，不投票、不判
+    FAIL）
+  reason: 2026-11-11 补上结构级预警，但仍是 rule-based proxy：无浓度依赖、无去污剂对照、无 DLS/NMR 实测，不得据预警下「已聚集/已排除」结论
+  required_evidence: ±0.01% Triton X-100 的活性/抑制曲线对比 + DLS 或 NMR 聚集证据
+  note: 与 PAINS 互补，不是同一机制；命中 PAINS 不等于会发生聚集。
+- id: fluorescence_interference
+  label: 荧光/发光检测干扰（自荧光、淬灭）
+  status: partially_covered
+  covered_by: adt/interference.py::physical_interference（香豆素/色酮发色团、共轭双键≥4、多酚内滤 → suspect/possible；离线结构级预警）
+  reason: 2026-11-11 补上发色团与共轭体系的结构预警，但无激发/发射光谱、无内滤定量，不得据预警给出实测光学结论
+  required_evidence: 无酶/无靶对照下的化合物本底荧光与内滤效应测定
+  note: 中药多酚/黄酮类高发；须用正交（非光学）读数复核。
+- id: redox_cycling
+  label: 氧化还原循环 / 成醌反应性
+  status: partially_covered
+  covered_by: 04_decision_funnel.md Gate 3（定性提示）+ adt/transport.py 邻苯二酚化学型 + adt/interference.py::physical_interference（严格
+    SMARTS：邻苯二酚/对苯二酚/邻氨基酚；愈创木基不命中，C87 回归）
+  reason: 2026-11-11 补齐成醌前体的严格结构识别，但只有定性提示/结构预警，无 GSH 加合物与过氧化氢定量；Gate 3 仍映射为「强制进第二批湿实验」而非数值端点
+  required_evidence: GSH 捕获 + HRMS/MS（± NADPH）、或 DCFH/过氧化氢定量
