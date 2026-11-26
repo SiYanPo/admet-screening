@@ -1,0 +1,34 @@
+# ---------------------------------------------------------------------------
+# ADMET screening skill — 可复现容器指纹（G6）
+# 基础镜像按 digest 钉死（不是 tag），因此构建结果与 2026-11-23 的拉取逐字节对应。
+# 依赖用 requirements.lock（2026-11-05 本机实测回填的精确版本），不用 floor 版。
+# 构建：docker build -f docker/Dockerfile.repro -t admet-screening:2026.11.23 .
+# 自检：docker run --rm admet-screening:2026.11.23 verify
+# ---------------------------------------------------------------------------
+FROM docker.m.daocloud.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    PIP_INDEX_URL=https://repo.huaweicloud.com/repository/pypi/simple/ \
+    LC_ALL=C.UTF-8 \
+    LANG=C.UTF-8
+
+WORKDIR /opt/admet
+
+# 依赖层单独缓存：只改代码时不必重装 rdkit / pandas
+COPY requirements.lock ./
+RUN pip install -r requirements.lock
+
+# 代码层（只拷运行期需要的目录，避免把 1.4 GB 的实跑产物塞进镜像）
+COPY pyproject.toml ./
+COPY adt ./adt
+COPY local_admet ./local_admet
+COPY references ./references
+RUN pip install --no-deps -e .
+
+# 容器内自检脚本：不是"能 import 就算过"，而是真的跑一次 ADMET 计算与一次 CLI。
+COPY docker/verify_in_container.py ./verify_in_container.py
+
+CMD ["python", "verify_in_container.py"]
