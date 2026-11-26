@@ -1,0 +1,3 @@
+compound_id,sugar_ring,glycosidic_bond,glycoside_bond_type,ester_bond,phenolic_acid_moiety,bond_position,n_ester_bonds,acetylated,intestinal_hydrolysis_risk,aglycone_first_pass_risk,summary
+WBLG-A,True,True,alkyl_glycoside,True,True,primary,1,False,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
+WBLG-B,True,True,alkyl_glycoside,True,True,secondary,2,True,high,high,糖苷水解-苷元暴露轴：肠道水解风险=high、苷元首过风险=high。本类真实暴露决定因素为糖苷键水解 + 苷元（酚酸）首过/肾清除，而非酰基葡萄糖醛酸（已在 acyl_glucuronide 模块判 low）。框架将其标为需实验：模拟肠液稳定性 + 门静脉/外周血苷元定量
