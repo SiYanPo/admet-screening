@@ -1,0 +1,131 @@
+{
+  "passed": true,
+  "strict": false,
+  "items": [
+    {
+      "key": "G1_pinned_lock",
+      "ok": true,
+      "level": "blocker",
+      "detail": "requirements.lock 全量精确钉版",
+      "fix": ""
+    },
+    {
+      "key": "G2_snapshots",
+      "ok": true,
+      "level": "blocker",
+      "detail": "快照 14 条全部校验通过（源：{'admet_ai': 1, 'admetlab3': 1, 'biotransformer': 1, 'chembl': 1, 'protox3': 1, 'pubchem': 9}）",
+      "fix": ""
+    },
+    {
+      "key": "G3_contract_snapshots",
+      "ok": true,
+      "level": "blocker",
+      "detail": "契约快照 5 条",
+      "fix": ""
+    },
+    {
+      "key": "G4_env_fingerprint",
+      "ok": false,
+      "level": "warn",
+      "detail": "环境已漂移：['rdkit', 'pandas']",
+      "fix": "重新生成指纹并在材料中声明漂移"
+    },
+    {
+      "key": "G5_manifest",
+      "ok": true,
+      "level": "info",
+      "detail": "manifest.json 3 份：四元组字段与内容哈希逐份自洽",
+      "fix": ""
+    },
+    {
+      "key": "G6_container_fingerprint",
+      "ok": true,
+      "level": "warn",
+      "detail": "无 Docker digest，以环境指纹替代（须在材料中显式声明）",
+      "fix": ""
+    },
+    {
+      "key": "G7_evidence_dag",
+      "ok": true,
+      "level": "warn",
+      "detail": "证据 DAG 已声明（pending）",
+      "fix": ""
+    },
+    {
+      "key": "G8_red_lines",
+      "ok": true,
+      "level": "info",
+      "detail": "九条红线均已接线 9/9（1_input_anchor, 2_sample_size, 3_replay_only, 4_low_validity, 5_commercial_profile, 6_no_ci_no_claim, 7_gate_eval_distribution, 8_external_not_preregistered, 9_endpoint_plurality）；硬度普查：7 hard / 1 soft / 1 conditional",
+      "fix": ""
+    },
+    {
+      "key": "G9_label_granting",
+      "ok": true,
+      "level": "warn",
+      "detail": "版本 4.0-dev 为 -dev 且无预注册锚定链：当前全部结论为回溯性，外部前瞻/第三方复现/预注册锚定均未满足；禁止声称前瞻或作为可复现包范本推广（见 SKILL.md 状态横幅）",
+      "fix": "按 SAP_FROZEN.yaml 完成 T0 冻结与第三方存证后再授予标签"
+    },
+    {
+      "key": "G10_claims_registry",
+      "ok": true,
+      "level": "warn",
+      "detail": "主张 27/27 字面量通过；字段级：structured=0 / literal_only=26 / mismatch=0",
+      "fix": "全部主张仅字面量命中（literal_only）：只证明数字出现在文件里，不构成结构化证据链；须逐条补 expect_field_path 并绑定 JSON 字段"
+    },
+    {
+      "key": "G11_negative_result_defaults",
+      "ok": true,
+      "level": "info",
+      "detail": "8 条负结果全部落成默认值，证据 8 条核对通过",
+      "fix": ""
+    },
+    {
+      "key": "G12_threshold_freeze",
+      "ok": true,
+      "level": "warn",
+      "detail": "11/13 条阈值已冻结；告警 2 项（ad_anchor:not_frozen; ratio_margin_tost:not_frozen）",
+      "fix": ""
+    }
+  ],
+  "blockers": [],
+  "warnings": [
+    "G4_env_fingerprint",
+    "G6_container_fingerprint",
+    "G7_evidence_dag",
+    "G9_label_granting",
+    "G10_claims_registry",
+    "G12_threshold_freeze"
+  ],
+  "warnings_detail": [
+    {
+      "key": "G4_env_fingerprint",
+      "detail": "环境已漂移：['rdkit', 'pandas']",
+      "fix": "重新生成指纹并在材料中声明漂移"
+    },
+    {
+      "key": "G6_container_fingerprint",
+      "detail": "无 Docker digest，以环境指纹替代（须在材料中显式声明）",
+      "fix": ""
+    },
+    {
+      "key": "G7_evidence_dag",
+      "detail": "证据 DAG 已声明（pending）",
+      "fix": ""
+    },
+    {
+      "key": "G9_label_granting",
+      "detail": "版本 4.0-dev 为 -dev 且无预注册锚定链：当前全部结论为回溯性，外部前瞻/第三方复现/预注册锚定均未满足；禁止声称前瞻或作为可复现包范本推广（见 SKILL.md 状态横幅）",
+      "fix": "按 SAP_FROZEN.yaml 完成 T0 冻结与第三方存证后再授予标签"
+    },
+    {
+      "key": "G10_claims_registry",
+      "detail": "主张 27/27 字面量通过；字段级：structured=0 / literal_only=26 / mismatch=0",
+      "fix": "全部主张仅字面量命中（literal_only）：只证明数字出现在文件里，不构成结构化证据链；须逐条补 expect_field_path 并绑定 JSON 字段"
+    },
+    {
+      "key": "G12_threshold_freeze",
+      "detail": "11/13 条阈值已冻结；告警 2 项（ad_anchor:not_frozen; ratio_margin_tost:not_frozen）",
+      "fix": ""
+    }
+  ]
+}
