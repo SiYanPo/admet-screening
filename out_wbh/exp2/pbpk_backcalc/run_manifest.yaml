@@ -1,0 +1,27 @@
+created_at: '2026-11-07T00:29:13'
+argv:
+- adt\cli.py
+- pbpk
+- --in
+- out_wbh\measurements_merged.csv
+- --compounds
+- out_wbh\compounds.csv
+- --dose-mg
+- '100'
+- --exposure
+- out_wbh\exp2\exposure_backcalc.csv
+- --mc
+- '0'
+- --outdir
+- out_wbh\exp2\pbpk_backcalc
+python: 3.13.14
+rdkit: 2026.09.1
+cwd: C:\Users\huawei\.workbuddy\skills\admet-screening
+inputs:
+  out_wbh\measurements_merged.csv: 852baa5cf0cd68efe790e3495cde511ae576ca42
+  out_wbh\compounds.csv: 00597c4a8d09badf2e2f23e829b9375bac8a38f4
+extra: {}
+manifest_sha1: 91e4663308392c0483f58173f9054b3053b7d940
+content_sha256: 77d6b402a3aa0d86e7184ab22c19b704fb1c8530d8ae9c95191395b8aee9b337
+manifest_json: manifest.json
+estimand_id: null
