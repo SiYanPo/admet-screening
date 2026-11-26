@@ -1,0 +1,24 @@
+{
+  "title": "admet-screening: auditable source-level admission for multi-source ADMET aggregation",
+  "version": "0.9.0",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "MIT",
+  "language": "eng",
+  "creators": [
+    {
+      "name": "admet-screening contributors"
+    }
+  ],
+  "description": "<p>Research code accompanying the manuscript <em>Source-level admission in multi-source ADMET aggregation is a cost-conditional decision</em>.</p><p>The deposit contains the five-strategy prediction pipeline, the frozen preregistration package, the per-seed result records for five TDC endpoints (hERG, DILI, BBB_Martins, Ames, CYP3A4_Veith), the four cost-dependent tables, and the closed-form critical-cost estimator <code>c* = Delta-u(0) / (cov_S1 - cov_S4)</code>.</p><p>Verification does not require retraining: <code>./reproduce.sh</code> regenerates Tables 1, 2b, 2c and 3 from the deposited per-seed records in under a minute and checks each output against <code>deposit/EXPECTED_SHA256.json</code>. Those CSVs are a pure function of the deposited inputs, so the check is bit-exact. <code>./reproduce.sh --full</code> additionally retrains all five endpoints (about 1.5 hours on 8 cores); retraining is reproducible to tolerance rather than bit for bit.</p><p>Third-party datasets (TDC ADMET_Group splits) and the OneADMET supporting information are not redistributed, in keeping with their licences and size; their identities and SHA-256 values are recorded so that independently obtained copies can be verified.</p>",
+  "keywords": [
+    "ADMET",
+    "applicability domain",
+    "selective prediction",
+    "abstention",
+    "cost-sensitive decision",
+    "cheminformatics",
+    "reproducibility"
+  ],
+  "notes": "Creators list is set to the contributor group at deposit time; replace with individual names and ORCIDs on the Zenodo record before publishing the DOI, then mirror the change in CITATION.cff."
+}
