@@ -1,0 +1,33 @@
+======================================================================
+OPTION ABIOTICBIO
+[FATAL] ABIOTICBIO Traceback (most recent call last):
+  File "C:\Users\huawei\.workbuddy\skills\admet-screening\out_wbh\exp2\run_bt_bg.py", line 34, in main
+    res = ad.run(comps, chemical_class="cinnamoyl_glycoside")
+  File "C:\Users\huawei\.workbuddy\skills\admet-screening\adt\adapters\base.py", line 86, in run
+    qa = self.pre_batch(compounds, chemical_class=chemical_class, **kw) or []
+         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huawei\.workbuddy\skills\admet-screening\adt\adapters\biotransformer.py", line 122, in pre_batch
+    ctrl = self.control(opt)
+  File "C:\Users\huawei\.workbuddy\skills\admet-screening\adt\adapters\biotransformer.py", line 101, in control
+    d = self.poll(qid)
+  File "C:\Users\huawei\.workbuddy\skills\admet-screening\adt\adapters\biotransformer.py", line 83, in poll
+    raise RuntimeError("轮询超时（query %s 未进入 Done）" % qid)
+RuntimeError: 轮询超时（query 363722 未进入 Done）
+
+======================================================================
+OPTION HGUT
+[FATAL] HGUT Traceback (most recent call last):
+  File "C:\Users\huawei\.workbuddy\skills\admet-screening\out_wbh\exp2\run_bt_bg.py", line 34, in main
+    res = ad.run(comps, chemical_class="cinnamoyl_glycoside")
+  File "C:\Users\huawei\.workbuddy\skills\admet-screening\adt\adapters\base.py", line 86, in run
+    qa = self.pre_batch(compounds, chemical_class=chemical_class, **kw) or []
+         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huawei\.workbuddy\skills\admet-screening\adt\adapters\biotransformer.py", line 122, in pre_batch
+    ctrl = self.control(opt)
+  File "C:\Users\huawei\.workbuddy\skills\admet-screening\adt\adapters\biotransformer.py", line 101, in control
+    d = self.poll(qid)
+  File "C:\Users\huawei\.workbuddy\skills\admet-screening\adt\adapters\biotransformer.py", line 83, in poll
+    raise RuntimeError("轮询超时（query %s 未进入 Done）" % qid)
+RuntimeError: 轮询超时（query 363723 未进入 Done）
+
+DONE_ALL
