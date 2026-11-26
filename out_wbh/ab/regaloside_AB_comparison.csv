@@ -1,0 +1,13 @@
+﻿field,A,B,delta
+MW,400.4,442.4,42.0
+TPSA,166.1,172.2,6.1
+HBD,6,5,-1
+HBA,10,11,1
+XlogP,-1.87,-1.3,0.57
+bond_position,primary,secondary,
+n_ester_bonds,1,2,
+acetylated,False,True,
+intestinal_hydrolysis_risk,high,high,
+aglycone_first_pass_risk,high,high,
+passive_permeability_screen,unlikely,unlikely,
+bbb_determinant_layer,passive_closed → transporter_resolution_required,passive_closed → transporter_resolution_required,
