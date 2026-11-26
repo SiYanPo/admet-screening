@@ -1,0 +1,7 @@
+﻿compound_id,input_smiles,calc_smiles,state_flag,formula,inchikey,mw,clogp,hard_gate_problems,state_sensitive,note
+sodium_acetate,CC(=O)[O-].[Na+],CC(=O)O,desalt+uncharge,C2H4O2,QTBSBXVTEAMEQO-UHFFFAOYSA-N,60.05,0.09,,,含 0 个酸性羟基、0 个碱性氮：pH 7.4 下离子化比例需逐源核对
+amphetamine_prot,CC([NH3+])Cc1ccccc1,CC(N)Cc1ccccc1,uncharge,C9H13N,KWTSXDURSIMDCE-UHFFFAOYSA-N,135.21,1.58,,"dTPSA=1.6,dClogP=0.72",含 0 个酸性羟基、0 个碱性氮：pH 7.4 下离子化比例需逐源核对
+glycine_zw,[NH3+]CC(=O)[O-],NCC(=O)O,uncharge,C2H5NO2,DHMQDGOQFOQNFH-UHFFFAOYSA-N,75.07,-0.97,,"dTPSA=4.5,dClogP=2.05",含 0 个酸性羟基、0 个碱性氮：pH 7.4 下离子化比例需逐源核对
+2_hydroxypyridine,Oc1ccccn1,O=c1cccc[nH]1,tautomer,C5H5NO,UBQKCCHYAOITMY-UHFFFAOYSA-N,95.1,0.37,,,含 1 个酸性羟基、0 个碱性氮：pH 7.4 下离子化比例需逐源核对
+caffeine,Cn1c(=O)c2c(ncn2C)n(C)c1=O,Cn1c(=O)c2c(ncn2C)n(C)c1=O,unchanged,C8H10N4O2,RYYVLZVUVIJVGH-UHFFFAOYSA-N,194.19,-1.03,,,含 0 个酸性羟基、0 个碱性氮：pH 7.4 下离子化比例需逐源核对
+APAP,CC(=O)Nc1ccc(O)cc1,CC(=O)Nc1ccc(O)cc1,unchanged,C8H9NO2,RZVAJINKPMORJF-UHFFFAOYSA-N,151.16,1.35,,,含 1 个酸性羟基、0 个碱性氮：pH 7.4 下离子化比例需逐源核对
