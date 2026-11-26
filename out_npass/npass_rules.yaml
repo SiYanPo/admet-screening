@@ -1,0 +1,42 @@
+version: 1
+threshold_source: analysis_choice
+endpoints:
+- id: npass_ld50_rat
+  shape: up
+  unit: mg/kg
+  pass: 300.0
+  fail: 300.0
+  phys_range:
+  - 0.0
+  - 1000000.0
+  role: quality
+  require_sources: 2
+  threshold_source: analysis_choice
+- id: npass_ppb_bound
+  shape: down
+  unit: '%'
+  pass: 90.0
+  fail: 90.0
+  phys_range:
+  - 0.0
+  - 100.0
+  role: reference
+- id: npass_logd
+  shape: window
+  unit: logD
+  window:
+  - 0.0
+  - 4.0
+  phys_range:
+  - -5.0
+  - 10.0
+  role: reference
+- id: npass_clearance
+  shape: down
+  unit: uL/min
+  pass: 100.0
+  fail: 100.0
+  phys_range:
+  - 0.0
+  - 1000000.0
+  role: reference
