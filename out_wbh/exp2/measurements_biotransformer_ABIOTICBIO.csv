@@ -1,0 +1,5 @@
+﻿compound_id,endpoint,value,unit,source,source_version,retrieved_at,domain_flag,uncertainty,provenance_url,note
+WBLG-A,metabolite_count_ABIOTICBIO,6,count,biotransformer,3.0,2026-11-11T11:29:48,predicted,,https://biotransformer.ca/queries/365049,6 个唯一代谢产物
+WBLG-A,biotransformation_count_ABIOTICBIO,5,count,biotransformer,3.0,2026-11-11T11:29:48,predicted,,https://biotransformer.ca/queries/365049,5 条生化转化
+WBLG-B,metabolite_count_ABIOTICBIO,9,count,biotransformer,3.0,2026-11-11T11:30:19,predicted,,https://biotransformer.ca/queries/365050,9 个唯一代谢产物
+WBLG-B,biotransformation_count_ABIOTICBIO,6,count,biotransformer,3.0,2026-11-11T11:30:19,predicted,,https://biotransformer.ca/queries/365050,6 条生化转化
