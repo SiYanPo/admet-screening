@@ -1,0 +1,62 @@
+# 数据切分类型登记（SPLIT_TYPE_REGISTRY）
+#
+# 来源：05_FinalActionCard.md §1.1 F2 / 04 §5【需验证】Q3·D3。
+# 性质：**本机第一手源码取证**，不是从文档转述，也不是 TDC 官方承诺。
+# 取证时间：2026-11-06；pytdc 1.1.15；
+#   站点包路径 <python>/Lib/site-packages/tdc/（本机为 3.13.12 环境）。
+
+version: 1
+provenance:
+  method: "直接读取已安装 pytdc 源码（grep + 逐行实读）"
+  pytdc_version: "1.1.15"
+  verified_at: "2026-11-06"
+  evidence:
+    - "tdc/benchmark_group/base_group.py:119-128  split_method 分支"
+    - "tdc/utils/split.py:104   create_scaffold_split(df, seed, frac, entity)"
+    - "tdc/utils/split.py:296   create_fold_time(df, frac, date_column)"
+    - "tdc/utils/split.py:10    create_fold(df, fold_seed, frac)  # random"
+    - "tdc/utils/split.py:335   create_group_split(...)"
+  reproduce: |
+    python -c "import tdc,inspect,os,importlib.metadata as m;print(m.version('pytdc'));print(os.path.dirname(inspect.getfile(tdc)))"
+    grep -n "split_method ==\|def create_" <site-packages>/tdc/benchmark_group/base_group.py <site-packages>/tdc/utils/split.py
+
+# ---- TDC benchmark_group 官方支持的切分（枚举是闭合的，别自行加 temporal）----
+official_split_methods:
+  - id: random
+    implementation: "tdc/utils/split.py:10 create_fold"
+    description: "按 fold_seed 随机划分"
+  - id: scaffold
+    implementation: "tdc/utils/split.py:104 create_scaffold_split"
+    description: "Bemis–Murcko 骨架划分（docstring 引 chemprop scaffold.py）"
+  - id: combination
+    implementation: "tdc/utils/split.py:237 create_combination_split"
+    description: "组合式划分"
+  - id: group
+    implementation: "tdc/utils/split.py:335 create_group_split"
+    description: "按 group_column 分组划分"
+
+# ---- 时间切分：存在，但不属于上面的枚举 ----
+temporal:
+  is_official_benchmark_group_method: false
+  implementation: "tdc/utils/split.py:296 create_fold_time(df, frac, date_column)"
+  requires: "数据集自带 date_column；按该列排序后取切点，test = df[date >= split_date]"
+  call_sites_found:
+    - "tdc/multi_pred/bi_pred_dataset.py:238"
+    - "tdc/benchmark_deprecated.py:13（已弃用模块）"
+  implication: |
+    05 §4 / P1-5 要求的三条曲线（random / scaffold / temporal）中，temporal
+    必须在本项目内自建并单独登记，**不得**写成「TDC 官方 temporal split」。
+    登记字段至少包含：date_column 名称与来源、切点日期、train/valid/test 各自 n、
+    以及该日期列是否真能代表「采集/发表时序」（否则只是按某个元数据排序）。
+  still_unverified:
+    - "本项目所用的 TDC ADMET 端点数据是否自带可用的 date_column"
+    - "若有，该列是实验日期、文献年份还是入库时间（决定 temporal 的语义）"
+    - >-
+      TDC 官网对各 benchmark 默认切分类型的逐数据集说明：tdcommons.ai 实测 200，
+      但 https://tdcommons.ai/single_pred_tasks/admet/ 实测 404，需另找官方页面。
+
+# ---- 对 04/05 结论的影响 ----
+resolution:
+  q3_d3: "【已定案】TDC 官方切分类型为上述 4 类；temporal 为独立函数且需 date_column"
+  still_open: "数据集侧 date_column 可得性、以及三条曲线 gap 的实际数值"
+  forbidden_claim: "不得声称『TDC 官方提供 temporal split』；不得在 date_column 未登记时报告 temporal 曲线"
